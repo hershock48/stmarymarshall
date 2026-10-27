@@ -99,8 +99,8 @@ answers.
 - [ ] **Where registrations should go** (`MAIL_TO`) and which mailbox sends
       them. The office address is stmarymarshall@aol.com; AOL SMTP works with
       an app password.
-- [ ] **Bishop line in the history** stops at Bishop Paul Bradley, as the old
-      site had it. Confirm it is current.
+- [x] **Bishop line in the history.** The old site stopped at Bishop Bradley; Bishop
+      Edward M. Lohse (installed July 25, 2023) added from the diocese and St. Philip BC.
 - [ ] **Office hours** are not published anywhere. Ask.
 - [ ] **MyParishApp** had a tab on the old About page with no content.
       Dropped. Ask whether the parish uses it.
@@ -125,7 +125,7 @@ From `glaze/launch.md`. Work to zero.
 - [x] Favicon set is the parish's mark, full bleed, generated from one source.
 - [x] Studio credit placed, plate ground computed.
 - [ ] Registration form sent and **confirmed in the office inbox** (needs SMTP vars).
-- [ ] Bulletin list verified on the deployment.
+- [x] Bulletin list verified on the deployment (stmarymarshall.vercel.app, 2026-10-27).
 - [ ] GitHub repo `hershock48/stmarymarshall` and one Vercel project.
 - [ ] Canonical host decided (apex `stmarymarshall.org`, as the old site) and DNS moved from eCatholic.
 - [ ] The parish told the credit is there.
