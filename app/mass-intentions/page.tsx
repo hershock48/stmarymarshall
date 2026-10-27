@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/meta";
 import RequestForm from "@/components/RequestForm";
 import { Band, H2, PageHero } from "@/components/ui";
 import { REQUESTS } from "@/lib/requests";
 import { SITE } from "@/lib/site";
 import photo from "@/public/img/chapel-altar.jpg";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Request a Mass Intention",
   description: "Have a Mass offered at St. Mary, Marshall, for a loved one living or deceased, or for a special intention. Request online; the office confirms the date.",
-  alternates: { canonical: "/mass-intentions" },
-};
+  path: "/mass-intentions",
+});
 
 export default async function MassIntentions({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
   const { error } = await searchParams;

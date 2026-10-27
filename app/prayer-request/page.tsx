@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/meta";
 import RequestForm from "@/components/RequestForm";
 import { Band, H2, PageHero } from "@/components/ui";
 import { REQUESTS } from "@/lib/requests";
 import { SITE } from "@/lib/site";
 import photo from "@/public/img/monstrance.jpg";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Prayer Request",
   description: "Ask the people of St. Mary Parish, Marshall, to pray for you or someone you love. Requests go to the parish office and, if you wish, into the bulletin.",
-  alternates: { canonical: "/prayer-request" },
-};
+  path: "/prayer-request",
+});
 
 export default async function PrayerRequest({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
   const { error } = await searchParams;

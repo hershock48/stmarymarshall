@@ -1,20 +1,20 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/meta";
 import { A, Band, PageHero } from "@/components/ui";
 import { ADULT, CHILD, FAMILY, groups, INTERESTS, type Field } from "@/lib/register";
 import { DOCS, SITE } from "@/lib/site";
 import photo from "@/public/img/nave-easter.jpg";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Register with the Parish",
   description: "Register your family with St. Mary Catholic Church, Marshall, Michigan, online or by printing the form and mailing it to the office.",
-  alternates: { canonical: "/register" },
-};
+  path: "/register",
+});
 
 /**
  * A plain HTML form, POSTed to /api/register. No JavaScript is needed to
- * submit it. Every field is optional except the family name and one way to
- * reach you, because a half-filled form the office can call about beats one
- * that was abandoned at the required-fields wall.
+ * submit it. Every field is optional except the family name, because a
+ * half-filled form the office can follow up on beats one abandoned at the
+ * required-fields wall. The office form on paper asks the same.
  */
 export default async function Register({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
   const { error } = await searchParams;

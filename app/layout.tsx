@@ -4,7 +4,16 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SITE } from "@/lib/site";
 import { churchSchema, jsonLd } from "@/lib/jsonld";
+import { CONFESSION, DAY_NAMES, fmtTime, massTimesSentence } from "@/lib/schedule";
+import { HOME_OG } from "@/lib/meta";
 import "./globals.css";
+
+/**
+ * Static pages are regenerated at least daily, so the footer's copyright
+ * year and anything else that reads the clock at build time cannot sit
+ * stale for a year between deploys. Dynamic pages ignore this.
+ */
+export const revalidate = 86400;
 
 /**
  * Cormorant Garamond for display, Source Sans 3 for body. A book serif for
@@ -32,16 +41,11 @@ export const metadata: Metadata = {
     default: "St. Mary Catholic Church | Marshall, MI",
     template: "%s | St. Mary Catholic Church, Marshall",
   },
-  description: `St. Mary Catholic Church in Marshall, Michigan. Mass Saturday 5:00 PM, Sunday 9:00 and 11:00 AM. Confession Saturday 3:30 PM. Corner of Eagle and Green Streets. Office ${SITE.phone}.`,
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: SITE.url,
-    siteName: SITE.name,
-    title: "St. Mary Catholic Church | Marshall, MI",
-    description: "A Catholic parish in Marshall, Michigan, since 1852. Mass times, confession, sacraments, faith formation and ministries.",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "The nave of St. Mary Catholic Church in Marshall, Michigan, during Mass." }],
-  },
+  description: `St. Mary Catholic Church in Marshall, Michigan. Mass ${massTimesSentence()}. Confession ${DAY_NAMES[CONFESSION[0].day]} ${fmtTime(CONFESSION[0].start)}. Corner of Eagle and Green Streets. Office ${SITE.phone}.`,
+  // The home page's block. Every other page builds its own through
+  // lib/meta.ts, because Next replaces openGraph wholesale rather than
+  // merging it, and a root `url` would stamp the home URL on every page.
+  openGraph: HOME_OG,
   twitter: { card: "summary_large_image" },
   alternates: { canonical: "/" },
 };

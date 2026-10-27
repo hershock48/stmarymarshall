@@ -1,5 +1,5 @@
 import { occurrences, type Occurrence } from "@/lib/events";
-import { localNow } from "@/lib/schedule";
+import { addDays, localNow, type LocalNow } from "@/lib/schedule";
 import { SITE } from "@/lib/site";
 
 /**
@@ -108,13 +108,25 @@ function wrap(events: Occurrence[], name: string): string {
   return lines.map(fold).join("\r\n") + "\r\n";
 }
 
-/** The subscribable feed: the next ninety days. */
+/**
+ * The subscribable feed: four weeks back and ninety days ahead. The past
+ * weeks are included because a subscribed calendar mirrors the feed, and a
+ * feed that starts today would delete last week's events from the
+ * parishioner's phone on every refresh.
+ */
 export function calendarFeed(): string {
-  return wrap(occurrences(localNow(), 90), "St. Mary Marshall");
+  const now = localNow();
+  const from = { iso: addDays(now.iso, -28), weekday: ((now.weekday + 7 - (28 % 7)) % 7) as LocalNow["weekday"], minutes: 0 };
+  return wrap(occurrences(from, 28 + 90), "St. Mary Marshall");
 }
 
-/** One event by its occurrence id, or null. Looks a year ahead. */
+/**
+ * One event by its occurrence id, or null. Expands from the start of
+ * today, not from now, so an "add to my calendar" link still resolves after
+ * the event has ended.
+ */
 export function singleEvent(id: string): string | null {
-  const o = occurrences(localNow(), 366).find((x) => occurrenceId(x) === id);
+  const now = localNow();
+  const o = occurrences({ ...now, minutes: 0 }, 366).find((x) => occurrenceId(x) === id);
   return o ? wrap([o], o.title) : null;
 }

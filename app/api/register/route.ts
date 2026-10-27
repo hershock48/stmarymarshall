@@ -15,28 +15,37 @@ import { summarize } from "@/lib/register";
  * same thanks page so nothing learns from the response.
  */
 export async function POST(req: Request) {
-  const form = await req.formData();
+  const back = (path: string) => NextResponse.redirect(new URL(path, req.url), 303);
+  let form: FormData;
+  try {
+    form = await req.formData();
+  } catch {
+    // Not a form post at all (wrong content type, empty body).
+    return back("/register?error=name");
+  }
   const data: Record<string, string> = {};
   for (const [k, v] of form.entries()) if (typeof v === "string") data[k] = v.slice(0, 2000);
 
-  const thanks = (state: string) => NextResponse.redirect(new URL(`/register/thanks?state=${state}`, req.url), 303);
+  const thanks = (state: string) => back(`/register/thanks?state=${state}`);
 
   if (data.website) return thanks("sent");
-  if (!data.family_name?.trim()) {
-    return NextResponse.redirect(new URL("/register?error=name", req.url), 303);
-  }
+  if (!data.family_name?.trim()) return back("/register?error=name");
 
   const text = summarize(data);
-  const subject = `Parish registration: ${data.family_name.trim()}`;
+  const subject = `Parish registration: ${data.family_name.trim().slice(0, 80)}`;
   // The log is the record until mail is configured, and the backup after.
   console.log(`[register] ${subject}\n${text}`);
 
   if (!configured()) return thanks("unconfigured");
   try {
-    await send(subject, text, data.email?.trim() || undefined);
+    await send(subject, text, data.email);
     return thanks("sent");
   } catch (err) {
     console.error("[register] send failed", err);
     return thanks("failed");
   }
+}
+
+export function GET(req: Request) {
+  return NextResponse.redirect(new URL("/register", req.url), 303);
 }

@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/meta";
 import { A, Band, GoldButton, H2, PageHero } from "@/components/ui";
 import { bulletins } from "@/lib/bulletins";
 import { LINKS } from "@/lib/site";
 import photo from "@/public/img/chapel-altar.jpg";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Bulletin",
   description: "The weekly St. Mary Parish bulletin: Mass intentions, the collection, announcements and news. This week's and the last three months.",
-  alternates: { canonical: "/bulletin" },
-};
+  path: "/bulletin",
+});
 
 export default async function Bulletin() {
   const list = await bulletins();

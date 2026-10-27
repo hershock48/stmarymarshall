@@ -13,7 +13,14 @@ export function configured(): boolean {
   return Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS && process.env.MAIL_TO);
 }
 
+/** A plain address or nothing. The form's type="email" is only enforced by the browser. */
+export function cleanAddress(s?: string): string | undefined {
+  const v = s?.trim();
+  return v && /^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]+$/.test(v) ? v : undefined;
+}
+
 export async function send(subject: string, text: string, replyTo?: string): Promise<void> {
+  replyTo = cleanAddress(replyTo);
   const transport = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: Number(process.env.SMTP_PORT ?? 587),

@@ -30,11 +30,19 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/20" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-24 sm:px-6 sm:pt-32 lg:px-8 lg:pt-40">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Marshall, Michigan</p>
-          <h1 className="display mt-3 max-w-3xl text-5xl leading-[1.05] text-cream sm:text-6xl lg:text-7xl">St. Mary Catholic Church</h1>
+          {/* 4xl at phone width, not 5xl: at 48px the Georgia fallback wraps
+              this title to three lines and Cormorant to two, and the swap
+              pushed the tiles below it (CLS 0.10 on a throttled phone). At
+              36px both faces take two lines, so nothing moves. */}
+          <h1 className="display mt-3 max-w-3xl text-4xl leading-[1.05] text-cream sm:text-6xl lg:text-7xl">St. Mary Catholic Church</h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-dim sm:text-xl">
             A parish of the Diocese of Kalamazoo since 1852, at the corner of Eagle and Green Streets. All are welcome.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          {/* Stacked at phone width on purpose: side by side, the pair fits on
+              one line in Source Sans and wraps in the fallback face, so the
+              font swap moved everything below by a button's height
+              (CLS 0.10 on a throttled phone, tools/cls-probe.mjs). */}
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <GoldButton href="/mass-times">Mass times and directions</GoldButton>
             <LineButton href="/new">New here?</LineButton>
           </div>

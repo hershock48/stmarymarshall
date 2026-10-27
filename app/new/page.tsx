@@ -1,18 +1,19 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/meta";
 import Image from "next/image";
 import { NextUp } from "@/components/Schedule";
 import { Band, GoldButton, H2, LineButton, PageHero } from "@/components/ui";
+import { CONFESSION, DAY_NAMES, fmtTime, massTimesSentence } from "@/lib/schedule";
 import { SITE } from "@/lib/site";
 import photo from "@/public/img/nave-easter.jpg";
 import chapel from "@/public/img/chapel-renovation.jpg";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "New Here?",
   description: "Visiting St. Mary Catholic Church in Marshall for the first time? When Mass is, where the church is, what to expect, and how to register with the parish.",
-  alternates: { canonical: "/new" },
-};
+  path: "/new",
+});
 
 /**
  * The page for a first visit. Every line is something the parish already
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 const QA = [
   {
     q: "When is Mass?",
-    a: "Saturday at 5:00 PM, Sunday at 9:00 and 11:00 AM. Weekday Mass is Tuesday at 4:00 PM, Wednesday at noon and Friday at 7:30 AM. Confession is Saturday from 3:30 to 4:30 PM, with Adoration at the same time.",
+    a: `${massTimesSentence()}. Confession is ${DAY_NAMES[CONFESSION[0].day]} from ${fmtTime(CONFESSION[0].start)} to ${fmtTime(CONFESSION[0].end!)}, with Adoration at the same time.`,
   },
   {
     q: "Where is the church?",

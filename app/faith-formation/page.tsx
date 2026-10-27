@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/meta";
 import OpenOnHash from "@/components/OpenOnHash";
 import SectionList from "@/components/SectionList";
 import { Band, PageHero } from "@/components/ui";
 import { FORMATION } from "@/lib/content";
 import photo from "@/public/img/chapel-renovation.jpg";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Faith Formation",
   description: "Religious Education for age 4 through 8th grade, OCIA for adults, Tuesday and men's Bible studies, Life Teen and Catholic schools at St. Mary Parish, Marshall, Michigan.",
-  alternates: { canonical: "/faith-formation" },
-};
+  path: "/faith-formation",
+});
 
 export default function FaithFormation() {
   return (

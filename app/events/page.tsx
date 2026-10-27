@@ -1,18 +1,19 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/meta";
 import Link from "next/link";
 import EventList from "@/components/EventList";
 import { Band, PageHero } from "@/components/ui";
 import { KIND_LABEL, occurrences, type ParishEvent } from "@/lib/events";
 import { localNow } from "@/lib/schedule";
+import { SITE } from "@/lib/site";
 import photo from "@/public/img/nave-easter.jpg";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Calendar",
   description: "The St. Mary Parish calendar for the next six weeks: Religious Education, OCIA, Bible studies, choir rehearsals, Knights of Columbus, council meetings, Confession and Adoration.",
-  alternates: { canonical: "/events" },
-};
+  path: "/events",
+});
 
 const KINDS = Object.keys(KIND_LABEL) as ParishEvent["kind"][];
 
@@ -39,13 +40,14 @@ export default async function Events({ searchParams }: { searchParams: Promise<{
             </Chip>
           ))}
         </nav>
+        <h2 className="sr-only">The next six weeks</h2>
         <div className="mt-10">
           <EventList items={items} showKind={!picked} addLinks />
         </div>
         <div className="mt-12 rounded-sm border border-paper-dim bg-paper-dim/50 p-5 text-[15px] leading-relaxed text-ink">
           <p className="font-semibold">Keep this calendar on your phone</p>
           <p className="mt-1">
-            Subscribe to <a href="/calendar.ics" className="font-semibold text-marian underline underline-offset-4">stmarymarshall.org/calendar.ics</a> in Google Calendar, Apple Calendar or Outlook and the next three months stay current on their own. On an iPhone, tapping the link offers to subscribe. In Google Calendar, use “Other calendars, From URL” and paste the address.
+            On an iPhone or a Mac, <a href={`webcal://${new URL(SITE.url).host}/calendar.ics`} className="font-semibold text-marian underline underline-offset-4">tap here to subscribe</a> and the next three months stay current on their own. In Google Calendar or Outlook, add a calendar “from URL” and paste <span className="font-semibold">{new URL(SITE.url).host}/calendar.ics</span>.
           </p>
         </div>
         <p className="mt-8 text-sm leading-relaxed text-ink-soft">

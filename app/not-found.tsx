@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { Band, GoldButton, LineButton, PageHero } from "@/components/ui";
+import HomeLink from "@/components/HomeLink";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  description: "That page is not here. Mass times, the calendar and the rest of the parish site are.",
+  robots: { index: false },
+};
+import { Band, LineButton, PageHero } from "@/components/ui";
 import { NAV } from "@/lib/site";
 
 export default function NotFound() {
@@ -8,7 +16,7 @@ export default function NotFound() {
       <PageHero title="Page not found" lede="Dear St. Anthony, please come around. This page is lost and cannot be found." />
       <Band tone="paper">
         <div className="flex flex-wrap gap-3">
-          <GoldButton href="/">Home</GoldButton>
+          <HomeLink className="inline-flex min-h-12 items-center justify-center rounded-sm bg-gold px-6 font-semibold text-navy transition-colors hover:bg-gold-light">Home</HomeLink>
           <LineButton href="/mass-times" onPaper>
             Mass times
           </LineButton>

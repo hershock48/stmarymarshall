@@ -18,8 +18,8 @@ import { addDays, fmtTime, type LocalNow, type Weekday } from "@/lib/schedule";
  */
 
 export type Rule =
-  | { kind: "weekly"; day: Weekday; start: string; end: string; from?: string; until?: string; exdates?: string[] }
-  | { kind: "monthly"; day: Weekday; nth: number; start: string; end: string; exdates?: string[] }
+  | { kind: "weekly"; day: Weekday; start: string; end?: string; from?: string; until?: string; exdates?: string[] }
+  | { kind: "monthly"; day: Weekday; nth: number; start: string; end?: string; exdates?: string[] }
   | { kind: "once"; date: string; start?: string; end?: string };
 
 export type ParishEvent = {
@@ -56,6 +56,14 @@ export const EVENTS: readonly ParishEvent[] = [
     title: "Knights of Columbus Monthly Meeting",
     kind: "meeting",
     rule: { kind: "monthly", day: 1, nth: 2, start: "19:00", end: "20:00" },
+  },
+  {
+    // From the Women's Ministry entry on the old site, not from the feed,
+    // which had no rule for it. No end time published.
+    title: "Women’s Ministry Meeting",
+    where: "Parish Hall",
+    kind: "meeting",
+    rule: { kind: "monthly", day: 1, nth: 4, start: "18:30" },
   },
   {
     title: "Adult Choir Rehearsal",
@@ -184,10 +192,11 @@ export function occurrences(now: LocalNow, days: number, events = EVENTS): Occur
         end = r.end;
       }
       if (!hit) continue;
-      // Today's events that have already ended drop off.
-      if (i === 0 && end) {
-        const [h, m] = end.split(":").map(Number);
-        if (h * 60 + m < now.minutes) continue;
+      // Today's events that have already ended drop off. An event with a
+      // start and no end is treated as an hour long for this purpose.
+      if (i === 0 && start) {
+        const [h, m] = (end ?? start).split(":").map(Number);
+        if (h * 60 + m + (end ? 0 : 60) < now.minutes) continue;
       }
       out.push({ date: iso, start, end, title: ev.title, note: ev.note, where: ev.where, kind: ev.kind });
     }

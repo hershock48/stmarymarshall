@@ -121,12 +121,14 @@ export const FORMATION: readonly Section[] = [
       "Family Catechesis events take place on scheduled Sundays through the year for children and their parents, in place of the regular Sunday classes. All are invited.",
       "Order of Christian Initiation for Children: if you have a child age 7 or older who has not been baptized, or was baptized in another Christian tradition, and would like to be received into the Catholic Church, OCIC classes are offered on scheduled Sunday mornings through the year. Contact Sara Rodgers.",
     ],
+    // The 2026 to 27 Google registration form was closed when checked on
+    // 2026-10-27 ("no longer accepting responses"), so it is not linked;
+    // late registrations go through Sara Rodgers, named in the contact line.
     links: [
-      { label: "Register for Religious Education 2026 to 27", href: LINKS.reRegistration, external: true },
       { label: "Sunday class calendar", href: DOCS.reSundayCalendar },
       { label: "Tuesday class calendar", href: DOCS.reTuesdayCalendar },
     ],
-    contact: "Sara Rodgers, stmaryschoolofreligion@gmail.com or (269) 781-5656",
+    contact: "To register, or with questions: Sara Rodgers, stmaryschoolofreligion@gmail.com or (269) 781-5656",
   },
   {
     slug: "ocia",
@@ -173,7 +175,10 @@ export const MINISTRIES: readonly Section[] = [
     body: [
       "James Hamilton serves as Organist and Music Director. He began as a weekly organist at St. Mary Catholic Church in Charlotte, Michigan at age 15, and has served as an organist for more than 26 years, including 11 as a choir director.",
       "New adult choir members and cantors are welcome, whether you have years of experience or simply enjoy singing. Cantors get individual practice sessions, training and support as they learn the role.",
-      "The Adult Choir rehearses Wednesdays from 6:45 to 8:15 PM in the St. Cecilia Music Room and sings at Sunday Mass from mid September. The Children’s Choir, grades 3 through 8, rehearses Wednesdays at 4:00 PM in the St. Cecilia Music Room and sings at the 9:00 AM Mass from October.",
+      "The Adult Choir rehearses Wednesdays from 6:45 to 8:15 PM in the St. Cecilia Music Room and sings at Sunday Mass from mid September. The Children’s Choir, grades 3 through 8, rehearses Wednesdays at 4:30 PM in the St. Cecilia Music Room and sings at the 9:00 AM Mass from October.",
+      // The old site's music letter said 4:00 PM; the parish calendar feed,
+      // updated more recently, has the youth choir at 4:30 to 5:15. The
+      // calendar wins here. README: confirm with the music director.
       "Virtus-trained adult volunteers are needed to support the young singers at rehearsals and at Mass, about one Mass a month during the season.",
     ],
     links: [{ label: "Register a child for the Children’s Choir", href: LINKS.childrensChoirRegistration, external: true }],

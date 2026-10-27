@@ -131,17 +131,39 @@ export type NextService = {
   daysAhead: number;
   dayName: string;
   minutesAway: number;
+  /** True while a service with an end time is in progress; `time` is then "until 4:30 PM". */
+  now?: boolean;
 };
 
+export type DatedMass = { date: string; start: string; label: string };
+
 /**
- * The next scheduled service after `now`, looking a week ahead. Special
- * Masses are folded in by date. Returns the earliest.
+ * One-off Masses the tiles and tables should know about: the special
+ * Masses plus every holy day whose times the office has supplied. Built
+ * here so the home tile and the Mass times table cannot disagree.
  */
-export function nextService(services: readonly Service[], now: LocalNow, specials = SPECIAL_MASSES): NextService | null {
+export function datedMasses(): DatedMass[] {
+  const holy = HOLY_DAYS.flatMap((h) => (h.masses ?? []).map((m) => ({ date: h.date, start: m.start, label: m.label ? `${h.label}, ${m.label}` : h.label })));
+  return [...SPECIAL_MASSES, ...holy];
+}
+
+/**
+ * The next scheduled service after `now`, looking a week ahead. Dated
+ * Masses are folded in by date. A service with an end time that is
+ * running right now wins outright, so the Confession tile during the
+ * Saturday hour says "Now" instead of pointing a week ahead.
+ */
+export function nextService(services: readonly Service[], now: LocalNow, specials: readonly DatedMass[] = datedMasses()): NextService | null {
   let best: NextService | null = null;
   const consider = (c: NextService) => {
     if (!best || c.minutesAway < best.minutesAway) best = c;
   };
+  for (const s of services) {
+    if (s.day !== now.weekday || !s.end) continue;
+    if (toMinutes(s.start) <= now.minutes && now.minutes < toMinutes(s.end)) {
+      return { label: s.label ?? DAY_NAMES[s.day], time: `until ${fmtTime(s.end)}`, daysAhead: 0, dayName: DAY_NAMES[s.day], minutesAway: 0, now: true };
+    }
+  }
   for (let ahead = 0; ahead <= 7; ahead++) {
     const weekday = ((now.weekday + ahead) % 7) as Weekday;
     const iso = addDays(now.iso, ahead);
@@ -161,21 +183,48 @@ export function nextService(services: readonly Service[], now: LocalNow, special
   return best;
 }
 
-/** "Today", "Tomorrow", or the weekday. */
+/** "Now", "Today", "Tomorrow", the weekday, or "Next Saturday" a week out. */
 export function whenWord(n: NextService): string {
+  if (n.now) return "Now,";
   if (n.daysAhead === 0) return "Today";
   if (n.daysAhead === 1) return "Tomorrow";
+  if (n.daysAhead === 7) return `Next ${n.dayName}`;
   return n.dayName;
 }
 
-/** Special Masses still ahead of today, soonest first. */
-export function upcomingSpecials(now: LocalNow) {
-  return SPECIAL_MASSES.filter((s) => s.date >= now.iso).sort((a, b) => a.date.localeCompare(b.date));
+/** Still-ahead filter: a dated entry drops once its time has passed today. */
+function ahead(now: LocalNow, date: string, start: string | null) {
+  if (date > now.iso) return true;
+  if (date < now.iso) return false;
+  return start === null || toMinutes(start) >= now.minutes;
 }
 
-/** Holy days still ahead of today, soonest first. */
+/** Special Masses still ahead, soonest first. */
+export function upcomingSpecials(now: LocalNow) {
+  return SPECIAL_MASSES.filter((s) => ahead(now, s.date, s.start)).sort((a, b) => a.date.localeCompare(b.date));
+}
+
+/** Holy days still ahead, soonest first. A day with no times known stays until midnight. */
 export function upcomingHolyDays(now: LocalNow) {
-  return HOLY_DAYS.filter((h) => h.date >= now.iso).sort((a, b) => a.date.localeCompare(b.date));
+  return HOLY_DAYS.filter((h) => ahead(now, h.date, h.masses ? h.masses[h.masses.length - 1].start : null)).sort((a, b) => a.date.localeCompare(b.date));
+}
+
+/** "Saturday 5:00 PM, Sunday 9:00 and 11:00 AM" for descriptions, from the data. */
+export function massTimesSentence(): string {
+  const byDay = new Map<Weekday, string[]>();
+  for (const m of MASSES) byDay.set(m.day, [...(byDay.get(m.day) ?? []), fmtTime(m.start)]);
+  const order: Weekday[] = [6, 0, 1, 2, 3, 4, 5];
+  return order
+    .filter((d) => byDay.has(d))
+    .map((d) => {
+      const times = byDay.get(d)!;
+      // "9:00 and 11:00 AM" when the suffix is shared.
+      const suffix = times[times.length - 1].slice(-2);
+      const same = times.every((t) => t.endsWith(suffix));
+      const list = same && times.length > 1 ? times.map((t, i) => (i === times.length - 1 ? t : t.slice(0, -3))).join(" and ") : times.join(" and ");
+      return `${DAY_NAMES[d]} ${list}`;
+    })
+    .join(", ");
 }
 
 /** The weekend and weekday Masses, grouped for the schedule table. */

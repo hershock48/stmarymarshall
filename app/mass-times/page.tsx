@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/meta";
 import { FullSchedule, NextUp } from "@/components/Schedule";
 import { Band, GoldButton, H2, LineButton, PageHero } from "@/components/ui";
-import { fmtDate, fmtTime, localNow, upcomingHolyDays } from "@/lib/schedule";
+import { CONFESSION, DAY_NAMES, fmtDate, fmtTime, localNow, massTimesSentence, upcomingHolyDays } from "@/lib/schedule";
 import { SITE } from "@/lib/site";
 import photo from "@/public/img/chapel-renovation.jpg";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Mass Times and Directions",
-  description: `Mass at St. Mary Catholic Church, Marshall MI: Saturday 5:00 PM, Sunday 9:00 and 11:00 AM, Tuesday 4:00 PM, Wednesday noon, Friday 7:30 AM. Confession and Adoration Saturday 3:30 to 4:30 PM. ${SITE.church.corner}.`,
-  alternates: { canonical: "/mass-times" },
-};
+  description: `Mass at St. Mary Catholic Church, Marshall MI: ${massTimesSentence()}. Confession and Adoration ${DAY_NAMES[CONFESSION[0].day]} ${fmtTime(CONFESSION[0].start)} to ${fmtTime(CONFESSION[0].end!)}. At the ${SITE.church.corner}.`,
+  path: "/mass-times",
+});
 
 export default function MassTimes() {
   const holyDays = upcomingHolyDays(localNow());

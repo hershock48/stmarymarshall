@@ -18,6 +18,7 @@ const WHAT: Record<string, { thing: string; sent: string }> = {
 export default async function Thanks({ searchParams }: { searchParams: Promise<{ state?: string; kind?: string }> }) {
   const { state, kind } = await searchParams;
   const sent = state === "sent";
+  const failed = state === "failed";
   const what = WHAT[kind ?? "register"] ?? WHAT.register;
   return (
     <>
@@ -26,6 +27,11 @@ export default async function Thanks({ searchParams }: { searchParams: Promise<{
         <div className="max-w-2xl space-y-5 text-[17px] leading-relaxed text-ink">
           {sent ? (
             <p>{what.sent}</p>
+          ) : failed ? (
+            <>
+              <p>The website has your answers, but the email to the office did not go through just now. It is kept in the site’s log, and we will see the failure, but a person has not read it yet. Please call the office so they can take your {what.thing} over the phone.</p>
+              <p>Sorry for the extra step.</p>
+            </>
           ) : (
             <>
               <p>The website has your answers, but email delivery to the office is not switched on yet, so a person has not seen them. Rather than let that sit, please call the office so they can take your {what.thing} over the phone.</p>

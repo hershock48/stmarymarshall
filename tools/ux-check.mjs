@@ -56,7 +56,8 @@ for (const width of widths) {
         // grid parent legitimately computes to "flex". Either is fine; a
         // block or inline-block is the override this check exists for.
         if (/\binline-flex\b/.test(cls) && !/^(inline-)?flex$/.test(cs.display)) out.push(`inline-flex lost (${cs.display}): ${label(el)}`);
-        if (/\bflex\b/.test(cls) && !/\binline-flex\b/.test(cls) && cs.display !== "flex" && !/\b(sm|md|lg|xl):flex\b/.test(cls)) out.push(`flex lost (${cs.display}): ${label(el)}`);
+        // Whole-token match: "flex-none" and "flex-wrap" are not the display utility.
+        if (/(^|\s)flex(\s|$)/.test(cls) && !/\binline-flex\b/.test(cls) && cs.display !== "flex" && !/(^|\s)(sm|md|lg|xl|2xl):flex(\s|$)/.test(cls)) out.push(`flex lost (${cs.display}): ${label(el)}`);
         if (/^(inline-)?flex$/.test(cs.display) && cs.alignItems === "center" && el.firstChild && el.firstChild.nodeType === 3) {
           const range = document.createRange();
           range.selectNodeContents(el);

@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/meta";
 import OpenOnHash from "@/components/OpenOnHash";
 import SectionList from "@/components/SectionList";
 import { Band, PageHero } from "@/components/ui";
 import { MINISTRIES } from "@/lib/content";
 import photo from "@/public/img/monstrance.jpg";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Councils and Ministries",
   description: "Music ministry, Knights of Columbus Council 5999, Women's Ministry, the Parish and Finance Councils, the guilds, and the ministries that welcome, visit, garden, clean and feed at St. Mary Parish, Marshall.",
-  alternates: { canonical: "/ministries" },
-};
+  path: "/ministries",
+});
 
 export default function Ministries() {
   return (

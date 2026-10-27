@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/meta";
 import Image from "next/image";
 import { A, Band, Contact, GoldButton, H2, LineButton, PageHero, Prose } from "@/components/ui";
 import { CEMETERY, HISTORY, STAFF } from "@/lib/content";
@@ -6,11 +6,11 @@ import { DOCS, LINKS, SITE } from "@/lib/site";
 import photo from "@/public/img/nave-easter.jpg";
 import cemetery from "@/public/img/cemetery.jpg";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "About the Parish",
-  description: "St. Mary Parish, Marshall, Michigan: contact and office hours, staff, a history that begins in 1837, and St. Mary Cemetery on Centennial Road.",
-  alternates: { canonical: "/about" },
-};
+  description: "St. Mary Parish, Marshall, Michigan: how to reach the office, the staff, a history that begins in 1837, and St. Mary Cemetery on Centennial Road.",
+  path: "/about",
+});
 
 export default function About() {
   return (
@@ -74,7 +74,8 @@ export default function About() {
             </ul>
             <p className="mt-4 text-sm text-ink-soft">
               From the pastor:{" "}
-              <A href={DOCS.frCraigChristmas2025}>Christmas letter, 2025</A> and <A href={DOCS.frCraigMidsummer2025}>mid-summer update, 2025</A>.
+              <A href={DOCS.frCraigChristmas2025}>Christmas letter, 2025</A> and <A href={DOCS.frCraigMidsummer2025}>mid-summer update, 2025</A>. Parish photo directory:{" "}
+              <A href={DOCS.directoryPriceList}>price list (PDF)</A>.
             </p>
           </div>
         </div>
@@ -95,7 +96,7 @@ export default function About() {
               </li>
               <li>
                 <a href={LINKS.stainedGlassCensus} target="_blank" rel="noopener noreferrer" className="inline-block min-h-6 text-gold underline underline-offset-4 hover:text-gold-light">
-                  The windows in the Michigan Stained Glass Census
+                  The Michigan Stained Glass Census, which recorded the windows in 1994
                 </a>
               </li>
             </ul>

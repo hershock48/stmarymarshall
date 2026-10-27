@@ -70,7 +70,10 @@ export const LINKS = {
   swmCatholic: "https://www.diokzoo.org/southwest-michigan-catholic",
   frCraigBio: "https://swmcatholic.org/news/from-music-man-to-holy-man",
   renovationVideo: "https://www.youtube.com/watch?v=-PcS1tCIoe0",
-  stainedGlassCensus: "https://www.michiganstainedglass.org/collections/building.php?id=208-792-34",
+  // The old site's deep link (collections/building.php?id=208-792-34) now
+  // redirects to the census home page, so that is what is linked.
+  stainedGlassCensus: "https://michiganstainedglass.org/",
+  // Closed for 2026 to 27 when checked on 2026-10-27; kept for next year.
   reRegistration: "https://forms.gle/GijYeCqsrgJTZrJT6",
   childrensChoirRegistration:
     "https://docs.google.com/forms/d/e/1FAIpQLSfcI9TdW_n3Od9Xxz4e4G_EwdgIr3VdiQOp8b_MBlS2BbDwNQ/viewform",

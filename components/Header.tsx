@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import HomeLink from "@/components/HomeLink";
 import Mark from "@/components/Mark";
 import { NAV, SITE } from "@/lib/site";
 
@@ -28,15 +29,25 @@ export default function Header() {
     setOpen(false);
   }
 
+  // Escape closes the open menu, as a keyboard user expects of a disclosure.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <header className="sticky top-0 z-50 border-b border-navy-line bg-navy/95 backdrop-blur supports-[backdrop-filter]:bg-navy/85">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex min-h-11 shrink-0 items-center gap-3 text-cream" aria-label={`${SITE.name} home`}>
+        <HomeLink className="flex min-h-11 shrink-0 items-center gap-3 text-cream" aria-label={`${SITE.name} home`}>
           <Mark size={34} className="text-gold" />
           <span className="display text-xl leading-none whitespace-nowrap sm:text-2xl">
             St. Mary <span className="hidden text-dim sm:inline lg:hidden xl:inline">Catholic Church</span>
           </span>
-        </Link>
+        </HomeLink>
 
         <nav className="hidden items-center gap-4 lg:flex xl:gap-5" aria-label="Main">
           {NAV.map((item) => {
@@ -88,7 +99,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                aria-current={pathname === item.href ? "page" : undefined}
+                aria-current={pathname === item.href || pathname.startsWith(item.href + "/") ? "page" : undefined}
                 className="block border-b border-navy-line py-3.5 text-lg font-semibold text-cream"
               >
                 {item.label}

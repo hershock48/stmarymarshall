@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/meta";
 import { Band, Contact, H2, LineButton, PageHero, Prose } from "@/components/ui";
 import { SACRAMENTS } from "@/lib/content";
 import photo from "@/public/img/chapel-altar.jpg";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Sacraments",
   description: "Baptism, First Communion and Confirmation, Matrimony, Anointing of the Sick and Penance at St. Mary Catholic Church, Marshall, Michigan. Who to call and how far ahead.",
-  alternates: { canonical: "/sacraments" },
-};
+  path: "/sacraments",
+});
 
 export default function Sacraments() {
   return (

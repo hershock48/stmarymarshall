@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/meta";
 import { Band, Contact, GoldButton, H2, LineButton, PageHero } from "@/components/ui";
 import { GIVE } from "@/lib/content";
 import { LINKS } from "@/lib/site";
-import photo from "@/public/img/monstrance.jpg";
+import photo from "@/public/img/adoration.jpg";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Give",
   description: "Give to St. Mary Parish, Marshall, Michigan: online giving one time or on a schedule, the We Care Fund for parish families in need, and the St. Mary Parish Endowment Fund.",
-  alternates: { canonical: "/give" },
-};
+  path: "/give",
+});
 
 export default function Give() {
   return (

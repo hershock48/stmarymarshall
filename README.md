@@ -100,6 +100,17 @@ centered, the header on one line at 390, 1024, 1280 and 1440, nothing
 clipped. `tools/headers.mjs` screenshots the header strips and the open
 mobile menu for a look. Run both before shipping any header or CSS change.
 
+`node tools/logic-tests.mjs` runs the date logic at fixed instants (DST change,
+midnight, after the last Mass, a special Mass, cancelled dates, the monthly
+rules, the feed) and must pass before any change to lib/schedule.ts,
+lib/events.ts or lib/ics.ts. `tools/cls-probe.mjs` names the element behind
+a layout-shift number.
+
+Debug pass, 2026-10-27: an independent code read (21 findings) and a full
+crawl (15 findings) were run after the first launch; every bug they found is
+fixed and the two checks above exist because of them. The reasoning for each
+fix is a comment next to it.
+
 ## Traps
 
 - **Tailwind 4 on Next 16.4 needs the Turbopack loader rule in
@@ -130,6 +141,11 @@ answers.
 - [x] **Bishop line in the history.** The old site stopped at Bishop Bradley; Bishop
       Edward M. Lohse (installed July 25, 2023) added from the diocese and St. Philip BC.
 - [ ] **Office hours** are not published anywhere. Ask.
+- [ ] **Children’s Choir rehearsal time.** The old music letter said Wednesday
+      4:00 PM; the parish calendar feed said 4:30 to 5:15. The site follows the
+      calendar. Confirm with James Hamilton.
+- [ ] **Women’s Ministry end time.** The old site gave 6:30 PM on the fourth
+      Monday and no end; the calendar shows a start only.
 - [ ] **Holy day Mass times** for Dec 8, Christmas, Jan 1. Fill `HOLY_DAYS`.
 - [ ] **Mass stipend amount**, if the parish wants it printed on /mass-intentions.
 - [ ] **Prayer list practice**: does the bulletin print names, and for how long?
