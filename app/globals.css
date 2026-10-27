@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   CONTRAST, measured 2026-10-27 with the WCAG formula (node, see
+   the README). Two grounds: navy for the header, hero, Mass card
+   and footer; paper for the reading pages. Gold is a LIGHT accent,
+   so on navy it carries small text and on paper it is a rule or a
+   large heading only. The deep gold below is the one that reads
+   small on paper.
+
+     cream     on navy       15.01  AAA
+     dim       on navy        9.99  AAA
+     dim       on navy-soft   8.76  AAA
+     gold      on navy        8.64  AAA   <- small gold text, ok
+     navy      on gold        8.64  AAA   <- solid buttons
+     ink       on paper      14.25  AAA
+     marian    on paper       9.36  AAA   <- links on paper
+     gold-deep on paper       (see README; large text only)
+--------------------------------------------------------------- */
+
+@theme {
+  --color-navy: #0e1a2b;
+  --color-navy-soft: #152540;
+  --color-navy-line: #26395a;
+  --color-marian: #1f3c7f;
+  --color-gold: #d6b25a;
+  --color-gold-light: #e6c97e;
+  --color-gold-deep: #6f5618;
+  --color-cream: #f4eddf;
+  --color-dim: #cdc3ad;
+  --color-paper: #f7f2e8;
+  --color-paper-dim: #ece4d4;
+  --color-ink: #1a2233;
+  --color-ink-soft: #4a5368;
+
+  --font-display: var(--font-display-src), "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: var(--font-body-src), "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-navy);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  /* A bare email address in body text can push a phone page wide with no
+     element rect to show for it (glaze.md). Fires only when one token
+     cannot fit its line. */
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3, .display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.005em;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-navy);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 3px;
+}
+
+.paper :focus-visible {
+  outline-color: var(--color-marian);
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* The reading ground. Pages that are mostly text sit on paper with navy
+   ink; the chrome stays navy. */
+.paper {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* A thin gold rule under section headings, the one ornament. */
+.rule::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 2px;
+  margin-top: 0.75rem;
+  background: var(--color-gold);
+}
+
+/* Native <details> as the accordion on the ministries and sacraments
+   pages: open without JavaScript, collapsed in the server's HTML, so no
+   layout shift (glaze.md). */
+details.fold > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details.fold > summary::-webkit-details-marker {
+  display: none;
+}
+details.fold > summary .chev {
+  transition: transform 0.2s ease;
+}
+details.fold[open] > summary .chev {
+  transform: rotate(180deg);
+}
+
+/* Tap targets: every link in body prose is at least 24px tall, and the
+   small controls grow an invisible hit area (glaze/standards.md). */
+a[href^="tel:"], a[href^="mailto:"] {
+  display: inline-block;
+  min-height: 24px;
+}
+
+/* Form fields on paper. */
+.field {
+  width: 100%;
+  border: 1px solid #b9ad94;
+  border-radius: 2px;
+  background: #fff;
+  color: var(--color-ink);
+  padding: 0.7rem 0.85rem;
+  font: inherit;
+  line-height: 1.3;
+}
+.field:focus-visible {
+  outline: 2px solid var(--color-marian);
+  outline-offset: 1px;
+}
+.lbl {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-ink-soft);
+  margin-bottom: 0.3rem;
+}
+
+/* ============================================================
+   Glazed Web studio credit and plate (glaze/assets/glazed-credit).
+   Plate ground chosen by glaze/scripts/plate.mjs for a #0e1a2b footer:
+   cream under navy measures 14.9, chocolate would be ~1.1.
+   ============================================================ */
+
+/* ───────────────────────────────────────────────────────────────────────────
+   Glazed Web studio credit — pairs with components/GlazedCredit.
+   Everything is scoped to .gw-credit. The words inherit the footer's own colour
+   and size; the mark carries Glazed's own palette, because it is a logo and a
+   logo does not take on the host's colours.
+   ─────────────────────────────────────────────────────────────────────────── */
+.gw-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  /* A credit that sets its own colour is a credit that stops matching the day
+     the footer changes. */
+  color: inherit;
+  text-decoration: none;
+}
+.gw-credit-name {
+  font-weight: 600;
+}
+.gw-credit:hover .gw-credit-name,
+.gw-credit:focus-visible .gw-credit-name {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.gw-credit-mark {
+  /* Sized in em so it tracks the text beside it rather than needing a number per
+     client. 2.15em against a 12px footer line is ~26px, which is where his real
+     mark reads: the hole lands at 4.7px and the disc at 19px. At 22px the hole
+     closes to 3px and it starts reading as a lollipop; at 30px+ it dominates the
+     bar. Measured across all five footers, not guessed. */
+  height: 2.15em;
+  width: auto;
+  flex: none;
+  /* This has to be here rather than only as the SVG attribute: the UA stylesheet
+     sets overflow:hidden on an outermost <svg>, and that beats a presentation
+     attribute. Without it the hover extension is clipped at the viewBox edge. */
+  overflow: visible;
+}
+.gw-credit-drips {
+  transform-box: fill-box;
+  /* Top centre of the drip group — where the glaze leaves the donut. Scaling from
+     anywhere else slides the drips off the donut instead of running them down. */
+  transform-origin: 50% 0%;
+  /* Resting is 1: the default state is his drawing at his lengths. */
+  transform: scaleY(1);
+  transition: transform 340ms cubic-bezier(0.34, 1.32, 0.5, 1);
+}
+.gw-credit:hover .gw-credit-drips,
+.gw-credit:focus-visible .gw-credit-drips {
+  transform: scaleY(1.22);
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Nothing to suppress — there is no autoplay. The hover just stops easing. */
+  .gw-credit-drips {
+    transition-duration: 0s;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   The signature plate — pairs with components/GlazedPlate.
+   Set the three values below per site, in that site's own palette block:
+     --gw-above      the footer colour directly above (the drip's fill)
+     --gw-plate      cream #FDF6EC under a dark footer, chocolate-2 #201712 under a light one
+     --gw-plate-ink  cream on chocolate (16.41) or chocolate on cream (15.05); both AA
+   The inversion is not taste — a chocolate plate under a #191919 footer measures 1.00 and the
+   drip vanishes. See the table in GlazedPlate for every footer in the account.
+   ─────────────────────────────────────────────────────────────────────────── */
+.gw-plate {
+  /* Defaults are the light-footer case, so a site that forgets to set them still gets a
+     legible plate rather than an invisible one. */
+  --gw-above: #FDF6EC;
+  --gw-plate: #201712;
+  --gw-plate-ink: #FDF6EC;
+  background: var(--gw-plate);
+}
+.gw-plate-drip {
+  display: block;
+  width: 100%;
+  height: 46px;
+  /* The drip is the colour of the band above it, dripping down into the plate. */
+  color: var(--gw-above);
+  fill: currentColor;
+  /* Kills the hairline of plate colour that otherwise shows along the top edge from
+     subpixel rounding — the same -1px his DripDivider uses. */
+  margin-bottom: -1px;
+}
+.gw-plate-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 22px 18px;
+}
+.gw-plate .gw-credit {
+  /* Overrides the inherit-the-footer rule above: on the plate the credit takes the plate's
+     ink, because the plate is Glazed's ground, not the client's. */
+  color: var(--gw-plate-ink);
+  font-size: 12px;
+}
+@media (max-width: 640px) {
+  .gw-plate-drip { height: 34px; }
+  .gw-plate-bar { justify-content: center; padding: 0 16px 16px; }
+}
+
+.gw-plate {
+  --gw-above: #0e1a2b;
+  --gw-plate: #FDF6EC;
+  --gw-plate-ink: #2B1E16;
+}
