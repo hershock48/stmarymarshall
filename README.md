@@ -128,6 +128,17 @@ answers.
       (see glaze/catalog) and a separate conversation.
 - [ ] **Photo credits.** The slideshow photos carry no photographer name.
 
+## The letter
+
+`public/pitch/stmarymarshall/index.html` is the proposal to Fr. Craig, served at
+`/` on stmarymarshall.glazedweb.com by the rewrites in `next.config.ts`; the
+site is `/demo` on that host. Stylesheet and marks lifted from the Mike's Place
+letter. The standing GPT judge and prose pass (glaze/scripts/second.mjs) could
+not run on 2026-10-27: the Codex model in ~/.codex/config.toml is refused on
+the ChatGPT account. Claude did a stand-in prose pass against standards.md and
+logged the owed review in glaze/handoff.md. Delete the pitch folder and the
+rewrites when the parish says yes.
+
 ## Before launch
 
 From `glaze/launch.md`. Work to zero.

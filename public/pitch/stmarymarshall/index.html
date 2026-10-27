@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Glazed Web × St. Mary, Marshall · A letter to Fr. Craig</title>
+<meta name="description" content="The parish has a new website, built as a gift. What was found on the current site, what the new one does, and what it costs to keep it running.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Glazed Web">
+<meta property="og:url" content="https://stmarymarshall.glazedweb.com/">
+<meta property="og:title" content="Father, the parish has a new website.">
+<meta property="og:description" content="It is a gift. A letter from a parishioner, where every claim links to the proof.">
+<meta property="og:image" content="https://stmarymarshall.glazedweb.com/pitch/stmarymarshall/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Father, the parish has a new website. A letter from Glazed Web.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Father, the parish has a new website.">
+<meta name="twitter:description" content="It is a gift. A letter from a parishioner, where every claim links to the proof.">
+<meta name="twitter:image" content="https://stmarymarshall.glazedweb.com/pitch/stmarymarshall/og.jpg">
+<meta name="theme-color" content="#FDF6EC">
+<link rel="icon" type="image/svg+xml" href="https://stmarymarshall.glazedweb.com/pitch/stmarymarshall/favicon.svg">
+<link rel="icon" href="https://stmarymarshall.glazedweb.com/pitch/stmarymarshall/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://stmarymarshall.glazedweb.com/pitch/stmarymarshall/apple-touch-icon.png">
+<style>
+/* Stylesheet lifted verbatim from the Mike's Place letter (mikesplace/public/pitch), which lifted it from the Dark Horse letter (darkhorse/pitch/darkhorse/index.html),
+   which lifted it from griffin-claw-rebuild/pitch/griffin-claw/index.html (glaze/proposal.md).
+   The hero pair and the closing band are the Sprinkles letter's, per glaze/launch-page.md. */
+:root{
+ --paper:#FDF6EC; --paper2:#FFF7EA; --card:#FFFDF8;
+ --ink:#2B1E16; --ink2:#201712; --body:#6B5747; --mute:#7F6D5B; --line:#E8DCC8;
+ --pink:#E84D8A; --pink-d:#CE3672;--pink-i:#C9356F; --pink-t:#FCE7F0;
+ --green:#BFE07A; --green-b:#A9D65C; --green-d:#467C3D; --green-t:#F1F8DC;
+ --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--body);font-family:var(--sans);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4,.k,.btn,nav,th,.num,.chip{font-family:var(--sans)}
+.k{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--green-d)}
+h2{font-size:clamp(30px,4.4vw,48px);font-weight:800;color:var(--ink);letter-spacing:-1.6px;line-height:1.08;margin:10px 0 14px}
+h3{font-size:19px;font-weight:800;color:var(--ink);margin:34px 0 10px;letter-spacing:-.4px}
+p{margin:0 0 14px}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--pink-i)}
+.rule{height:3px;width:52px;background:var(--pink);border-radius:2px;margin:0 0 18px}
+section{padding:60px 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+
+/* header */
+header{position:sticky;top:0;z-index:60;background:rgba(253,246,236,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand .gl{height:34px;width:auto;display:block}
+.brand .bw{font-family:var(--sans);font-weight:800;font-size:19px;color:var(--ink);letter-spacing:-.6px;line-height:1.1}
+.brand .bw span{font-weight:350;color:var(--mute)}
+.brand span{font-size:.72rem;color:var(--mute);font-style:italic}
+nav{display:flex;gap:20px;font-size:.72rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+nav a{color:var(--mute);text-decoration:none}
+nav a:hover{color:var(--pink-i)}
+/* The one pill the header carries is Launch. It lives outside <nav> so the
+   720px rule that hides the section anchors cannot take it with them. */
+.hright{display:flex;align-items:center;gap:20px}
+.hdemo{display:inline-flex;align-items:center;min-height:44px;background:var(--pink-d);color:#fff;font-weight:700;font-size:.72rem;letter-spacing:.09em;
+ text-transform:uppercase;padding:10px 18px;border-radius:999px;text-decoration:none;white-space:nowrap;
+ box-shadow:0 6px 16px -6px rgba(232,77,138,.55);transition:all .18s}
+.hdemo:hover{background:var(--green);color:var(--ink);transform:translateY(-1px)}
+/* The hero pair: one look, one close. The ghost is Launch so the pill in the
+   header is not competing with a second pill here (glaze/launch-page.md). */
+.herocta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.herocta a{display:inline-flex;align-items:center;min-height:46px;padding:0 26px;border-radius:999px;font-family:var(--sans);font-weight:700;font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;background:var(--pink-d);color:#fff;box-shadow:0 6px 16px -6px rgba(232,77,138,.55);transition:all .18s}
+.herocta a:hover{background:var(--green);color:var(--ink);transform:translateY(-2px)}
+.herocta a.ghost{background:transparent;color:var(--ink);border:2px solid var(--line);box-shadow:none}
+.herocta a.ghost:hover{background:transparent;color:var(--ink);border-color:var(--green)}
+.herocta span{flex:1 1 20em;min-width:16em;font-size:.92rem;color:var(--body)}
+@media(max-width:720px){nav{display:none}.brand .bw~span{display:none}}
+@media(max-width:400px){.hdemo{font-size:.66rem;padding:9px 13px;letter-spacing:.06em}}
+
+/* hero */
+.hero{padding:66px 0 54px;text-align:left}
+.hero h1{font-family:var(--sans);font-size:clamp(38px,5.5vw,60px);font-weight:800;color:var(--ink);letter-spacing:-2px;line-height:1.04}
+.hero h1 em{font-style:normal;color:var(--pink)}
+.hero .sub{font-size:1.12rem;color:var(--body);margin-top:20px;max-width:31em}
+.forwho{margin-top:26px;font-family:var(--sans);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);line-height:1.9}
+.forwho b{color:var(--ink)}
+
+/* tldr */
+.tldr{background:var(--ink);color:#F6EFE4;border-radius:16px;padding:26px 26px 22px;margin-top:38px}
+.tldr .k{color:var(--green)}
+.tldr ul{list-style:none;margin:14px 0 0}
+.tldr li{display:flex;gap:12px;padding:9px 0;border-top:1px solid rgba(255,255,255,.1);font-size:.97rem;line-height:1.5}
+.tldr li:first-child{border-top:0}
+.tldr .n{font-family:var(--sans);font-weight:800;color:var(--green);flex:0 0 auto;font-size:.8rem;padding-top:3px}
+.tldr b{color:#fff}
+
+/* claim cards */
+.claim{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 20px;margin:12px 0;transition:border-color .16s,transform .16s}
+.claim:hover{border-color:var(--pink);transform:translateY(-1px)}
+.claim h4{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+.claim p{font-size:.95rem;margin:0}
+.claim p+p{margin-top:10px}
+.claim .verify{display:inline-flex;align-items:center;gap:7px;margin-top:12px;margin-right:8px;font-family:var(--sans);font-size:.71rem;font-weight:700;
+ letter-spacing:.1em;text-transform:uppercase;color:var(--pink-i);text-decoration:none;border:1.5px solid var(--pink);
+ padding:7px 13px;border-radius:999px;transition:all .16s}
+.claim .verify:hover{background:var(--pink-d);color:#fff}
+.claim .verify.plain{border-color:var(--line);color:var(--mute);cursor:default}
+.claim .verify.plain:hover{background:transparent;color:var(--mute)}
+/* overflow-wrap on the mono spans and every table cell: a bare URL is one unbreakable
+   token and pushed the document to 502px at 390 and 320 wide until this was added. */
+.mono{font-family:ui-monospace,Menlo,monospace;font-size:.83em;color:var(--mute);overflow-wrap:anywhere}
+.cmp td,.claim p,.tldr li{overflow-wrap:anywhere}
+
+/* compare table */
+.cmp{width:100%;border-collapse:collapse;margin:16px 0;font-size:.93rem}
+.cmp th{font-family:var(--sans);text-align:left;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;
+ padding:0 10px 9px 0;border-bottom:2px solid var(--ink);color:var(--ink);vertical-align:bottom}
+.cmp td{padding:12px 10px 12px 0;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}
+.cmp td:first-child{font-weight:700;color:var(--ink);width:24%;font-family:var(--sans);font-size:.86rem}
+.cmp td:nth-child(2){width:36%;color:var(--mute)}
+.cmp td:nth-child(3){width:40%}
+.tick{color:var(--green-d);font-weight:800}
+.cmp.fees td:first-child{width:18%}.cmp.fees td:nth-child(2){width:47%}.cmp.fees td:nth-child(3){width:35%;color:var(--ink)}
+@media(max-width:600px){.cmp.fees td:first-child{width:22%;overflow-wrap:normal;word-break:normal;hyphens:manual}}
+
+/* price */
+.pricebox{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.pricebox>div{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:20px}
+.pricebox .n{font-family:var(--sans);font-size:2rem;font-weight:800;color:var(--ink);letter-spacing:-.03em;line-height:1}
+.pricebox .l{font-size:.85rem;color:var(--mute);margin-top:7px;line-height:1.4}
+/*
+  The melt, lifted from the Sprinkles pitch. .price-num is what counts; tabular figures so
+  the card does not jitter sideways while the digits change. .was is the struck market
+  anchor and it is the ONLY place the anchor lives in the markup: the number in the DOM is
+  the real price, and the script writes the anchor in and counts it down. Scripts blocked,
+  or reduced motion, and the reader sees $2,000.
+*/
+.pricebox .was{display:block;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.pricebox .was s{text-decoration-color:var(--pink);text-decoration-thickness:2px}
+.price-num{font-variant-numeric:tabular-nums}
+.pricesrc{font-size:.84rem;color:var(--mute);margin:-4px 0 18px}
+@media(max-width:600px){.pricebox{grid-template-columns:1fr}}
+
+/* demo cta and the closing band */
+.demo{background:linear-gradient(135deg,#201712,#3A2416);color:#F6EFE4;border-radius:18px;padding:32px;margin:22px 0;text-align:center}
+.demo .k{color:var(--green)}
+.demo h3{color:#fff;margin:10px 0 8px;font-size:1.4rem}
+.demo p{color:#D8CBBA;font-size:.98rem;max-width:34em;margin:0 auto 20px}
+.demo a{display:inline-block;background:var(--pink-d);color:#fff;font-family:var(--sans);font-weight:700;font-size:.82rem;box-shadow:0 6px 16px -6px rgba(232,77,138,.55);
+ letter-spacing:.09em;text-transform:uppercase;padding:15px 30px;border-radius:999px;text-decoration:none;transition:all .18s}
+.demo a:hover{background:var(--green);color:var(--ink);transform:translateY(-2px)}
+/* The closing band: one pill. The agreement, the demo and Kevin stay plain
+   links underneath, because a second pill here would be a second close. */
+.demo a.big{padding:18px 44px;font-size:.92rem;margin-top:4px}
+.demo .after{color:#D8CBBA;font-size:.92rem;max-width:38em;margin:14px auto 0;line-height:1.6}
+.demo .after a{display:inline;background:none;box-shadow:none;padding:0;border-radius:0;font-family:inherit;font-size:inherit;letter-spacing:0;text-transform:none;color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.demo .after a:hover{background:none;color:var(--green);transform:none}
+.vurl{font-family:var(--sans);font-size:.72rem;color:var(--mute);letter-spacing:.02em;word-break:break-all;display:block;margin-top:10px}
+
+/* steps */
+.step{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.step .no{font-family:var(--sans);font-weight:800;font-size:.78rem;color:#fff;background:var(--pink-d);width:28px;height:28px;
+ border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.step h4{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:4px}
+.step p{font-size:.95rem;margin:0}
+
+footer{background:var(--ink);color:#B9A894;padding:44px 0;font-size:.86rem;margin-top:20px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer .gl-foot{height:62px;width:auto;opacity:.95}
+footer b{color:#F6EFE4;display:block;font-family:var(--sans);font-size:.95rem;margin-bottom:4px}
+footer .bw{display:block;font-weight:800;color:#F6EFE4;letter-spacing:-.6px;margin-bottom:5px}
+footer .bw span{font-weight:350;color:#A6907F}
+footer a{color:var(--green)}
+.conf{font-size:.72rem;color:#A6907F;margin-top:14px;letter-spacing:.04em}
+.note{font-size:.85rem;color:var(--mute);font-style:italic;line-height:1.5}
+
+/* --- the mark, and its drip, lifted from glazedweb.com --- */
+.gmark{display:block;overflow:visible}
+.gmark .goo{transform-box:fill-box;transform-origin:50% 0;animation:breathe 6s ease-in-out infinite}
+.gmark .wob1,.gmark .wob2,.gmark .wob3,.gmark .wobB{transform-box:fill-box;transform-origin:50% 0}
+.gmark .wob1{animation:sagg 3.8s ease-in-out -.6s infinite}
+.gmark .wob2{animation:sagg 4.9s ease-in-out -2.1s infinite}
+.gmark .wob3{animation:sagg 4.3s ease-in-out -1.3s infinite}
+.gmark .wobB{animation:sagg 5.6s ease-in-out -3s infinite}
+.gmark .string{transform-box:fill-box;transform-origin:50% 0;animation:stringy 3.4s cubic-bezier(.55,.1,.8,.5) infinite}
+.gmark .droplet{transform-box:fill-box;transform-origin:center;animation:fall 3.4s cubic-bezier(.5,.08,.85,.6) infinite}
+.gmark .droplet2{transform-box:fill-box;transform-origin:center;animation:fall2 5.1s cubic-bezier(.5,.08,.85,.6) -2.4s infinite}
+@keyframes breathe{0%,to{transform:scaleY(1)}50%{transform:scaleY(1.02)}}
+@keyframes sagg{0%,to{transform:scaleY(1) scaleX(1)}50%{transform:scaleY(1.07) scaleX(.98)}}
+@keyframes stringy{0%{transform:scaleY(.1);opacity:0}25%{transform:scaleY(.8);opacity:1}60%{transform:scaleY(1.7);opacity:.85}80%{transform:scaleY(2.4);opacity:0}to{transform:scaleY(.1);opacity:0}}
+@keyframes fall{0%{transform:translateY(-16px) scaleY(1.5) scaleX(.7);opacity:0}22%{transform:translateY(-8px) scaleY(1.2) scaleX(.85);opacity:1}60%{transform:translateY(10px) scale(1);opacity:1}to{transform:translateY(38px) scaleY(1.15) scaleX(.9);opacity:0}}
+@keyframes fall2{0%{transform:translateY(-10px) scaleY(1.4) scaleX(.75);opacity:0}25%{transform:translateY(-4px) scale(1);opacity:1}65%{transform:translateY(8px) scale(1);opacity:1}to{transform:translateY(26px) scale(1);opacity:0}}
+@media (prefers-reduced-motion:reduce){
+ .gmark .goo,.gmark .wob1,.gmark .wob2,.gmark .wob3,.gmark .wobB,
+ .gmark .string,.gmark .droplet,.gmark .droplet2{animation:none}
+}
+.brand .gmark{height:38px;width:auto;margin-bottom:-6px}
+.hero .gmark{height:112px;width:auto;margin-bottom:26px}
+footer .gmark{height:78px;width:auto}
+</style></head><body>
+
+<header><div class="wrap">
+  <a class="brand" href="#top" aria-label="Glazed Web">
+    <svg class="gmark gl" viewBox="0 0 200 250" overflow="visible" aria-hidden="true"><defs><linearGradient id="dgGrad" x1="0" y1="92" x2="0" y2="165" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5FA850"></stop><stop offset="100%" stop-color="#43813A"></stop></linearGradient><linearGradient id="lgGrad" x1="0" y1="92" x2="0" y2="215" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#D9EDA0"></stop><stop offset="55%" stop-color="#BFE07A"></stop><stop offset="100%" stop-color="#A3CE55"></stop></linearGradient><radialGradient id="pinkGrad" cx="40%" cy="34%" r="75%"><stop offset="0%" stop-color="#F887B2"></stop><stop offset="55%" stop-color="#E84D8A"></stop><stop offset="100%" stop-color="#CE3672"></stop></radialGradient><linearGradient id="creepGrad" x1="0" y1="90" x2="0" y2="124" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E3F2B0"></stop><stop offset="100%" stop-color="#C3E181"></stop></linearGradient></defs><g class="goo"><g fill="url(#dgGrad)"><ellipse cx="100" cy="110" rx="38" ry="15"></ellipse><path class="wobB" d="M 86 100 C 86 116, 87 130, 88 142 C 88 148, 91 149, 92 142 C 93 130, 92 114, 92 100 Z"></path><path d="M 114 100 C 114 112, 115 124, 116 134 C 116 140, 119 141, 120 134 C 121 124, 120 110, 120 100 Z"></path></g><g fill="url(#lgGrad)"><path class="wob1" d="M 64 100 C 63 120, 65 138, 66 152 C 66 164, 68 172, 74 173 C 80 172, 83 165, 82 154 C 84 136, 85 116, 86 100 Z"></path><path class="wob2" d="M 92 100 C 91 128, 93 152, 94 172 C 94 188, 97 199, 104 200 C 111 199, 114 190, 112 174 C 113 150, 114 124, 114 100 Z"></path><path class="wob3" d="M 120 100 C 119 116, 120 130, 121 142 C 121 152, 123 159, 129 160 C 134 159, 137 153, 135 144 C 136 130, 137 114, 137 100 Z"></path></g></g><path class="string" d="M 104 199 L 104 209" stroke="#BFE07A" stroke-width="2.5" stroke-linecap="round" fill="none"></path><g class="droplet"><circle cx="104" cy="213" r="7" fill="#BFE07A"></circle><circle cx="102" cy="211" r="2" fill="#F1F8DC" opacity="0.9"></circle></g><circle class="droplet2" cx="74" cy="186" r="4.5" fill="#BFE07A"></circle><circle cx="100" cy="70" r="52" fill="url(#pinkGrad)"></circle><path d="M 56 98 A 52 52 0 0 0 144 98 C 142 94, 138 92, 134 94 C 130 97, 129 102, 125 104 C 119 106, 116 98, 110 96 C 104 94, 103 102, 98 105 C 93 107, 90 100, 84 97 C 78 95, 76 100, 71 102 C 66 103, 62 100, 56 98 Z" fill="url(#creepGrad)"></path><path d="M 68 106 A 42 42 0 0 0 84 116" fill="none" stroke="#F1F8DC" stroke-width="4" stroke-linecap="round" opacity="0.85"></path><path d="M 97 144 Q 103 151 109 144" fill="none" stroke="#55974A" stroke-width="4" stroke-linecap="round"></path><g stroke="#F1F8DC" fill="none" stroke-linecap="round"><path d="M 97 128 C 96 148, 97 166, 100 182" stroke-width="4.5" opacity="0.85"></path><path d="M 69 118 C 68 132, 70 146, 71 156" stroke-width="3.5" opacity="0.8"></path><path d="M 124 114 C 123 124, 125 138, 126 148" stroke-width="3.5" opacity="0.8"></path></g><circle cx="100" cy="192" r="2.5" fill="#F1F8DC" opacity="0.9"></circle><circle cx="100" cy="72" r="13" fill="#FDF6EC"></circle><circle cx="100" cy="72" r="13" fill="none" stroke="#C22F6B" stroke-width="3" opacity="0.3"></circle><path class="sheen" d="M 62 46 A 44 44 0 0 1 82 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path><circle class="sheen" cx="92" cy="26" r="3.5" fill="#FFFFFF"></circle></svg>
+    <span style="display:flex;flex-direction:column;line-height:1.15"><span class="bw">glazed<span>web</span></span><span>for St. Mary, Marshall</span></span>
+  </a>
+  <div class="hright">
+    <nav>
+      <a href="#found">Findings</a>
+      <a href="#own">Ownership</a>
+      <a href="#build">The site</a>
+      <a href="#demo">Demo</a>
+      <a href="#cost">Cost</a>
+      <a href="#next">Next</a>
+    </nav>
+    <a class="hdemo" href="https://www.glazedweb.com/build/stmarymarshall" target="_blank" rel="noopener">Launch ↗</a>
+  </div>
+</div></header>
+
+<div class="wrap" id="top">
+<div class="hero">
+  <svg class="gmark mark" viewBox="0 0 200 250" overflow="visible" aria-hidden="true"><defs><linearGradient id="dgGrad" x1="0" y1="92" x2="0" y2="165" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5FA850"></stop><stop offset="100%" stop-color="#43813A"></stop></linearGradient><linearGradient id="lgGrad" x1="0" y1="92" x2="0" y2="215" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#D9EDA0"></stop><stop offset="55%" stop-color="#BFE07A"></stop><stop offset="100%" stop-color="#A3CE55"></stop></linearGradient><radialGradient id="pinkGrad" cx="40%" cy="34%" r="75%"><stop offset="0%" stop-color="#F887B2"></stop><stop offset="55%" stop-color="#E84D8A"></stop><stop offset="100%" stop-color="#CE3672"></stop></radialGradient><linearGradient id="creepGrad" x1="0" y1="90" x2="0" y2="124" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E3F2B0"></stop><stop offset="100%" stop-color="#C3E181"></stop></linearGradient></defs><g class="goo"><g fill="url(#dgGrad)"><ellipse cx="100" cy="110" rx="38" ry="15"></ellipse><path class="wobB" d="M 86 100 C 86 116, 87 130, 88 142 C 88 148, 91 149, 92 142 C 93 130, 92 114, 92 100 Z"></path><path d="M 114 100 C 114 112, 115 124, 116 134 C 116 140, 119 141, 120 134 C 121 124, 120 110, 120 100 Z"></path></g><g fill="url(#lgGrad)"><path class="wob1" d="M 64 100 C 63 120, 65 138, 66 152 C 66 164, 68 172, 74 173 C 80 172, 83 165, 82 154 C 84 136, 85 116, 86 100 Z"></path><path class="wob2" d="M 92 100 C 91 128, 93 152, 94 172 C 94 188, 97 199, 104 200 C 111 199, 114 190, 112 174 C 113 150, 114 124, 114 100 Z"></path><path class="wob3" d="M 120 100 C 119 116, 120 130, 121 142 C 121 152, 123 159, 129 160 C 134 159, 137 153, 135 144 C 136 130, 137 114, 137 100 Z"></path></g></g><path class="string" d="M 104 199 L 104 209" stroke="#BFE07A" stroke-width="2.5" stroke-linecap="round" fill="none"></path><g class="droplet"><circle cx="104" cy="213" r="7" fill="#BFE07A"></circle><circle cx="102" cy="211" r="2" fill="#F1F8DC" opacity="0.9"></circle></g><circle class="droplet2" cx="74" cy="186" r="4.5" fill="#BFE07A"></circle><circle cx="100" cy="70" r="52" fill="url(#pinkGrad)"></circle><path d="M 56 98 A 52 52 0 0 0 144 98 C 142 94, 138 92, 134 94 C 130 97, 129 102, 125 104 C 119 106, 116 98, 110 96 C 104 94, 103 102, 98 105 C 93 107, 90 100, 84 97 C 78 95, 76 100, 71 102 C 66 103, 62 100, 56 98 Z" fill="url(#creepGrad)"></path><path d="M 68 106 A 42 42 0 0 0 84 116" fill="none" stroke="#F1F8DC" stroke-width="4" stroke-linecap="round" opacity="0.85"></path><path d="M 97 144 Q 103 151 109 144" fill="none" stroke="#55974A" stroke-width="4" stroke-linecap="round"></path><g stroke="#F1F8DC" fill="none" stroke-linecap="round"><path d="M 97 128 C 96 148, 97 166, 100 182" stroke-width="4.5" opacity="0.85"></path><path d="M 69 118 C 68 132, 70 146, 71 156" stroke-width="3.5" opacity="0.8"></path><path d="M 124 114 C 123 124, 125 138, 126 148" stroke-width="3.5" opacity="0.8"></path></g><circle cx="100" cy="192" r="2.5" fill="#F1F8DC" opacity="0.9"></circle><circle cx="100" cy="72" r="13" fill="#FDF6EC"></circle><circle cx="100" cy="72" r="13" fill="none" stroke="#C22F6B" stroke-width="3" opacity="0.3"></circle><path class="sheen" d="M 62 46 A 44 44 0 0 1 82 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path><circle class="sheen" cx="92" cy="26" r="3.5" fill="#FFFFFF"></circle></svg>
+  <div class="k">A letter to Fr. Craig · St. Mary, Marshall</div>
+  <h1>Father, the parish<br>has a new website.<br><em>It is a gift.</em></h1>
+  <p class="sub">I rebuilt stmarymarshall.org on my own time, from the parish&rsquo;s own photos, documents and words, and it is running today at the link below. This letter says what I found on the current site, what the new one does, and what it would cost to keep it running. The build itself costs the parish nothing.</p>
+  <p class="herocta">
+    <a href="/demo" target="_blank" rel="noopener">See the site ↗</a>
+    <a class="ghost" href="https://www.glazedweb.com/build/stmarymarshall" target="_blank" rel="noopener">Launch ↗</a>
+    <span>Look at it on your phone first. If you want it, Launch is the page where it starts.</span>
+  </p>
+  <div class="forwho">
+    From <b>Kevin Hershock · Glazed Web</b>, a parishioner<br>
+    Marshall, Michigan · October 2026<br>
+    <b>Every claim below links to the page that proves it.</b>
+  </div>
+
+  <div class="tldr">
+    <div class="k">The short version</div>
+    <ul>
+      <li><span class="n">01</span><span>The new site is <b>built and running</b>: Mass times with the next Mass computed live, every ministry and sacrament, the calendar, the bulletin, registration, Mass intentions and prayer requests.</span></li>
+      <li><span class="n">02</span><span>The current site&rsquo;s photos, PDFs and calendar all live on <b>eCatholic&rsquo;s servers</b>. On the new site they are the parish&rsquo;s own files, on the parish&rsquo;s own address.</span></li>
+      <li><span class="n">03</span><span>Three inner pages are titled <b>&ldquo;Please click to learn more&hellip;&rdquo;</b>, the history names a bishop two bishops ago, and the We Care Fund has two different phone numbers.</span></li>
+      <li><span class="n">04</span><span><b>No build fee.</b> $150 a month keeps it hosted and kept current, in place of the eCatholic subscription.</span></li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<section id="found"><div class="wrap">
+  <div class="k">Section one</div><div class="rule"></div>
+  <h2>What we found.</h2>
+  <p>None of this is a complaint about the parish. The current site has what matters most on its front page, Mass times, the address and the phone, which is more than many parish sites manage. What follows is about the details a visitor meets after that, read in a browser on <strong>October 27, 2026</strong>. Tap the link under each one to see it yourself.</p>
+
+  <div class="claim">
+    <h4>Three pages are titled &ldquo;Please click to learn more&hellip;&rdquo;</h4>
+    <p>The About page&rsquo;s title, the words a search engine shows and the browser tab carries, is <strong>&ldquo;Please click to learn more about the community of St. Mary.&rdquo;</strong> Faith Formation and Councils/Ministries are titled the same way. The instruction meant for a menu became the name of the page, so someone searching &ldquo;St. Mary Marshall staff&rdquo; sees a line that tells them to click rather than what they will find. The About, Sacraments and Ministries pages carry no description at all for search engines, and the one on the home page is a list of keywords with &ldquo;RCIA&rdquo; in it twice.</p>
+    <a class="verify" href="https://stmarymarshall.org/about-us" target="_blank" rel="noopener">Open the About page and read the tab ↗</a>
+  </div>
+  <div class="claim">
+    <h4>The history ends two bishops ago</h4>
+    <p>The parish history says <strong>&ldquo;Bishop Paul Bradley is the current Bishop.&rdquo;</strong> Bishop Edward M. Lohse was installed as the fifth Bishop of Kalamazoo on July 25, 2023, as the diocese and St. Philip in Battle Creek both say. A small thing, and the kind of small thing a visitor from another parish notices first. The new site&rsquo;s history has been brought up to date.</p>
+    <a class="verify" href="https://stmarymarshall.org/about-us" target="_blank" rel="noopener">History, under the About tab ↗</a>
+    <a class="verify" href="https://stphilipbc.org/" target="_blank" rel="noopener">St. Philip on Bishop Lohse ↗</a>
+  </div>
+  <div class="claim">
+    <h4>The We Care Fund has two phone numbers</h4>
+    <p>The Donate page says to reach Gus Groat at <strong>269-781-0008</strong>. The Knights of Columbus page says <strong>269-830-7744</strong>. One of them is current and a family in need will dial the other. The new site keeps both where they were and asks the office which is right, because that is a question only the office can answer.</p>
+    <a class="verify" href="https://stmarymarshall.org/donate" target="_blank" rel="noopener">Donate page ↗</a>
+    <a class="verify" href="https://stmarymarshall.org/ministries" target="_blank" rel="noopener">Knights of Columbus tab ↗</a>
+  </div>
+  <div class="claim">
+    <h4>Nothing on the site says when the office is open</h4>
+    <p>The phone number is everywhere; the hours are nowhere. A visitor who wants to drop off a registration form, pay a stipend or ask about a baptism has to call to find out when calling works. St. Philip in Battle Creek publishes its office hours on the front page. The new site has a place for them and is waiting on the answer.</p>
+    <a class="verify" href="https://stmarymarshall.org/" target="_blank" rel="noopener">Home page ↗</a>
+    <a class="verify" href="https://stphilipbc.org/" target="_blank" rel="noopener">St. Philip&rsquo;s hours ↗</a>
+  </div>
+  <div class="claim">
+    <h4>The home page loads 208 images, seven of them 1,920 pixels wide, on every phone</h4>
+    <p>Measured in a browser on the home page: <strong>19 scripts, 8 stylesheets and 208 image files</strong>, including all seven slideshow photographs at full size whether or not the visitor&rsquo;s phone can show them. Two of the slides are a &ldquo;Thank You For Your Support&rdquo; card and a parking-lot notice about work that finished in early September. Sharing the site&rsquo;s link in a text or on Facebook shows no picture, because no page declares one.</p>
+    <a class="verify" href="https://stmarymarshall.org/" target="_blank" rel="noopener">Watch the slideshow ↗</a>
+    <span class="verify plain">Counts measured in a browser, 2026-10-27</span>
+  </div>
+  <div class="claim">
+    <h4>The parish&rsquo;s files are on somebody else&rsquo;s server</h4>
+    <p>The registration form, the cemetery map, the cemetery rules and fees, the Religious Education calendars, and Fr. Craig&rsquo;s Christmas letter and mid-summer update are all served from <span class="mono">files.ecatholic.com/6225/&hellip;</span>. So are the seven slideshow photographs. The calendar is an eCatholic feed. The day the eCatholic subscription ends, every one of those links stops working, and there is no copy of them on anything the parish holds. The new site carries all of them as the parish&rsquo;s own files, on the parish&rsquo;s own address.</p>
+    <a class="verify" href="https://files.ecatholic.com/6225/documents/2025/2/St.%20Mary%20Cemetery.pdf" target="_blank" rel="noopener">The cemetery map&rsquo;s address ↗</a>
+    <a class="verify" href="https://stmarymarshall.org/about-us" target="_blank" rel="noopener">Where it is linked from ↗</a>
+  </div>
+  <div class="claim">
+    <h4>Small things a parishioner noticed</h4>
+    <p>The About page has a <strong>MyParishApp</strong> tab with nothing under it. The email address on the home page is plain text, so a phone cannot tap it. The &ldquo;Sync to my Calendar&rdquo; button works only while eCatholic does. None of these takes an afternoon to fix; all of them are fixed on the new site.</p>
+    <a class="verify" href="https://stmarymarshall.org/about-us" target="_blank" rel="noopener">The empty tab ↗</a>
+  </div>
+
+  <p style="margin-top:26px;font-size:1.08rem;color:var(--ink)">A parish office has a hundred things to do before the website, and the current site was the right call when it was made. These are the details a visitor meets, and details are what I do for a living. <strong>I would rather fix them for my own parish than point at them.</strong></p>
+</div></section>
+
+<section id="own"><div class="wrap">
+  <div class="k">Section two</div><div class="rule"></div>
+  <h2>The part that matters most.</h2>
+  <p style="font-size:1.1rem;color:var(--ink)">The parish pays for the current site every month, and at the end of that it owns nothing: the template is eCatholic&rsquo;s, the files are on eCatholic&rsquo;s servers, the calendar is eCatholic&rsquo;s feed.</p>
+
+  <h3>What the parish holds today</h3>
+  <table class="cmp">
+    <tr><th>The parish&rsquo;s</th><th>Where it lives</th><th>Who holds it</th></tr>
+    <tr><td>The domain</td><td>stmarymarshall.org</td><td><span class="tick">The parish.</span> This is the one thing that is already yours, and it stays yours.</td></tr>
+    <tr><td>The pages</td><td>An eCatholic template, edited through their login</td><td>eCatholic</td></tr>
+    <tr><td>The photos</td><td>files.ecatholic.com</td><td>eCatholic</td></tr>
+    <tr><td>The PDFs</td><td>files.ecatholic.com</td><td>eCatholic</td></tr>
+    <tr><td>The calendar</td><td>An eCatholic feed</td><td>eCatholic</td></tr>
+    <tr><td>Registrations</td><td>An eCatholic form</td><td>eCatholic</td></tr>
+  </table>
+
+  <div class="demo" style="text-align:left;background:var(--card);color:var(--body);border:2px solid var(--green)">
+    <div class="k" style="color:var(--green-d)">What I would do instead</div>
+    <h3 style="color:var(--ink);margin-top:8px">The parish owns it. All of it.</h3>
+    <p style="color:var(--body);margin:0">The site becomes the parish&rsquo;s in writing on day one, since there is no build fee to wait for: the design, the source code, every photo and PDF, the calendar data. If the parish ever leaves me, it gets the working project, repository, hosting and logins. <strong>Not a snapshot. Not an export.</strong> Month to month, thirty days&rsquo; notice, no exit fee. That clause is titled <em>No hostage-taking</em>, because I would rather say it plainly than bury it.</p>
+  </div>
+
+  <h3>Two questions worth asking the office this week</h3>
+  <table class="cmp">
+    <tr><td>Who holds the eCatholic login, and the domain login?</td><td colspan="2">The domain is the parish&rsquo;s most valuable piece of the internet. Make sure more than one person can get into the registrar, and that the renewal card is not an old one.</td></tr>
+    <tr><td>Which inbox should the website write to?</td><td colspan="2">Registrations, Mass intentions and prayer requests need an address a person opens every day. If that is stmarymarshall@aol.com, good; if not, the office knows which.</td></tr>
+  </table>
+</div></section>
+
+<section id="build"><div class="wrap">
+  <div class="k">Section three</div><div class="rule"></div>
+  <h2>What is built.</h2>
+  <p>Not a plan. The whole of the next section is a working site, and every row below is in it today.</p>
+
+  <table class="cmp">
+    <tr><th></th><th>Today</th><th>The new site</th></tr>
+    <tr><td>Mass times</td><td>A panel that opens from a tab</td><td>On the front page, with <span class="tick">the next Mass, Confession and Adoration computed from the clock</span>: &ldquo;Today 4:00 PM&rdquo; on a Tuesday, &ldquo;Saturday 3:30 PM&rdquo; for Confession. Holy Days of Obligation listed for the year.</td></tr>
+    <tr><td>Titles</td><td>&ldquo;Please click to learn more&hellip;&rdquo;</td><td>Every page named for what is on it, with its own description for search engines, and a Church record with the Mass schedule in the form Google reads.</td></tr>
+    <tr><td>About</td><td>Five tabs, one of them empty</td><td>Contact, staff, the history brought up to Bishop Lohse, and the cemetery with its map, rules and fees as the parish&rsquo;s own PDFs.</td></tr>
+    <tr><td>Sacraments, formation, ministries</td><td>Tabbed pages</td><td>The same words, the parish&rsquo;s own, on pages a phone can read, with <span class="tick">RCIA named beside OCIA</span> so people who still search the old name find the class.</td></tr>
+    <tr><td>The calendar</td><td>eCatholic&rsquo;s feed</td><td>Every recurring event, with its exceptions, as the parish&rsquo;s own data. Six weeks ahead on the page, <span class="tick">subscribe once</span> and it stays current on a phone, and an &ldquo;add to my calendar&rdquo; link on every event.</td></tr>
+    <tr><td>The bulletin</td><td>A link to DiscoverMass</td><td>This week&rsquo;s bulletin and the last three months, read from DiscoverMass each day. The bulletin itself does not move.</td></tr>
+    <tr><td>Registration</td><td>eCatholic&rsquo;s form</td><td>The same questions, on the parish&rsquo;s own page, emailed to the office. The printed form is there too for people who prefer paper.</td></tr>
+    <tr><td>Mass intentions and prayers</td><td>Call the office</td><td><span class="tick">Two short forms</span>: have a Mass offered for someone, or ask the parish to pray for them. Both go to the office, which confirms dates by phone, as now.</td></tr>
+    <tr><td>New here?</td><td>Nothing for a first visit</td><td>One page answering what a visitor asks: when, where, do I have to be Catholic, what about the kids, what happens after Mass, how do I join.</td></tr>
+    <tr><td>Giving</td><td>Vanco, the endowment, the We Care Fund</td><td>Unchanged. The same Vanco link, the same endowment at the Catholic Foundation. Nothing about how the parish takes money moves.</td></tr>
+    <tr><td>Weight</td><td>208 images on the front page</td><td>One photograph in the hero, sized to the phone asking for it. The front page loads in about a second on a throttled phone connection, measured.</td></tr>
+  </table>
+
+  <p class="note">A few lines on the new site are waiting on the office rather than on me: the Mass times for the holy days, the office hours, which number is Gus Groat&rsquo;s, and the deacon&rsquo;s full name. Each one says so on the page rather than guessing.</p>
+</div></section>
+
+<section id="demo"><div class="wrap">
+  <div class="k">Section four</div><div class="rule"></div>
+  <h2>See it before you decide anything.</h2>
+  <p style="font-size:1.1rem;color:var(--ink)">Open it on your phone and use it. Find the next Mass, subscribe to the calendar, open this week&rsquo;s bulletin.</p>
+  <div class="demo">
+    <div class="k">The new site</div>
+    <h3>St. Mary, on its own address</h3>
+    <p>Everything in section three, running now. It is hidden from Google until it moves to stmarymarshall.org, so it cannot compete with the parish for its own name in the meantime.</p>
+    <a href="/demo" target="_blank" rel="noopener">Open the site ↗</a>
+    <span class="vurl" style="color:#B9A894">stmarymarshall.glazedweb.com/demo</span>
+  </div>
+</div></section>
+
+<section id="cost"><div class="wrap">
+  <div class="k">Section five</div><div class="rule"></div>
+  <h2>What it costs.</h2>
+
+  <div class="pricebox">
+    <div><span class="was" aria-hidden="true">The published menu price for a site this size: <s>$2,000</s></span><div class="n">A gift</div><div class="l">The build. Fourteen pages, three forms, the calendar, the parish&rsquo;s files brought home. It is already done.</div></div>
+    <div><span class="was" aria-hidden="true">Same menu, ongoing</span><div class="n">$150<span style="font-size:1rem;color:var(--mute)">/mo</span></div><div class="l">Hosting, security updates, backups, and the edits: holy day times, a new staff member, a changed Mass time, the calendar for next year. Text or email the change; it is up the same week.</div></div>
+  </div>
+  <p class="pricesrc">The struck number is Glazed Web&rsquo;s own published price for a six-page site with forms, the Baker&rsquo;s Dozen on <a href="https://www.glazedweb.com/#menu" target="_blank" rel="noopener">glazedweb.com ↗</a>. The monthly is the same menu&rsquo;s monthly; the parish is not being charged a special rate, only spared the build.</p>
+  <p>That is <strong>$1,800 a year</strong>, replacing the eCatholic subscription. I have not seen that invoice and will not guess at it; the office has the number. Work beyond keeping the site current, a new section or a new tool, is quoted first and approved before it starts.</p>
+
+  <h3>Why the monthly is not zero</h3>
+  <p>A website with nobody paid to mind it stops being minded. Dates age, and the person who built it as a favor has a job. The monthly is what makes &ldquo;can you change the Christmas Mass times&rdquo; a normal request to a vendor rather than a favor to ask of a parishioner, and it is the same arrangement every other client of mine has, in writing.</p>
+</div></section>
+
+<section id="next"><div class="wrap">
+  <div class="k">Section six</div><div class="rule"></div>
+  <h2>What happens next.</h2>
+  <div class="step"><div class="no">1</div><div><h4>Launch</h4><p>Everything from here lives on one page, the parish&rsquo;s: <a href="https://www.glazedweb.com/build/stmarymarshall" target="_blank" rel="noopener">glazedweb.com/build/stmarymarshall</a>. Where things stand, the handful of things only the office can supply with the reason for each, what happens in what order, and where the parish&rsquo;s things are. I keep it current.</p></div></div>
+  <div class="step"><div class="no">2</div><div><h4>Look at the site</h4><p>Ten minutes at <a href="/demo" target="_blank" rel="noopener">stmarymarshall.glazedweb.com/demo</a>, on a phone. Show it to Stacie. If something is wrong, that is useful to hear, and it is one edit.</p></div></div>
+  <div class="step"><div class="no">3</div><div><h4>The office answers a short list</h4><p>Holy day Mass times, office hours, Gus&rsquo;s number, the deacon&rsquo;s name, which inbox the forms go to, and who holds the domain login. Nothing else is waiting on anyone.</p></div></div>
+  <div class="step"><div class="no">4</div><div><h4>Live on stmarymarshall.org</h4><p>One change at the domain registrar, done with whoever holds that login, and the new site answers at the parish&rsquo;s address. The eCatholic subscription can end after that, not before, so nothing is ever offline.</p></div></div>
+
+  <div class="demo">
+    <div class="k">The one thing to do</div>
+    <h3>Everything from here is on one page.</h3>
+    <p>Where things stand, what the office needs to send, what happens in what order, and where the parish&rsquo;s things are.</p>
+    <a class="big" href="https://www.glazedweb.com/build/stmarymarshall" target="_blank" rel="noopener">Launch ↗</a>
+    <p class="after"><a href="https://www.glazedweb.com/agreement/stmarymarshall" target="_blank" rel="noopener">Ready to say yes? The agreement is digital and short enough to read</a>: the same plain-English terms every client gets, with the parish&rsquo;s scope and the $150 in an Exhibit A of its own, and no build fee on it.</p>
+    <p class="after"><a href="https://www.glazedweb.com/build/stmarymarshall#try" target="_blank" rel="noopener">Want to test it first?</a> Five things to try on the site right now, from finding the next Mass to sending a prayer request that lands in the log.</p>
+    <p class="after">Not yet? <a href="/demo" target="_blank" rel="noopener">Open the site</a> one more time, or catch me after the 9:00 on Sunday.</p>
+    <p class="after">Or <a href="mailto:kevin@glazedweb.com?subject=St.%20Mary%20website">email Kevin</a>. Glazed Web is one person, in the parish.</p>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div>
+    <span class="bw" style="font-size:21px">glazed<span>web</span></span>
+    Kevin Hershock · Marshall, Michigan<br>
+    <a href="https://glazedweb.com" target="_blank" rel="noopener">glazedweb.com</a> · kevin@glazedweb.com
+    <div class="conf">Prepared for St. Mary Parish, Marshall · October 2026</div>
+  </div>
+  <svg class="gmark gl-foot" viewBox="0 0 200 250" overflow="visible" aria-hidden="true"><defs><linearGradient id="dgGrad" x1="0" y1="92" x2="0" y2="165" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5FA850"></stop><stop offset="100%" stop-color="#43813A"></stop></linearGradient><linearGradient id="lgGrad" x1="0" y1="92" x2="0" y2="215" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#D9EDA0"></stop><stop offset="55%" stop-color="#BFE07A"></stop><stop offset="100%" stop-color="#A3CE55"></stop></linearGradient><radialGradient id="pinkGrad" cx="40%" cy="34%" r="75%"><stop offset="0%" stop-color="#F887B2"></stop><stop offset="55%" stop-color="#E84D8A"></stop><stop offset="100%" stop-color="#CE3672"></stop></radialGradient><linearGradient id="creepGrad" x1="0" y1="90" x2="0" y2="124" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E3F2B0"></stop><stop offset="100%" stop-color="#C3E181"></stop></linearGradient></defs><g class="goo"><g fill="url(#dgGrad)"><ellipse cx="100" cy="110" rx="38" ry="15"></ellipse><path class="wobB" d="M 86 100 C 86 116, 87 130, 88 142 C 88 148, 91 149, 92 142 C 93 130, 92 114, 92 100 Z"></path><path d="M 114 100 C 114 112, 115 124, 116 134 C 116 140, 119 141, 120 134 C 121 124, 120 110, 120 100 Z"></path></g><g fill="url(#lgGrad)"><path class="wob1" d="M 64 100 C 63 120, 65 138, 66 152 C 66 164, 68 172, 74 173 C 80 172, 83 165, 82 154 C 84 136, 85 116, 86 100 Z"></path><path class="wob2" d="M 92 100 C 91 128, 93 152, 94 172 C 94 188, 97 199, 104 200 C 111 199, 114 190, 112 174 C 113 150, 114 124, 114 100 Z"></path><path class="wob3" d="M 120 100 C 119 116, 120 130, 121 142 C 121 152, 123 159, 129 160 C 134 159, 137 153, 135 144 C 136 130, 137 114, 137 100 Z"></path></g></g><path class="string" d="M 104 199 L 104 209" stroke="#BFE07A" stroke-width="2.5" stroke-linecap="round" fill="none"></path><g class="droplet"><circle cx="104" cy="213" r="7" fill="#BFE07A"></circle><circle cx="102" cy="211" r="2" fill="#F1F8DC" opacity="0.9"></circle></g><circle class="droplet2" cx="74" cy="186" r="4.5" fill="#BFE07A"></circle><circle cx="100" cy="70" r="52" fill="url(#pinkGrad)"></circle><path d="M 56 98 A 52 52 0 0 0 144 98 C 142 94, 138 92, 134 94 C 130 97, 129 102, 125 104 C 119 106, 116 98, 110 96 C 104 94, 103 102, 98 105 C 93 107, 90 100, 84 97 C 78 95, 76 100, 71 102 C 66 103, 62 100, 56 98 Z" fill="url(#creepGrad)"></path><path d="M 68 106 A 42 42 0 0 0 84 116" fill="none" stroke="#F1F8DC" stroke-width="4" stroke-linecap="round" opacity="0.85"></path><path d="M 97 144 Q 103 151 109 144" fill="none" stroke="#55974A" stroke-width="4" stroke-linecap="round"></path><g stroke="#F1F8DC" fill="none" stroke-linecap="round"><path d="M 97 128 C 96 148, 97 166, 100 182" stroke-width="4.5" opacity="0.85"></path><path d="M 69 118 C 68 132, 70 146, 71 156" stroke-width="3.5" opacity="0.8"></path><path d="M 124 114 C 123 124, 125 138, 126 148" stroke-width="3.5" opacity="0.8"></path></g><circle cx="100" cy="192" r="2.5" fill="#F1F8DC" opacity="0.9"></circle><circle cx="100" cy="72" r="13" fill="#201712"></circle><circle cx="100" cy="72" r="13" fill="none" stroke="#C22F6B" stroke-width="3" opacity="0.3"></circle><path class="sheen" d="M 62 46 A 44 44 0 0 1 82 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path><circle class="sheen" cx="92" cy="26" r="3.5" fill="#FFFFFF"></circle></svg>
+</div></footer>
+</body></html>
