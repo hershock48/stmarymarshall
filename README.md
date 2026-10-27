@@ -105,6 +105,8 @@ mobile menu for a look. Run both before shipping any header or CSS change.
 - **Tailwind 4 on Next 16.4 needs the Turbopack loader rule in
   `next.config.ts`.** The first build dropped it and every utility class
   vanished while the build stayed green. Keep the `turbopack.rules` block.
+- Any plain CSS rule in `globals.css` that is not inside `@layer base` beats
+  every Tailwind utility. Put element-level rules in `@layer base`.
 - `MSYS_NO_PATHCONV=1` before any glaze script on Windows Git Bash, or the
   `/` route becomes `C:/Program Files/Git/`.
 - The two addresses are real: the church is 214 S. Eagle St. (corner of Eagle
