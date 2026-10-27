@@ -44,7 +44,7 @@ export default async function Register({ searchParams }: { searchParams: Promise
                 {INTERESTS.map((it, i) => (
                   <li key={it}>
                     <label className="flex min-h-11 items-center gap-3 text-[17px] text-ink">
-                      <input type="checkbox" name={`interest_${i}`} value={it} className="h-5 w-5 accent-marian" />
+                      <input type="checkbox" name={`interest_${i}`} value={it} className="h-6 w-6 accent-marian" />
                       {it}
                     </label>
                   </li>

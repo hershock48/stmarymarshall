@@ -43,6 +43,12 @@ export const SITE = {
   timeZone: "America/Detroit",
 } as const;
 
+/**
+ * Eight items, and Give is the header's button rather than a ninth. Nine
+ * only fit at 1280px and up, so every laptop got the hamburger; eight fit
+ * from 1024. Give as the button follows what the strongest parish sites do
+ * (Nativity, St. Monica) and keeps the one money action visible everywhere.
+ */
 export const NAV = [
   { href: "/new", label: "New Here?" },
   { href: "/mass-times", label: "Mass Times" },
@@ -52,7 +58,6 @@ export const NAV = [
   { href: "/ministries", label: "Ministries" },
   { href: "/events", label: "Calendar" },
   { href: "/bulletin", label: "Bulletin" },
-  { href: "/give", label: "Give" },
 ] as const;
 
 /** Links that leave the site. Kept here so a dead one is one edit. */

@@ -7,9 +7,14 @@ import Mark from "@/components/Mark";
 import { NAV, SITE } from "@/lib/site";
 
 /**
- * The header. The mobile menu renders CLOSED in the server HTML and opens
- * on tap, so there is no layout shift on hydration (glaze.md). With
- * JavaScript off the eight links are still reachable from the footer.
+ * The header. Eight nav items from 1024px up, the Give button always, the
+ * phone only where there is room. The mobile menu renders CLOSED in the
+ * server HTML and opens on tap, so there is no layout shift on hydration
+ * (glaze.md). With JavaScript off every link is still in the footer.
+ *
+ * Measured, not guessed: at 1024 the wordmark drops "Catholic Church" so
+ * the eight items and the button fit on one line; at 1280 it comes back;
+ * at 1536 the phone number joins. Below 1024 it is the menu button.
  */
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -28,12 +33,12 @@ export default function Header() {
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex min-h-11 shrink-0 items-center gap-3 text-cream" aria-label={`${SITE.name} home`}>
           <Mark size={34} className="text-gold" />
-          <span className="display text-xl leading-none sm:text-2xl">
-            St. Mary <span className="hidden text-dim sm:inline">Catholic Church</span>
+          <span className="display text-xl leading-none whitespace-nowrap sm:text-2xl">
+            St. Mary <span className="hidden text-dim sm:inline lg:hidden xl:inline">Catholic Church</span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-5 xl:flex" aria-label="Main">
+        <nav className="hidden items-center gap-4 lg:flex xl:gap-5" aria-label="Main">
           {NAV.map((item) => {
             const active = pathname === item.href || pathname.startsWith(item.href + "/");
             return (
@@ -41,7 +46,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`inline-flex min-h-11 items-center whitespace-nowrap text-[15px] font-semibold tracking-wide transition-colors ${
+                className={`inline-flex min-h-11 items-center whitespace-nowrap text-[14px] font-semibold tracking-wide transition-colors xl:text-[15px] ${
                   active ? "text-gold" : "text-dim hover:text-cream"
                 }`}
               >
@@ -52,24 +57,21 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          {/* Nine nav items plus the phone plus the button wrapped at 1440.
-              The phone shows below the nav breakpoint (where the nav is in
-              the menu anyway) and again at 2xl where there is room. */}
-          <a href={SITE.phoneHref} className="hidden min-h-11 items-center whitespace-nowrap text-sm text-dim transition-colors hover:text-cream md:flex xl:hidden 2xl:flex">
+          <a href={SITE.phoneHref} className="hidden min-h-11 items-center whitespace-nowrap text-sm text-dim transition-colors hover:text-cream md:flex lg:hidden 2xl:flex">
             {SITE.phone}
           </a>
           <Link
-            href="/mass-times"
-            className="hidden min-h-11 items-center whitespace-nowrap rounded-sm bg-gold px-4 text-sm font-semibold text-navy transition-colors hover:bg-gold-light sm:inline-flex"
+            href="/give"
+            className="inline-flex min-h-11 items-center whitespace-nowrap rounded-sm bg-gold px-4 text-sm font-semibold text-navy transition-colors hover:bg-gold-light"
           >
-            Mass Times
+            Give
           </Link>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="mobile-nav"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-navy-line text-cream xl:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-navy-line text-cream lg:hidden"
           >
             <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -80,7 +82,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <nav id="mobile-nav" aria-label="Mobile" className="border-t border-navy-line bg-navy-soft xl:hidden">
+        <nav id="mobile-nav" aria-label="Mobile" className="border-t border-navy-line bg-navy-soft lg:hidden">
           <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6">
             {NAV.map((item) => (
               <Link
@@ -93,10 +95,10 @@ export default function Header() {
               </Link>
             ))}
             <div className="mt-4 grid gap-3 pb-2">
-              <Link href="/mass-times" className="rounded-sm bg-gold px-5 py-3.5 text-center font-semibold text-navy">
-                Mass Times
+              <Link href="/register" className="inline-flex min-h-12 items-center justify-center rounded-sm border border-gold px-5 font-semibold text-gold-light">
+                Register with the parish
               </Link>
-              <a href={SITE.phoneHref} className="rounded-sm border border-navy-line px-5 py-3.5 text-center font-semibold text-cream">
+              <a href={SITE.phoneHref} className="inline-flex min-h-12 items-center justify-center rounded-sm border border-navy-line px-5 font-semibold text-cream">
                 Call {SITE.phone}
               </a>
             </div>

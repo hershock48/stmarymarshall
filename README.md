@@ -90,6 +90,16 @@ The mark is the parish's own ring-and-M favicon, redrawn as geometry in
 The studio credit plate is cream under the navy footer (plate.mjs: 14.9
 against the footer; chocolate would be invisible).
 
+## Checks beyond the auditor
+
+`node tools/ux-check.mjs` (production server on 4490) measures what axe does
+not: every link and button at least 24px, every inline-flex button still
+laid out as flex (an unlayered CSS rule once turned the Call buttons into
+inline-block and their text sat at the top), button text vertically
+centered, the header on one line at 390, 1024, 1280 and 1440, nothing
+clipped. `tools/headers.mjs` screenshots the header strips and the open
+mobile menu for a look. Run both before shipping any header or CSS change.
+
 ## Traps
 
 - **Tailwind 4 on Next 16.4 needs the Turbopack loader rule in

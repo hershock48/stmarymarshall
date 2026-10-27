@@ -118,11 +118,24 @@ details.fold[open] > summary .chev {
   transform: rotate(180deg);
 }
 
-/* Tap targets: every link in body prose is at least 24px tall, and the
-   small controls grow an invisible hit area (glaze/standards.md). */
-a[href^="tel:"], a[href^="mailto:"] {
-  display: inline-block;
-  min-height: 24px;
+/* Tap targets: every phone and email link in body prose is at least 24px
+   tall (glaze/standards.md). IN @layer base ON PURPOSE: unlayered CSS beats
+   every Tailwind utility, and the first version of this rule, unlayered,
+   turned the "Call (269) 781-3949" buttons from inline-flex into
+   inline-block, so their text sat at the top of the button instead of the
+   middle. Kevin saw it. In the base layer the button's own utilities win. */
+@layer base {
+  a[href^="tel:"], a[href^="mailto:"] {
+    display: inline-block;
+    min-height: 24px;
+  }
+  /* Every inline link in running text gets 2px of vertical padding. On an
+     inline element that changes no layout, and it lifts a 20px line of
+     link text to a 24px hit box (the measured minimum). tools/ux-check.mjs
+     found three such links at 20px. */
+  a {
+    padding-block: 2px;
+  }
 }
 
 /* Form fields on paper. */

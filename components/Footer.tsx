@@ -94,6 +94,11 @@ export default function Footer() {
                 </li>
               ))}
               <li>
+                <Link href="/give" className="inline-block min-h-6 hover:text-cream">
+                  Give
+                </Link>
+              </li>
+              <li>
                 <Link href="/register" className="inline-block min-h-6 hover:text-cream">
                   Register
                 </Link>
