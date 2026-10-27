@@ -133,7 +133,7 @@ export const FORMATION: readonly Section[] = [
     title: "Adult Faith Formation and OCIA",
     body: [
       "Want to learn more about the Catholic faith? Adult Faith Formation and OCIA classes meet Thursdays from 6:30 to 8:00 PM in the Parish Hall, beginning September 17, 2026. Guest speakers, video clips and discussion lead an exploration of the faith.",
-      "OCIA, the Order of Christian Initiation of Adults, is the Church’s process for those entering the Catholic Church. It used to be called RCIA. Classes are open to all adults, 18 and older: current Catholics who want to go deeper, people exploring the faith for the first time, and those who wish to become Catholic.",
+      "OCIA, the Order of Christian Initiation of Adults, is the Church’s process for those entering the Catholic Church. It used to be called RCIA, the Rite of Christian Initiation of Adults, and many people still know it by that name. Classes are open to all adults, 18 and older: current Catholics who want to go deeper, people exploring the faith for the first time, and those who wish to become Catholic.",
     ],
     contact: "Carol DiBiaggio, OCIA Coordinator, (269) 967-2919 or trinitas@att.net",
   },

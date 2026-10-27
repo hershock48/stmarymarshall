@@ -22,6 +22,9 @@ Facts live in one place each. Change the file, not the page.
 | The calendar (every recurring event, with exceptions) | `lib/events.ts` |
 | Staff, history, cemetery, sacraments, faith formation, ministries, giving | `lib/content.ts` |
 | Registration form fields | `lib/register.ts` |
+| Mass intention and prayer request fields | `lib/requests.ts` |
+| Holy Days of Obligation (dates, Mass times once known) | `HOLY_DAYS` in `lib/schedule.ts` |
+| The iCalendar feed | `lib/ics.ts`, served at `/calendar.ics` |
 | The PDFs the old site hosted on files.ecatholic.com | `public/docs/` |
 | Photos (the parish's own, cropped from its eCatholic slideshow) | `public/img/` |
 | Icons and the link card, generated | `node tools/icons.mjs` |
@@ -48,6 +51,19 @@ decisions below.
   a remote source: verify on the deployment**, not just locally. DiscoverMass
   single-quotes its attributes; the regex accepts both quote styles.
 - **Today's readings** is a computed USCCB link (MMDDYY).
+- **The calendar feed** at `/calendar.ics` is the next ninety days of events
+  expanded into plain VEVENTs (no RRULEs, so every calendar app agrees),
+  tagged America/Detroit. `?e=<id>` returns one event for the “Add to my
+  calendar” links; ids come from `occurrenceId` in `lib/ics.ts`.
+- **Mass intentions and prayer requests** (`/mass-intentions`,
+  `/prayer-request`) post to `/api/request` with the same three honest states
+  as registration. A Mass intention is a request the office confirms, never a
+  booking: the site does not know which Masses are taken and says so. No
+  stipend amount is printed because the parish has not published one.
+- **New here?** (`/new`) answers the first-visit questions from facts already
+  on the old site; nothing about parking or doors was invented.
+- **Holy Days** on the Mass times page list the dates for the current year with
+  `masses: null` until the office gives times.
 - **Registration** is a plain POST to `/api/register`. No JavaScript needed.
   Three honest outcomes: sent, unconfigured, failed. The visitor is told which
   on `/register/thanks`. Until SMTP is set, submissions are logged in full and
@@ -102,6 +118,9 @@ answers.
 - [x] **Bishop line in the history.** The old site stopped at Bishop Bradley; Bishop
       Edward M. Lohse (installed July 25, 2023) added from the diocese and St. Philip BC.
 - [ ] **Office hours** are not published anywhere. Ask.
+- [ ] **Holy day Mass times** for Dec 8, Christmas, Jan 1. Fill `HOLY_DAYS`.
+- [ ] **Mass stipend amount**, if the parish wants it printed on /mass-intentions.
+- [ ] **Prayer list practice**: does the bulletin print names, and for how long?
 - [ ] **MyParishApp** had a tab on the old About page with no content.
       Dropped. Ask whether the parish uses it.
 - [ ] **Who edits the calendar** once eCatholic is gone. Today: a pull request.

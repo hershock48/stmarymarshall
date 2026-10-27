@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FullSchedule, NextUp } from "@/components/Schedule";
 import { Band, GoldButton, H2, LineButton, PageHero } from "@/components/ui";
+import { fmtDate, fmtTime, localNow, upcomingHolyDays } from "@/lib/schedule";
 import { SITE } from "@/lib/site";
 import photo from "@/public/img/chapel-renovation.jpg";
 
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function MassTimes() {
+  const holyDays = upcomingHolyDays(localNow());
   return (
     <>
       <PageHero title="Mass Times and Directions" lede="Mass, Confession and Adoration at St. Mary, and how to find the door." photo={photo} priority />
@@ -27,7 +29,7 @@ export default function MassTimes() {
           <div>
             <H2>Finding the church</H2>
             <p className="mt-6 text-[17px] leading-relaxed text-ink">
-              St. Mary Church stands at the {SITE.church.corner} in Marshall, one block south of Michigan Avenue. The address for a map is {SITE.church.street}. The parish office is around the corner at {SITE.office.street}, and that is the mailing address for everything.
+              St. Mary Church stands at the {SITE.church.corner} in Marshall, one block south of Michigan Avenue. The address for a map is {SITE.church.street.replace(/\.$/, "")}. The parish office is around the corner at {SITE.office.street}, and that is the mailing address for everything.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <GoldButton href={SITE.mapUrl} external>
@@ -38,12 +40,26 @@ export default function MassTimes() {
               </LineButton>
             </div>
           </div>
-          <div>
-            <H2>Holy days and changes</H2>
-            <p className="mt-6 text-[17px] leading-relaxed text-ink">
-              Holy day and seasonal Mass times are announced in the bulletin and on the parish Facebook page, and special Masses appear on this page as they are scheduled. When the weather closes Marshall Public Schools, the office will say whether anything else is cancelled.
+          <div id="holy-days" className="scroll-mt-24">
+            <H2>Holy Days of Obligation</H2>
+            <ul className="mt-6 divide-y divide-paper-dim border-y border-paper-dim">
+              {holyDays.map((h) => (
+                <li key={h.date} className="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
+                  <p className="font-semibold tabular-nums text-ink">{fmtDate(h.date, true)}</p>
+                  <div>
+                    <p className="font-semibold text-ink">{h.label}</p>
+                    <p className="text-sm leading-relaxed text-ink-soft">
+                      {h.masses ? h.masses.map((m) => `${m.label ? `${m.label} ` : ""}${fmtTime(m.start)}`).join(", ") : "Mass times are announced in the bulletin."}
+                      {h.note ? ` ${h.note}` : ""}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 text-sm leading-relaxed text-ink-soft">
+              The Ascension is kept on the following Sunday in Michigan. Seasonal changes are announced in the bulletin and on the parish Facebook page, and when the weather closes Marshall Public Schools the office will say whether anything is cancelled.
             </p>
-            <div className="mt-8">
+            <div className="mt-6">
               <LineButton href="/bulletin" onPaper>
                 This week’s bulletin
               </LineButton>

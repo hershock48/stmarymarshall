@@ -15,7 +15,7 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const helper = path.join(ROOT, "..", "glazedweb", "glaze", "scripts", "lib", "browser.mjs");
 const { loadChromium, launchOpts } = await import(pathToFileURL(helper).href);
 const base = process.argv.includes("--base") ? process.argv[process.argv.indexOf("--base") + 1] : "http://127.0.0.1:4490";
-const routes = ["/", "/mass-times", "/about", "/sacraments", "/faith-formation", "/ministries", "/events", "/bulletin", "/give", "/register", "/register/thanks?state=unconfigured", "/nope"];
+const routes = ["/", "/mass-times", "/about", "/sacraments", "/faith-formation", "/ministries", "/events", "/bulletin", "/give", "/register", "/register/thanks?state=unconfigured", "/new", "/mass-intentions", "/prayer-request", "/nope"];
 const out = path.join(ROOT, "tools", "out");
 fs.mkdirSync(out, { recursive: true });
 const chromium = await loadChromium();

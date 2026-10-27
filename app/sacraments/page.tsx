@@ -41,10 +41,13 @@ export default function Sacraments() {
               </section>
             ))}
             <section className="border-t border-paper-dim pt-8">
-              <p className="text-[17px] leading-relaxed text-ink">Confession is heard every Saturday afternoon. The full schedule, with Adoration, is on the Mass times page.</p>
-              <div className="mt-5">
+              <p className="text-[17px] leading-relaxed text-ink">Confession is heard every Saturday afternoon. The full schedule, with Adoration, is on the Mass times page. To have a Mass offered for someone, request a Mass intention.</p>
+              <div className="mt-5 flex flex-wrap gap-3">
                 <LineButton href="/mass-times#confession" onPaper>
                   Confession times
+                </LineButton>
+                <LineButton href="/mass-intentions" onPaper>
+                  Mass intentions
                 </LineButton>
               </div>
             </section>

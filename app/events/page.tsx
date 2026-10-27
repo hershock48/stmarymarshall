@@ -40,9 +40,15 @@ export default async function Events({ searchParams }: { searchParams: Promise<{
           ))}
         </nav>
         <div className="mt-10">
-          <EventList items={items} showKind={!picked} />
+          <EventList items={items} showKind={!picked} addLinks />
         </div>
-        <p className="mt-10 text-sm leading-relaxed text-ink-soft">
+        <div className="mt-12 rounded-sm border border-paper-dim bg-paper-dim/50 p-5 text-[15px] leading-relaxed text-ink">
+          <p className="font-semibold">Keep this calendar on your phone</p>
+          <p className="mt-1">
+            Subscribe to <a href="/calendar.ics" className="font-semibold text-marian underline underline-offset-4">stmarymarshall.org/calendar.ics</a> in Google Calendar, Apple Calendar or Outlook and the next three months stay current on their own. On an iPhone, tapping the link offers to subscribe. In Google Calendar, use “Other calendars, From URL” and paste the address.
+          </p>
+        </div>
+        <p className="mt-8 text-sm leading-relaxed text-ink-soft">
           Weekly Mass, Confession and Adoration are on the <Link href="/mass-times" className="font-semibold text-marian underline underline-offset-4">Mass times page</Link>. Changes are announced in the bulletin and on the parish Facebook page.
         </p>
       </Band>

@@ -99,6 +99,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/mass-intentions" className="inline-block min-h-6 hover:text-cream">
+                  Mass intentions
+                </Link>
+              </li>
+              <li>
+                <Link href="/prayer-request" className="inline-block min-h-6 hover:text-cream">
+                  Prayer request
+                </Link>
+              </li>
+              <li>
                 <a href={LINKS.swmCatholic} target="_blank" rel="noopener noreferrer" className="inline-block min-h-6 hover:text-cream">
                   Southwest Michigan Catholic
                 </a>

@@ -33,7 +33,7 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 xl:flex" aria-label="Main">
+        <nav className="hidden items-center gap-5 xl:flex" aria-label="Main">
           {NAV.map((item) => {
             const active = pathname === item.href || pathname.startsWith(item.href + "/");
             return (
@@ -41,7 +41,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`inline-flex min-h-11 items-center text-[15px] font-semibold tracking-wide transition-colors ${
+                className={`inline-flex min-h-11 items-center whitespace-nowrap text-[15px] font-semibold tracking-wide transition-colors ${
                   active ? "text-gold" : "text-dim hover:text-cream"
                 }`}
               >
@@ -52,12 +52,15 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href={SITE.phoneHref} className="hidden min-h-11 items-center text-sm text-dim transition-colors hover:text-cream md:flex">
+          {/* Nine nav items plus the phone plus the button wrapped at 1440.
+              The phone shows below the nav breakpoint (where the nav is in
+              the menu anyway) and again at 2xl where there is room. */}
+          <a href={SITE.phoneHref} className="hidden min-h-11 items-center whitespace-nowrap text-sm text-dim transition-colors hover:text-cream md:flex xl:hidden 2xl:flex">
             {SITE.phone}
           </a>
           <Link
             href="/mass-times"
-            className="hidden min-h-11 items-center rounded-sm bg-gold px-4 text-sm font-semibold text-navy transition-colors hover:bg-gold-light sm:inline-flex"
+            className="hidden min-h-11 items-center whitespace-nowrap rounded-sm bg-gold px-4 text-sm font-semibold text-navy transition-colors hover:bg-gold-light sm:inline-flex"
           >
             Mass Times
           </Link>
@@ -90,8 +93,8 @@ export default function Header() {
               </Link>
             ))}
             <div className="mt-4 grid gap-3 pb-2">
-              <Link href="/register" className="rounded-sm border border-gold px-5 py-3.5 text-center font-semibold text-gold-light">
-                Register with the parish
+              <Link href="/mass-times" className="rounded-sm bg-gold px-5 py-3.5 text-center font-semibold text-navy">
+                Mass Times
               </Link>
               <a href={SITE.phoneHref} className="rounded-sm border border-navy-line px-5 py-3.5 text-center font-semibold text-cream">
                 Call {SITE.phone}

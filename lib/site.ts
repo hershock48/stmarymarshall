@@ -44,6 +44,7 @@ export const SITE = {
 } as const;
 
 export const NAV = [
+  { href: "/new", label: "New Here?" },
   { href: "/mass-times", label: "Mass Times" },
   { href: "/about", label: "About" },
   { href: "/sacraments", label: "Sacraments" },

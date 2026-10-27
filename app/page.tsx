@@ -36,7 +36,7 @@ export default function Home() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <GoldButton href="/mass-times">Mass times and directions</GoldButton>
-            <LineButton href="/register">New here? Register</LineButton>
+            <LineButton href="/new">New here?</LineButton>
           </div>
           <div className="mt-12">
             <NextUp />
@@ -85,6 +85,7 @@ export default function Home() {
           <div className="space-y-4">
             <Card title="This week’s bulletin" body="The parish bulletin, printed weekly, with the Mass intentions, the collection and the news." href="/bulletin" cta="Read the bulletin" />
             <Card title="Today’s readings" body="The daily Mass readings from the United States Conference of Catholic Bishops." href={readings} cta="Readings in English" external second={{ href: readingsEs, label: "Lecturas en español" }} />
+            <Card title="Prayers and Mass intentions" body="Ask the parish to pray for someone, or have a Mass offered for a loved one, living or deceased." href="/prayer-request" cta="Prayer request" second={{ href: "/mass-intentions", label: "Mass intention" }} />
             <Card title="Give" body="Online giving, the We Care Fund and the parish endowment." href="/give" cta="Ways to give" />
           </div>
         </div>
@@ -165,9 +166,9 @@ function Card({ title, body, href, cta, external, second }: { title: string; bod
           </Link>
         )}
         {second && (
-          <a href={second.href} {...ext} className="inline-block min-h-6 text-gold underline underline-offset-4 hover:text-gold-light">
+          <Link href={second.href} {...ext} className="inline-block min-h-6 text-gold underline underline-offset-4 hover:text-gold-light">
             {second.label}
-          </a>
+          </Link>
         )}
       </p>
     </div>

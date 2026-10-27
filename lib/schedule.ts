@@ -47,6 +47,25 @@ export const SPECIAL_MASSES: readonly { date: string; start: string; label: stri
   { date: "2026-11-26", start: "09:00", label: "Thanksgiving Mass" },
 ];
 
+/**
+ * Holy Days of Obligation for the current liturgical year, as the dioceses
+ * of Michigan keep them: the Ascension is transferred to the following
+ * Sunday, so it is not listed. When a holy day falls on a Saturday or a
+ * Monday the obligation is lifted in the United States (except Christmas
+ * and the Immaculate Conception), which the note says.
+ *
+ * Mass times are null until the office gives them; the page then prints
+ * the date and says the time comes in the bulletin. Fill `masses` with
+ * "HH:MM" strings as they are announced. Vigil Masses go in with a label.
+ */
+export const HOLY_DAYS: readonly { date: string; label: string; masses: { start: string; label?: string }[] | null; note?: string }[] = [
+  { date: "2026-12-08", label: "Immaculate Conception", masses: null },
+  { date: "2026-12-25", label: "Christmas Day", masses: null, note: "Christmas Eve Masses are announced in the bulletin." },
+  { date: "2027-01-01", label: "Mary, Mother of God", masses: null },
+  { date: "2027-08-15", label: "Assumption of Mary", masses: null, note: "Falls on a Sunday in 2027." },
+  { date: "2027-11-01", label: "All Saints", masses: null, note: "Falls on a Monday in 2027, so the obligation is lifted." },
+];
+
 export const DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] as const;
 
 /** "17:00" -> "5:00 PM" */
@@ -152,6 +171,11 @@ export function whenWord(n: NextService): string {
 /** Special Masses still ahead of today, soonest first. */
 export function upcomingSpecials(now: LocalNow) {
   return SPECIAL_MASSES.filter((s) => s.date >= now.iso).sort((a, b) => a.date.localeCompare(b.date));
+}
+
+/** Holy days still ahead of today, soonest first. */
+export function upcomingHolyDays(now: LocalNow) {
+  return HOLY_DAYS.filter((h) => h.date >= now.iso).sort((a, b) => a.date.localeCompare(b.date));
 }
 
 /** The weekend and weekday Masses, grouped for the schedule table. */
