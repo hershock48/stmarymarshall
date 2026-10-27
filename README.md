@@ -126,7 +126,7 @@ From `glaze/launch.md`. Work to zero.
 - [x] Studio credit placed, plate ground computed.
 - [ ] Registration form sent and **confirmed in the office inbox** (needs SMTP vars).
 - [x] Bulletin list verified on the deployment (stmarymarshall.vercel.app, 2026-10-27).
-- [ ] GitHub repo `hershock48/stmarymarshall` and one Vercel project.
+- [x] GitHub repo `hershock48/stmarymarshall` (public, Kevin's call) and one Vercel project on the glazedweb team.
 - [ ] Canonical host decided (apex `stmarymarshall.org`, as the old site) and DNS moved from eCatholic.
 - [ ] The parish told the credit is there.
 - [ ] Looked at on a real iPhone.
