@@ -3,13 +3,16 @@ import Link from "next/link";
 import HomeLink from "@/components/HomeLink";
 import { Band, LineButton, PageHero } from "@/components/ui";
 import { strings } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/meta";
 import { navFor } from "@/lib/nav";
 import { getParish } from "@/lib/parish";
 
 export async function generateMetadata(): Promise<Metadata> {
   const p = await getParish();
   const s = strings(p.lang);
-  return { title: s.notFound.title, description: s.notFound.description, robots: { index: false } };
+  // Not the home page's canonical: a 404 that calls itself canonical to
+  // "/" is a 404 claiming to be the home page.
+  return { ...(await pageMetadata(p, { title: s.notFound.title, description: s.notFound.description, path: "/404", noindex: true })), alternates: {} };
 }
 
 export default async function NotFound() {

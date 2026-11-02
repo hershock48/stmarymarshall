@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Band, GoldButton, LineButton, PageHero } from "@/components/ui";
 import { strings } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/meta";
 import { getParish } from "@/lib/parish";
 
 export const dynamic = "force-dynamic";
@@ -8,7 +9,7 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata(): Promise<Metadata> {
   const p = await getParish();
   const s = strings(p.lang);
-  return { title: s.thanks.title, description: s.thanks.description(p.parishName), robots: { index: false } };
+  return pageMetadata(p, { title: s.thanks.title, description: s.thanks.description(p.parishName), path: "/register/thanks", noindex: true });
 }
 
 /** Shared thanks page for the registration and request forms. */

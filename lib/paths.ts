@@ -1,0 +1,44 @@
+import type { Parish } from "@/lib/types";
+import registry from "@/parishes/registry.json";
+import stmarymarshall from "@/parishes/stmarymarshall/data";
+import stphilipbc from "@/parishes/stphilipbc/data";
+import sanfelipe from "@/parishes/sanfelipe/data";
+
+/**
+ * Which parish a host is, and which paths that parish answers. Shared by
+ * lib/parish.ts (pages) and proxy.ts (the request edge), so it imports
+ * nothing from next/headers and nothing marked server-only.
+ */
+export const ALL: Parish[] = [stmarymarshall, stphilipbc, sanfelipe];
+const BY_SLUG = new Map(ALL.map((p) => [p.slug, p]));
+
+export function parishForHost(host: string | null | undefined): Parish {
+  const h = (host ?? "").toLowerCase().split(":")[0];
+  for (const p of ALL) {
+    if (p.hosts.includes(h) || p.pitchHost === h) return p;
+  }
+  return BY_SLUG.get(registry.default) ?? ALL[0];
+}
+
+export function parishBySlug(slug: string): Parish | undefined {
+  return BY_SLUG.get(slug);
+}
+
+/** The one-segment paths every parish has, whatever its data. */
+const ALWAYS = new Set(["", "new", "mass-times", "about", "sacraments", "register", "mass-intentions", "prayer-request", "demo"]);
+
+/**
+ * True when the parish answers this one-segment path. The pages that
+ * depend on data (ministries, faith formation, the calendar, the bulletin,
+ * give) exist only when the data does; a parish's own section pages are
+ * its `pages`. Anything else is a 404.
+ */
+export function knowsPath(p: Parish, segment: string): boolean {
+  if (ALWAYS.has(segment)) return true;
+  if (segment === "faith-formation") return p.formation.length > 0;
+  if (segment === "ministries") return p.ministries.length > 0;
+  if (segment === "events") return p.events.length > 0;
+  if (segment === "bulletin") return Boolean(p.bulletins);
+  if (segment === "give") return Boolean(p.give.url || p.give.extras?.length);
+  return p.pages.some((pg) => pg.slug === segment);
+}

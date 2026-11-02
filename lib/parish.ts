@@ -1,10 +1,7 @@
 import "server-only";
 import { headers } from "next/headers";
+import { ALL, parishBySlug as bySlug, parishForHost } from "@/lib/paths";
 import type { Parish } from "@/lib/types";
-import registry from "@/parishes/registry.json";
-import stmarymarshall from "@/parishes/stmarymarshall/data";
-import stphilipbc from "@/parishes/stphilipbc/data";
-import sanfelipe from "@/parishes/sanfelipe/data";
 
 /**
  * Which parish a request is for, from the Host header.
@@ -13,28 +10,22 @@ import sanfelipe from "@/parishes/sanfelipe/data";
  * on its own domain and on its pitch host (where the letter sits at / and
  * the site at /demo, see next.config.ts). An unknown host, such as a
  * Vercel preview URL, gets the registry default so previews always render
- * something real.
+ * something real. The host table itself is lib/paths.ts, which proxy.ts
+ * shares.
  *
  * Every page that calls this is dynamic by nature; nothing on the platform
  * is statically generated, which is fine at parish traffic levels.
  */
-const ALL: Parish[] = [stmarymarshall, stphilipbc, sanfelipe];
-const BY_SLUG = new Map(ALL.map((p) => [p.slug, p]));
-
 export function allParishes(): Parish[] {
   return ALL;
 }
 
 export function parishBySlug(slug: string): Parish | undefined {
-  return BY_SLUG.get(slug);
+  return bySlug(slug);
 }
 
 export function parishByHost(host: string | null | undefined): Parish {
-  const h = (host ?? "").toLowerCase().split(":")[0];
-  for (const p of ALL) {
-    if (p.hosts.includes(h) || p.pitchHost === h) return p;
-  }
-  return BY_SLUG.get(registry.default) ?? ALL[0];
+  return parishForHost(host);
 }
 
 export async function getParish(): Promise<Parish> {

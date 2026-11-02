@@ -223,8 +223,8 @@ footer .gmark{height:78px;width:auto}
   <div class="tldr">
     <div class="k">The short version</div>
     <ul>
-      <li><span class="n">01</span><span>Of the 46 parish websites the diocesan Parish Finder lists, <b>four are down and 41 of the remaining 42 are the same eCatholic template</b>. The faults are the same on every one, because the template is.</span></li>
-      <li><span class="n">02</span><span><b>Not one of the 42 publishes its Mass times as data</b> a search engine, a Mass-finder app or the diocese&rsquo;s own finder can read without a person reading the page. 93% show no picture when their link is shared. 60% have no description in a search result.</span></li>
+      <li><span class="n">01</span><span>Of the 46 parish websites the diocesan Parish Finder lists, <b>two are down and 41 are the same eCatholic template</b>. The faults are the same on every one, because the template is.</span></li>
+      <li><span class="n">02</span><span><b>Not one of the 42 publishes its Mass times as data</b> a search engine, a Mass-finder app or the diocese&rsquo;s own finder can read without a person reading the page. 95% show no picture when their link is shared. 60% have no description in a search result.</span></li>
       <li><span class="n">03</span><span><b>Three parishes are rebuilt and running</b>: St. Mary Marshall, St. Philip Battle Creek and San Felipe de Jesús Fennville, in Spanish, on one codebase, each with its own photos and words, each with its Mass times as structured data and a diocesan feed that joins them.</span></li>
       <li><span class="n">04</span><span><b>The diocese owns it.</b> $99 a parish a month, no build fee, a twelve-month first term and month to month after. Leaving means taking the whole thing, not exporting from it.</span></li>
     </ul>
@@ -235,12 +235,12 @@ footer .gmark{height:78px;width:auto}
 <section id="found"><div class="wrap">
   <div class="k">Section one</div><div class="rule"></div>
   <h2>What we found.</h2>
-  <p>The diocesan Parish Finder lists 60 parishes and missions with 46 distinct websites. I opened each one in a real browser on <strong>November 2, 2026</strong> and read its markup, home page only. Four sites did not work at all: olqop.org in Bridgman has an expired security certificate, sscmparish.org in Wayland and stedwardmendon.org in Mendon do not resolve, and stjosephwhitepigeon.org times out. Of the 42 that loaded, <strong>41 are eCatholic and one is WordPress</strong> (St. Joseph, Battle Creek). The diocese&rsquo;s own site is eCatholic too.</p>
+  <p>The diocesan Parish Finder lists 60 parishes and missions with 46 distinct websites. I opened each one in a real browser on <strong>November 2, 2026</strong>, twice, and read its markup, home page only. Two sites did not work at all: sscmparish.org in Wayland fails its security handshake and stedwardmendon.org in Mendon does not resolve. Two more, Bridgman and White Pigeon, were built by hand outside any platform. Of the 42 that run on one, <strong>41 are eCatholic and one is WordPress</strong> (St. Joseph, Battle Creek). The diocese&rsquo;s own site is eCatholic too.</p>
 
   <table class="cmp meas">
-    <tr><th>Measured on the 42 home pages</th><th>Share</th><th>What it means</th></tr>
+    <tr><th>Measured on the 42 eCatholic and WordPress home pages</th><th>Share</th><th>What it means</th></tr>
     <tr><td>No structured data: no Church record, no Mass events</td><td>100%</td><td>Nothing for Google&rsquo;s Mass-times box, an answer engine, or the diocese&rsquo;s own finder to read.</td></tr>
-    <tr><td>No link-card image</td><td>93%</td><td>A parish link shared in a text or on Facebook shows no picture.</td></tr>
+    <tr><td>No link-card image</td><td>95%</td><td>A parish link shared in a text or on Facebook shows no picture. Two parishes have one.</td></tr>
     <tr><td>No office hours on the home page</td><td>64%</td><td>The most-asked question after Mass times.</td></tr>
     <tr><td>No search-engine description</td><td>60%</td><td>The one sentence under the parish&rsquo;s name in a search result is blank or auto-filled.</td></tr>
     <tr><td>No online giving link found</td><td>52%</td><td>Twelve parishes use OSV, seven Vanco, one links a PDF form.</td></tr>
@@ -263,10 +263,23 @@ footer .gmark{height:78px;width:auto}
     <a class="verify" href="https://stmarysniles.org/" target="_blank" rel="noopener">Open St. Mary Niles ↗</a>
   </div>
   <div class="claim">
-    <h4>Four parish websites are down, and have been long enough to notice</h4>
-    <p>An expired certificate turns a parish site into a browser warning. A domain that does not resolve turns it into nothing. The Parish Finder still links all four.</p>
-    <a class="verify" href="https://olqop.org/" target="_blank" rel="noopener">Our Lady Queen of Peace, Bridgman ↗</a>
+    <h4>Two parish websites are down, and the Parish Finder still links both</h4>
+    <p>SS. Cyril and Methodius in Wayland fails the security handshake every browser makes before it shows a page. St. Edward in Mendon does not resolve at all. Click either from the diocese&rsquo;s own finder and you get a browser error with the parish&rsquo;s name on it.</p>
+    <a class="verify" href="https://sscmparish.org/" target="_blank" rel="noopener">sscmparish.org ↗</a>
+    <a class="verify" href="https://stedwardmendon.org/" target="_blank" rel="noopener">stedwardmendon.org ↗</a>
     <a class="verify" href="https://www.diokzoo.org/parishfinder" target="_blank" rel="noopener">The Parish Finder ↗</a>
+  </div>
+  <div class="claim">
+    <h4>The two parishes that left the template did it alone, and it shows</h4>
+    <p>Our Lady Queen of Peace in Bridgman built its own site; the page has no title at all, so a browser tab and a search result both show the bare address. St. Joseph in White Pigeon built its own too, and the headline on its front page misspells the Eucharist. A parish that wants out of the template today has nowhere to go but a volunteer, and these are what a volunteer&rsquo;s afternoon produces.</p>
+    <a class="verify" href="https://olqop.org/" target="_blank" rel="noopener">Bridgman, read the tab ↗</a>
+    <a class="verify" href="https://stjosephwhitepigeon.org/" target="_blank" rel="noopener">White Pigeon, read the headline ↗</a>
+  </div>
+  <div class="claim">
+    <h4>St. Anthony Buchanan&rsquo;s home page has 85 links with no words on them</h4>
+    <p>Links with no text, no image and no label: a screen reader announces each one as &ldquo;link&rdquo; and nothing else, 85 times in a row. St. Ambrose Parchment has 61 of them, San Felipe 28. They are the template&rsquo;s slideshow and tab controls, which is why the count is high wherever a parish uses either. Nobody at the parish did this; nobody at the parish can undo it.</p>
+    <a class="verify" href="https://stanthonybuchanan.org/" target="_blank" rel="noopener">St. Anthony, Buchanan ↗</a>
+    <span class="verify plain">Counted in a browser, 2026-11-02</span>
   </div>
   <div class="claim">
     <h4>The one asset the template has feeds the diocese&rsquo;s own finder, and 12 parishes do not use it</h4>
@@ -296,7 +309,7 @@ footer .gmark{height:78px;width:auto}
   <h3>What the diocese holds today</h3>
   <table class="cmp">
     <tr><th>The diocese&rsquo;s</th><th>Where it lives</th><th>Who holds it</th></tr>
-    <tr><td>Forty-six domains</td><td>Registrars, one per parish, held by whoever set each up</td><td><span class="tick">The parishes.</span> The one thing already theirs. Four have lapsed or broken.</td></tr>
+    <tr><td>Forty-six domains</td><td>Registrars, one per parish, held by whoever set each up</td><td><span class="tick">The parishes.</span> The one thing already theirs. Two have lapsed or broken.</td></tr>
     <tr><td>The pages</td><td>eCatholic templates, edited through eCatholic logins</td><td>eCatholic</td></tr>
     <tr><td>The photos and PDFs</td><td>files.ecatholic.com</td><td>eCatholic</td></tr>
     <tr><td>Every calendar</td><td>eCatholic feeds</td><td>eCatholic</td></tr>
@@ -319,7 +332,7 @@ footer .gmark{height:78px;width:auto}
   <h3>Three questions worth asking this month</h3>
   <table class="cmp">
     <tr><td>Who holds the eCatholic agreement, and when does it end?</td><td colspan="2">If the diocese signed for the block of seventeen, that date decides whether this is a 2027 conversation or a 2028 one. The other parishes can move whenever they like.</td></tr>
-    <tr><td>Who holds the 46 domain logins?</td><td colspan="2">Four sites are down today for want of a renewal or a certificate. A domain is the most valuable piece of the internet a parish has, and most of them are in one person&rsquo;s inbox.</td></tr>
+    <tr><td>Who holds the 46 domain logins?</td><td colspan="2">Two sites are down today for want of a renewal or a certificate. A domain is the most valuable piece of the internet a parish has, and most of them are in one person&rsquo;s inbox.</td></tr>
     <tr><td>What does the Parish Finder read, exactly?</td><td colspan="2">The feed format it consumes. The three sites below already publish a feed; matching the finder&rsquo;s shape is a route, not a project, once the format is in hand.</td></tr>
   </table>
 </div></section>
@@ -348,7 +361,7 @@ footer .gmark{height:78px;width:auto}
     <tr><th></th><th>The template today</th><th>The three sites</th></tr>
     <tr><td>Mass times</td><td>A panel that opens from a tab, or typed text</td><td>On the front page, with <span class="tick">the next Mass, Confession and Adoration computed from the clock</span>, in the parish&rsquo;s language. St. Philip&rsquo;s adoration chapel says &ldquo;Now&rdquo; from Wednesday morning to Saturday morning, because it is.</td></tr>
     <tr><td>The schedule as data</td><td>Only through eCatholic&rsquo;s panel</td><td>Every parish carries a Church record with its Mass events in the form Google reads, and <span class="tick">one diocesan feed joins all of them</span>: name, address, language, Mass, Confession, Adoration, calendar, for every parish on the platform.</td></tr>
-    <tr><td>Search results and shared links</td><td>No description on 60%, no picture on 93%</td><td>Every page has its own title and description, and every parish its own link card. Already done for all three.</td></tr>
+    <tr><td>Search results and shared links</td><td>No description on 60%, no picture on 95%</td><td>Every page has its own title and description, and every parish its own link card. Already done for all three.</td></tr>
     <tr><td>The calendar</td><td>eCatholic&rsquo;s feed</td><td>Every recurring event, with its exceptions, as the parish&rsquo;s own data. Six weeks on the page, <span class="tick">subscribe once</span> on a phone, &ldquo;add to my calendar&rdquo; on every event. St. Mary&rsquo;s is 78 events; San Felipe&rsquo;s is two. Same code.</td></tr>
     <tr><td>Spanish</td><td>Four parishes, in text</td><td>A parish is Spanish by one setting. Nav, forms, dates, the next-Mass tiles, the thank-you pages: all of it. The parish&rsquo;s own words stay the parish&rsquo;s own.</td></tr>
     <tr><td>Forms</td><td>eCatholic&rsquo;s</td><td>Registration, Mass intentions and prayer requests on the parish&rsquo;s own pages, emailed to the office, with the printed form alongside where the parish has one.</td></tr>

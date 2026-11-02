@@ -22,7 +22,7 @@ async function find(slug: string) {
 export async function generateMetadata({ params }: { params: Promise<{ page: string }> }): Promise<Metadata> {
   const { page: slug } = await params;
   const { p, page } = await find(slug);
-  if (!page) return {};
+  if (!page) notFound();
   const s = strings(p.lang);
   return pageMetadata(p, {
     title: page.title,

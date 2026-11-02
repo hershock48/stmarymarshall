@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import type { Parish } from "@/lib/types";
 
 /**
@@ -8,9 +9,15 @@ import type { Parish } from "@/lib/types";
  * loses the image, type and site name, and a root `url` would make every
  * inner page's share preview point at the home page. So each page builds
  * its whole block here, from the parish, with its own path.
+ *
+ * The base is the parish's own domain once it is live. Until then it is
+ * the host the page was asked for (a pitch host, a preview), because a
+ * link card that points at a domain still parked on eCatholic shows no
+ * picture when the demo is shared.
  */
-export function pageMetadata(p: Parish, { title, description, path, noindex = false }: { title: string; description: string; path: string; noindex?: boolean }): Metadata {
-  const base = `https://${p.hosts[0]}`;
+export async function pageMetadata(p: Parish, { title, description, path, noindex = false }: { title: string; description: string; path: string; noindex?: boolean }): Promise<Metadata> {
+  const host = (await headers()).get("host")?.toLowerCase().split(":")[0];
+  const base = p.live || !host ? `https://${p.hosts[0]}` : `https://${host}`;
   const image = { url: `/parishes/${p.slug}/og.jpg`, width: 1200, height: 630, alt: `${p.name}, ${p.church.city}, Michigan.` };
   return {
     metadataBase: new URL(base),
