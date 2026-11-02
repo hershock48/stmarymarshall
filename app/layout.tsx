@@ -9,6 +9,7 @@ import { pageMetadata } from "@/lib/meta";
 import { churchSchema, jsonLd } from "@/lib/jsonld";
 import { massTimesSentence } from "@/lib/schedule";
 import { confessionSentence, whereSentence } from "@/lib/sentences";
+import { themeStyle } from "@/lib/theme";
 import "./globals.css";
 
 /**
@@ -38,7 +39,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   const s = strings(p.lang);
   const nameRest = p.name.startsWith(p.shortName) ? p.name.slice(p.shortName.length).trim() : "";
   return (
-    <html lang={p.lang} className={`${display.variable} ${body.variable}`}>
+    <html lang={p.lang} className={`${display.variable} ${body.variable}`} style={themeStyle(p)}>
       <body>
         <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-sm focus:bg-gold focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-navy">
           {s.header.skip}
@@ -52,7 +53,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           mark={p.mark}
           pitchHost={p.pitchHost}
           give={Boolean(p.give.url || p.give.extras?.length)}
-          words={{ home: s.header.home(p.name), main: s.header.main, mobile: s.header.mobile, openMenu: s.header.openMenu, closeMenu: s.header.closeMenu, register: s.header.register, call: s.header.call(p.phone), give: s.nav.give }}
+          words={{ home: s.header.home, main: s.header.main, mobile: s.header.mobile, openMenu: s.header.openMenu, closeMenu: s.header.closeMenu, register: s.header.register, call: s.header.call(p.phone), give: s.nav.give }}
         />
         <main id="main">{children}</main>
         <Footer parish={p} />

@@ -270,7 +270,8 @@ details.fold[open] > summary .chev {
 }
 
 .gw-plate {
-  --gw-above: #0e1a2b;
+  /* The footer ground, whatever the parish's theme sets it to. */
+  --gw-above: var(--color-navy);
   --gw-plate: #FDF6EC;
   --gw-plate-ink: #2B1E16;
 }

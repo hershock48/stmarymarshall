@@ -29,6 +29,23 @@ const parish: Parish = {
   timeZone: "America/Detroit",
   // The parish's own logo, from its old site.
   mark: { type: "image", src: `${P}/img/logo.png`, width: 268, height: 441 },
+  // Bedford stone and the crest's red and gold: an oxblood ground, stone
+  // paper, gold kept warm. Ratios in tools/palette-check.mjs.
+  theme: {
+    navy: "#2a1116",
+    navySoft: "#3b1b22",
+    navyLine: "#5a3039",
+    marian: "#7a1f2e",
+    gold: "#d9b45f",
+    goldLight: "#e8cb84",
+    goldDeep: "#6e5518",
+    cream: "#f5efe4",
+    dim: "#d8c9bb",
+    paper: "#f5f0e7",
+    paperDim: "#e9e0d2",
+    ink: "#26191a",
+    inkSoft: "#5b4a49",
+  },
 
   phone,
   phoneHref: "tel:+12699686645",

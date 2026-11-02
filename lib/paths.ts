@@ -17,7 +17,10 @@ export function parishForHost(host: string | null | undefined): Parish {
   for (const p of ALL) {
     if (p.hosts.includes(h) || p.pitchHost === h) return p;
   }
-  return BY_SLUG.get(registry.default) ?? ALL[0];
+  // PARISH_DEFAULT lets a local server answer as another parish on
+  // 127.0.0.1, so the auditor (which takes a base URL, not a host) can
+  // run against each one: PARISH_DEFAULT=sanfelipe npm start.
+  return BY_SLUG.get(process.env.PARISH_DEFAULT ?? registry.default) ?? ALL[0];
 }
 
 export function parishBySlug(slug: string): Parish | undefined {
@@ -31,7 +34,7 @@ export function letterHost(slug: string): string | undefined {
 }
 
 /** The one-segment paths every parish has, whatever its data. */
-const ALWAYS = new Set(["", "new", "mass-times", "about", "sacraments", "register", "mass-intentions", "prayer-request", "demo"]);
+const ALWAYS = new Set(["", "new", "mass-times", "about", "sacraments", "register", "mass-intentions", "prayer-request", "demo", "diocese"]);
 
 /**
  * True when the parish answers this one-segment path. The pages that

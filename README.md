@@ -30,10 +30,22 @@ the registry default, St. Mary.
 | `stmarymarshall.glazedweb.com` | The letter to Fr. Craig at `/`, the site at `/demo`, all noindex |
 | `stphilip.glazedweb.com`, `sanfelipe.glazedweb.com` | The St. Philip and San Felipe demos at `/` and `/demo`, noindex (no letter yet) |
 | `kalamazoo.glazedweb.com` | The diocese letter at `/`; the diocesan feed at `/diocese/mass-times.json` |
+| any host, `/diocese` | Every parish on one page (address, Mass, Confession, Adoration, site and calendar links): the readable twin of the JSON feed, dressed in the host's parish. Read-only; a management panel is not built and the letter quotes it separately |
 | `stmarymarshall.vercel.app` | The default parish, noindex |
 
 Every page calls `getParish()` and renders from that parish's data, so every
 route is dynamic. A parish not yet `live` is noindex on every host.
+`PARISH_DEFAULT=<slug>` makes a local server answer as that parish on
+127.0.0.1 (`PARISH_DEFAULT=sanfelipe npm start -- -p 4493`), which is how
+the auditor, which takes a base URL and not a host, runs against each one.
+
+`proxy.ts` runs at the edge for two things Next 16.4 does not do on its
+own: a letter is served only on its own pitch host (any other host gets a
+real 404), and a one-segment path the parish does not have (`lib/paths.ts`
+`knowsPath`: a San Felipe `/bulletin`, a typo) is rewritten to an unmatched
+route so the 404 is server-rendered. `notFound()` thrown from a matched
+dynamic segment returns an empty client-rendered body in this Next version
+(vercel/next.js #98954), which is why the rewrite exists.
 
 ## Where things live
 
@@ -103,17 +115,26 @@ images resolve.
 2026-11-02, after the platform refactor: 13 routes, zero axe violations at
 320, 390, 768 and 1440 (after the home link's accessible name was widened to
 the full parish name); zero overflow, console errors or 4xx; LCP 2.0s, CLS
-0.0001, JS 142KB on a throttled phone; ux-check clean. The St. Philip and San
-Felipe hosts were screenshotted and looked at, not audited by axe (the
-auditor takes a base URL, not a host).
+0.0001, JS 142KB on a throttled phone; ux-check clean. On 2026-11-02 again, with the
+per-parish palettes and `/diocese`: all three parishes audited through
+`PARISH_DEFAULT` on 4490, 4492 and 4493, 14 routes each, zero axe
+violations, overflow, console errors or 4xx (San Felipe's `/ministries`,
+`/bulletin` and `/give` 404 by design, it has no data for them); the
+diocese letter zero axe at both widths with the charts in.
 
 ## Design
 
-Navy ground with cream and a gold accent, Cormorant Garamond for display and
+Dark ground with cream and a gold accent, Cormorant Garamond for display and
 Source Sans 3 for text with the Latin Extended subset for Spanish, both
-self-hosted at build time. Palette contrast was computed; the table is at
-the top of `app/globals.css`. Every parish shares the palette; what differs
-is the mark (`components/Mark.tsx`: St. Mary's ring-and-M from its favicon,
+self-hosted at build time. Each parish has its own palette since 2026-11-02:
+`Parish.theme` (13 tokens) is written onto `<html>` as the `--color-*`
+variables by `lib/theme.ts`, so every Tailwind color utility follows the
+parish. St. Mary is the navy and gold in `app/globals.css` (no theme, the
+defaults); St. Philip is a deep wine with warm gold; San Felipe is a dark
+umber with a Marian blue and amber. `node tools/palette-check.mjs` computes
+the WCAG ratio of every color role on every palette and must say "every
+palette clears its roles" before a theme ships; `tools/icons.mjs` reads the
+theme so the icons and link card match. What also differs is the mark (`components/Mark.tsx`: St. Mary's ring-and-M from its favicon,
 St. Philip's own logo image, letters in the ring for a parish with neither),
 the photos and the words. The studio credit plate is cream under the navy
 footer, "Hecho por" on the Spanish parish.
@@ -161,13 +182,21 @@ standard prayers, not the parish's English originals; no online giving found.
 
 ## The letters
 
+The diocese letter's charts (what is missing on the 42 home pages, images
+per home page, Pew's search study, CARA's parish-website use) are plain
+HTML bars written by `node tools/letter-charts.mjs` between the
+`<!-- chart:name -->` markers in the letter; change the data there, not in
+the HTML. `node tools/render-letter.mjs --slug diocese` screenshots and
+axes the letter at 390 and 1440.
+
 `public/pitch/stmarymarshall/index.html` to Fr. Craig (October 2026) and
 `public/pitch/diocese/index.html` to the Pastoral Center (November 2026),
 served at `/` on their hosts by the rewrites in `next.config.ts`. The diocese
 letter's numbers come from `glaze/research/diokzoo-audit-2026-11.md` in the
-glazedweb repo, measured 2026-11-02. Its price ($99 a parish a month, no
-build fee for any parish) is a position for Kevin to confirm before anyone
-outside sees it; nothing has been sent. A parish that says yes loses its
+glazedweb repo, measured 2026-11-02. Its terms are Kevin's, locked 2026-11-02: $99 a parish a
+month, no build fee for a parish moving under the diocesan agreement, a
+twelve-month first term then month to month; a lone parish pays the
+published build price. Nothing has been sent. A parish that says yes loses its
 pitch host from the registry and its letter stops being served.
 
 ## Before launch (per parish)

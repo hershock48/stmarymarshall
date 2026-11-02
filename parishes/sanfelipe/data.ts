@@ -28,6 +28,24 @@ const parish: Parish = {
   diocese: { name: "Diócesis de Kalamazoo", url: "https://www.diokzoo.org/" },
   timeZone: "America/Detroit",
   mark: { type: "ring", letters: "SF" },
+  // Clay, marigold and talavera blue: a deep terracotta ground, marigold
+  // for the accent, the blue for links on paper. Ratios in
+  // tools/palette-check.mjs.
+  theme: {
+    navy: "#26130f",
+    navySoft: "#38201a",
+    navyLine: "#58352c",
+    marian: "#1f4e86",
+    gold: "#e5a53a",
+    goldLight: "#f0bf66",
+    goldDeep: "#7a4f0e",
+    cream: "#f8f0e2",
+    dim: "#dcc8b4",
+    paper: "#f8f1e4",
+    paperDim: "#ecdfcb",
+    ink: "#26180f",
+    inkSoft: "#5e4836",
+  },
 
   phone,
   phoneHref: "tel:+12695615029",

@@ -59,10 +59,14 @@ export default function Header({ shortName, nameRest, phone, phoneHref, nav, mar
   return (
     <header className="sticky top-0 z-50 border-b border-navy-line bg-navy/95 backdrop-blur supports-[backdrop-filter]:bg-navy/85">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <HomeLink pitchHost={pitchHost} className="flex min-h-11 shrink-0 items-center gap-3 text-cream" aria-label={words.home}>
+        {/* No aria-label: the link's name is its text, so a ring mark whose
+            letters are SVG text cannot disagree with it (axe reads them as
+            visible text). The sr-only word says where the link goes. */}
+        <HomeLink pitchHost={pitchHost} className="flex min-h-11 shrink-0 items-center gap-3 text-cream">
           <Mark mark={mark} size={34} className="text-gold" />
           <span className="display text-xl leading-none whitespace-nowrap sm:text-2xl">
             {shortName} {nameRest && <span className="hidden text-dim sm:inline lg:hidden xl:inline">{nameRest}</span>}
+            <span className="sr-only">, {words.home}</span>
           </span>
         </HomeLink>
 

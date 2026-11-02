@@ -45,6 +45,34 @@ export type ParishEvent = { title: string; note?: string; where?: string; rule: 
  */
 export type Mark = { type: "ring"; letters: string } | { type: "image"; src: string; width: number; height: number };
 
+/**
+ * A parish's palette: the same roles every site has, in that parish's
+ * colors. Every value is a hex color. Leave it out to take St. Mary's
+ * navy and gold (app/globals.css). Check a new one with
+ * `node tools/palette-check.mjs`; the roles and the ratios they must
+ * clear are listed there.
+ */
+export type Theme = {
+  /** The dark ground: header, hero, Mass card, footer. */
+  navy: string;
+  navySoft: string;
+  navyLine: string;
+  /** Links and buttons on paper. */
+  marian: string;
+  /** The light accent on the dark ground; a rule on paper. */
+  gold: string;
+  goldLight: string;
+  goldDeep: string;
+  /** Text on the dark ground. */
+  cream: string;
+  dim: string;
+  /** The reading ground and its text. */
+  paper: string;
+  paperDim: string;
+  ink: string;
+  inkSoft: string;
+};
+
 export type Parish = {
   slug: string;
   /** Hosts this parish answers on. The first is canonical. */
@@ -64,6 +92,7 @@ export type Parish = {
   diocese: { name: string; url: string };
   timeZone: string;
   mark: Mark;
+  theme?: Theme;
 
   phone: string;
   phoneHref: string;

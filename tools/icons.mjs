@@ -21,8 +21,6 @@ import sharp from "sharp";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
-const NAVY = "#0e1a2b";
-const GOLD = "#d6b25a";
 const slug = process.argv[2];
 if (!slug) {
   console.error("usage: node tools/icons.mjs <slug>");
@@ -39,6 +37,13 @@ const founded = (src.match(/^\s*founded:\s*(\d{4})/m) || [])[1];
 const markLetters = (src.match(/mark:\s*\{\s*type:\s*"ring",\s*letters:\s*"([^"]*)"/) || [])[1];
 const markImage = (src.match(/mark:\s*\{\s*type:\s*"image",\s*src:\s*`\$\{P\}([^`]*)`/) || [])[1];
 const heroRel = (src.match(/hero:\s*\{\s*src:\s*`\$\{P\}([^`]*)`/) || [])[1];
+// The parish's own ground and accent, if its data sets a theme; St. Mary's
+// navy and gold otherwise (lib/theme.ts, app/globals.css).
+const themeBlock = (src.match(/theme:\s*\{([^}]*)\}/) || [])[1] ?? "";
+const themeColor = (name, dflt) => (themeBlock.match(new RegExp(`\\b${name}:\\s*"(#[0-9a-fA-F]{6})"`)) || [])[1] ?? dflt;
+const NAVY = themeColor("navy", "#0e1a2b");
+const GOLD = themeColor("gold", "#d6b25a");
+const CREAM = themeColor("cream", "#f4eddf");
 if (!name || !city || !heroRel || (!markLetters && !markImage)) {
   console.error("could not read name/city/hero/mark from the data file", { name, city, heroRel, markLetters, markImage });
   process.exit(1);
@@ -138,7 +143,7 @@ async function og() {
   const overlay = Buffer.from(`<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
   <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0.35" stop-color="${NAVY}" stop-opacity="0"/><stop offset="1" stop-color="${NAVY}" stop-opacity="0.95"/></linearGradient></defs>
   <rect width="1200" height="630" fill="url(#g)"/>
-  <text x="72" y="500" font-family="${SERIF}" font-size="${size}" font-weight="600" fill="#f4eddf">${esc(name)}</text>
+  <text x="72" y="500" font-family="${SERIF}" font-size="${size}" font-weight="600" fill="${CREAM}">${esc(name)}</text>
   <text x="72" y="556" font-family="Helvetica, Arial, sans-serif" font-size="30" letter-spacing="4" fill="${GOLD}">${esc(line2)}</text>
 </svg>`);
   await sharp(photo).composite([{ input: overlay }]).jpeg({ quality: 84, mozjpeg: true }).toFile(path.join(OUT, "og.jpg"));
