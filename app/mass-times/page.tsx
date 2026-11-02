@@ -1,69 +1,90 @@
-import { pageMetadata } from "@/lib/meta";
+import type { Metadata } from "next";
 import { FullSchedule, NextUp } from "@/components/Schedule";
 import { Band, GoldButton, H2, LineButton, PageHero } from "@/components/ui";
-import { CONFESSION, DAY_NAMES, fmtDate, fmtTime, localNow, massTimesSentence, upcomingHolyDays } from "@/lib/schedule";
-import { SITE } from "@/lib/site";
-import photo from "@/public/img/chapel-renovation.jpg";
+import { strings } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/meta";
+import { getParish } from "@/lib/parish";
+import { fmtDate, fmtTime, localNow, massTimesSentence, upcomingHolyDays } from "@/lib/schedule";
+import { confessionSentence, noDot, whereSentence } from "@/lib/sentences";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = pageMetadata({
-  title: "Mass Times and Directions",
-  description: `Mass at St. Mary Catholic Church, Marshall MI: ${massTimesSentence()}. Confession and Adoration ${DAY_NAMES[CONFESSION[0].day]} ${fmtTime(CONFESSION[0].start)} to ${fmtTime(CONFESSION[0].end!)}. At the ${SITE.church.corner}.`,
-  path: "/mass-times",
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const p = await getParish();
+  const s = strings(p.lang);
+  return pageMetadata(p, {
+    title: s.massTimes.title,
+    description: s.meta.massTimes(p.name, p.church.city, massTimesSentence(p.masses, p.lang), confessionSentence(p, p.lang), whereSentence(p, p.lang)),
+    path: "/mass-times",
+  });
+}
 
-export default function MassTimes() {
-  const holyDays = upcomingHolyDays(localNow());
+export default async function MassTimes() {
+  const p = await getParish();
+  const s = strings(p.lang);
+  const t = s.massTimes;
+  const holyDays = upcomingHolyDays(p, localNow(p.timeZone));
   return (
     <>
-      <PageHero title="Mass Times and Directions" lede="Mass, Confession and Adoration at St. Mary, and how to find the door." photo={photo} priority />
+      <PageHero title={t.title} lede={t.lede(p.shortName, p.confession.length > 0, p.adoration.length > 0)} photo={p.photos.about ?? p.photos.hero} priority />
       <Band tone="navy" className="-mt-px">
-        <NextUp />
+        <NextUp parish={p} />
         <div className="mt-10">
-          <FullSchedule />
+          <FullSchedule parish={p} />
         </div>
       </Band>
       <Band tone="paper">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
-            <H2>Finding the church</H2>
+            <H2>{t.finding}</H2>
             <p className="mt-6 text-[17px] leading-relaxed text-ink">
-              St. Mary Church stands at the {SITE.church.corner} in Marshall, one block south of Michigan Avenue. The address for a map is {SITE.church.street.replace(/\.$/, "")}. The parish office is around the corner at {SITE.office.street}, and that is the mailing address for everything.
+              {t.isAt(p.name, noDot(p.church.street), p.church.corner, p.church.city)}
+              {p.office ? t.officeAt(noDot(p.office.street)) : ""}
             </p>
+            {p.officeHours && (
+              <p className="mt-3 text-[17px] leading-relaxed text-ink">
+                {t.officeHours}: {p.officeHours.join("; ")}.
+              </p>
+            )}
             <div className="mt-8 flex flex-wrap gap-3">
-              <GoldButton href={SITE.mapUrl} external>
-                Directions to the church
+              <GoldButton href={p.mapUrl} external>
+                {t.directions}
               </GoldButton>
-              <LineButton href={SITE.phoneHref} onPaper>
-                Call {SITE.phone}
+              <LineButton href={p.phoneHref} onPaper>
+                {t.call(p.phone)}
               </LineButton>
             </div>
           </div>
           <div id="holy-days" className="scroll-mt-24">
-            <H2>Holy Days of Obligation</H2>
-            <ul className="mt-6 divide-y divide-paper-dim border-y border-paper-dim">
-              {holyDays.map((h) => (
-                <li key={h.date} className="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
-                  <p className="font-semibold tabular-nums text-ink">{fmtDate(h.date, true)}</p>
-                  <div>
-                    <p className="font-semibold text-ink">{h.label}</p>
-                    <p className="text-sm leading-relaxed text-ink-soft">
-                      {h.masses ? h.masses.map((m) => `${m.label ? `${m.label} ` : ""}${fmtTime(m.start)}`).join(", ") : "Mass times are announced in the bulletin."}
-                      {h.note ? ` ${h.note}` : ""}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <H2>{t.holyDays}</H2>
+            {holyDays.length > 0 ? (
+              <ul className="mt-6 divide-y divide-paper-dim border-y border-paper-dim">
+                {holyDays.map((h) => (
+                  <li key={h.date} className="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6">
+                    <p className="font-semibold tabular-nums text-ink">{fmtDate(h.date, true, p.lang)}</p>
+                    <div>
+                      <p className="font-semibold text-ink">{h.label}</p>
+                      <p className="text-sm leading-relaxed text-ink-soft">
+                        {h.masses && h.masses.length ? h.masses.map((m) => `${m.label ? `${m.label} ` : ""}${fmtTime(m.start)}`).join(", ") : t.inBulletin}
+                        {h.note ? ` ${h.note}` : ""}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="mt-6 text-[17px] leading-relaxed text-ink">{t.holyDaysInBulletin}</p>
+            )}
             <p className="mt-5 text-sm leading-relaxed text-ink-soft">
-              The Ascension is kept on the following Sunday in Michigan. Seasonal changes are announced in the bulletin and on the parish Facebook page, and when the weather closes Marshall Public Schools the office will say whether anything is cancelled.
+              {t.ascension} {t.changes(Boolean(p.facebook))}
             </p>
-            <div className="mt-6">
-              <LineButton href="/bulletin" onPaper>
-                This week’s bulletin
-              </LineButton>
-            </div>
+            {p.bulletins && (
+              <div className="mt-6">
+                <LineButton href="/bulletin" onPaper>
+                  {t.thisWeeksBulletin}
+                </LineButton>
+              </div>
+            )}
           </div>
         </div>
       </Band>

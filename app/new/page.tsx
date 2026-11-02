@@ -1,69 +1,51 @@
-import { pageMetadata } from "@/lib/meta";
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { NextUp } from "@/components/Schedule";
 import { Band, GoldButton, H2, LineButton, PageHero } from "@/components/ui";
-import { CONFESSION, DAY_NAMES, fmtTime, massTimesSentence } from "@/lib/schedule";
-import { SITE } from "@/lib/site";
-import photo from "@/public/img/nave-easter.jpg";
-import chapel from "@/public/img/chapel-renovation.jpg";
+import { strings } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/meta";
+import { getParish } from "@/lib/parish";
+import { noDot, whenIsMass } from "@/lib/sentences";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = pageMetadata({
-  title: "New Here?",
-  description: "Visiting St. Mary Catholic Church in Marshall for the first time? When Mass is, where the church is, what to expect, and how to register with the parish.",
-  path: "/new",
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const p = await getParish();
+  const s = strings(p.lang);
+  return pageMetadata(p, { title: s.nav.newHere, description: s.meta.newHere(p.name, p.church.city), path: "/new" });
+}
 
 /**
- * The page for a first visit. Every line is something the parish already
- * said somewhere on its old site or in its bulletin; nothing about parking
- * spots or which door is invented. The office can add to it.
+ * The page for a first visit. The first questions are answered from the
+ * data (when Mass is, where the church is, who may come, how to register);
+ * a parish adds its own in `newHere`. Nothing about parking spots or which
+ * door is invented.
  */
-const QA = [
-  {
-    q: "When is Mass?",
-    a: `${massTimesSentence()}. Confession is ${DAY_NAMES[CONFESSION[0].day]} from ${fmtTime(CONFESSION[0].start)} to ${fmtTime(CONFESSION[0].end!)}, with Adoration at the same time.`,
-  },
-  {
-    q: "Where is the church?",
-    a: `At the ${SITE.church.corner}, one block south of Michigan Avenue in downtown Marshall. Put ${SITE.church.street} in your map. The parish office is around the corner at ${SITE.office.street.replace(/\.$/, "")}.`,
-  },
-  {
-    q: "Do I need to be Catholic, or registered, to come?",
-    a: "No. Mass is open to everyone. Come, sit anywhere, and follow along; nobody will single you out. Catholics in good standing receive Communion; everyone else is welcome to come forward for a blessing or to stay in the pew.",
-  },
-  {
-    q: "What about the kids?",
-    a: "Children are welcome at every Mass. Religious Education runs September to April for age 4 through 8th grade, on Sunday mornings between the Masses for the younger ones and Tuesday afternoons for grades 6 to 8. A Children’s Choir sings at the 9:00 AM Mass.",
-  },
-  {
-    q: "Is there anything after Mass?",
-    a: "During the school year, coffee hour follows most Sunday 9:00 AM Masses in the Parish Hall: coffee, muffins and a chance to meet people. The bulletin says which Sundays.",
-  },
-  {
-    q: "I’m not Catholic, or I was and drifted. Where do I start?",
-    a: "OCIA, which used to be called RCIA, meets Thursday evenings from September. It is for adults exploring the faith, adults who want to become Catholic, and Catholics who want to go deeper. You can sit in without committing to anything.",
-  },
-  {
-    q: "How do I become a parishioner?",
-    a: "Register online or on paper. The office sends new members a welcome packet and follows up. Registration is what makes you a parishioner for things like baptisms, weddings and Religious Education.",
-  },
-];
-
-export default function NewHere() {
+export default async function NewHere() {
+  const p = await getParish();
+  const s = strings(p.lang);
+  const t = s.newHere;
+  const qa = [
+    { q: t.qa.whenMass, a: whenIsMass(p, p.lang) },
+    { q: t.qa.where, a: t.qa.whereAnswer(p.church.street, p.church.corner, p.office ? noDot(p.office.street) : undefined) },
+    { q: t.qa.catholic, a: t.qa.catholicAnswer },
+    ...(p.newHere ?? []),
+    { q: t.qa.parishioner, a: t.qa.parishionerAnswer },
+  ];
+  const photo = p.photos.about ?? p.photos.chapel;
   return (
     <>
-      <PageHero title="New here? Welcome." lede="Whether you are visiting Marshall, moving to town, coming back after a while, or just curious, here is what to expect." photo={photo} priority />
+      <PageHero title={t.title} lede={t.lede(p.church.city)} photo={p.photos.hero} priority />
       <Band tone="navy" className="-mt-px">
-        <NextUp />
+        <NextUp parish={p} />
       </Band>
       <Band tone="paper">
         <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
           <div className="lg:col-span-3">
-            <H2>The questions people ask</H2>
+            <H2>{t.questions}</H2>
             <dl className="mt-8 space-y-8">
-              {QA.map((item) => (
+              {qa.map((item) => (
                 <div key={item.q}>
                   <dt className="display text-2xl leading-tight text-ink">{item.q}</dt>
                   <dd className="mt-2 text-[17px] leading-relaxed text-ink">{item.a}</dd>
@@ -71,50 +53,60 @@ export default function NewHere() {
               ))}
             </dl>
             <div className="mt-10 flex flex-wrap gap-3">
-              <GoldButton href="/register">Register with the parish</GoldButton>
+              <GoldButton href="/register">{t.register}</GoldButton>
               <LineButton href="/mass-times" onPaper>
-                Mass times and directions
+                {t.massTimes}
               </LineButton>
             </div>
           </div>
           <div className="lg:col-span-2">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
-              <Image src={chapel} alt="St. Mary Chapel: oak pews, stained glass windows and the crucifix above the small altar." fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
-            </div>
+            {photo && (
+              <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+                <Image src={photo.src} alt={photo.alt} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+              </div>
+            )}
             <div className="mt-8 rounded-sm border border-paper-dim bg-paper-dim/50 p-5 text-[15px] leading-relaxed text-ink">
-              <p className="font-semibold">Still have a question?</p>
+              <p className="font-semibold">{t.still}</p>
               <p className="mt-1">
-                Call the office at{" "}
-                <a href={SITE.phoneHref} className="font-semibold text-marian underline underline-offset-4">
-                  {SITE.phone}
-                </a>{" "}
-                or email{" "}
-                <a href={`mailto:${SITE.email}`} className="font-semibold text-marian underline underline-offset-4">
-                  {SITE.email}
+                {t.call1}
+                <a href={p.phoneHref} className="font-semibold text-marian underline underline-offset-4">
+                  {p.phone}
                 </a>
-                . A person answers.
+                {p.email && (
+                  <>
+                    {t.call2}
+                    <a href={`mailto:${p.email}`} className="font-semibold text-marian underline underline-offset-4">
+                      {p.email}
+                    </a>
+                  </>
+                )}
+                {t.call3}
               </p>
             </div>
             <ul className="mt-6 space-y-2 text-[15px]">
               <li>
-                <a href="/sacraments" className="inline-block min-h-6 font-semibold text-marian underline underline-offset-4">
-                  Baptisms, weddings, anointing
-                </a>
+                <Link href="/sacraments" className="inline-block min-h-6 font-semibold text-marian underline underline-offset-4">
+                  {t.links.sacraments}
+                </Link>
               </li>
+              {p.formation.some((f) => f.slug === "ocia") && (
+                <li>
+                  <Link href="/faith-formation#ocia" className="inline-block min-h-6 font-semibold text-marian underline underline-offset-4">
+                    {t.links.ocia}
+                  </Link>
+                </li>
+              )}
+              {p.ministries.length > 0 && (
+                <li>
+                  <Link href="/ministries" className="inline-block min-h-6 font-semibold text-marian underline underline-offset-4">
+                    {t.links.ministries}
+                  </Link>
+                </li>
+              )}
               <li>
-                <a href="/faith-formation#ocia" className="inline-block min-h-6 font-semibold text-marian underline underline-offset-4">
-                  OCIA and adult faith formation
-                </a>
-              </li>
-              <li>
-                <a href="/ministries" className="inline-block min-h-6 font-semibold text-marian underline underline-offset-4">
-                  Ways to get involved
-                </a>
-              </li>
-              <li>
-                <a href="/prayer-request" className="inline-block min-h-6 font-semibold text-marian underline underline-offset-4">
-                  Ask for prayers
-                </a>
+                <Link href="/prayer-request" className="inline-block min-h-6 font-semibold text-marian underline underline-offset-4">
+                  {t.links.prayers}
+                </Link>
               </li>
             </ul>
           </div>

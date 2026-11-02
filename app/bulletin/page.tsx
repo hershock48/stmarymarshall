@@ -1,55 +1,63 @@
-import { pageMetadata } from "@/lib/meta";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { A, Band, GoldButton, H2, PageHero } from "@/components/ui";
 import { bulletins } from "@/lib/bulletins";
-import { LINKS } from "@/lib/site";
-import photo from "@/public/img/chapel-altar.jpg";
+import { strings } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/meta";
+import { getParish } from "@/lib/parish";
 
-export const metadata = pageMetadata({
-  title: "Bulletin",
-  description: "The weekly St. Mary Parish bulletin: Mass intentions, the collection, announcements and news. This week's and the last three months.",
-  path: "/bulletin",
-});
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const p = await getParish();
+  const s = strings(p.lang);
+  return pageMetadata(p, { title: s.bulletin.title, description: s.meta.bulletin(p.parishName), path: "/bulletin" });
+}
 
 export default async function Bulletin() {
-  const list = await bulletins();
+  const p = await getParish();
+  if (!p.bulletins) notFound();
+  const s = strings(p.lang);
+  const t = s.bulletin;
+  const list = await bulletins(p.bulletins);
   const [latest, ...older] = list;
   return (
     <>
-      <PageHero title="The Bulletin" lede="Printed every week. Mass intentions, the collection, and what is coming up." photo={photo} priority />
+      <PageHero title={t.title} lede={t.lede} photo={p.photos.chapel ?? p.photos.hero} priority />
       <Band tone="paper">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
-            <H2>This week</H2>
+            <H2>{t.thisWeek}</H2>
             {latest ? (
               <>
                 <p className="display mt-6 text-4xl text-ink">{latest.label}</p>
                 <div className="mt-6">
                   <GoldButton href={latest.href} external>
-                    Open the bulletin (PDF)
+                    {t.open}
                   </GoldButton>
                 </div>
               </>
             ) : (
               <>
-                <p className="mt-6 text-[17px] leading-relaxed text-ink">The bulletin list could not be loaded just now. Every issue is on the parish’s DiscoverMass page.</p>
+                <p className="mt-6 text-[17px] leading-relaxed text-ink">{t.everyIssue}</p>
                 <div className="mt-6">
-                  <GoldButton href={LINKS.bulletins} external>
-                    Bulletins on DiscoverMass
+                  <GoldButton href={p.bulletins} external>
+                    {t.openAll}
                   </GoldButton>
                 </div>
               </>
             )}
             <p className="mt-6 text-sm leading-relaxed text-ink-soft">
-              The bulletin is printed and hosted by Diocesan Publications. To receive it by email each week, use the sign-up on{" "}
-              <A href={LINKS.bulletins} external>
-                DiscoverMass
+              {t.note1}
+              <A href={p.bulletins} external>
+                {t.theirPage}
               </A>
               .
             </p>
           </div>
           {older.length > 0 && (
             <div>
-              <H2>Recent issues</H2>
+              <H2>{t.recent}</H2>
               <ul className="mt-6 divide-y divide-paper-dim border-y border-paper-dim">
                 {older.map((b) => (
                   <li key={b.href} className="py-3">

@@ -1,34 +1,49 @@
+import fs from "node:fs";
+import path from "node:path";
 import type { NextConfig } from "next";
+import registry from "./parishes/registry.json";
 
 /**
- * The host split, per glaze/proposal.md, while the letter is out:
+ * One deployment, many hosts. parishes/registry.json lists every parish's
+ * hosts and pitch host; the parish itself is picked per request from the
+ * Host header in lib/parish.ts. This file only does what has to happen
+ * before routing:
  *
- *   stmarymarshall.glazedweb.com/        -> the letter (public/pitch/stmarymarshall/index.html)
- *   stmarymarshall.glazedweb.com/demo    -> this site
- *   stmarymarshall.org/                  -> this site, no letter anywhere (once DNS moves)
+ *   <pitchHost>/        -> the letter (public/pitch/<slug>/index.html)
+ *   <pitchHost>/demo    -> the parish site
+ *   <diocesePitchHost>/ -> the diocese letter (public/pitch/diocese/index.html)
+ *   any other host      -> the parish site, no letter anywhere
  *
  * The rewrites MUST be in `beforeFiles`: app/page.tsx already answers "/",
- * and an afterFiles rewrite would never fire. Host scoping rather than
- * basePath so the real site is not buried under /demo on launch day.
- * Every path on the pitch host and on *.vercel.app is noindex, so no copy
- * of the parish competes with the parish for its own name.
+ * and an afterFiles rewrite would never fire. Every path on a pitch host
+ * and on *.vercel.app is noindex, so no copy of a parish competes with the
+ * parish for its own name.
  *
- * DELETE the pitch rewrites and public/pitch/ once the parish says yes.
+ * Once a parish says yes, remove its pitchHost from the registry and its
+ * data file; its letter stops being served the same minute.
  */
-const PITCH_HOST = "stmarymarshall.glazedweb.com";
-const onPitchHost = [{ type: "host" as const, value: PITCH_HOST }];
+const pitch = registry.parishes.filter((p) => p.pitchHost).map((p) => ({ slug: p.slug, host: p.pitchHost as string, letter: fs.existsSync(path.join(process.cwd(), "public/pitch", p.slug, "index.html")) }));
+const onHost = (host: string) => [{ type: "host" as const, value: host.replace(/\./g, "\\.") }];
+const diocese = registry.diocesePitchHost;
+const pitchHosts = [...pitch.map((p) => p.host), ...(diocese ? [diocese] : [])];
 
 const nextConfig: NextConfig = {
   images: { formats: ["image/avif", "image/webp"] },
   async rewrites() {
     return {
       beforeFiles: [
-        { source: "/", destination: "/pitch/stmarymarshall/index.html", has: onPitchHost },
-        { source: "/demo", destination: "/", has: onPitchHost },
-        { source: "/demo/:path*", destination: "/:path*", has: onPitchHost },
-        // The letter lives in public/, so on any other host it resolves to
+        // A pitch host with no letter yet serves the site at / as well as at
+        // /demo, so the demo link works before the letter is written.
+        ...pitch.flatMap((p) => [
+          ...(p.letter ? [{ source: "/", destination: `/pitch/${p.slug}/index.html`, has: onHost(p.host) }] : []),
+          { source: "/demo", destination: "/", has: onHost(p.host) },
+          { source: "/demo/:path*", destination: "/:path*", has: onHost(p.host) },
+        ]),
+        ...(diocese ? [{ source: "/", destination: "/pitch/diocese/index.html", has: onHost(diocese) }] : []),
+        // The letters live in public/, so on any other host they resolve to
         // the 404 page rather than being a second URL for the same page.
-        { source: "/pitch/:path*", destination: "/_not-found", missing: onPitchHost },
+        // `missing` is AND-ed, so one rule covers every pitch host at once.
+        { source: "/pitch/:path*", destination: "/_not-found", missing: pitchHosts.map((h) => ({ type: "host" as const, value: h.replace(/\./g, "\\.") })) },
       ],
     };
   },
@@ -43,8 +58,8 @@ const nextConfig: NextConfig = {
   async headers() {
     const noindex = [{ key: "X-Robots-Tag", value: "noindex, nofollow" }];
     return [
-      { source: "/:path*", has: onPitchHost, headers: noindex },
-      { source: "/:path*", has: [{ type: "host", value: "(.*)\\.vercel\\.app" }], headers: noindex },
+      ...pitchHosts.map((h) => ({ source: "/:path*", has: onHost(h), headers: noindex })),
+      { source: "/:path*", has: [{ type: "host" as const, value: "(.*)\\.vercel\\.app" }], headers: noindex },
     ];
   },
 };

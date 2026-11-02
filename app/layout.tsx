@@ -2,68 +2,61 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SITE } from "@/lib/site";
+import { strings } from "@/lib/i18n";
+import { getParish, isNoindexHost } from "@/lib/parish";
+import { navFor } from "@/lib/nav";
+import { pageMetadata } from "@/lib/meta";
 import { churchSchema, jsonLd } from "@/lib/jsonld";
-import { CONFESSION, DAY_NAMES, fmtTime, massTimesSentence } from "@/lib/schedule";
-import { HOME_OG } from "@/lib/meta";
+import { massTimesSentence } from "@/lib/schedule";
+import { confessionSentence, whereSentence } from "@/lib/sentences";
 import "./globals.css";
 
 /**
- * Static pages are regenerated at least daily, so the footer's copyright
- * year and anything else that reads the clock at build time cannot sit
- * stale for a year between deploys. Dynamic pages ignore this.
+ * One layout for every parish on the platform. The parish comes from the
+ * Host header (lib/parish.ts), so everything below is dynamic. Fonts are
+ * self-hosted at build time by next/font: Cormorant Garamond for display,
+ * Source Sans 3 for text. Both carry the Latin Extended set the Spanish
+ * pages need.
  */
-export const revalidate = 86400;
+const display = Cormorant_Garamond({ subsets: ["latin", "latin-ext"], weight: ["500", "600", "700"], style: ["normal", "italic"], variable: "--font-display-src", display: "swap" });
+const body = Source_Sans_3({ subsets: ["latin", "latin-ext"], weight: ["400", "600"], variable: "--font-body-src", display: "swap" });
 
-/**
- * Cormorant Garamond for display, Source Sans 3 for body. A book serif for
- * a parish founded in 1852, self-hosted at build time by next/font so no
- * runtime font CDN (glaze.md). Weights kept to the ones used.
- */
-const display = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-display-src",
-  display: "swap",
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const p = await getParish();
+  const s = strings(p.lang);
+  const noindex = await isNoindexHost();
+  return pageMetadata(p, {
+    title: p.name,
+    description: s.meta.home(p.name, p.church.city, massTimesSentence(p.masses, p.lang), confessionSentence(p, p.lang), whereSentence(p, p.lang), p.phone),
+    path: "/",
+    noindex,
+  });
+}
 
-const body = Source_Sans_3({
-  subsets: ["latin"],
-  weight: ["400", "600"],
-  variable: "--font-body-src",
-  display: "swap",
-});
-
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE.url),
-  title: {
-    default: "St. Mary Catholic Church | Marshall, MI",
-    template: "%s | St. Mary Catholic Church, Marshall",
-  },
-  description: `St. Mary Catholic Church in Marshall, Michigan. Mass ${massTimesSentence()}. Confession ${DAY_NAMES[CONFESSION[0].day]} ${fmtTime(CONFESSION[0].start)}. Corner of Eagle and Green Streets. Office ${SITE.phone}.`,
-  // The home page's block. Every other page builds its own through
-  // lib/meta.ts, because Next replaces openGraph wholesale rather than
-  // merging it, and a root `url` would stamp the home URL on every page.
-  openGraph: HOME_OG,
-  twitter: { card: "summary_large_image" },
-  alternates: { canonical: "/" },
-};
-
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const p = await getParish();
+  const s = strings(p.lang);
+  const nameRest = p.name.startsWith(p.shortName) ? p.name.slice(p.shortName.length).trim() : "";
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html lang={p.lang} className={`${display.variable} ${body.variable}`}>
       <body>
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-sm focus:bg-gold focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-navy"
-        >
-          Skip to content
+        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-sm focus:bg-gold focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-navy">
+          {s.header.skip}
         </a>
-        <Header />
+        <Header
+          shortName={p.shortName}
+          nameRest={nameRest}
+          phone={p.phone}
+          phoneHref={p.phoneHref}
+          nav={navFor(p)}
+          mark={p.mark}
+          pitchHost={p.pitchHost}
+          give={Boolean(p.give.url || p.give.extras?.length)}
+          words={{ home: s.header.home(p.name), main: s.header.main, mobile: s.header.mobile, openMenu: s.header.openMenu, closeMenu: s.header.closeMenu, register: s.header.register, call: s.header.call(p.phone), give: s.nav.give }}
+        />
         <main id="main">{children}</main>
-        <Footer />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(churchSchema) }} />
+        <Footer parish={p} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(churchSchema(p)) }} />
       </body>
     </html>
   );

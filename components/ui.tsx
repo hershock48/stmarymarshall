@@ -1,29 +1,18 @@
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import type { ReactNode } from "react";
+import type { Photo } from "@/lib/types";
 
 /**
  * The small set of page bones every route shares. Kept in one file so the
  * rhythm (band padding, heading rule, link style) is set once.
  */
 
-export function PageHero({
-  title,
-  lede,
-  photo,
-  alt,
-  priority,
-}: {
-  title: string;
-  lede?: string;
-  photo?: StaticImageData | string;
-  alt?: string;
-  priority?: boolean;
-}) {
+export function PageHero({ title, lede, photo, priority }: { title: string; lede?: string; photo?: Photo; priority?: boolean }) {
   return (
     <section className="relative isolate overflow-hidden bg-navy">
       {photo && (
         <>
-          <Image src={photo} alt={alt ?? ""} fill priority={priority} sizes="100vw" className="object-cover object-center opacity-45" />
+          <Image src={photo.src} alt="" fill priority={priority} sizes="100vw" className="object-cover object-center opacity-45" />
           <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/30" aria-hidden="true" />
         </>
       )}

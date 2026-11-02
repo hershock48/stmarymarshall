@@ -2,15 +2,17 @@ import "server-only";
 import nodemailer from "nodemailer";
 
 /**
- * Mail is SMTP through a mailbox the parish already owns (glaze.md), never a
- * hosted mail API. Nothing here runs until the five SMTP_* variables are set
- * in Vercel by Kevin. Until then `configured()` is false, the registration
- * form still succeeds for the visitor, and the full payload goes to the log.
+ * Mail is SMTP through a mailbox the studio or the parish owns (glaze.md),
+ * never a hosted mail API. Nothing here runs until the SMTP_* variables are
+ * set in Vercel. Until then `configured()` is false, the forms still
+ * succeed for the visitor, and the full payload goes to the log.
  *
- * .env.example is the authority for the variable names.
+ * One SMTP account serves every parish on the platform; the recipient is
+ * the parish's own `mailTo`, falling back to MAIL_TO. .env.example is the
+ * authority for the variable names.
  */
-export function configured(): boolean {
-  return Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS && process.env.MAIL_TO);
+export function configured(to?: string): boolean {
+  return Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS && (to || process.env.MAIL_TO));
 }
 
 /** A plain address or nothing. The form's type="email" is only enforced by the browser. */
@@ -19,7 +21,7 @@ export function cleanAddress(s?: string): string | undefined {
   return v && /^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]+$/.test(v) ? v : undefined;
 }
 
-export async function send(subject: string, text: string, replyTo?: string): Promise<void> {
+export async function send(subject: string, text: string, replyTo?: string, to?: string): Promise<void> {
   replyTo = cleanAddress(replyTo);
   const transport = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
@@ -29,7 +31,7 @@ export async function send(subject: string, text: string, replyTo?: string): Pro
   });
   await transport.sendMail({
     from: process.env.MAIL_FROM ?? process.env.SMTP_USER,
-    to: process.env.MAIL_TO,
+    to: to ?? process.env.MAIL_TO,
     subject,
     text,
     ...(replyTo ? { replyTo } : {}),

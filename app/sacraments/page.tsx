@@ -1,53 +1,80 @@
+import type { Metadata } from "next";
+import { A, Band, Contact, H2, LineButton, PageHero, Prose } from "@/components/ui";
+import { strings } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/meta";
-import { Band, Contact, H2, LineButton, PageHero, Prose } from "@/components/ui";
-import { SACRAMENTS } from "@/lib/content";
-import photo from "@/public/img/chapel-altar.jpg";
+import { getParish } from "@/lib/parish";
 
-export const metadata = pageMetadata({
-  title: "Sacraments",
-  description: "Baptism, First Communion and Confirmation, Matrimony, Anointing of the Sick and Penance at St. Mary Catholic Church, Marshall, Michigan. Who to call and how far ahead.",
-  path: "/sacraments",
-});
+export const dynamic = "force-dynamic";
 
-export default function Sacraments() {
+export async function generateMetadata(): Promise<Metadata> {
+  const p = await getParish();
+  const s = strings(p.lang);
+  return pageMetadata(p, {
+    title: s.sacraments.title,
+    description: s.meta.sacraments(p.sacraments.map((x) => x.title).join(", "), p.name, p.church.city),
+    path: "/sacraments",
+  });
+}
+
+export default async function Sacraments() {
+  const p = await getParish();
+  const s = strings(p.lang);
+  const t = s.sacraments;
   return (
     <>
-      <PageHero title="Sacraments" lede="How to arrange a baptism, a wedding, an anointing, or confession at St. Mary." photo={photo} priority />
+      <PageHero title={t.title} lede={t.lede(p.shortName)} photo={p.photos.chapel ?? p.photos.hero} priority />
       <Band tone="paper">
         <div className="grid gap-12 lg:grid-cols-[16rem_1fr] lg:gap-16">
-          <nav aria-label="Sacraments" className="lg:sticky lg:top-24 lg:self-start">
+          <nav aria-label={t.title} className="lg:sticky lg:top-24 lg:self-start">
             <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold lg:block lg:space-y-2">
-              {SACRAMENTS.map((s) => (
-                <li key={s.slug}>
-                  <a href={`#${s.slug}`} className="inline-block min-h-6 text-marian underline decoration-marian/40 underline-offset-4 hover:decoration-marian">
-                    {s.name}
+              {p.sacraments.map((x) => (
+                <li key={x.slug}>
+                  <a href={`#${x.slug}`} className="inline-block min-h-6 text-marian underline decoration-marian/40 underline-offset-4 hover:decoration-marian">
+                    {x.title}
                   </a>
                 </li>
               ))}
             </ul>
           </nav>
           <div className="space-y-12">
-            {SACRAMENTS.map((s) => (
-              <section key={s.slug} id={s.slug} className="scroll-mt-24">
-                <H2>{s.name}</H2>
+            {p.sacraments.map((x) => (
+              <section key={x.slug} id={x.slug} className="scroll-mt-24">
+                <H2>{x.title}</H2>
                 <div className="mt-6">
-                  <Prose paragraphs={s.body} />
+                  <Prose paragraphs={x.body} />
                 </div>
-                {s.contact && (
+                {x.links && (
+                  <ul className="mt-4 space-y-1.5">
+                    {x.links.map((l) => (
+                      <li key={l.href}>
+                        <A href={l.href} external={l.external}>
+                          {l.label}
+                          {l.href.endsWith(".pdf") ? " (PDF)" : ""}
+                        </A>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {x.contact && (
                   <div className="mt-3">
-                    <Contact text={`Call ${s.contact}`} />
+                    <Contact text={x.contact} />
                   </div>
                 )}
               </section>
             ))}
             <section className="border-t border-paper-dim pt-8">
-              <p className="text-[17px] leading-relaxed text-ink">Confession is heard every Saturday afternoon. The full schedule, with Adoration, is on the Mass times page. To have a Mass offered for someone, request a Mass intention.</p>
+              <p className="text-[17px] leading-relaxed text-ink">
+                {p.confession.length ? t.confessionOnPage : ""}
+                {t.massForSomeone}
+              </p>
               <div className="mt-5 flex flex-wrap gap-3">
-                <LineButton href="/mass-times#confession" onPaper>
-                  Confession times
-                </LineButton>
+                {p.confession.length > 0 && (
+                  <LineButton href="/mass-times#confession" onPaper>
+                    {t.confessionTimes}
+                  </LineButton>
+                )}
                 <LineButton href="/mass-intentions" onPaper>
-                  Mass intentions
+                  {t.massIntentions}
                 </LineButton>
               </div>
             </section>

@@ -1,3 +1,4 @@
+import type { Lang } from "@/lib/i18n";
 import type { Field } from "@/lib/register";
 
 /**
@@ -7,8 +8,7 @@ import type { Field } from "@/lib/register";
  * Mass intentions are a REQUEST the office confirms, never a booking: the
  * website does not know which Masses are already taken, and it should not
  * pretend to (glaze.md on availability). The stipend is paid at the office
- * or by mail; no amount is printed because the parish has not published
- * one.
+ * or by mail; no amount is printed because no parish has published one.
  */
 export type RequestKind = "mass-intention" | "prayer-request";
 
@@ -40,6 +40,27 @@ export const REQUESTS: Record<RequestKind, { title: string; subject: string; fie
     ],
   },
 };
+
+const ES: Record<string, string> = {
+  "Your name": "Tu nombre",
+  "Your phone": "Tu teléfono",
+  "Your email": "Tu correo electrónico",
+  "The Mass is for": "La Misa es por",
+  "Living or deceased": "Vivo o difunto",
+  Deceased: "Difunto",
+  Living: "Vivo",
+  "Special intention": "Intención especial",
+  "Preferred date or Mass, if any": "Fecha o Misa preferida, si la hay",
+  "Would you like a Mass card to give?": "¿Quieres una tarjeta de Misa para regalar?",
+  "Anything else the office should know": "Algo más que la oficina deba saber",
+  "Who or what to pray for": "Por quién o por qué orar",
+  "May we print the name in the bulletin?": "¿Podemos publicar el nombre en el boletín?",
+  "Anything you want the parish to know": "Algo que quieras que la parroquia sepa",
+};
+
+export function trRequest(label: string, lang: Lang): string {
+  return lang === "es" ? (ES[label] ?? label) : label;
+}
 
 export function isRequestKind(k: string): k is RequestKind {
   return k === "mass-intention" || k === "prayer-request";

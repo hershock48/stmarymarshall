@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Glazed Web × the Diocese of Kalamazoo · Forty-two parish websites, one template</title>
+<meta name="description" content="Every parish website in the diocese was measured in a browser. The same five gaps are on every one. Three parishes have been rebuilt on one platform the diocese would own, and they are running now.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Glazed Web">
+<meta property="og:url" content="https://kalamazoo.glazedweb.com/">
+<meta property="og:title" content="Forty-two parish websites. One template. Five gaps on every one.">
+<meta property="og:description" content="A letter to the Diocese of Kalamazoo, with three parishes rebuilt and running, and every claim linked to the page that proves it.">
+<meta property="og:image" content="https://kalamazoo.glazedweb.com/pitch/diocese/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Three parish churches, and the words: forty-two parish websites, one template, five gaps on every one.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Forty-two parish websites. One template. Five gaps on every one.">
+<meta name="twitter:description" content="A letter to the Diocese of Kalamazoo, with three parishes rebuilt and running.">
+<meta name="twitter:image" content="https://kalamazoo.glazedweb.com/pitch/diocese/og.jpg">
+<meta name="theme-color" content="#FDF6EC">
+<link rel="icon" type="image/svg+xml" href="https://kalamazoo.glazedweb.com/pitch/diocese/favicon.svg">
+<link rel="icon" href="https://kalamazoo.glazedweb.com/pitch/diocese/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://kalamazoo.glazedweb.com/pitch/diocese/apple-touch-icon.png">
+<style>
+/* Stylesheet lifted verbatim from the St. Mary letter (public/pitch/stmarymarshall), which lifted it from
+   Mike's Place, Dark Horse and Griffin Claw in turn (glaze/proposal.md). The gradient ids on the three
+   marks are suffixed per instance so no two are the same id on one page. */
+:root{
+ --paper:#FDF6EC; --paper2:#FFF7EA; --card:#FFFDF8;
+ --ink:#2B1E16; --ink2:#201712; --body:#6B5747; --mute:#7F6D5B; --line:#E8DCC8;
+ --pink:#E84D8A; --pink-d:#CE3672;--pink-i:#C9356F; --pink-t:#FCE7F0;
+ --green:#BFE07A; --green-b:#A9D65C; --green-d:#467C3D; --green-t:#F1F8DC;
+ --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--body);font-family:var(--sans);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4,.k,.btn,nav,th,.num,.chip{font-family:var(--sans)}
+.k{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--green-d)}
+h2{font-size:clamp(30px,4.4vw,48px);font-weight:800;color:var(--ink);letter-spacing:-1.6px;line-height:1.08;margin:10px 0 14px}
+h3{font-size:19px;font-weight:800;color:var(--ink);margin:34px 0 10px;letter-spacing:-.4px}
+p{margin:0 0 14px}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--pink-i)}
+.rule{height:3px;width:52px;background:var(--pink);border-radius:2px;margin:0 0 18px}
+section{padding:60px 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+
+header{position:sticky;top:0;z-index:60;background:rgba(253,246,236,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand .gl{height:34px;width:auto;display:block}
+.brand .bw{font-family:var(--sans);font-weight:800;font-size:19px;color:var(--ink);letter-spacing:-.6px;line-height:1.1}
+.brand .bw span{font-weight:350;color:var(--mute)}
+.brand span{font-size:.72rem;color:var(--mute);font-style:italic}
+nav{display:flex;gap:20px;font-size:.72rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+nav a{color:var(--mute);text-decoration:none}
+nav a:hover{color:var(--pink-i)}
+.hright{display:flex;align-items:center;gap:20px}
+.hdemo{display:inline-flex;align-items:center;min-height:44px;background:var(--pink-d);color:#fff;font-weight:700;font-size:.72rem;letter-spacing:.09em;
+ text-transform:uppercase;padding:10px 18px;border-radius:999px;text-decoration:none;white-space:nowrap;
+ box-shadow:0 6px 16px -6px rgba(232,77,138,.55);transition:all .18s}
+.hdemo:hover{background:var(--green);color:var(--ink);transform:translateY(-1px)}
+.herocta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.herocta a{display:inline-flex;align-items:center;min-height:46px;padding:0 26px;border-radius:999px;font-family:var(--sans);font-weight:700;font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;background:var(--pink-d);color:#fff;box-shadow:0 6px 16px -6px rgba(232,77,138,.55);transition:all .18s}
+.herocta a:hover{background:var(--green);color:var(--ink);transform:translateY(-2px)}
+.herocta a.ghost{background:transparent;color:var(--ink);border:2px solid var(--line);box-shadow:none}
+.herocta a.ghost:hover{background:transparent;color:var(--ink);border-color:var(--green)}
+.herocta span{flex:1 1 20em;min-width:16em;font-size:.92rem;color:var(--body)}
+@media(max-width:720px){nav{display:none}.brand .bw~span{display:none}}
+@media(max-width:400px){.hdemo{font-size:.66rem;padding:9px 13px;letter-spacing:.06em}}
+
+.hero{padding:66px 0 54px;text-align:left}
+.hero h1{font-family:var(--sans);font-size:clamp(38px,5.5vw,60px);font-weight:800;color:var(--ink);letter-spacing:-2px;line-height:1.04}
+.hero h1 em{font-style:normal;color:var(--pink)}
+.hero .sub{font-size:1.12rem;color:var(--body);margin-top:20px;max-width:31em}
+.forwho{margin-top:26px;font-family:var(--sans);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);line-height:1.9}
+.forwho b{color:var(--ink)}
+
+.tldr{background:var(--ink);color:#F6EFE4;border-radius:16px;padding:26px 26px 22px;margin-top:38px}
+.tldr .k{color:var(--green)}
+.tldr ul{list-style:none;margin:14px 0 0}
+.tldr li{display:flex;gap:12px;padding:9px 0;border-top:1px solid rgba(255,255,255,.1);font-size:.97rem;line-height:1.5}
+.tldr li:first-child{border-top:0}
+.tldr .n{font-family:var(--sans);font-weight:800;color:var(--green);flex:0 0 auto;font-size:.8rem;padding-top:3px}
+.tldr b{color:#fff}
+
+.claim{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 20px;margin:12px 0;transition:border-color .16s,transform .16s}
+.claim:hover{border-color:var(--pink);transform:translateY(-1px)}
+.claim h4{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+.claim p{font-size:.95rem;margin:0}
+.claim p+p{margin-top:10px}
+.claim .verify{display:inline-flex;align-items:center;gap:7px;margin-top:12px;margin-right:8px;font-family:var(--sans);font-size:.71rem;font-weight:700;
+ letter-spacing:.1em;text-transform:uppercase;color:var(--pink-i);text-decoration:none;border:1.5px solid var(--pink);
+ padding:7px 13px;border-radius:999px;transition:all .16s}
+.claim .verify:hover{background:var(--pink-d);color:#fff}
+.claim .verify.plain{border-color:var(--line);color:var(--mute);cursor:default}
+.claim .verify.plain:hover{background:transparent;color:var(--mute)}
+.mono{font-family:ui-monospace,Menlo,monospace;font-size:.83em;color:var(--mute);overflow-wrap:anywhere}
+.cmp td,.claim p,.tldr li{overflow-wrap:anywhere}
+
+.cmp{width:100%;border-collapse:collapse;margin:16px 0;font-size:.93rem}
+.cmp th{font-family:var(--sans);text-align:left;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;
+ padding:0 10px 9px 0;border-bottom:2px solid var(--ink);color:var(--ink);vertical-align:bottom}
+.cmp td{padding:12px 10px 12px 0;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}
+.cmp td:first-child{font-weight:700;color:var(--ink);width:24%;font-family:var(--sans);font-size:.86rem}
+.cmp td:nth-child(2){width:36%;color:var(--mute)}
+.cmp td:nth-child(3){width:40%}
+.tick{color:var(--green-d);font-weight:800}
+/* The measured table: a number column and a sentence. */
+.cmp.meas td:first-child{width:46%}.cmp.meas td:nth-child(2){width:18%;color:var(--ink);font-family:var(--sans);font-weight:800;font-size:1.05rem;white-space:nowrap}.cmp.meas td:nth-child(3){width:36%}
+@media(max-width:600px){.cmp.meas td:nth-child(2){font-size:.95rem}}
+
+.pricebox{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.pricebox>div{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:20px}
+.pricebox .n{font-family:var(--sans);font-size:2rem;font-weight:800;color:var(--ink);letter-spacing:-.03em;line-height:1}
+.pricebox .l{font-size:.85rem;color:var(--mute);margin-top:7px;line-height:1.4}
+.pricebox .was{display:block;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.pricesrc{font-size:.84rem;color:var(--mute);margin:-4px 0 18px}
+@media(max-width:600px){.pricebox{grid-template-columns:1fr}}
+
+/* The three pilot cards. */
+.pilots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+.pilots a{display:block;background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden;text-decoration:none;color:var(--body);transition:border-color .16s,transform .16s}
+.pilots a:hover{border-color:var(--pink);transform:translateY(-2px)}
+.pilots img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.pilots .t{padding:14px 16px 16px}
+.pilots .t b{display:block;color:var(--ink);font-family:var(--sans);font-weight:800;font-size:1rem;letter-spacing:-.01em}
+.pilots .t span{display:block;font-size:.84rem;color:var(--mute);margin-top:4px;line-height:1.4}
+.pilots .t em{display:inline-block;margin-top:10px;font-style:normal;font-size:.71rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink-i)}
+@media(max-width:600px){.pilots{grid-template-columns:1fr}}
+
+.demo{background:linear-gradient(135deg,#201712,#3A2416);color:#F6EFE4;border-radius:18px;padding:32px;margin:22px 0;text-align:center}
+.demo .k{color:var(--green)}
+.demo h3{color:#fff;margin:10px 0 8px;font-size:1.4rem}
+.demo p{color:#D8CBBA;font-size:.98rem;max-width:34em;margin:0 auto 20px}
+.demo a{display:inline-block;background:var(--pink-d);color:#fff;font-family:var(--sans);font-weight:700;font-size:.82rem;box-shadow:0 6px 16px -6px rgba(232,77,138,.55);
+ letter-spacing:.09em;text-transform:uppercase;padding:15px 30px;border-radius:999px;text-decoration:none;transition:all .18s}
+.demo a:hover{background:var(--green);color:var(--ink);transform:translateY(-2px)}
+.demo a.big{padding:18px 44px;font-size:.92rem;margin-top:4px}
+.demo .after{color:#D8CBBA;font-size:.92rem;max-width:38em;margin:14px auto 0;line-height:1.6}
+.demo .after a{display:inline;background:none;box-shadow:none;padding:0;border-radius:0;font-family:inherit;font-size:inherit;letter-spacing:0;text-transform:none;color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.demo .after a:hover{background:none;color:var(--green);transform:none}
+.vurl{font-family:var(--sans);font-size:.72rem;color:var(--mute);letter-spacing:.02em;word-break:break-all;display:block;margin-top:10px}
+
+.step{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.step .no{font-family:var(--sans);font-weight:800;font-size:.78rem;color:#fff;background:var(--pink-d);width:28px;height:28px;
+ border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.step h4{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:4px}
+.step p{font-size:.93rem;margin:0}
+
+footer{background:var(--ink2);color:#A6907F;padding:44px 0;font-size:.88rem;margin-top:30px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer b{color:#F6EFE4;display:block;font-family:var(--sans);font-size:.95rem;margin-bottom:4px}
+footer .bw{display:block;font-weight:800;color:#F6EFE4;letter-spacing:-.6px;margin-bottom:5px}
+footer .bw span{font-weight:350;color:#A6907F}
+footer a{color:var(--green)}
+.conf{font-size:.72rem;color:#A6907F;margin-top:14px;letter-spacing:.04em}
+.note{font-size:.85rem;color:var(--mute);font-style:italic;line-height:1.5}
+
+/* --- the mark, and its drip, lifted from glazedweb.com --- */
+.gmark{display:block;overflow:visible}
+.gmark .goo{transform-box:fill-box;transform-origin:50% 0;animation:breathe 6s ease-in-out infinite}
+.gmark .wob1,.gmark .wob2,.gmark .wob3,.gmark .wobB{transform-box:fill-box;transform-origin:50% 0}
+.gmark .wob1{animation:sagg 3.8s ease-in-out -.6s infinite}
+.gmark .wob2{animation:sagg 4.9s ease-in-out -2.1s infinite}
+.gmark .wob3{animation:sagg 4.3s ease-in-out -1.3s infinite}
+.gmark .wobB{animation:sagg 5.6s ease-in-out -3s infinite}
+.gmark .string{transform-box:fill-box;transform-origin:50% 0;animation:stringy 3.4s cubic-bezier(.55,.1,.8,.5) infinite}
+.gmark .droplet{transform-box:fill-box;transform-origin:center;animation:fall 3.4s cubic-bezier(.5,.08,.85,.6) infinite}
+.gmark .droplet2{transform-box:fill-box;transform-origin:center;animation:fall2 5.1s cubic-bezier(.5,.08,.85,.6) -2.4s infinite}
+@keyframes breathe{0%,to{transform:scaleY(1)}50%{transform:scaleY(1.02)}}
+@keyframes sagg{0%,to{transform:scaleY(1) scaleX(1)}50%{transform:scaleY(1.07) scaleX(.98)}}
+@keyframes stringy{0%{transform:scaleY(.1);opacity:0}25%{transform:scaleY(.8);opacity:1}60%{transform:scaleY(1.7);opacity:.85}80%{transform:scaleY(2.4);opacity:0}to{transform:scaleY(.1);opacity:0}}
+@keyframes fall{0%{transform:translateY(-16px) scaleY(1.5) scaleX(.7);opacity:0}22%{transform:translateY(-8px) scaleY(1.2) scaleX(.85);opacity:1}60%{transform:translateY(10px) scale(1);opacity:1}to{transform:translateY(38px) scaleY(1.15) scaleX(.9);opacity:0}}
+@keyframes fall2{0%{transform:translateY(-10px) scaleY(1.4) scaleX(.75);opacity:0}25%{transform:translateY(-4px) scale(1);opacity:1}65%{transform:translateY(8px) scale(1);opacity:1}to{transform:translateY(26px) scale(1);opacity:0}}
+@media (prefers-reduced-motion:reduce){
+ .gmark .goo,.gmark .wob1,.gmark .wob2,.gmark .wob3,.gmark .wobB,
+ .gmark .string,.gmark .droplet,.gmark .droplet2{animation:none}
+}
+.brand .gmark{height:38px;width:auto;margin-bottom:-6px}
+.hero .gmark{height:112px;width:auto;margin-bottom:26px}
+footer .gmark{height:78px;width:auto}
+</style></head><body>
+
+<header><div class="wrap">
+  <a class="brand" href="#top" aria-label="Glazed Web">
+    <svg class="gmark gl" viewBox="0 0 200 250" overflow="visible" aria-hidden="true"><defs><linearGradient id="dgGrad" x1="0" y1="92" x2="0" y2="165" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5FA850"></stop><stop offset="100%" stop-color="#43813A"></stop></linearGradient><linearGradient id="lgGrad" x1="0" y1="92" x2="0" y2="215" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#D9EDA0"></stop><stop offset="55%" stop-color="#BFE07A"></stop><stop offset="100%" stop-color="#A3CE55"></stop></linearGradient><radialGradient id="pinkGrad" cx="40%" cy="34%" r="75%"><stop offset="0%" stop-color="#F887B2"></stop><stop offset="55%" stop-color="#E84D8A"></stop><stop offset="100%" stop-color="#CE3672"></stop></radialGradient><linearGradient id="creepGrad" x1="0" y1="90" x2="0" y2="124" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E3F2B0"></stop><stop offset="100%" stop-color="#C3E181"></stop></linearGradient></defs><g class="goo"><g fill="url(#dgGrad)"><ellipse cx="100" cy="110" rx="38" ry="15"></ellipse><path class="wobB" d="M 86 100 C 86 116, 87 130, 88 142 C 88 148, 91 149, 92 142 C 93 130, 92 114, 92 100 Z"></path><path d="M 114 100 C 114 112, 115 124, 116 134 C 116 140, 119 141, 120 134 C 121 124, 120 110, 120 100 Z"></path></g><g fill="url(#lgGrad)"><path class="wob1" d="M 64 100 C 63 120, 65 138, 66 152 C 66 164, 68 172, 74 173 C 80 172, 83 165, 82 154 C 84 136, 85 116, 86 100 Z"></path><path class="wob2" d="M 92 100 C 91 128, 93 152, 94 172 C 94 188, 97 199, 104 200 C 111 199, 114 190, 112 174 C 113 150, 114 124, 114 100 Z"></path><path class="wob3" d="M 120 100 C 119 116, 120 130, 121 142 C 121 152, 123 159, 129 160 C 134 159, 137 153, 135 144 C 136 130, 137 114, 137 100 Z"></path></g></g><path class="string" d="M 104 199 L 104 209" stroke="#BFE07A" stroke-width="2.5" stroke-linecap="round" fill="none"></path><g class="droplet"><circle cx="104" cy="213" r="7" fill="#BFE07A"></circle><circle cx="102" cy="211" r="2" fill="#F1F8DC" opacity="0.9"></circle></g><circle class="droplet2" cx="74" cy="186" r="4.5" fill="#BFE07A"></circle><circle cx="100" cy="70" r="52" fill="url(#pinkGrad)"></circle><path d="M 56 98 A 52 52 0 0 0 144 98 C 142 94, 138 92, 134 94 C 130 97, 129 102, 125 104 C 119 106, 116 98, 110 96 C 104 94, 103 102, 98 105 C 93 107, 90 100, 84 97 C 78 95, 76 100, 71 102 C 66 103, 62 100, 56 98 Z" fill="url(#creepGrad)"></path><path d="M 68 106 A 42 42 0 0 0 84 116" fill="none" stroke="#F1F8DC" stroke-width="4" stroke-linecap="round" opacity="0.85"></path><path d="M 97 144 Q 103 151 109 144" fill="none" stroke="#55974A" stroke-width="4" stroke-linecap="round"></path><g stroke="#F1F8DC" fill="none" stroke-linecap="round"><path d="M 97 128 C 96 148, 97 166, 100 182" stroke-width="4.5" opacity="0.85"></path><path d="M 69 118 C 68 132, 70 146, 71 156" stroke-width="3.5" opacity="0.8"></path><path d="M 124 114 C 123 124, 125 138, 126 148" stroke-width="3.5" opacity="0.8"></path></g><circle cx="100" cy="192" r="2.5" fill="#F1F8DC" opacity="0.9"></circle><circle cx="100" cy="72" r="13" fill="#FDF6EC"></circle><circle cx="100" cy="72" r="13" fill="none" stroke="#C22F6B" stroke-width="3" opacity="0.3"></circle><path class="sheen" d="M 62 46 A 44 44 0 0 1 82 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path><circle class="sheen" cx="92" cy="26" r="3.5" fill="#FFFFFF"></circle></svg>
+    <span style="display:flex;flex-direction:column;line-height:1.15"><span class="bw">glazed<span>web</span></span><span>for the Diocese of Kalamazoo</span></span>
+  </a>
+  <div class="hright">
+    <nav>
+      <a href="#found">Findings</a>
+      <a href="#own">Ownership</a>
+      <a href="#built">The pilot</a>
+      <a href="#cost">Cost</a>
+      <a href="#next">Next</a>
+    </nav>
+    <a class="hdemo" href="https://www.glazedweb.com/schedule" target="_blank" rel="noopener">Book a call ↗</a>
+  </div>
+</div></header>
+
+<div class="wrap" id="top">
+<div class="hero">
+  <svg class="gmark mark" viewBox="0 0 200 250" overflow="visible" aria-hidden="true"><defs><linearGradient id="dgGrad2" x1="0" y1="92" x2="0" y2="165" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5FA850"></stop><stop offset="100%" stop-color="#43813A"></stop></linearGradient><linearGradient id="lgGrad2" x1="0" y1="92" x2="0" y2="215" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#D9EDA0"></stop><stop offset="55%" stop-color="#BFE07A"></stop><stop offset="100%" stop-color="#A3CE55"></stop></linearGradient><radialGradient id="pinkGrad2" cx="40%" cy="34%" r="75%"><stop offset="0%" stop-color="#F887B2"></stop><stop offset="55%" stop-color="#E84D8A"></stop><stop offset="100%" stop-color="#CE3672"></stop></radialGradient><linearGradient id="creepGrad2" x1="0" y1="90" x2="0" y2="124" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E3F2B0"></stop><stop offset="100%" stop-color="#C3E181"></stop></linearGradient></defs><g class="goo"><g fill="url(#dgGrad2)"><ellipse cx="100" cy="110" rx="38" ry="15"></ellipse><path class="wobB" d="M 86 100 C 86 116, 87 130, 88 142 C 88 148, 91 149, 92 142 C 93 130, 92 114, 92 100 Z"></path><path d="M 114 100 C 114 112, 115 124, 116 134 C 116 140, 119 141, 120 134 C 121 124, 120 110, 120 100 Z"></path></g><g fill="url(#lgGrad2)"><path class="wob1" d="M 64 100 C 63 120, 65 138, 66 152 C 66 164, 68 172, 74 173 C 80 172, 83 165, 82 154 C 84 136, 85 116, 86 100 Z"></path><path class="wob2" d="M 92 100 C 91 128, 93 152, 94 172 C 94 188, 97 199, 104 200 C 111 199, 114 190, 112 174 C 113 150, 114 124, 114 100 Z"></path><path class="wob3" d="M 120 100 C 119 116, 120 130, 121 142 C 121 152, 123 159, 129 160 C 134 159, 137 153, 135 144 C 136 130, 137 114, 137 100 Z"></path></g></g><path class="string" d="M 104 199 L 104 209" stroke="#BFE07A" stroke-width="2.5" stroke-linecap="round" fill="none"></path><g class="droplet"><circle cx="104" cy="213" r="7" fill="#BFE07A"></circle><circle cx="102" cy="211" r="2" fill="#F1F8DC" opacity="0.9"></circle></g><circle class="droplet2" cx="74" cy="186" r="4.5" fill="#BFE07A"></circle><circle cx="100" cy="70" r="52" fill="url(#pinkGrad2)"></circle><path d="M 56 98 A 52 52 0 0 0 144 98 C 142 94, 138 92, 134 94 C 130 97, 129 102, 125 104 C 119 106, 116 98, 110 96 C 104 94, 103 102, 98 105 C 93 107, 90 100, 84 97 C 78 95, 76 100, 71 102 C 66 103, 62 100, 56 98 Z" fill="url(#creepGrad2)"></path><path d="M 68 106 A 42 42 0 0 0 84 116" fill="none" stroke="#F1F8DC" stroke-width="4" stroke-linecap="round" opacity="0.85"></path><path d="M 97 144 Q 103 151 109 144" fill="none" stroke="#55974A" stroke-width="4" stroke-linecap="round"></path><g stroke="#F1F8DC" fill="none" stroke-linecap="round"><path d="M 97 128 C 96 148, 97 166, 100 182" stroke-width="4.5" opacity="0.85"></path><path d="M 69 118 C 68 132, 70 146, 71 156" stroke-width="3.5" opacity="0.8"></path><path d="M 124 114 C 123 124, 125 138, 126 148" stroke-width="3.5" opacity="0.8"></path></g><circle cx="100" cy="192" r="2.5" fill="#F1F8DC" opacity="0.9"></circle><circle cx="100" cy="72" r="13" fill="#FDF6EC"></circle><circle cx="100" cy="72" r="13" fill="none" stroke="#C22F6B" stroke-width="3" opacity="0.3"></circle><path class="sheen" d="M 62 46 A 44 44 0 0 1 82 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path><circle class="sheen" cx="92" cy="26" r="3.5" fill="#FFFFFF"></circle></svg>
+  <div class="k">A letter to the Diocese of Kalamazoo</div>
+  <h1>Forty-two parish websites.<br>One template.<br><em>Five gaps on every one.</em></h1>
+  <p class="sub">I opened every parish website in the diocese in a browser and measured it. Then I rebuilt three parishes, one of them in Spanish, on a single platform the diocese would own. They are running today at the links below. This letter says what the measurements found, what the three sites do, and what it would cost to do the rest.</p>
+  <p class="herocta">
+    <a href="#built">See the three sites</a>
+    <a class="ghost" href="https://www.glazedweb.com/schedule" target="_blank" rel="noopener">Book a call ↗</a>
+    <span>Open the sites on a phone first. If they are worth a conversation, the call is the next step.</span>
+  </p>
+  <div class="forwho">
+    From <b>Kevin Hershock · Glazed Web</b>, a parishioner of St. Mary, Marshall<br>
+    Marshall, Michigan · November 2026<br>
+    <b>Every claim below links to the page that proves it.</b>
+  </div>
+
+  <div class="tldr">
+    <div class="k">The short version</div>
+    <ul>
+      <li><span class="n">01</span><span>Of the 46 parish websites the diocesan Parish Finder lists, <b>four are down and 41 of the remaining 42 are the same eCatholic template</b>. The faults are the same on every one, because the template is.</span></li>
+      <li><span class="n">02</span><span><b>Not one of the 42 publishes its Mass times as data</b> a search engine, a Mass-finder app or the diocese&rsquo;s own finder can read without a person reading the page. 93% show no picture when their link is shared. 60% have no description in a search result.</span></li>
+      <li><span class="n">03</span><span><b>Three parishes are rebuilt and running</b>: St. Mary Marshall, St. Philip Battle Creek and San Felipe de Jesús Fennville, in Spanish, on one codebase, each with its own photos and words, each with its Mass times as structured data and a diocesan feed that joins them.</span></li>
+      <li><span class="n">04</span><span><b>The diocese owns it.</b> $99 a parish a month, no build fee, month to month. Leaving means taking the whole thing, not exporting from it.</span></li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<section id="found"><div class="wrap">
+  <div class="k">Section one</div><div class="rule"></div>
+  <h2>What we found.</h2>
+  <p>The diocesan Parish Finder lists 60 parishes and missions with 46 distinct websites. I opened each one in a real browser on <strong>November 2, 2026</strong> and read its markup, home page only. Four sites did not work at all: olqop.org in Bridgman has an expired security certificate, sscmparish.org in Wayland and stedwardmendon.org in Mendon do not resolve, and stjosephwhitepigeon.org times out. Of the 42 that loaded, <strong>41 are eCatholic and one is WordPress</strong> (St. Joseph, Battle Creek). The diocese&rsquo;s own site is eCatholic too.</p>
+
+  <table class="cmp meas">
+    <tr><th>Measured on the 42 home pages</th><th>Share</th><th>What it means</th></tr>
+    <tr><td>No structured data: no Church record, no Mass events</td><td>100%</td><td>Nothing for Google&rsquo;s Mass-times box, an answer engine, or the diocese&rsquo;s own finder to read.</td></tr>
+    <tr><td>No link-card image</td><td>93%</td><td>A parish link shared in a text or on Facebook shows no picture.</td></tr>
+    <tr><td>No office hours on the home page</td><td>64%</td><td>The most-asked question after Mass times.</td></tr>
+    <tr><td>No search-engine description</td><td>60%</td><td>The one sentence under the parish&rsquo;s name in a search result is blank or auto-filled.</td></tr>
+    <tr><td>No online giving link found</td><td>52%</td><td>Twelve parishes use OSV, seven Vanco, one links a PDF form.</td></tr>
+    <tr><td>Email address not tappable</td><td>50%</td><td>Plain text; a phone cannot open it.</td></tr>
+    <tr><td>Phone number not tappable</td><td>17%</td><td>Seven parishes. A phone cannot dial it.</td></tr>
+    <tr><td>Missing or duplicate main heading</td><td>14%</td><td>Five sites have no h1; the WordPress site has seven.</td></tr>
+    <tr><td>Spanish anywhere on the home page</td><td>10%</td><td>Four parishes, in a diocese with a Hispanic ministry office.</td></tr>
+  </table>
+  <p class="note">Median home page: 16 scripts, 8 stylesheets, 13 images, 46 requests. Twelve sites show no date anywhere, so how stale they are cannot be judged from outside. The full table, one row per site, is available on request.</p>
+
+  <div class="claim">
+    <h4>St. Mary Paw Paw loads 472 images on its home page</h4>
+    <p>Every one of them on every phone that opens the page. St. Joseph in St. Joseph loads 431. Fourteen of the 42 sites send five or more photographs wider than 1,400 pixels to every visitor, which is the full slideshow at full size whether or not the screen can show it.</p>
+    <a class="verify" href="https://stmarypawpaw.com/" target="_blank" rel="noopener">Open St. Mary Paw Paw ↗</a>
+    <span class="verify plain">Counted in a browser, 2026-11-02</span>
+  </div>
+  <div class="claim">
+    <h4>The newest date on St. Mary Niles&rsquo; home page is 2022</h4>
+    <p>Not a judgment on the parish; a measurement of the page. Twelve other sites carry no date at all. A template that nobody is paid to mind drifts, and from outside the diocese cannot tell which of its sites have.</p>
+    <a class="verify" href="https://stmarysniles.org/" target="_blank" rel="noopener">Open St. Mary Niles ↗</a>
+  </div>
+  <div class="claim">
+    <h4>Four parish websites are down, and have been long enough to notice</h4>
+    <p>An expired certificate turns a parish site into a browser warning. A domain that does not resolve turns it into nothing. The Parish Finder still links all four.</p>
+    <a class="verify" href="https://olqop.org/" target="_blank" rel="noopener">Our Lady Queen of Peace, Bridgman ↗</a>
+    <a class="verify" href="https://www.diokzoo.org/parishfinder" target="_blank" rel="noopener">The Parish Finder ↗</a>
+  </div>
+  <div class="claim">
+    <h4>The one asset the template has feeds the diocese&rsquo;s own finder, and 12 parishes do not use it</h4>
+    <p>eCatholic&rsquo;s MassTime panel is what lets the diocesan Parish Finder show a Mass schedule. 30 of the 42 sites use it; 12 type their times into a page as text, so the finder has nothing to read from them. The panel is also the reason a replacement cannot simply be a prettier template: whatever comes next has to publish the schedule as data from day one, or the finder goes dark one parish at a time.</p>
+    <a class="verify" href="https://www.diokzoo.org/parishfinder" target="_blank" rel="noopener">The Parish Finder ↗</a>
+  </div>
+  <div class="claim">
+    <h4>Every parish&rsquo;s photos, PDFs and calendar live on eCatholic&rsquo;s servers</h4>
+    <p>Registration forms, cemetery maps, pastors&rsquo; letters, Religious Education calendars and every slideshow photograph are served from <span class="mono">files.ecatholic.com/&lt;account&gt;/&hellip;</span>, and every calendar is an eCatholic feed. The day a subscription ends, every one of those links stops working, and no parish holds a copy. I know this because I rebuilt St. Mary Marshall from those files and had to bring each one home.</p>
+    <a class="verify" href="https://files.ecatholic.com/6225/documents/2025/2/St.%20Mary%20Cemetery.pdf" target="_blank" rel="noopener">St. Mary&rsquo;s cemetery map, on eCatholic ↗</a>
+  </div>
+  <div class="claim">
+    <h4>What the account numbers say</h4>
+    <p>eCatholic numbers its customers in order. Seven parishes in the diocese carry numbers under 15,000, early customers with their own accounts; St. Mary Marshall is 6225. Seventeen sit in one tight block from 19,059 to 19,971, which is a batch signed up together, almost certainly the diocesan partnership eCatholic advertises. The rest trail upward to 39,077. So &ldquo;the diocese pays for the website&rdquo; is probably true for the seventeen and probably not for the others, which is a question the diocese can answer in an afternoon and no parish office can.</p>
+    <a class="verify" href="https://www.ecatholic.com/kzoo" target="_blank" rel="noopener">eCatholic&rsquo;s Kalamazoo page ↗</a>
+    <span class="verify plain">Account ids read from each site&rsquo;s own markup</span>
+  </div>
+
+  <p style="margin-top:26px;font-size:1.08rem;color:var(--ink)">None of this is an opinion about design. Each line is a measurement, the same on every parish because the template is the same on every parish, and <strong>each one is fixed by the build, not by a parish secretary.</strong></p>
+</div></section>
+
+<section id="own"><div class="wrap">
+  <div class="k">Section two</div><div class="rule"></div>
+  <h2>The part that matters most.</h2>
+  <p style="font-size:1.1rem;color:var(--ink)">Forty-one parishes pay for the same template, directly or through the diocese, and at the end of every month the diocese owns none of it: not the pages, not the photos, not the calendars, not the Mass schedule its own finder depends on.</p>
+
+  <h3>What the diocese holds today</h3>
+  <table class="cmp">
+    <tr><th>The diocese&rsquo;s</th><th>Where it lives</th><th>Who holds it</th></tr>
+    <tr><td>Forty-six domains</td><td>Registrars, one per parish, held by whoever set each up</td><td><span class="tick">The parishes.</span> The one thing already theirs. Four have lapsed or broken.</td></tr>
+    <tr><td>The pages</td><td>eCatholic templates, edited through eCatholic logins</td><td>eCatholic</td></tr>
+    <tr><td>The photos and PDFs</td><td>files.ecatholic.com</td><td>eCatholic</td></tr>
+    <tr><td>Every calendar</td><td>eCatholic feeds</td><td>eCatholic</td></tr>
+    <tr><td>The Mass schedule the Parish Finder shows</td><td>eCatholic&rsquo;s MassTime panels</td><td>eCatholic</td></tr>
+    <tr><td>Registrations and forms</td><td>eCatholic forms</td><td>eCatholic</td></tr>
+  </table>
+
+  <div class="demo" style="text-align:left;background:var(--card);color:var(--body);border:2px solid var(--green)">
+    <div class="k" style="color:var(--green-d)">What I would do instead</div>
+    <h3 style="color:var(--ink);margin-top:8px">The diocese owns the platform. The parishes are its tenants.</h3>
+    <p style="color:var(--body);margin:0">One codebase, every parish on its own domain with its own photos and words, none of them a template. The diocese holds the repository, the hosting and the data, in writing. The Mass schedule of every parish is published as structured data and as one diocesan feed, so the finder, Google and the Mass-finder apps read it from the diocese instead of from a vendor. If the diocese ever leaves me, it gets the working project, repository, hosting and logins. <strong>Not a snapshot. Not an export.</strong> Month to month, thirty days&rsquo; notice, no exit fee. That clause is titled <em>No hostage-taking</em>, because I would rather say it plainly than bury it.</p>
+  </div>
+
+  <h3>Three questions worth asking this month</h3>
+  <table class="cmp">
+    <tr><td>Who holds the eCatholic agreement, and when does it end?</td><td colspan="2">If the diocese signed for the block of seventeen, that date decides whether this is a 2027 conversation or a 2028 one. The other parishes can move whenever they like.</td></tr>
+    <tr><td>Who holds the 46 domain logins?</td><td colspan="2">Four sites are down today for want of a renewal or a certificate. A domain is the most valuable piece of the internet a parish has, and most of them are in one person&rsquo;s inbox.</td></tr>
+    <tr><td>What does the Parish Finder read, exactly?</td><td colspan="2">The feed format it consumes. The three sites below already publish a feed; matching the finder&rsquo;s shape is a route, not a project, once the format is in hand.</td></tr>
+  </table>
+</div></section>
+
+<section id="built"><div class="wrap">
+  <div class="k">Section three</div><div class="rule"></div>
+  <h2>Three parishes, built.</h2>
+  <p>Not a plan. One codebase, three parishes, each with its own photos, words, schedule and calendar, each with its own address once it goes live. Open them on a phone. The Spanish one is in Spanish throughout, not a translated template: the Mass tiles, the forms, the calendar, the dates.</p>
+
+  <div class="pilots">
+    <a href="https://stmarymarshall.glazedweb.com/demo" target="_blank" rel="noopener">
+      <img src="/parishes/stmarymarshall/img/nave-easter.jpg" alt="The nave of St. Mary Church, Marshall, during Mass." loading="lazy">
+      <div class="t"><b>St. Mary, Marshall</b><span>Thirteen pages, three forms, the cemetery, the calendar, the bulletin. Built first, as a gift to my own parish.</span><em>Open the site ↗</em></div>
+    </a>
+    <a href="https://stphilip.glazedweb.com/demo" target="_blank" rel="noopener">
+      <img src="/parishes/stphilipbc/img/church-magnolias.jpg" alt="The stone front of St. Philip Church, Battle Creek, with a magnolia in bloom." loading="lazy">
+      <div class="t"><b>St. Philip, Battle Creek</b><span>A 78-page eCatholic site, with a Latin Mass, perpetual adoration and eleven ministries, read into the same shape in a day.</span><em>Open the site ↗</em></div>
+    </a>
+    <a href="https://sanfelipe.glazedweb.com/demo" target="_blank" rel="noopener">
+      <img src="/parishes/sanfelipe/img/procesion.jpg" alt="The bishop and priests in procession at San Felipe de Jesús, Fennville." loading="lazy">
+      <div class="t"><b>San Felipe de Jesús, Fennville</b><span>In Spanish from the first word to the last, with the parish&rsquo;s own motto, prayers and catechesis forms.</span><em>Abrir el sitio ↗</em></div>
+    </a>
+  </div>
+
+  <table class="cmp">
+    <tr><th></th><th>The template today</th><th>The three sites</th></tr>
+    <tr><td>Mass times</td><td>A panel that opens from a tab, or typed text</td><td>On the front page, with <span class="tick">the next Mass, Confession and Adoration computed from the clock</span>, in the parish&rsquo;s language. St. Philip&rsquo;s adoration chapel says &ldquo;Now&rdquo; from Wednesday morning to Saturday morning, because it is.</td></tr>
+    <tr><td>The schedule as data</td><td>Only through eCatholic&rsquo;s panel</td><td>Every parish carries a Church record with its Mass events in the form Google reads, and <span class="tick">one diocesan feed joins all of them</span>: name, address, language, Mass, Confession, Adoration, calendar, for every parish on the platform.</td></tr>
+    <tr><td>Search results and shared links</td><td>No description on 60%, no picture on 93%</td><td>Every page has its own title and description, and every parish its own link card. Already done for all three.</td></tr>
+    <tr><td>The calendar</td><td>eCatholic&rsquo;s feed</td><td>Every recurring event, with its exceptions, as the parish&rsquo;s own data. Six weeks on the page, <span class="tick">subscribe once</span> on a phone, &ldquo;add to my calendar&rdquo; on every event. St. Mary&rsquo;s is 78 events; San Felipe&rsquo;s is two. Same code.</td></tr>
+    <tr><td>Spanish</td><td>Four parishes, in text</td><td>A parish is Spanish by one setting. Nav, forms, dates, the next-Mass tiles, the thank-you pages: all of it. The parish&rsquo;s own words stay the parish&rsquo;s own.</td></tr>
+    <tr><td>Forms</td><td>eCatholic&rsquo;s</td><td>Registration, Mass intentions and prayer requests on the parish&rsquo;s own pages, emailed to the office, with the printed form alongside where the parish has one.</td></tr>
+    <tr><td>The parish&rsquo;s files</td><td>files.ecatholic.com</td><td>Brought home. Every PDF and photograph on the parish&rsquo;s own address.</td></tr>
+    <tr><td>Accessibility</td><td>Not measured by anyone</td><td>Every page checked against WCAG 2.1 AA at four widths before it ships, the same checks the studio runs on every build. A diocese answers for this under the ADA in a way a parish office does not.</td></tr>
+    <tr><td>Weight</td><td>Median 46 requests; up to 472 images</td><td>One photograph in the hero, sized to the phone asking for it. Front page in about a second on a throttled phone, measured.</td></tr>
+  </table>
+
+  <div class="demo">
+    <div class="k">The diocesan feed</div>
+    <h3>Every parish&rsquo;s schedule, as one file</h3>
+    <p>What a Parish Finder, a Mass-finder app or the diocese&rsquo;s own site would read. Three parishes in it today; every parish that moves joins it the same day.</p>
+    <a href="https://kalamazoo.glazedweb.com/diocese/mass-times.json" target="_blank" rel="noopener">Open the feed ↗</a>
+    <span class="vurl" style="color:#B9A894">kalamazoo.glazedweb.com/diocese/mass-times.json</span>
+  </div>
+
+  <h3>How the rest would be built</h3>
+  <p>The 41 eCatholic sites share one markup, which is why St. Philip&rsquo;s 78 pages took a day: the tabs, the MassTime panel, the staff list, the documents on files.ecatholic.com and the calendar feed are all in predictable places. Each parish is read into the same data shape the three sites use, a person reads the result once, and the parish office confirms the handful of facts only it knows: holy day Mass times, office hours, which inbox the forms go to. <strong>The order: the three sites here, then the parishes the diocese picks, then the block of seventeen when their agreement allows, then the fourteen parishes and missions with no website at all.</strong></p>
+  <p class="note">Two of the three sites were built from public pages without the parishes&rsquo; involvement, as a demonstration for the diocese. They are hidden from search engines and would not go live at a parish&rsquo;s address without that parish&rsquo;s yes and its office&rsquo;s corrections. St. Mary&rsquo;s was built with the parish&rsquo;s permission.</p>
+</div></section>
+
+<section id="cost"><div class="wrap">
+  <div class="k">Section four</div><div class="rule"></div>
+  <h2>What it costs.</h2>
+
+  <div class="pricebox">
+    <div><span class="was" aria-hidden="true">The published menu price for a site this size: <s>$2,000</s> each</span><div class="n">No build fee</div><div class="l">For every parish that moves. The migration is one script plus a day of reading per parish, and the monthly pays for it. The three sites here are already done.</div></div>
+    <div><span class="was" aria-hidden="true">Per parish, in place of its eCatholic subscription</span><div class="n">$99<span style="font-size:1rem;color:var(--mute)">/mo</span></div><div class="l">Hosting, security updates, backups, the diocesan feed, and the edits: a changed Mass time, a new pastor, next year&rsquo;s calendar. The office texts or emails the change; it is up the same week.</div></div>
+  </div>
+  <p class="pricesrc">The struck number is Glazed Web&rsquo;s own published price for a six-page site with forms, the Baker&rsquo;s Dozen on <a href="https://www.glazedweb.com/#menu" target="_blank" rel="noopener">glazedweb.com ↗</a>. The monthly is the menu&rsquo;s smallest, the one that goes with a one-page site, applied to every parish whatever its size.</p>
+  <p>For the 42 parishes with a working site today that is <strong>$4,158 a month, $49,896 a year</strong>, for a platform the diocese owns outright. I have not seen an eCatholic invoice; its own entry plan is $99 a month per site today, and a diocesan deal is presumably below that, so for some parishes this is more than they pay now and for others less. The diocese has the number, and it is worth putting the two side by side with the ownership column next to them. Work beyond keeping the sites current, a diocesan directory, a Mass finder of the diocese&rsquo;s own, an office panel for self-service edits, is quoted first and approved before it starts.</p>
+
+  <h3>Why the monthly is not lower</h3>
+  <p>A website with nobody paid to mind it stops being minded; twelve sites with no date on them and one stuck in 2022 say so. The monthly is what makes &ldquo;can you change the Christmas Mass times&rdquo; a normal request to a vendor rather than a favor, and it is the same arrangement every other client of mine has, in writing.</p>
+</div></section>
+
+<section id="next"><div class="wrap">
+  <div class="k">Section five</div><div class="rule"></div>
+  <h2>What happens next.</h2>
+  <div class="step"><div class="no">1</div><div><h4>Open the three sites</h4><p>Ten minutes each, on a phone. <a href="https://stmarymarshall.glazedweb.com/demo" target="_blank" rel="noopener">St. Mary</a>, <a href="https://stphilip.glazedweb.com/demo" target="_blank" rel="noopener">St. Philip</a>, <a href="https://sanfelipe.glazedweb.com/demo" target="_blank" rel="noopener">San Felipe</a>. Find the next Mass. Subscribe to a calendar. Send a prayer request and watch it land.</p></div></div>
+  <div class="step"><div class="no">2</div><div><h4>One call</h4><p>Thirty minutes with whoever holds the eCatholic agreement and the Parish Finder. I bring the full table, one row per site. You bring the agreement date and the finder&rsquo;s feed format.</p></div></div>
+  <div class="step"><div class="no">3</div><div><h4>Pick the next parishes</h4><p>The diocese names the parishes it wants moved first. Each one is a day of reading plus the office&rsquo;s short list of facts, and goes live at its own address when its office says so.</p></div></div>
+  <div class="step"><div class="no">4</div><div><h4>The finder reads from the diocese</h4><p>The feed takes the finder&rsquo;s shape, and from then on the diocese is the source of its own schedule data. The eCatholic subscriptions end parish by parish, after each site is live, so nothing is ever offline.</p></div></div>
+
+  <div class="demo">
+    <div class="k">The one thing to do</div>
+    <h3>Book the call.</h3>
+    <p>Thirty minutes, on the diocese&rsquo;s calendar, with the three sites open.</p>
+    <a class="big" href="https://www.glazedweb.com/schedule" target="_blank" rel="noopener">Book a call ↗</a>
+    <p class="after">Not yet? <a href="https://stphilip.glazedweb.com/demo" target="_blank" rel="noopener">Open St. Philip</a> one more time; it is the one with 78 pages behind it.</p>
+    <p class="after">Or <a href="mailto:kevin@glazedweb.com?subject=Diocese%20of%20Kalamazoo%20parish%20websites">email Kevin</a>. Glazed Web is one person, in a parish of the diocese.</p>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div>
+    <span class="bw" style="font-size:21px">glazed<span>web</span></span>
+    Kevin Hershock · Marshall, Michigan<br>
+    <a href="https://glazedweb.com" target="_blank" rel="noopener">glazedweb.com</a> · kevin@glazedweb.com
+    <div class="conf">Prepared for the Diocese of Kalamazoo · November 2026</div>
+  </div>
+  <svg class="gmark gl-foot" viewBox="0 0 200 250" overflow="visible" aria-hidden="true"><defs><linearGradient id="dgGrad3" x1="0" y1="92" x2="0" y2="165" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5FA850"></stop><stop offset="100%" stop-color="#43813A"></stop></linearGradient><linearGradient id="lgGrad3" x1="0" y1="92" x2="0" y2="215" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#D9EDA0"></stop><stop offset="55%" stop-color="#BFE07A"></stop><stop offset="100%" stop-color="#A3CE55"></stop></linearGradient><radialGradient id="pinkGrad3" cx="40%" cy="34%" r="75%"><stop offset="0%" stop-color="#F887B2"></stop><stop offset="55%" stop-color="#E84D8A"></stop><stop offset="100%" stop-color="#CE3672"></stop></radialGradient><linearGradient id="creepGrad3" x1="0" y1="90" x2="0" y2="124" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E3F2B0"></stop><stop offset="100%" stop-color="#C3E181"></stop></linearGradient></defs><g class="goo"><g fill="url(#dgGrad3)"><ellipse cx="100" cy="110" rx="38" ry="15"></ellipse><path class="wobB" d="M 86 100 C 86 116, 87 130, 88 142 C 88 148, 91 149, 92 142 C 93 130, 92 114, 92 100 Z"></path><path d="M 114 100 C 114 112, 115 124, 116 134 C 116 140, 119 141, 120 134 C 121 124, 120 110, 120 100 Z"></path></g><g fill="url(#lgGrad3)"><path class="wob1" d="M 64 100 C 63 120, 65 138, 66 152 C 66 164, 68 172, 74 173 C 80 172, 83 165, 82 154 C 84 136, 85 116, 86 100 Z"></path><path class="wob2" d="M 92 100 C 91 128, 93 152, 94 172 C 94 188, 97 199, 104 200 C 111 199, 114 190, 112 174 C 113 150, 114 124, 114 100 Z"></path><path class="wob3" d="M 120 100 C 119 116, 120 130, 121 142 C 121 152, 123 159, 129 160 C 134 159, 137 153, 135 144 C 136 130, 137 114, 137 100 Z"></path></g></g><path class="string" d="M 104 199 L 104 209" stroke="#BFE07A" stroke-width="2.5" stroke-linecap="round" fill="none"></path><g class="droplet"><circle cx="104" cy="213" r="7" fill="#BFE07A"></circle><circle cx="102" cy="211" r="2" fill="#F1F8DC" opacity="0.9"></circle></g><circle class="droplet2" cx="74" cy="186" r="4.5" fill="#BFE07A"></circle><circle cx="100" cy="70" r="52" fill="url(#pinkGrad3)"></circle><path d="M 56 98 A 52 52 0 0 0 144 98 C 142 94, 138 92, 134 94 C 130 97, 129 102, 125 104 C 119 106, 116 98, 110 96 C 104 94, 103 102, 98 105 C 93 107, 90 100, 84 97 C 78 95, 76 100, 71 102 C 66 103, 62 100, 56 98 Z" fill="url(#creepGrad3)"></path><path d="M 68 106 A 42 42 0 0 0 84 116" fill="none" stroke="#F1F8DC" stroke-width="4" stroke-linecap="round" opacity="0.85"></path><path d="M 97 144 Q 103 151 109 144" fill="none" stroke="#55974A" stroke-width="4" stroke-linecap="round"></path><g stroke="#F1F8DC" fill="none" stroke-linecap="round"><path d="M 97 128 C 96 148, 97 166, 100 182" stroke-width="4.5" opacity="0.85"></path><path d="M 69 118 C 68 132, 70 146, 71 156" stroke-width="3.5" opacity="0.8"></path><path d="M 124 114 C 123 124, 125 138, 126 148" stroke-width="3.5" opacity="0.8"></path></g><circle cx="100" cy="192" r="2.5" fill="#F1F8DC" opacity="0.9"></circle><circle cx="100" cy="72" r="13" fill="#201712"></circle><circle cx="100" cy="72" r="13" fill="none" stroke="#C22F6B" stroke-width="3" opacity="0.3"></circle><path class="sheen" d="M 62 46 A 44 44 0 0 1 82 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path><circle class="sheen" cx="92" cy="26" r="3.5" fill="#FFFFFF"></circle></svg>
+</div></footer>
+</body></html>

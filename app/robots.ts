@@ -1,9 +1,14 @@
 import type { MetadataRoute } from "next";
-import { SITE } from "@/lib/site";
+import { getParish, isNoindexHost } from "@/lib/parish";
 
-export default function robots(): MetadataRoute.Robots {
+export const dynamic = "force-dynamic";
+
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const p = await getParish();
+  // A pitch host, a preview, or a parish not yet live: keep every crawler out.
+  if (await isNoindexHost()) return { rules: { userAgent: "*", disallow: "/" } };
   return {
     rules: { userAgent: "*", allow: "/", disallow: ["/api/", "/register/thanks"] },
-    sitemap: `${SITE.url}/sitemap.xml`,
+    sitemap: `https://${p.hosts[0]}/sitemap.xml`,
   };
 }

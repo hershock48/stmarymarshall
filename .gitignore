@@ -8,3 +8,6 @@ out
 *.tsbuildinfo
 next-env.d.ts
 tools/out
+
+# scratch from tools/logic-tests.mjs
+.next-logic-tests

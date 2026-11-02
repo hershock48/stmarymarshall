@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { configured, send } from "@/lib/mail";
+import { getParish } from "@/lib/parish";
 import { isRequestKind, REQUESTS, summarizeRequest } from "@/lib/requests";
 
 /**
@@ -7,6 +8,7 @@ import { isRequestKind, REQUESTS, summarizeRequest } from "@/lib/requests";
  * registration route: sent, unconfigured, failed. The visitor is told which.
  */
 export async function POST(req: Request) {
+  const p = await getParish();
   const back = (path: string) => NextResponse.redirect(new URL(path, req.url), 303);
   let form: FormData;
   try {
@@ -27,15 +29,15 @@ export async function POST(req: Request) {
   if (spec.fields.some((f) => f.required && !data[f.name]?.trim())) return back(`${page}?error=required`);
 
   const text = summarizeRequest(kind, data);
-  const subject = `${spec.subject}: ${(data.intention_for ?? data.pray_for ?? "").trim().slice(0, 80)}`;
-  console.log(`[${kind}] ${subject}\n${text}`);
+  const subject = `[${p.shortName}] ${spec.subject}: ${(data.intention_for ?? data.pray_for ?? "").trim().slice(0, 80)}`;
+  console.log(`[${kind}:${p.slug}] ${subject}\n${text}`);
 
-  if (!configured()) return thanks("unconfigured");
+  if (!configured(p.mailTo)) return thanks("unconfigured");
   try {
-    await send(subject, text, data.email);
+    await send(subject, text, data.email, p.mailTo);
     return thanks("sent");
   } catch (err) {
-    console.error(`[${kind}] send failed`, err);
+    console.error(`[${kind}:${p.slug}] send failed`, err);
     return thanks("failed");
   }
 }

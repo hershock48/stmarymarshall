@@ -1,28 +1,35 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import HomeLink from "@/components/HomeLink";
-
-export const metadata: Metadata = {
-  title: "Page not found",
-  description: "That page is not here. Mass times, the calendar and the rest of the parish site are.",
-  robots: { index: false },
-};
 import { Band, LineButton, PageHero } from "@/components/ui";
-import { NAV } from "@/lib/site";
+import { strings } from "@/lib/i18n";
+import { navFor } from "@/lib/nav";
+import { getParish } from "@/lib/parish";
 
-export default function NotFound() {
+export async function generateMetadata(): Promise<Metadata> {
+  const p = await getParish();
+  const s = strings(p.lang);
+  return { title: s.notFound.title, description: s.notFound.description, robots: { index: false } };
+}
+
+export default async function NotFound() {
+  const p = await getParish();
+  const s = strings(p.lang);
+  const t = s.notFound;
   return (
     <>
-      <PageHero title="Page not found" lede="Dear St. Anthony, please come around. This page is lost and cannot be found." />
+      <PageHero title={t.title} lede={t.lede} />
       <Band tone="paper">
         <div className="flex flex-wrap gap-3">
-          <HomeLink className="inline-flex min-h-12 items-center justify-center rounded-sm bg-gold px-6 font-semibold text-navy transition-colors hover:bg-gold-light">Home</HomeLink>
+          <HomeLink pitchHost={p.pitchHost} className="inline-flex min-h-12 items-center justify-center rounded-sm bg-gold px-6 font-semibold text-navy transition-colors hover:bg-gold-light">
+            {t.home}
+          </HomeLink>
           <LineButton href="/mass-times" onPaper>
-            Mass times
+            {t.massTimes}
           </LineButton>
         </div>
         <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
-          {NAV.map((n) => (
+          {navFor(p).map((n) => (
             <li key={n.href}>
               <Link href={n.href} className="inline-block min-h-6 text-marian underline underline-offset-4">
                 {n.label}

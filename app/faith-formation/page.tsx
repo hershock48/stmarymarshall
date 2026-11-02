@@ -1,23 +1,34 @@
-import { pageMetadata } from "@/lib/meta";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import OpenOnHash from "@/components/OpenOnHash";
 import SectionList from "@/components/SectionList";
 import { Band, PageHero } from "@/components/ui";
-import { FORMATION } from "@/lib/content";
-import photo from "@/public/img/chapel-renovation.jpg";
+import { strings } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/meta";
+import { getParish } from "@/lib/parish";
 
-export const metadata = pageMetadata({
-  title: "Faith Formation",
-  description: "Religious Education for age 4 through 8th grade, OCIA for adults, Tuesday and men's Bible studies, Life Teen and Catholic schools at St. Mary Parish, Marshall, Michigan.",
-  path: "/faith-formation",
-});
+export const dynamic = "force-dynamic";
 
-export default function FaithFormation() {
+export async function generateMetadata(): Promise<Metadata> {
+  const p = await getParish();
+  const s = strings(p.lang);
+  return pageMetadata(p, {
+    title: s.formation.title,
+    description: s.meta.formation(p.formation.map((x) => x.title).join(", "), p.parishName, p.church.city),
+    path: "/faith-formation",
+  });
+}
+
+export default async function FaithFormation() {
+  const p = await getParish();
+  if (!p.formation.length) notFound();
+  const s = strings(p.lang);
   return (
     <>
-      <PageHero title="Faith Formation" lede="Religious education for children, OCIA for adults, and two weekly Bible studies." photo={photo} priority />
+      <PageHero title={s.formation.title} lede={s.formation.lede} photo={p.photos.about ?? p.photos.hero} priority />
       <Band tone="paper">
         <OpenOnHash />
-        <SectionList sections={FORMATION} label="Faith formation programs" />
+        <SectionList sections={p.formation} label={s.formation.label} contactWord={s.sections.contact} />
       </Band>
     </>
   );

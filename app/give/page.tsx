@@ -1,64 +1,76 @@
-import { pageMetadata } from "@/lib/meta";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { Band, Contact, GoldButton, H2, LineButton, PageHero } from "@/components/ui";
-import { GIVE } from "@/lib/content";
-import { LINKS } from "@/lib/site";
-import photo from "@/public/img/adoration.jpg";
+import { strings } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/meta";
+import { getParish } from "@/lib/parish";
 
-export const metadata = pageMetadata({
-  title: "Give",
-  description: "Give to St. Mary Parish, Marshall, Michigan: online giving one time or on a schedule, the We Care Fund for parish families in need, and the St. Mary Parish Endowment Fund.",
-  path: "/give",
-});
+export const dynamic = "force-dynamic";
 
-export default function Give() {
+export async function generateMetadata(): Promise<Metadata> {
+  const p = await getParish();
+  const s = strings(p.lang);
+  return pageMetadata(p, { title: s.give.title, description: s.meta.give(p.parishName, p.church.city), path: "/give" });
+}
+
+export default async function Give() {
+  const p = await getParish();
+  const g = p.give;
+  if (!g.url && !g.extras?.length) notFound();
+  const s = strings(p.lang);
+  const t = s.give;
   return (
     <>
-      <PageHero title="Give" lede="Thank you for supporting the parish." photo={photo} priority />
+      <PageHero title={t.title} lede={t.lede} photo={p.photos.give ?? p.photos.hero} priority />
       <Band tone="paper">
-        <div className="grid gap-12 lg:grid-cols-3 lg:gap-16">
-          <div className="lg:col-span-2">
-            <H2>Online giving</H2>
-            <p className="mt-6 text-[17px] leading-relaxed text-ink">{GIVE.intro}</p>
-            <ul className="mt-5 space-y-2 text-[17px] leading-relaxed text-ink">
-              {GIVE.funds.map((f) => (
-                <li key={f} className="flex gap-3">
-                  <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true" />
-                  <span>{f}</span>
-                </li>
+        <div className={`grid gap-12 ${g.extras?.length ? "lg:grid-cols-3 lg:gap-16" : ""}`}>
+          <div className={g.extras?.length ? "lg:col-span-2" : ""}>
+            <H2>{t.online}</H2>
+            <p className="mt-6 text-[17px] leading-relaxed text-ink">{g.intro}</p>
+            {g.funds && (
+              <ul className="mt-5 space-y-2 text-[17px] leading-relaxed text-ink">
+                {g.funds.map((f) => (
+                  <li key={f} className="flex gap-3">
+                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {g.url && (
+              <div className="mt-8">
+                <GoldButton href={g.url} external>
+                  {t.giveOnline}
+                </GoldButton>
+              </div>
+            )}
+            <p className="mt-4 text-sm text-ink-soft">
+              {g.provider ? t.provider(g.provider) : ""}
+              {t.also}
+            </p>
+          </div>
+          {g.extras && g.extras.length > 0 && (
+            <div className="space-y-10">
+              {g.extras.map((x) => (
+                <section key={x.title}>
+                  <h2 className="display rule text-3xl text-ink">{x.title}</h2>
+                  <p className="mt-5 text-[17px] leading-relaxed text-ink">{x.body}</p>
+                  {x.contact && (
+                    <div className="mt-3">
+                      <Contact text={x.contact} />
+                    </div>
+                  )}
+                  {x.url && (
+                    <div className="mt-5">
+                      <LineButton href={x.url} external onPaper>
+                        {x.linkLabel ?? t.giveLabel}
+                      </LineButton>
+                    </div>
+                  )}
+                </section>
               ))}
-            </ul>
-            <div className="mt-8">
-              <GoldButton href={LINKS.giveOnline} external>
-                Give online
-              </GoldButton>
             </div>
-            <p className="mt-4 text-sm text-ink-soft">Online giving runs through Vanco, the parish’s payment provider. Offerings are also welcome at Mass and at the office.</p>
-          </div>
-          <div className="space-y-10">
-            <section>
-              <h2 className="display rule text-3xl text-ink">{GIVE.weCare.title}</h2>
-              <p className="mt-5 text-[17px] leading-relaxed text-ink">{GIVE.weCare.body}</p>
-              <div className="mt-3">
-                <Contact text={GIVE.weCare.contact} />
-              </div>
-            </section>
-            <section>
-              <h2 className="display rule text-3xl text-ink">{GIVE.endowment.title}</h2>
-              <p className="mt-5 text-[17px] leading-relaxed text-ink">{GIVE.endowment.body}</p>
-              <div className="mt-5 flex flex-wrap gap-3">
-                <LineButton href={LINKS.endowment} external onPaper>
-                  Give to the endowment
-                </LineButton>
-              </div>
-              <p className="mt-3 text-sm text-ink-soft">
-                Held by the{" "}
-                <a href={LINKS.catholicFoundation} target="_blank" rel="noopener noreferrer" className="font-semibold text-marian underline underline-offset-4">
-                  Catholic Foundation of Southwestern Michigan
-                </a>
-                .
-              </p>
-            </section>
-          </div>
+          )}
         </div>
       </Band>
     </>

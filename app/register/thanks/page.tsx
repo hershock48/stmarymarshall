@@ -1,47 +1,42 @@
 import type { Metadata } from "next";
 import { Band, GoldButton, LineButton, PageHero } from "@/components/ui";
-import { SITE } from "@/lib/site";
+import { strings } from "@/lib/i18n";
+import { getParish } from "@/lib/parish";
 
-export const metadata: Metadata = {
-  title: "Thank You",
-  description: "Your message was sent to the St. Mary Parish office.",
-  robots: { index: false },
-};
+export const dynamic = "force-dynamic";
 
-const WHAT: Record<string, { thing: string; sent: string }> = {
-  register: { thing: "registration", sent: "The office will be in touch and send a welcome packet. Welcome to St. Mary." },
-  "mass-intention": { thing: "Mass intention request", sent: "The office will confirm the date once the Mass is on the calendar." },
-  "prayer-request": { thing: "prayer request", sent: "The parish will pray for them." },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const p = await getParish();
+  const s = strings(p.lang);
+  return { title: s.thanks.title, description: s.thanks.description(p.parishName), robots: { index: false } };
+}
 
 /** Shared thanks page for the registration and request forms. */
 export default async function Thanks({ searchParams }: { searchParams: Promise<{ state?: string; kind?: string }> }) {
   const { state, kind } = await searchParams;
+  const p = await getParish();
+  const s = strings(p.lang);
+  const t = s.thanks;
   const sent = state === "sent";
   const failed = state === "failed";
-  const what = WHAT[kind ?? "register"] ?? WHAT.register;
+  const what = t.kinds[(kind ?? "register") as keyof typeof t.kinds] ?? t.kinds.register;
   return (
     <>
-      <PageHero title={sent ? "Thank you" : "Received"} lede={sent ? `Your ${what.thing} is on its way to the parish office.` : `Your ${what.thing} was received, and here is where it stands.`} />
+      <PageHero title={sent ? t.thankYou : t.received} lede={sent ? t.onItsWay(what.thing) : t.whereItStands(what.thing)} />
       <Band tone="paper">
         <div className="max-w-2xl space-y-5 text-[17px] leading-relaxed text-ink">
           {sent ? (
-            <p>{what.sent}</p>
-          ) : failed ? (
-            <>
-              <p>The website has your answers, but the email to the office did not go through just now. It is kept in the site’s log, and we will see the failure, but a person has not read it yet. Please call the office so they can take your {what.thing} over the phone.</p>
-              <p>Sorry for the extra step.</p>
-            </>
+            <p>{what.sent(p.shortName)}</p>
           ) : (
             <>
-              <p>The website has your answers, but email delivery to the office is not switched on yet, so a person has not seen them. Rather than let that sit, please call the office so they can take your {what.thing} over the phone.</p>
-              <p>Sorry for the extra step.</p>
+              <p>{failed ? t.failed(what.thing) : t.unconfigured(what.thing)}</p>
+              <p>{t.sorry}</p>
             </>
           )}
           <div className="flex flex-wrap gap-3 pt-2">
-            <GoldButton href={SITE.phoneHref}>Call {SITE.phone}</GoldButton>
+            <GoldButton href={p.phoneHref}>{t.call(p.phone)}</GoldButton>
             <LineButton href="/mass-times" onPaper>
-              Mass times
+              {t.massTimes}
             </LineButton>
           </div>
         </div>

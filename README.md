@@ -1,195 +1,185 @@
-# St. Mary Catholic Church, Marshall
+# Parish platform (St. Mary Marshall, St. Philip Battle Creek, San Felipe Fennville)
 
-The parish website, rebuilt by Glazed Web in October 2026 to replace the
-eCatholic site at stmarymarshall.org. Next.js 16 App Router, React 19,
-Tailwind 4 (through the Turbopack loader), TypeScript, deployed on Vercel.
-No page builder, no plugin, nothing the parish pays a subscription for.
+One Next.js deployment that serves a parish website per domain. It began in
+October 2026 as the St. Mary Catholic Church rebuild (Marshall, Michigan,
+replacing the parish's eCatholic site) and became a platform on
+2026-11-02 so the same code could carry every parish in the Diocese of
+Kalamazoo: the pilot for the diocese pitch at kalamazoo.glazedweb.com.
+Next.js 16 App Router, React 19, Tailwind 4 (through the Turbopack loader),
+TypeScript, Vercel. No page builder, no plugin, nothing a parish pays a
+subscription for.
 
 ```bash
 npm install
 npm run build && npm start -- -p 4490     # production, which is what gets audited
 npm run dev                                # for editing only
+node tools/logic-tests.mjs                 # date logic against all three parishes
 ```
+
+## How a parish gets served
+
+The parish is chosen per request from the Host header (`lib/parish.ts`).
+`parishes/registry.json` lists every parish's hosts and pitch host for
+`next.config.ts`, which cannot import the TypeScript data; the data itself
+is `parishes/<slug>/data.ts`. An unknown host (a Vercel preview URL) gets
+the registry default, St. Mary.
+
+| Host | Serves |
+|---|---|
+| `stmarymarshall.org` (once DNS moves) | St. Mary, indexable |
+| `stmarymarshall.glazedweb.com` | The letter to Fr. Craig at `/`, the site at `/demo`, all noindex |
+| `stphilip.glazedweb.com`, `sanfelipe.glazedweb.com` | The St. Philip and San Felipe demos at `/` and `/demo`, noindex (no letter yet) |
+| `kalamazoo.glazedweb.com` | The diocese letter at `/`; the diocesan feed at `/diocese/mass-times.json` |
+| `stmarymarshall.vercel.app` | The default parish, noindex |
+
+Every page calls `getParish()` and renders from that parish's data, so every
+route is dynamic. A parish not yet `live` is noindex on every host.
 
 ## Where things live
 
-Facts live in one place each. Change the file, not the page.
+Facts live in one place each. Change the data file, not the page.
 
 | What | File |
 |---|---|
-| Address, phone, email, diocese, outbound links, document paths | `lib/site.ts` |
-| Mass, Confession, Adoration times, special Masses | `lib/schedule.ts` |
-| The calendar (every recurring event, with exceptions) | `lib/events.ts` |
-| Staff, history, cemetery, sacraments, faith formation, ministries, giving | `lib/content.ts` |
-| Registration form fields | `lib/register.ts` |
-| Mass intention and prayer request fields | `lib/requests.ts` |
-| Holy Days of Obligation (dates, Mass times once known) | `HOLY_DAYS` in `lib/schedule.ts` |
-| The iCalendar feed | `lib/ics.ts`, served at `/calendar.ics` |
-| The PDFs the old site hosted on files.ecatholic.com | `public/docs/` |
-| Photos (the parish's own, cropped from its eCatholic slideshow) | `public/img/` |
-| Icons and the link card, generated | `node tools/icons.mjs` |
+| Everything about one parish: contact, schedule, events, staff, sections, giving, photos | `parishes/<slug>/data.ts` |
+| The shape of that file, with the rules | `lib/types.ts` |
+| Hosts and pitch hosts, for routing | `parishes/registry.json` |
+| Every word the platform says itself, in English and Spanish | `lib/i18n.ts` |
+| Registration form fields; Mass intention and prayer request fields | `lib/register.ts`, `lib/requests.ts` (Spanish labels inside) |
+| Next-Mass logic, holy days, time formatting | `lib/schedule.ts` |
+| The calendar expander (weekly, monthly, once, with exceptions) | `lib/events.ts` |
+| The iCalendar feed, per parish, at `/calendar.ics` | `lib/ics.ts` |
+| The diocesan feed of every parish's schedule | `app/diocese/mass-times.json/route.ts` |
+| A parish's own extra pages (San Felipe's prayers) | `pages` in its data, rendered by `app/[page]/page.tsx` |
+| Photos, PDFs, icons, link card, per parish | `public/parishes/<slug>/` |
+| Icons and the link card, generated from the data | `node tools/icons.mjs <slug>` |
+| The letters | `public/pitch/<slug>/index.html`, `public/pitch/diocese/index.html` |
 
-Nothing on the site reads from anywhere else. There is no CMS; a change is a
-pull request. The parish office does not edit this repo today; see the open
-decisions below.
+Adding a parish: a `data.ts`, a row in the registry, an import in
+`lib/parish.ts`, photos under `public/parishes/<slug>/img`, then
+`node tools/icons.mjs <slug>`. The pages, forms, feed, sitemap, manifest and
+structured data follow from the data. A Spanish parish sets `lang: "es"`
+and every word the platform says comes out in Spanish; the parish's own
+words are whatever its data says.
 
 ## How the pages work
 
 - **Next Mass, Next Confession, Next Adoration** are computed on the parish's
-  clock (America/Detroit) at request time, so `/` and `/mass-times` and
-  `/events` are dynamic routes, not static. A page that reads the clock cannot
-  be cached (glaze.md). The logic is `nextService` in `lib/schedule.ts`.
-- **The calendar** is data the site owns. Every rule in `lib/events.ts` was
-  transcribed from the parish's eCatholic iCalendar feed on 2026-10-27,
-  exceptions included. The eCatholic feed dies when the parish leaves
-  eCatholic, which is why it is not fetched. To add an event, add a rule.
-  Seasonal rules carry `from` and `until`; cancelled dates go in `exdates`.
-- **The bulletin** is printed and hosted by Diocesan Publications on
-  DiscoverMass. `lib/bulletins.ts` fetches their page server side, pulls the
-  dated download links, and caches six hours. If the fetch fails the page
-  shows the plain DiscoverMass link, which is what the old site did. **This is
-  a remote source: verify on the deployment**, not just locally. DiscoverMass
-  single-quotes its attributes; the regex accepts both quote styles.
-- **Today's readings** is a computed USCCB link (MMDDYY).
-- **The calendar feed** at `/calendar.ics` is the next ninety days of events
-  expanded into plain VEVENTs (no RRULEs, so every calendar app agrees),
-  tagged America/Detroit. `?e=<id>` returns one event for the “Add to my
-  calendar” links; ids come from `occurrenceId` in `lib/ics.ts`.
-- **Mass intentions and prayer requests** (`/mass-intentions`,
-  `/prayer-request`) post to `/api/request` with the same three honest states
-  as registration. A Mass intention is a request the office confirms, never a
-  booking: the site does not know which Masses are taken and says so. No
-  stipend amount is printed because the parish has not published one.
-- **New here?** (`/new`) answers the first-visit questions from facts already
-  on the old site; nothing about parking or doors was invented.
-- **Holy Days** on the Mass times page list the dates for the current year with
-  `masses: null` until the office gives times.
-- **Registration** is a plain POST to `/api/register`. No JavaScript needed.
-  Three honest outcomes: sent, unconfigured, failed. The visitor is told which
-  on `/register/thanks`. Until SMTP is set, submissions are logged in full and
-  the thanks page tells the visitor to call. Never a fake "we got it".
-  A hidden `website` field drops bots.
-- **Ministries and faith formation** are native `<details>` rows, rendered
-  closed in the server HTML (no layout shift) and opened by `OpenOnHash` when
-  the URL hash names one. Without JavaScript the row is one tap away.
-- **Mail** is SMTP through a mailbox the parish owns (`lib/mail.ts`,
-  nodemailer). `.env.example` is the authority on variable names. Kevin sets
-  them in Vercel.
+  clock at request time. A service with an end time that is in progress says
+  "Now, until 4:30 PM"; St. Philip's adoration chapel does that from Wednesday
+  morning to Saturday morning because its four rows carry end times.
+- **The calendar** is data the parish owns, transcribed from its old eCatholic
+  feed with exceptions. Six weeks on `/events`, filtered by kind; ninety days
+  in `/calendar.ics`, expanded into plain VEVENTs tagged with the parish's
+  zone; `?e=<id>` for one event.
+- **The bulletin** (`/bulletin`) exists only for a parish with a DiscoverMass
+  URL; `lib/bulletins.ts` reads the dated links and caches six hours. A
+  remote source: verify on the deployment.
+- **Give** (`/give`) exists only for a parish with a giving URL or extra
+  funds; San Felipe has neither, so the page 404s and the nav omits it.
+  Giving never moves: Vanco stays Vanco, OSV stays OSV.
+- **Forms** post to `/api/register` and `/api/request` with three honest
+  outcomes (sent, unconfigured, failed) and go to the parish's `mailTo`,
+  falling back to `MAIL_TO`. The demo parishes set no `mailTo`, so no real
+  office receives a demo submission.
+- **New here?** answers four questions from the data and whatever the parish
+  adds in `newHere`.
+- **Today's readings** is a computed USCCB link, Spanish first on a Spanish
+  parish.
+
+## Checks
+
+`node tools/logic-tests.mjs` (42 cases over all three parishes, Spanish
+included) before any change to `lib/schedule.ts`, `lib/events.ts`,
+`lib/ics.ts` or `lib/sentences.ts`. Then, against the production server on
+4490: the glaze auditor, `width-check.mjs`, `perf-check.mjs`,
+`node tools/ux-check.mjs`, and `node tools/render.mjs [--host <parish
+domain>] --prefix <xx->` to screenshot every route of one parish for a look
+(the host is mapped to 127.0.0.1 inside Chromium, which will not send a
+forged Host header). `node tools/render-letter.mjs --host
+kalamazoo.glazedweb.com` renders a letter through the platform so its
+images resolve.
+
+2026-11-02, after the platform refactor: 13 routes, zero axe violations at
+320, 390, 768 and 1440 (after the home link's accessible name was widened to
+the full parish name); zero overflow, console errors or 4xx; LCP 2.0s, CLS
+0.0001, JS 142KB on a throttled phone; ux-check clean. The St. Philip and San
+Felipe hosts were screenshotted and looked at, not audited by axe (the
+auditor takes a base URL, not a host).
 
 ## Design
 
-Navy ground with cream and a gold accent, a book serif (Cormorant Garamond)
-for display and Source Sans 3 for text, both self-hosted at build time. The
-old site was Marian blue; the navy keeps that and the gold comes from the
-church's own brass and the chapel tabernacle. Palette contrast was computed,
-not judged; the table is at the top of `app/globals.css`.
-
-The mark is the parish's own ring-and-M favicon, redrawn as geometry in
-`components/Mark.tsx`, gold on navy. Nothing was added to it.
-
-The studio credit plate is cream under the navy footer (plate.mjs: 14.9
-against the footer; chocolate would be invisible).
-
-## Checks beyond the auditor
-
-`node tools/ux-check.mjs` (production server on 4490) measures what axe does
-not: every link and button at least 24px, every inline-flex button still
-laid out as flex (an unlayered CSS rule once turned the Call buttons into
-inline-block and their text sat at the top), button text vertically
-centered, the header on one line at 390, 1024, 1280 and 1440, nothing
-clipped. `tools/headers.mjs` screenshots the header strips and the open
-mobile menu for a look. Run both before shipping any header or CSS change.
-
-`node tools/logic-tests.mjs` runs the date logic at fixed instants (DST change,
-midnight, after the last Mass, a special Mass, cancelled dates, the monthly
-rules, the feed) and must pass before any change to lib/schedule.ts,
-lib/events.ts or lib/ics.ts. `tools/cls-probe.mjs` names the element behind
-a layout-shift number.
-
-Debug pass, 2026-10-27: an independent code read (21 findings) and a full
-crawl (15 findings) were run after the first launch; every bug they found is
-fixed and the two checks above exist because of them. The reasoning for each
-fix is a comment next to it.
+Navy ground with cream and a gold accent, Cormorant Garamond for display and
+Source Sans 3 for text with the Latin Extended subset for Spanish, both
+self-hosted at build time. Palette contrast was computed; the table is at
+the top of `app/globals.css`. Every parish shares the palette; what differs
+is the mark (`components/Mark.tsx`: St. Mary's ring-and-M from its favicon,
+St. Philip's own logo image, letters in the ring for a parish with neither),
+the photos and the words. The studio credit plate is cream under the navy
+footer, "Hecho por" on the Spanish parish.
 
 ## Traps
 
 - **Tailwind 4 on Next 16.4 needs the Turbopack loader rule in
-  `next.config.ts`.** The first build dropped it and every utility class
-  vanished while the build stayed green. Keep the `turbopack.rules` block.
-- Any plain CSS rule in `globals.css` that is not inside `@layer base` beats
-  every Tailwind utility. Put element-level rules in `@layer base`.
+  `next.config.ts`.** Drop it and every utility class vanishes while the
+  build stays green.
+- Any plain CSS rule in `globals.css` outside `@layer base` beats every
+  Tailwind utility.
 - `MSYS_NO_PATHCONV=1` before any glaze script on Windows Git Bash, or the
   `/` route becomes `C:/Program Files/Git/`.
-- The two addresses are real: the church is 214 S. Eagle St. (corner of Eagle
-  and Green), the office and all mail is 212 W. Hanover St. Do not merge them.
-- `app/favicon.ico` carries bitmaps, not PNGs (Next 16 refuses RGB PNG-in-ICO).
-  Regenerate with `tools/icons.mjs`, never by hand.
+- Chromium ignores a `Host` header from `extraHTTPHeaders`; map the domain
+  with `--host-resolver-rules` instead (tools/render.mjs does).
+- eCatholic sites sit behind a Cloudflare challenge: read them in a real
+  browser; `files.ecatholic.com` and `/icalendar1.ics` are fetchable.
+- `favicon.ico` carries bitmaps, not PNGs. Regenerate with `tools/icons.mjs`.
 
-## Open with the parish
+## Open with each parish
 
-Things the old site did not settle. Each is an unchecked box until the office
-answers.
+**St. Mary** (the parish knows about the site; Fr. Craig has the letter):
+Gus Groat's number for the We Care Fund ((269) 781-0008 or (269) 830-7744),
+Deacon Mike's full name, `MAIL_TO` and the sending mailbox, office hours,
+the Children's Choir time (the calendar's 4:30 won over the music letter's
+4:00), the Women's Ministry end time, holy day Mass times, a stipend amount
+if wanted, the prayer list practice, MyParishApp, who edits the calendar
+after eCatholic, photo credits.
 
-- [ ] **Which number for Gus Groat and the We Care Fund.** The Donate page
-      said (269) 781-0008; the Knights section said (269) 830-7744. Both are
-      kept where they were.
-- [ ] **Deacon Mike's full name**, and whether he belongs on the staff list.
-      He is named only under Shut-In Ministry.
-- [ ] **Where registrations should go** (`MAIL_TO`) and which mailbox sends
-      them. The office address is stmarymarshall@aol.com; AOL SMTP works with
-      an app password.
-- [x] **Bishop line in the history.** The old site stopped at Bishop Bradley; Bishop
-      Edward M. Lohse (installed July 25, 2023) added from the diocese and St. Philip BC.
-- [ ] **Office hours** are not published anywhere. Ask.
-- [ ] **Children’s Choir rehearsal time.** The old music letter said Wednesday
-      4:00 PM; the parish calendar feed said 4:30 to 5:15. The site follows the
-      calendar. Confirm with James Hamilton.
-- [ ] **Women’s Ministry end time.** The old site gave 6:30 PM on the fourth
-      Monday and no end; the calendar shows a start only.
-- [ ] **Holy day Mass times** for Dec 8, Christmas, Jan 1. Fill `HOLY_DAYS`.
-- [ ] **Mass stipend amount**, if the parish wants it printed on /mass-intentions.
-- [ ] **Prayer list practice**: does the bulletin print names, and for how long?
-- [ ] **MyParishApp** had a tab on the old About page with no content.
-      Dropped. Ask whether the parish uses it.
-- [ ] **Who edits the calendar** once eCatholic is gone. Today: a pull request.
-      If the office wants to edit it themselves, that is a small owner panel
-      (see glaze/catalog) and a separate conversation.
-- [ ] **Photo credits.** The slideshow photos carry no photographer name.
+**St. Philip** (built from public pages for the diocese demo; the parish has
+not been asked): Thursday and Friday 8:00 AM Masses come from the calendar
+feed while the Mass times page lists Monday, Wednesday and Saturday only;
+the receptionist is Kateri Claussen on the staff page and Kateri Herold on
+two others; staff emails were reconstructed from the obfuscated page text and
+the known `admin@` and `tmcnamara@` addresses; Mt. Olivet Cemetery, the
+pastoral councils and several ministry pages were not crawled and are not on
+the demo; holy day times; the Sunday 9:00 AM "combined with St. Joseph"
+note was a dated one-off and was dropped.
 
-## The letter
+**San Felipe** (same status): the adoration on the third Sunday is 6:00 PM on
+the page and 6:30 PM in the feed (the page won); emails reconstructed as
+above; no bulletin page because the parish's bulletin lives only on
+eCatholic; the prayers page is the platform's Spanish text of the five
+standard prayers, not the parish's English originals; no online giving found.
 
-`public/pitch/stmarymarshall/index.html` is the proposal to Fr. Craig, served at
-`/` on stmarymarshall.glazedweb.com by the rewrites in `next.config.ts`; the
-site is `/demo` on that host. Stylesheet and marks lifted from the Mike's Place
-letter. The standing GPT judge and prose pass (glaze/scripts/second.mjs) could
-not run on 2026-10-27: the Codex model in ~/.codex/config.toml is refused on
-the ChatGPT account. Claude did a stand-in prose pass against standards.md and
-logged the owed review in glaze/handoff.md. Delete the pitch folder and the
-rewrites when the parish says yes.
+## The letters
 
-## Before launch
+`public/pitch/stmarymarshall/index.html` to Fr. Craig (October 2026) and
+`public/pitch/diocese/index.html` to the Pastoral Center (November 2026),
+served at `/` on their hosts by the rewrites in `next.config.ts`. The diocese
+letter's numbers come from `glaze/research/diokzoo-audit-2026-11.md` in the
+glazedweb repo, measured 2026-11-02. Its price ($99 a parish a month, no
+build fee for any parish) is a position for Kevin to confirm before anyone
+outside sees it; nothing has been sent. A parish that says yes loses its
+pitch host from the registry and its letter stops being served.
 
-From `glaze/launch.md`. Work to zero.
+## Before launch (per parish)
 
-- [x] Zero axe violations at 390 and 1440 on every route (2026-10-27, 11 routes).
-- [x] Zero at 320 and 768 (width-check, 10 routes).
-- [x] Zero console errors, zero 4xx.
-- [x] LCP 1.25s, CLS 0.0001, JS 142KB compressed on a throttled mobile profile.
-- [x] Reduced motion: nothing autoplays; the only transition is the details chevron.
-- [x] JavaScript off: every nav link works, the form submits, details open.
-- [x] A real 404 in the site's design.
-- [x] Every route has its own title and description; canonical on the parish domain.
-- [x] `og.jpg` at 1200x630, sitemap, robots, Church structured data with Mass events.
-- [x] Favicon set is the parish's mark, full bleed, generated from one source.
-- [x] Studio credit placed, plate ground computed.
-- [ ] Registration form sent and **confirmed in the office inbox** (needs SMTP vars).
-- [x] Bulletin list verified on the deployment (stmarymarshall.vercel.app, 2026-10-27).
-- [x] GitHub repo `hershock48/stmarymarshall` (public, Kevin's call) and one Vercel project on the glazedweb team.
-- [ ] Canonical host decided (apex `stmarymarshall.org`, as the old site) and DNS moved from eCatholic.
-- [ ] The parish told the credit is there.
-- [ ] Looked at on a real iPhone.
+From `glaze/launch.md`: zero axe violations at four widths, zero console
+errors and 4xx, LCP under 2.5s and CLS under 0.1 on a throttled phone, every
+route titled and described, the link card and icons generated, the form
+confirmed in the office inbox, the canonical host decided and DNS moved, the
+credit mentioned to the parish, a look on a real phone. St. Mary has
+everything but the last four.
 
 ## Offboarding
 
-The six steps in `glaze/launch.md`. The parish owns the repo, the Vercel
-project and the domain once the build fee is paid.
+The six steps in `glaze/launch.md`. A parish owns its data, photos and
+documents outright; the diocese, if it signs, owns the platform.

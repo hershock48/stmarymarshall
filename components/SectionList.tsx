@@ -1,12 +1,13 @@
 import { A, Contact, Fold, Prose } from "@/components/ui";
-import type { Section } from "@/lib/content";
+import type { Section } from "@/lib/types";
 
 /**
- * Faith formation and ministries share one shape: a list of sections, each
- * a native <details>, the first open. An in-page index above lets a visitor
- * jump straight to one; the anchor opens it (components/OpenOnHash).
+ * Faith formation, ministries and a parish's own pages share one shape: a
+ * list of sections, each a native <details>, the first open. An in-page
+ * index above lets a visitor jump straight to one; the anchor opens it
+ * (components/OpenOnHash).
  */
-export default function SectionList({ sections, label }: { sections: readonly Section[]; label: string }) {
+export default function SectionList({ sections, label, contactWord }: { sections: readonly Section[]; label: string; contactWord: string }) {
   return (
     <div className="grid gap-12 lg:grid-cols-[18rem_1fr] lg:gap-16">
       <nav aria-label={label} className="lg:sticky lg:top-24 lg:self-start">
@@ -39,7 +40,7 @@ export default function SectionList({ sections, label }: { sections: readonly Se
               )}
               {s.contact && (
                 <div className="mt-4">
-                  <Contact text={`Contact: ${s.contact}`} />
+                  <Contact text={`${contactWord}: ${s.contact}`} />
                 </div>
               )}
             </Fold>

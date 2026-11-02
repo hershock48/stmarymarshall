@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { configured, send } from "@/lib/mail";
+import { getParish } from "@/lib/parish";
 import { summarize } from "@/lib/register";
 
 /**
  * Accepts the registration form (a plain POST, form-encoded) and sends it
- * to the office by SMTP. Three honest outcomes (glaze.md):
+ * to the parish office by SMTP. Three honest outcomes (glaze.md):
  *
  *   sent          the email went
  *   unconfigured  SMTP is not set up yet; the full payload is in the log
@@ -15,6 +16,7 @@ import { summarize } from "@/lib/register";
  * same thanks page so nothing learns from the response.
  */
 export async function POST(req: Request) {
+  const p = await getParish();
   const back = (path: string) => NextResponse.redirect(new URL(path, req.url), 303);
   let form: FormData;
   try {
@@ -32,16 +34,16 @@ export async function POST(req: Request) {
   if (!data.family_name?.trim()) return back("/register?error=name");
 
   const text = summarize(data);
-  const subject = `Parish registration: ${data.family_name.trim().slice(0, 80)}`;
+  const subject = `[${p.shortName}] Parish registration: ${data.family_name.trim().slice(0, 80)}`;
   // The log is the record until mail is configured, and the backup after.
-  console.log(`[register] ${subject}\n${text}`);
+  console.log(`[register:${p.slug}] ${subject}\n${text}`);
 
-  if (!configured()) return thanks("unconfigured");
+  if (!configured(p.mailTo)) return thanks("unconfigured");
   try {
-    await send(subject, text, data.email);
+    await send(subject, text, data.email, p.mailTo);
     return thanks("sent");
   } catch (err) {
-    console.error("[register] send failed", err);
+    console.error(`[register:${p.slug}] send failed`, err);
     return thanks("failed");
   }
 }

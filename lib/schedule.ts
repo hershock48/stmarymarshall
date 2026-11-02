@@ -1,74 +1,24 @@
-import { SITE } from "@/lib/site";
+import { strings, type Lang } from "@/lib/i18n";
+import type { DatedMass, HolyDay, Parish, Service } from "@/lib/types";
 
 /**
- * The Mass, Confession and Adoration schedule, and the "next one" logic.
+ * Mass, Confession and Adoration logic for any parish, and the "next one"
+ * computation. The data lives on the parish; nothing here is St. Mary's.
  *
- * Source: the Mass Times panel on stmarymarshall.org, read 2026-10-27, and
- * the parish's own iCalendar feed (Confessions & Adoration, weekly Saturday
- * 3:30 to 4:30 PM, with Holy Saturday skipped every year back to 2016).
- *
- * The clock is the parish's, America/Detroit, whatever server renders the
- * page. Pages that use `nextMass` must render per request (glaze.md: route
- * caching and time do not mix), so they export `dynamic = "force-dynamic"`.
+ * The clock is the parish's time zone, whatever server renders the page.
+ * Pages that use `nextService` render per request (glaze.md: route caching
+ * and time do not mix).
  */
 
 export type Weekday = 0 | 1 | 2 | 3 | 4 | 5 | 6; // Sunday = 0, as Date.getDay()
 
-export type Service = {
-  day: Weekday;
-  /** 24h "HH:MM" */
-  start: string;
-  end?: string;
-  label?: string;
-};
-
-export const MASSES: readonly Service[] = [
-  { day: 6, start: "17:00", label: "Saturday Vigil" },
-  { day: 0, start: "09:00", label: "Sunday" },
-  { day: 0, start: "11:00", label: "Sunday" },
-  { day: 2, start: "16:00", label: "Tuesday" },
-  { day: 3, start: "12:00", label: "Wednesday" },
-  { day: 5, start: "07:30", label: "Friday" },
-];
-
-export const CONFESSION: readonly Service[] = [{ day: 6, start: "15:30", end: "16:30", label: "Saturday" }];
-
-/** Adoration runs during the Saturday confession hour. */
-export const ADORATION: readonly Service[] = [{ day: 6, start: "15:30", end: "16:30", label: "Saturday" }];
-
-export const CONFESSION_NOTE = "Also by appointment. No confessions on Holy Saturday.";
-
-/**
- * One-off Masses. Dates are the parish's local calendar date. Past entries
- * drop off the page by themselves; delete them when convenient.
- */
-export const SPECIAL_MASSES: readonly { date: string; start: string; label: string }[] = [
-  { date: "2026-11-02", start: "19:00", label: "All Souls’ Day Mass" },
-  { date: "2026-11-26", start: "09:00", label: "Thanksgiving Mass" },
-];
-
-/**
- * Holy Days of Obligation for the current liturgical year, as the dioceses
- * of Michigan keep them: the Ascension is transferred to the following
- * Sunday, so it is not listed. When a holy day falls on a Saturday or a
- * Monday the obligation is lifted in the United States (except Christmas
- * and the Immaculate Conception), which the note says.
- *
- * Mass times are null until the office gives them; the page then prints
- * the date and says the time comes in the bulletin. Fill `masses` with
- * "HH:MM" strings as they are announced. Vigil Masses go in with a label.
- */
-export const HOLY_DAYS: readonly { date: string; label: string; masses: { start: string; label?: string }[] | null; note?: string }[] = [
-  { date: "2026-12-08", label: "Immaculate Conception", masses: null },
-  { date: "2026-12-25", label: "Christmas Day", masses: null, note: "Christmas Eve Masses are announced in the bulletin." },
-  { date: "2027-01-01", label: "Mary, Mother of God", masses: null },
-  { date: "2027-08-15", label: "Assumption of Mary", masses: null, note: "Falls on a Sunday in 2027." },
-  { date: "2027-11-01", label: "All Saints", masses: null, note: "Falls on a Monday in 2027, so the obligation is lifted." },
-];
-
 export const DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] as const;
 
-/** "17:00" -> "5:00 PM" */
+export function dayName(day: Weekday, lang: Lang = "en"): string {
+  return strings(lang).days[day];
+}
+
+/** "17:00" -> "5:00 PM". The 12-hour clock is what US parishes print, in either language. */
 export function fmtTime(hhmm: string): string {
   const [h, m] = hhmm.split(":").map(Number);
   const suffix = h >= 12 ? "PM" : "AM";
@@ -76,24 +26,19 @@ export function fmtTime(hhmm: string): string {
   return `${hour}:${String(m).padStart(2, "0")} ${suffix}`;
 }
 
-/** "2026-11-02" -> "November 2" */
-export function fmtDate(iso: string, withYear = false): string {
+/** "2026-11-02" -> "November 2" or "2 de noviembre" */
+export function fmtDate(iso: string, withYear = false, lang: Lang = "en"): string {
   const [y, m, d] = iso.split("-").map(Number);
   const dt = new Date(Date.UTC(y, m - 1, d, 12));
-  return dt.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    ...(withYear ? { year: "numeric" } : {}),
-    timeZone: "UTC",
-  });
+  return dt.toLocaleDateString(lang === "es" ? "es-US" : "en-US", { month: "long", day: "numeric", ...(withYear ? { year: "numeric" } : {}), timeZone: "UTC" });
 }
 
 export type LocalNow = { iso: string; weekday: Weekday; minutes: number };
 
 /** The parish's wall clock, from any server. */
-export function localNow(now = new Date()): LocalNow {
+export function localNow(timeZone: string, now = new Date()): LocalNow {
   const parts = new Intl.DateTimeFormat("en-US", {
-    timeZone: SITE.timeZone,
+    timeZone,
     hour12: false,
     weekday: "short",
     year: "numeric",
@@ -106,14 +51,10 @@ export function localNow(now = new Date()): LocalNow {
   const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(get("weekday")) as Weekday;
   // Intl can print midnight as "24".
   const hour = Number(get("hour")) % 24;
-  return {
-    iso: `${get("year")}-${get("month")}-${get("day")}`,
-    weekday,
-    minutes: hour * 60 + Number(get("minute")),
-  };
+  return { iso: `${get("year")}-${get("month")}-${get("day")}`, weekday, minutes: hour * 60 + Number(get("minute")) };
 }
 
-function toMinutes(hhmm: string): number {
+export function toMinutes(hhmm: string): number {
   const [h, m] = hhmm.split(":").map(Number);
   return h * 60 + m;
 }
@@ -125,70 +66,67 @@ export function addDays(iso: string, n: number): string {
 }
 
 export type NextService = {
+  /** What to call it: the service's label, or the day name. */
   label: string;
+  /** "5:00 PM", or "until 4:30 PM" while it is in progress. */
   time: string;
-  /** 0 = today, 1 = tomorrow, ... */
   daysAhead: number;
   dayName: string;
   minutesAway: number;
-  /** True while a service with an end time is in progress; `time` is then "until 4:30 PM". */
   now?: boolean;
 };
 
-export type DatedMass = { date: string; start: string; label: string };
-
-/**
- * One-off Masses the tiles and tables should know about: the special
- * Masses plus every holy day whose times the office has supplied. Built
- * here so the home tile and the Mass times table cannot disagree.
- */
-export function datedMasses(): DatedMass[] {
-  const holy = HOLY_DAYS.flatMap((h) => (h.masses ?? []).map((m) => ({ date: h.date, start: m.start, label: m.label ? `${h.label}, ${m.label}` : h.label })));
-  return [...SPECIAL_MASSES, ...holy];
+/** Special Masses and holy days with known times, as one dated list. */
+export function datedMasses(parish: Pick<Parish, "specialMasses" | "holyDays">): DatedMass[] {
+  const fromHolyDays = parish.holyDays.flatMap((h) => (h.masses ?? []).map((m) => ({ date: h.date, start: m.start, label: m.label ? `${h.label}, ${m.label}` : h.label })));
+  return [...parish.specialMasses, ...fromHolyDays];
 }
 
 /**
- * The next scheduled service after `now`, looking a week ahead. Dated
- * Masses are folded in by date. A service with an end time that is
- * running right now wins outright, so the Confession tile during the
- * Saturday hour says "Now" instead of pointing a week ahead.
+ * The next service, counting from the parish's clock: the soonest start
+ * within a week, with dated Masses considered alongside the weekly ones.
+ * A service with an end time that is in progress right now wins outright,
+ * so the Confession tile during the hour says "Now" instead of pointing a
+ * week ahead.
  */
-export function nextService(services: readonly Service[], now: LocalNow, specials: readonly DatedMass[] = datedMasses()): NextService | null {
+export function nextService(services: readonly Service[], now: LocalNow, specials: readonly DatedMass[] = [], lang: Lang = "en"): NextService | null {
+  const s = strings(lang);
   let best: NextService | null = null;
   const consider = (c: NextService) => {
     if (!best || c.minutesAway < best.minutesAway) best = c;
   };
-  for (const s of services) {
-    if (s.day !== now.weekday || !s.end) continue;
-    if (toMinutes(s.start) <= now.minutes && now.minutes < toMinutes(s.end)) {
-      return { label: s.label ?? DAY_NAMES[s.day], time: `until ${fmtTime(s.end)}`, daysAhead: 0, dayName: DAY_NAMES[s.day], minutesAway: 0, now: true };
+  for (const sv of services) {
+    if (sv.day !== now.weekday || !sv.end) continue;
+    if (toMinutes(sv.start) <= now.minutes && now.minutes < toMinutes(sv.end)) {
+      return { label: sv.label ?? s.days[sv.day], time: s.schedule.until(fmtTime(sv.end)), daysAhead: 0, dayName: s.days[sv.day], minutesAway: 0, now: true };
     }
   }
   for (let ahead = 0; ahead <= 7; ahead++) {
     const weekday = ((now.weekday + ahead) % 7) as Weekday;
     const iso = addDays(now.iso, ahead);
-    for (const s of services) {
-      if (s.day !== weekday) continue;
-      const away = ahead * 1440 + toMinutes(s.start) - now.minutes;
+    for (const sv of services) {
+      if (sv.day !== weekday) continue;
+      const away = ahead * 1440 + toMinutes(sv.start) - now.minutes;
       if (away < 0) continue;
-      consider({ label: s.label ?? DAY_NAMES[weekday], time: fmtTime(s.start), daysAhead: ahead, dayName: DAY_NAMES[weekday], minutesAway: away });
+      consider({ label: sv.label ?? s.days[weekday], time: fmtTime(sv.start), daysAhead: ahead, dayName: s.days[weekday], minutesAway: away });
     }
     for (const sp of specials) {
       if (sp.date !== iso) continue;
       const away = ahead * 1440 + toMinutes(sp.start) - now.minutes;
       if (away < 0) continue;
-      consider({ label: sp.label, time: fmtTime(sp.start), daysAhead: ahead, dayName: DAY_NAMES[weekday], minutesAway: away });
+      consider({ label: sp.label, time: fmtTime(sp.start), daysAhead: ahead, dayName: s.days[weekday], minutesAway: away });
     }
   }
   return best;
 }
 
-/** "Now", "Today", "Tomorrow", the weekday, or "Next Saturday" a week out. */
-export function whenWord(n: NextService): string {
-  if (n.now) return "Now,";
-  if (n.daysAhead === 0) return "Today";
-  if (n.daysAhead === 1) return "Tomorrow";
-  if (n.daysAhead === 7) return `Next ${n.dayName}`;
+/** "Now,", "Today", "Tomorrow", the weekday, or "Next Saturday" a week out. */
+export function whenWord(n: NextService, lang: Lang = "en"): string {
+  const s = strings(lang).schedule;
+  if (n.now) return s.now;
+  if (n.daysAhead === 0) return s.today;
+  if (n.daysAhead === 1) return s.tomorrow;
+  if (n.daysAhead === 7) return s.next(n.dayName);
   return n.dayName;
 }
 
@@ -200,36 +138,36 @@ function ahead(now: LocalNow, date: string, start: string | null) {
 }
 
 /** Special Masses still ahead, soonest first. */
-export function upcomingSpecials(now: LocalNow) {
-  return SPECIAL_MASSES.filter((s) => ahead(now, s.date, s.start)).sort((a, b) => a.date.localeCompare(b.date));
+export function upcomingSpecials(parish: Pick<Parish, "specialMasses">, now: LocalNow): DatedMass[] {
+  return parish.specialMasses.filter((s) => ahead(now, s.date, s.start)).sort((a, b) => a.date.localeCompare(b.date));
 }
 
 /** Holy days still ahead, soonest first. A day with no times known stays until midnight. */
-export function upcomingHolyDays(now: LocalNow) {
-  return HOLY_DAYS.filter((h) => ahead(now, h.date, h.masses ? h.masses[h.masses.length - 1].start : null)).sort((a, b) => a.date.localeCompare(b.date));
+export function upcomingHolyDays(parish: Pick<Parish, "holyDays">, now: LocalNow): HolyDay[] {
+  return parish.holyDays.filter((h) => ahead(now, h.date, h.masses && h.masses.length ? h.masses[h.masses.length - 1].start : null)).sort((a, b) => a.date.localeCompare(b.date));
 }
 
 /** "Saturday 5:00 PM, Sunday 9:00 and 11:00 AM" for descriptions, from the data. */
-export function massTimesSentence(): string {
+export function massTimesSentence(masses: readonly Service[], lang: Lang = "en"): string {
+  const s = strings(lang);
   const byDay = new Map<Weekday, string[]>();
-  for (const m of MASSES) byDay.set(m.day, [...(byDay.get(m.day) ?? []), fmtTime(m.start)]);
+  for (const m of masses) byDay.set(m.day, [...(byDay.get(m.day) ?? []), fmtTime(m.start)]);
   const order: Weekday[] = [6, 0, 1, 2, 3, 4, 5];
   return order
     .filter((d) => byDay.has(d))
     .map((d) => {
       const times = byDay.get(d)!;
-      // "9:00 and 11:00 AM" when the suffix is shared.
       const suffix = times[times.length - 1].slice(-2);
       const same = times.every((t) => t.endsWith(suffix));
-      const list = same && times.length > 1 ? times.map((t, i) => (i === times.length - 1 ? t : t.slice(0, -3))).join(" and ") : times.join(" and ");
-      return `${DAY_NAMES[d]} ${list}`;
+      const list = same && times.length > 1 ? times.map((t, i) => (i === times.length - 1 ? t : t.slice(0, -3))).join(` ${s.schedule.and} `) : times.join(` ${s.schedule.and} `);
+      return `${s.days[d]} ${list}`;
     })
     .join(", ");
 }
 
 /** The weekend and weekday Masses, grouped for the schedule table. */
-export function groupedMasses() {
-  const weekend = MASSES.filter((m) => m.day === 6 || m.day === 0);
-  const weekday = MASSES.filter((m) => m.day !== 6 && m.day !== 0);
+export function groupedMasses(masses: readonly Service[]) {
+  const weekend = masses.filter((m) => m.day === 6 || m.day === 0);
+  const weekday = masses.filter((m) => m.day !== 6 && m.day !== 0);
   return { weekend, weekday };
 }
