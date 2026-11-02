@@ -42,12 +42,8 @@ const nextConfig: NextConfig = {
           { source: "/demo/:path*", destination: "/:path*", has: onHost(p.host) },
         ]),
         ...(diocese ? [{ source: "/", destination: "/pitch/diocese/index.html", has: onHost(diocese) }] : []),
-        // The letters live in public/, so each one answers only on its own
-        // host; anywhere else the path resolves to the 404 page rather than
-        // being a second URL for the same page.
-        ...pitch.filter((p) => p.letter).map((p) => ({ source: `/pitch/${p.slug}/:path*`, destination: "/_not-found", missing: onHost(p.host) })),
-        ...(diocese ? [{ source: "/pitch/diocese/:path*", destination: "/_not-found", missing: onHost(diocese) }] : []),
-        { source: "/pitch/:path*", destination: "/_not-found", missing: pitchHosts.map((h) => ({ type: "host" as const, value: h.replace(/\./g, "\\.") })) },
+        // Each letter answers only on its own host; proxy.ts sends every
+        // other host's request for it to the 404 page.
       ],
     };
   },

@@ -1,34 +1,46 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { knowsPath, parishForHost } from "@/lib/paths";
+import { knowsPath, letterHost, parishForHost } from "@/lib/paths";
 
 /**
- * Unknown one-segment paths are steered around the catch-all route.
+ * Two kinds of request are steered to a path nothing matches, so the
+ * real not-found page renders on the server with a 404 status and the
+ * visitor's URL unchanged.
  *
- * app/[page]/page.tsx matches every one-segment path so a parish's own
- * pages can live at /<slug>. For a path the parish does not have it calls
- * notFound(), and in Next 16 a notFound() thrown from a matched dynamic
- * segment answers with an empty, client-rendered body (vercel/next.js
- * issues 98954, 99793, 100596; fix pending in PR 100648): a 404 with no
- * h1, no nav and no lang, blank with scripts off. A path that matches no
- * route at all renders not-found.tsx on the server as it should. So the
- * request is rewritten to a two-segment path nothing matches, and the
- * proper 404 page comes back, with the visitor's URL unchanged.
+ * 1. Unknown one-segment paths. app/[page]/page.tsx matches every
+ *    one-segment path so a parish's own pages can live at /<slug>. For a
+ *    path the parish does not have it calls notFound(), and in Next 16 a
+ *    notFound() thrown from a matched dynamic segment answers with an
+ *    empty, client-rendered body (vercel/next.js issues 98954, 99793,
+ *    100596; fix pending in PR 100648): no h1, no nav, no lang, blank with
+ *    scripts off. A path that matches no route at all renders
+ *    not-found.tsx properly. The same goes for the data-dependent pages a
+ *    parish lacks (San Felipe has no /give); the pages keep their
+ *    notFound() as a safety net.
  *
- * The same goes for the data-dependent pages a parish lacks (San Felipe
- * has no /give); the pages keep their notFound() as a safety net.
+ * 2. A letter asked for on a host that is not its own. The letters live
+ *    in public/pitch/<slug>/, so without this every letter would be a
+ *    second URL on every other host. (A next.config rewrite to /_not-found
+ *    did this before, but on Vercel that answered 200.)
  */
 export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
-  const m = /^\/([^/.]+)\/?$/.exec(pathname);
-  if (!m) return NextResponse.next();
-  const parish = parishForHost(req.headers.get("host"));
-  if (knowsPath(parish, m[1])) return NextResponse.next();
+  const host = (req.headers.get("host") ?? "").toLowerCase().split(":")[0];
+  const letter = /^\/pitch\/([^/]+)(\/|$)/.exec(pathname);
+  if (letter) {
+    return letterHost(letter[1]) === host ? NextResponse.next() : gone(req);
+  }
+  const one = /^\/([^/.]+)\/?$/.exec(pathname);
+  if (!one) return NextResponse.next();
+  return knowsPath(parishForHost(host), one[1]) ? NextResponse.next() : gone(req);
+}
+
+function gone(req: NextRequest) {
   const url = req.nextUrl.clone();
-  url.pathname = `/__404${pathname}`;
+  url.pathname = `/__404${req.nextUrl.pathname}`;
   return NextResponse.rewrite(url);
 }
 
 export const config = {
   // Skip the paths Next and the public folder serve on their own.
-  matcher: ["/((?!_next/|api/|parishes/|pitch/|diocese/|favicon\\.ico).*)"],
+  matcher: ["/((?!_next/|api/|parishes/|diocese/|favicon\\.ico).*)"],
 };

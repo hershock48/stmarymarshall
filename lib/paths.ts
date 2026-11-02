@@ -24,6 +24,12 @@ export function parishBySlug(slug: string): Parish | undefined {
   return BY_SLUG.get(slug);
 }
 
+/** The host a letter under public/pitch/<slug>/ belongs to, or none. */
+export function letterHost(slug: string): string | undefined {
+  if (slug === "diocese") return registry.diocesePitchHost || undefined;
+  return BY_SLUG.get(slug)?.pitchHost;
+}
+
 /** The one-segment paths every parish has, whatever its data. */
 const ALWAYS = new Set(["", "new", "mass-times", "about", "sacraments", "register", "mass-intentions", "prayer-request", "demo"]);
 
