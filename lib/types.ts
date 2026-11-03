@@ -101,6 +101,10 @@ export type Parish = {
   office?: { street: string; city: string; state: string; zip: string };
   officeHours?: string[];
   geo?: { lat: number; lng: number };
+  /** The parish's row in the diocesan Parish Finder (parishes/diocese/finder.json), which this data replaces on the diocese pages. */
+  finderId?: string;
+  /** Show the diocese's notices (parishes/diocese/notices.ts) on the home page. On unless the parish says otherwise. */
+  diocesanNotices?: boolean;
   mapUrl: string;
   facebook?: string;
   youtube?: string;

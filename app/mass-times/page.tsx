@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import NearbyStrip from "@/components/NearbyStrip";
 import { FullSchedule, NextUp } from "@/components/Schedule";
 import { Band, GoldButton, H2, LineButton, PageHero } from "@/components/ui";
 import { strings } from "@/lib/i18n";
@@ -33,6 +34,7 @@ export default async function MassTimes() {
           <FullSchedule parish={p} />
         </div>
       </Band>
+      <NearbyStrip parish={p} />
       <Band tone="paper">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>

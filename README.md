@@ -30,7 +30,10 @@ the registry default, St. Mary.
 | `stmarymarshall.glazedweb.com` | The letter to Fr. Craig at `/`, the site at `/demo`, all noindex |
 | `stphilip.glazedweb.com`, `sanfelipe.glazedweb.com` | The St. Philip and San Felipe demos at `/` and `/demo`, noindex (no letter yet) |
 | `kalamazoo.glazedweb.com` | The diocese letter at `/`; the diocesan feed at `/diocese/mass-times.json` |
-| any host, `/diocese` | Every parish on one page (address, Mass, Confession, Adoration, site and calendar links): the readable twin of the JSON feed, dressed in the host's parish. Read-only; a management panel is not built and the letter quotes it separately |
+| any host, `/diocese` | Every parish on one page (address, Mass, Confession, Adoration, site and calendar links): the readable twin of the JSON feed, dressed in the host's parish |
+| any host, `/diocese/near` | Mass near you: a zip, a town or `lat,lng` from the phone, every parish within 10, 25 or 50 miles, nearest first, with the next Mass, Confession and Adoration from the clock. All sixty parishes and missions: the platform's from their data, the rest from `parishes/diocese/finder.json` |
+| any host, `/diocese/events`, `/diocese/groups` | Every platform parish's calendar for 14 days by kind and town; every ministry and formation group with its contact |
+| any host, `/diocese/office` | The chancery view, behind `DIOCESE_PASSCODE`: each site's freshness and unconfirmed facts from the data, the finder's coverage, and (with `DATABASE_URL`) pages served, finder searches, forms sent and Give taps as counts |
 | `stmarymarshall.vercel.app` | The default parish, noindex |
 
 Every page calls `getParish()` and renders from that parish's data, so every
@@ -46,6 +49,31 @@ real 404), and a one-segment path the parish does not have (`lib/paths.ts`
 route so the 404 is server-rendered. `notFound()` thrown from a matched
 dynamic segment returns an empty client-rendered body in this Next version
 (vercel/next.js #98954), which is why the rewrite exists.
+
+## The diocese layer
+
+`lib/diocese.ts` joins the three platform parishes with the other
+fifty-seven read from the diocese's own Parish Finder. `node
+tools/finder-import.mjs <saved parishfinder.html> parishes/diocese/finder.json`
+reads that page in a browser (fetch it with curl first; `finder.json` records
+the date) and geocodes each address through Nominatim once, one request a
+second; a parish's `finderId` in its data.ts replaces its finder row the
+day it joins. The finder's own page carries Mass panels only, so Confession
+and Adoration come from platform parishes alone for now. Distances and the
+zip lookup are offline (`lib/geo.ts`, `parishes/diocese/zips.json` from
+GeoNames). Every parish site shows its three nearest parishes on the Mass
+times page (`components/NearbyStrip.tsx`) and the chancery's notices
+(`parishes/diocese/notices.ts`) at the top of its home page unless
+`diocesanNotices: false`.
+
+Counting (`lib/tally.ts`) is per day, host, kind and key, with no visitor
+in it: a page served by path (the proxy passes the path as `x-path`), a
+finder search by a point rounded to about seven miles plus the result
+count, a form sent by kind and parish, a Give tap by parish (the Give button
+leaves through `/give/out`). It needs `DATABASE_URL` (Neon) and
+`db/tally.sql` applied once; without them every call is a no-op and the
+chancery view says counting has not started. The chancery view's passcode is
+`DIOCESE_PASSCODE`; unset, the page is closed.
 
 ## Where things live
 
@@ -188,6 +216,10 @@ HTML bars written by `node tools/letter-charts.mjs` between the
 `<!-- chart:name -->` markers in the letter; change the data there, not in
 the HTML. `node tools/render-letter.mjs --slug diocese` screenshots and
 axes the letter at 390 and 1440.
+
+2026-11-03: the diocese layer, the nearby strip and the chancery view
+audited on all three parishes (ten routes each) with zero axe violations,
+overflow, console errors or 4xx (San Felipe's `/give` 404 by design).
 
 `public/pitch/stmarymarshall/index.html` to Fr. Craig (October 2026) and
 `public/pitch/diocese/index.html` to the Pastoral Center (November 2026),

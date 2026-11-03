@@ -1,0 +1,4017 @@
+{
+ "readAt": "2026-11-03",
+ "source": "https://diokzoo.org/parishfinder",
+ "parishes": [
+  {
+   "name": "Blessed Sacrament Parish",
+   "address": "110 Cedar Street, Allegan, MI, 49010",
+   "site": "https://blessedsacrament-allegan.org/",
+   "phone": "269-673-4455",
+   "email": null,
+   "finderId": "massTimes_14715",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FIRST_FRIDAY",
+     "dayText": "1st Friday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "lang": "EN",
+       "note": "Adoration at 5:00 pm Wednesday Mass Cancelled"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.670063,
+    "lng": -85.643464,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Holy Angels Parish",
+   "address": "402 S. Nottawa, Sturgis, MI, 49091",
+   "site": "https://holyangelssturgis.org/",
+   "phone": "269-651-5200",
+   "email": null,
+   "finderId": "massTimes_20751",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "1:00 PM",
+       "lang": "ES"
+      },
+      {
+       "time": "6:00 PM",
+       "lang": "ES"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY m tu w th f multiShort",
+     "dayText": "MonFri",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "lang": "ES"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.779463,
+    "lng": -85.418518,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Holy Family Parish",
+   "address": "500 W. St. Marys Street, Decatur, MI, 49045",
+   "site": "https://holyfamilydecaturmi.com/",
+   "phone": null,
+   "email": null,
+   "finderId": "massTimes_25352",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "12:15 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.105366,
+    "lng": -85.983496,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Holy Maternity of Mary Parish",
+   "address": "210 N. Front Street, Dowagiac, MI, 49047",
+   "site": "https://holymaternityofmary.com/",
+   "phone": "269-782-2808",
+   "email": null,
+   "finderId": "massTimes_8595",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY w f multiShort",
+     "dayText": "Wed Fri",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.985113,
+    "lng": -86.107337,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Immaculate Conception Parish",
+   "address": "645 S. Douglas, Three Rivers, MI, 49093",
+   "site": "https://icthreerivers.org/",
+   "phone": "269-273-8953",
+   "email": null,
+   "finderId": "massTimes_19691",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN",
+       "note": "Immaculate Conception"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN",
+       "note": "St. Clare Parish, Centreville"
+      },
+      {
+       "time": "10:30 AM",
+       "lang": "EN",
+       "note": "Immaculate Conception"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN",
+       "note": "St Clare (continues year round)"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "6:30 PM",
+       "lang": "ES",
+       "note": "Immaculate Conception"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY w f multiShort",
+     "dayText": "Wed Fri",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN",
+       "note": "Immaculate Conception"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.933952,
+    "lng": -85.642389,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Immaculate Conception Parish",
+   "address": "63559 60th Avenue, Hartford, MI, 49057",
+   "site": "https://yq89va.sites.ecatholic.com/",
+   "phone": "269-621-4106",
+   "email": null,
+   "finderId": "massTimes_19272",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN",
+       "note": "Immaculate Conception"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN",
+       "note": "Immaculate Conception"
+      },
+      {
+       "time": "10:15 AM",
+       "lang": "EN",
+       "note": "Sacred Heart"
+      },
+      {
+       "time": "12:00 PM",
+       "lang": "ES",
+       "note": "Immaculate Conception"
+      },
+      {
+       "time": "6:00 PM",
+       "lang": "ES",
+       "note": "Immaculate Conception"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "7:00 PM",
+       "lang": "ES"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN",
+       "note": "SACRED HEART, English"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN",
+       "note": "SACRED HEART, English"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "7:00 PM",
+       "lang": "ES",
+       "note": "2nd Friday Charismatic Mass"
+      },
+      {
+       "time": "8:00 PM",
+       "lang": "ES",
+       "note": "1st Friday Mass + Adoration until 5:00 AM MEN"
+      },
+      {
+       "time": "8:00 PM",
+       "lang": "ES",
+       "note": "3rd Friday Mass + Adoration until 5 AM WOMEN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.206705,
+    "lng": -86.166688,
+    "source": "nominatim:town"
+   }
+  },
+  {
+   "name": "Our Lady of Fatima Parish",
+   "address": "8220 M-60, Union City, MI, 49094",
+   "site": "https://stcharlescoldwater.org/our-lady-of-fatima-union-city",
+   "phone": "517-278-2650",
+   "email": null,
+   "finderId": "massTimes_8589",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:30 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.077832,
+    "lng": -85.133622,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Our Lady of Great Oak Parish",
+   "address": "6574 Lacey Rd, Bellevue, Bellevue, MI, 49021",
+   "site": null,
+   "phone": null,
+   "email": null,
+   "finderId": "massTimes_38267",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.472121,
+    "lng": -84.974102,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Our Lady of the Lake Parish",
+   "address": "24832 US 12 East, Edwardsburg, MI, 49112",
+   "site": "https://ourladyedwardsburg.org/",
+   "phone": "269-699-5870",
+   "email": null,
+   "finderId": "massTimes_5403",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:30 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "11:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "5:30 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Upcoming Special Masses",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "HOLY_DAY",
+     "dayText": "November 17",
+     "times": [
+      {
+       "time": "6:30 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Upcoming Special Masses",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "HOLY_DAY",
+     "dayText": "November 24",
+     "times": [
+      {
+       "time": "5:30 PM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.795604,
+    "lng": -86.080838,
+    "source": "nominatim:town"
+   }
+  },
+  {
+   "name": "Our Lady Queen of Peace Parish",
+   "address": "3903 Lake Street, Bridgman, MI, 49106",
+   "site": "http://www.olqop.org/",
+   "phone": "269-465-6252",
+   "email": null,
+   "finderId": "massTimes_8584",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "11:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY m tu w th f sa multiShort",
+     "dayText": "MonSat",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.942964,
+    "lng": -86.546953,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Sacred Heart Mission Parish",
+   "address": "2036 20th Street, Allegan, MI, 49010",
+   "site": null,
+   "phone": null,
+   "email": null,
+   "finderId": "massTimes_34492",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.568749,
+    "lng": -85.741546,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Sacred Heart of Mary Mission Parish",
+   "address": "Dowagiac, MI, 49047",
+   "site": "https://sacredheartsilvercreekmi.com/",
+   "phone": "(269)782-8048",
+   "email": null,
+   "finderId": "massTimes_24910",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "12:15 PM",
+       "lang": "EN",
+       "note": "2nd & 4th Fridays of the Month"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.982468,
+    "lng": -86.108881,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Sacred Heart Parish",
+   "address": "201 South Walnut Street, Bangor, MI, 49013",
+   "site": null,
+   "phone": null,
+   "email": null,
+   "finderId": "massTimes_21046",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "10:15 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY w th multiShort",
+     "dayText": "Wed Thu",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.307112,
+    "lng": -86.111363,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "San Felipe de Jesus Parish",
+   "address": "5586 117th Avenue, Fenville, MI, 49408",
+   "site": "https://sanfelipe-fennville.org/",
+   "phone": "269-561-5029",
+   "email": null,
+   "finderId": "massTimes_19696",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "12:30 PM",
+       "lang": "ES"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "6:30 PM",
+       "lang": "ES"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.594105,
+    "lng": -86.104596,
+    "source": "nominatim:Fennville, MI 49408"
+   }
+  },
+  {
+   "name": "SS. Cyril and Methodius Parish",
+   "address": "159 131st Avenue, Wayland, MI, 49348",
+   "site": "https://sscmparish.org/",
+   "phone": "269-792-3543",
+   "email": null,
+   "finderId": "massTimes_19304",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "5:00 PM",
+       "lang": "ES"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "9:30 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.645494,
+    "lng": -85.56002,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "SS. John & Bernard Catholic Parish",
+   "address": "580 Columbus Ave, Benton Harbor, MI, 49022",
+   "site": "https://ssjohnandbernard.org/",
+   "phone": null,
+   "email": null,
+   "finderId": "massTimes_26939",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "lang": "EN",
+       "note": "St. Bernard"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN",
+       "note": "St. John"
+      },
+      {
+       "time": "11:00 AM",
+       "lang": "EN",
+       "note": "St. Bernard"
+      },
+      {
+       "time": "12:30 PM",
+       "lang": "ES",
+       "note": "St. Bernard"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "5:30 PM",
+       "lang": "EN",
+       "note": "St. Bernard"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN",
+       "note": "St. John"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN",
+       "note": "St. Bernard"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN",
+       "note": "St. John"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.107777,
+    "lng": -86.449126,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Agnes Mission Parish",
+   "address": "5760 Sawyer Road, Sawyer, MI, 49125",
+   "site": null,
+   "phone": "269-756-2041",
+   "email": null,
+   "finderId": "massTimes_8618",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.885399,
+    "lng": -86.591453,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Ambrose Parish",
+   "address": "11137 Floria Rd, Delton, MI, 49046",
+   "site": "https://stambrosedelton.org/",
+   "phone": "269-623-2490",
+   "email": null,
+   "finderId": "massTimes_19697",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN",
+       "note": "Our Lady of Great Oak-Lacey"
+      },
+      {
+       "time": "10:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "12:30 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "5:30 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "12:30 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.489941,
+    "lng": -85.409023,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Ambrose Parish",
+   "address": "1628 East G Ave., Parchment, MI, 49004",
+   "site": "https://stambroseparchment.com/",
+   "phone": "(269) 385-4152",
+   "email": null,
+   "finderId": "massTimes_26448",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "lang": "EN",
+       "note": "(live streamed)"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN",
+       "note": "(live streamed)"
+      },
+      {
+       "time": "11:15 AM",
+       "lang": "EN",
+       "note": "(Children's Mass Live streamed )"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "9:15 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Upcoming Special Masses",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "HOLY_DAY",
+     "dayText": "November 26",
+     "times": [
+      {
+       "time": "9:15 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.332654,
+    "lng": -85.559736,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Ann  Parish",
+   "address": "421 N. Broadway Street, Cassopolis, MI, 49031",
+   "site": "https://stanncass.com/",
+   "phone": "269-445-3000",
+   "email": null,
+   "finderId": "massTimes_20446",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.917783,
+    "lng": -86.012688,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Ann Parish",
+   "address": "12648 East D Avenue, Augusta, MI, 49012",
+   "site": "https://stannaugusta.org/",
+   "phone": "269-731-4721",
+   "email": null,
+   "finderId": "massTimes_20105",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "11:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "8:15 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "8:15 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "8:15 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:15 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.336429,
+    "lng": -85.352222,
+    "source": "nominatim:town"
+   }
+  },
+  {
+   "name": "St. Anthony Parish",
+   "address": "509 W. 4th St., Buchanan, MI, 49107",
+   "site": "https://stanthonybuchanan.org/",
+   "phone": "269-695-3863",
+   "email": null,
+   "finderId": "massTimes_39077",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN",
+       "note": "St. Anthony"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN",
+       "note": "St. Anthony"
+      },
+      {
+       "time": "10:00 AM",
+       "lang": "EN",
+       "note": "St. Gabriel"
+      },
+      {
+       "time": "2:00 PM",
+       "lang": "ES",
+       "note": "St. Gabriel"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "lang": "EN",
+       "note": "St. Gabriel"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY w th f multiShort",
+     "dayText": "WedFri",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN",
+       "note": "St. Anthony"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.827382,
+    "lng": -86.359871,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Augustine Cathedral Parish",
+   "address": "542 W. Michigan Avenue, Kalamazoo, MI, 49007",
+   "site": "https://stakalamazoo.org/",
+   "phone": "269-345-5147",
+   "email": null,
+   "finderId": "massTimes_5540",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN",
+       "note": "Vigil Mass for Sunday"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "7:30 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "9:30 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "11:30 AM",
+       "lang": "EN",
+       "note": "(live streamed)"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY m tu w th f multiShort",
+     "dayText": "MonFri",
+     "times": [
+      {
+       "time": "7:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "12:10 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "8:45 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.292124,
+    "lng": -85.591422,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Barbara Mission Parish",
+   "address": "479 S. Burr Oak Road, Colon, MI, 49040",
+   "site": null,
+   "phone": "269-273-8953",
+   "email": null,
+   "finderId": "massTimes_8586",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.9481,
+    "lng": -85.312716,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Basil Parish",
+   "address": "513 Monroe Blvd., South Haven, MI, 49090",
+   "site": "https://saintbasilcatholicchurch.org/",
+   "phone": "269-637-2404",
+   "email": null,
+   "finderId": "massTimes_22717",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "11:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "5:00 PM",
+       "lang": "ES"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.398703,
+    "lng": -86.282917,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Catherine of Siena Parish",
+   "address": "1150 W. Centre Avenue, Portage, MI, 49024",
+   "site": "https://stcatherinesiena.org/",
+   "phone": "269-327-5165",
+   "email": null,
+   "finderId": "massTimes_19059",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN",
+       "note": "Also streamed live and recorded on our website"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "7:30 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "11:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "5:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "9:15 AM",
+       "lang": "EN",
+       "note": "Trinity Chapel"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "9:15 AM",
+       "lang": "EN",
+       "note": "Trinity Chapel"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "9:15 AM",
+       "lang": "EN",
+       "note": "Trinity Chapel"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "9:15 AM",
+       "lang": "EN",
+       "note": "Trinity Chapel"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "9:15 AM",
+       "lang": "EN",
+       "note": "Trinity Chapel"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "9:15 AM",
+       "lang": "EN",
+       "note": "Trinity Chapel"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.201076,
+    "lng": -85.603091,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Charles Borromeo Parish",
+   "address": "150 Taylor Street, Coldwater, MI, 49036",
+   "site": "https://stcharlescoldwater.org/",
+   "phone": "517-278-2650",
+   "email": null,
+   "finderId": "massTimes_31317",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "5:30 PM",
+       "lang": "EN",
+       "note": "St. Charles Borromeo"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:30 AM",
+       "lang": "EN",
+       "note": "Our Lady of Fatima Mission"
+      },
+      {
+       "time": "11:00 AM",
+       "lang": "EN",
+       "note": "St. Charles Borromeo"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY tu w th multiShort",
+     "dayText": "TueThu",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN",
+       "note": "St. Charles Borromeo"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "12:00 PM",
+       "lang": "EN",
+       "note": "St. Charles Borromeo"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.94372,
+    "lng": -85.005749,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Clare Mission Parish",
+   "address": "23226 M-86, Centreville, MI, 49032",
+   "site": null,
+   "phone": "269-273-8953",
+   "email": null,
+   "finderId": "massTimes_8625",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "lang": "EN",
+       "note": "May-October"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.923701,
+    "lng": -85.516346,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Cyril Mission Parish",
+   "address": "203 North State Street, Nashville, MI, 49073",
+   "site": "https://2jz7oa.sites.ecatholic.com/",
+   "phone": "269-945-4246",
+   "email": null,
+   "finderId": "massTimes_20295",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:30 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.606324,
+    "lng": -85.092171,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Edward Parish",
+   "address": "332 W. State Street, Mendon, MI, 49072",
+   "site": "https://stedwardmendon.org/",
+   "phone": "269-496-3525",
+   "email": null,
+   "finderId": "massTimes_19698",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:30 AM",
+       "lang": "EN",
+       "note": "(live-streamed weekly)"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY tu th multiShort",
+     "dayText": "Tue Thu",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.007859,
+    "lng": -85.45016,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Gabriel Mission Parish",
+   "address": "429 Rose Hill, Berrien Springs, MI, 49103",
+   "site": null,
+   "phone": "269-695-3863",
+   "email": null,
+   "finderId": "massTimes_8583",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "10:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "2:00 PM",
+       "lang": "ES"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.942824,
+    "lng": -86.339867,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Jerome Parish",
+   "address": "229 Collier Avenue, Battle Creek, MI, 49037",
+   "site": "https://stjosephbc.org/",
+   "phone": "(269) 968-2218",
+   "email": null,
+   "finderId": "massTimes_21044",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "10:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.319255,
+    "lng": -85.182427,
+    "source": "nominatim:town"
+   }
+  },
+  {
+   "name": "St. John Bosco Parish",
+   "address": "23830 Front Avenue, Mattawan, MI, 49071",
+   "site": "https://stjbparish.com/",
+   "phone": "269-668-3312",
+   "email": null,
+   "finderId": "massTimes_5297",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN",
+       "note": "St. John Bosco (Mattawan)"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN",
+       "note": "St. John Bosco (Mattawan)"
+      },
+      {
+       "time": "9:45 AM",
+       "lang": "EN",
+       "note": "St. Margaret Mary (Marcellus)"
+      },
+      {
+       "time": "11:30 AM",
+       "lang": "EN",
+       "note": "St. John Bosco (Mattawan)"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY tu w th f multiShort",
+     "dayText": "TueFri",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN",
+       "note": "Memorial Day thru Labor Day"
+      },
+      {
+       "time": "9:00 AM",
+       "lang": "EN",
+       "note": "Sept thru May"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.210612,
+    "lng": -85.783364,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. John the Evangelist Parish",
+   "address": "1020 Irwin Avenue, Albion, MI, 49224",
+   "site": "https://stjohn-church.org/",
+   "phone": "(517) 629-4532",
+   "email": null,
+   "finderId": "massTimes_25725",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "12:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "12:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.237039,
+    "lng": -84.772635,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Joseph Mission Parish",
+   "address": "16603 US 12, White Pigeon, MI, 49099",
+   "site": "http://www.stjosephwhitepigeon.org/",
+   "phone": "269-483-7621",
+   "email": null,
+   "finderId": "massTimes_8630",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "11:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "5:30 PM",
+       "lang": "EN",
+       "note": "First Thursday"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.798885,
+    "lng": -85.631209,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Joseph Parish",
+   "address": "61 North 23rd Street, Battle Creek, MI, 49015",
+   "site": "http://www.stjosephbc.org/",
+   "phone": "269-962-0165",
+   "email": null,
+   "finderId": "massTimes_40435",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "10:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "12:00 PM",
+       "note": "Bilingual Burmese"
+      },
+      {
+       "time": "5:00 PM",
+       "lang": "EN",
+       "note": "Vigil Mass"
+      },
+      {
+       "time": "5:00 PM",
+       "lang": "ES"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY m tu w th f sa multiShort",
+     "dayText": "MonSat",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "lang": "ES"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.307441,
+    "lng": -85.222847,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Joseph Parish",
+   "address": "936 Lake Street, Kalamazoo, MI, 49001",
+   "site": "https://stjosephkzoo.org/",
+   "phone": "(269)343-6256",
+   "email": null,
+   "finderId": "massTimes_28507",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:30 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "10:30 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "1:00 PM",
+       "lang": "ES"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY m w f multiAbbr",
+     "dayText": "M W F",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "lang": "ES"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.280381,
+    "lng": -85.568162,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Joseph Parish",
+   "address": "157 Lucinda Lane, Watervliet, MI, 49098",
+   "site": "https://stjcatholic.net/",
+   "phone": "269-463-5470",
+   "email": null,
+   "finderId": "massTimes_19739",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "11:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY m tu w sa multiAbbr",
+     "dayText": "MW Sa",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "5:15 PM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.183394,
+    "lng": -86.262248,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Joseph Parish (Downtown & South)",
+   "address": "211 Church Street, St. Joseph, MI, 49085",
+   "site": "https://stjoestjoe.church/",
+   "phone": "269-983-1575",
+   "email": null,
+   "finderId": "massTimes_12487",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN",
+       "note": "South"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN",
+       "note": "Downtown"
+      },
+      {
+       "time": "9:00 AM",
+       "lang": "EN",
+       "note": "South"
+      },
+      {
+       "time": "10:00 AM",
+       "lang": "EN",
+       "note": "Downtown"
+      },
+      {
+       "time": "12:00 PM",
+       "lang": "EN",
+       "note": "Downtown"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN",
+       "note": "Downtown"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN",
+       "note": "Downtown"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN",
+       "note": "Downtown There will be no Mass on November 27th"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN",
+       "note": "Downtown"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.108539,
+    "lng": -86.477781,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Joseph Parish (south)",
+   "address": "5353 Roosevelt Road, Stevensville, MI, 49127",
+   "site": "https://stjoestjoe.church/",
+   "phone": "269-983-1575",
+   "email": null,
+   "finderId": "massTimes_8620",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN",
+       "note": "(outdoor) (radio broadcast)"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN",
+       "note": "(outdoor) (radio broadcast)"
+      },
+      {
+       "time": "6:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "9:30 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.014487,
+    "lng": -86.519465,
+    "source": "nominatim:town"
+   }
+  },
+  {
+   "name": "St. Jude Mission Parish",
+   "address": "13809 North M-40, Gobles, MI, 49055",
+   "site": "https://stjudemissionparish.org/",
+   "phone": "269-628-2219",
+   "email": null,
+   "finderId": "massTimes_20750",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "10:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.360869,
+    "lng": -85.879464,
+    "source": "nominatim:town"
+   }
+  },
+  {
+   "name": "St. Margaret Mary Mission Parish",
+   "address": "296 East Dibble Street, Marcellus, MI, 49067",
+   "site": "https://stjbparish.com/",
+   "phone": "269-668-3312",
+   "email": null,
+   "finderId": "massTimes_8604",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:45 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.025899,
+    "lng": -85.810578,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Margaret Parish",
+   "address": "766 S. Farmer Street, Otsego, MI, 49078",
+   "site": "https://stmargaret-otsego.com/",
+   "phone": "269-694-6311",
+   "email": null,
+   "finderId": "massTimes_20317",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "5:30 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "10:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.452258,
+    "lng": -85.699945,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Mark Parish",
+   "address": "3 North 19th Street, Niles, MI, 49120",
+   "site": "https://stmarkniles.org/",
+   "phone": "269-683-8650",
+   "email": null,
+   "finderId": "massTimes_24304",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN",
+       "note": "EST"
+      },
+      {
+       "time": "10:00 AM",
+       "lang": "EN",
+       "note": "EST"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.82783,
+    "lng": -86.229774,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Martin of Tours Parish",
+   "address": "5855 E. W Ave, Vicksburg, Vicksburg, MI, 49097",
+   "site": "https://stmartinvicksburg.com/",
+   "phone": "269-649-1629",
+   "email": null,
+   "finderId": "massTimes_19060",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "5:30 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "11:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY w f multiShort",
+     "dayText": "Wed Fri",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.11414,
+    "lng": -85.556702,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Mary of the Assumption Parish",
+   "address": "28 W. Ash Street, Three Oaks, MI, 49128",
+   "site": null,
+   "phone": "269-756-2041",
+   "email": null,
+   "finderId": "massTimes_34494",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY m w multiShort",
+     "dayText": "Mon Wed",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.798927,
+    "lng": -86.611808,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Mary of the Immaculate Conception Parish",
+   "address": "219 S. State Street, Niles, MI, 49120",
+   "site": "https://stmarysniles.org/",
+   "phone": "269-683-5087",
+   "email": null,
+   "finderId": "massTimes_11002",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:30 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "11:30 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "1:00 PM",
+       "lang": "ES"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.825047,
+    "lng": -86.262555,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Mary of the Lake Parish",
+   "address": "718 W. Buffalo Ave., New Buffalo, MI, 49117",
+   "site": "https://stmarynewbuffalo.org/",
+   "phone": "269-469-2637",
+   "email": null,
+   "finderId": "massTimes_19061",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN",
+       "note": "St. Mary of the Assumption"
+      },
+      {
+       "time": "6:00 PM",
+       "lang": "EN",
+       "note": "St. Mary of the Lake"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN",
+       "note": "St. Agnes"
+      },
+      {
+       "time": "11:00 AM",
+       "lang": "EN",
+       "note": "St. Mary of the Lake"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN",
+       "note": "St. Mary of the Assumption"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN",
+       "note": "St. Agnes"
+      },
+      {
+       "time": "5:30 PM",
+       "lang": "EN",
+       "note": "St. Mary of the Lake"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN",
+       "note": "St. Mary of the Assumption"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN",
+       "note": "St. Mary of the Lake"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.795256,
+    "lng": -86.744453,
+    "source": "nominatim:town"
+   }
+  },
+  {
+   "name": "St. Mary Parish",
+   "address": "212 Hanover Street, Marshall, MI, 49068",
+   "site": "https://stmarymarshall.org/",
+   "phone": "269-781-3949",
+   "email": null,
+   "finderId": "massTimes_6225",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "11:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "12:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "7:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Upcoming Special Masses",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "HOLY_DAY",
+     "dayText": "November 26",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.270042,
+    "lng": -84.961481,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Mary Parish",
+   "address": "500 Paw Paw Street, Paw Paw, MI, 49079",
+   "site": "https://stmarypawpaw.com/",
+   "phone": "269-657-4459",
+   "email": null,
+   "finderId": "massTimes_19243",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "11:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN",
+       "note": "Communion Service Only"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.215904,
+    "lng": -85.88466,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Mary Parish",
+   "address": "939 Charlotte Avenue,, Kalamazoo, MI, 49048",
+   "site": "https://stmarykazoo.org/",
+   "phone": "269-342-0621",
+   "email": null,
+   "finderId": "massTimes_20260",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN",
+       "note": "Mass of Anticipation"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN",
+       "note": "(1962) Low Mass"
+      },
+      {
+       "time": "10:00 AM",
+       "lang": "EN",
+       "note": "Mass"
+      },
+      {
+       "time": "12:00 PM",
+       "lang": "EN",
+       "note": "(1962) High Mass"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY m tu w th f sa multiShort",
+     "dayText": "MonSat",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN",
+       "note": "(1962) Low Mass"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.301517,
+    "lng": -85.564318,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Mary's Assumption Parish",
+   "address": "602 W. Chicago St. , Bronson, Michigan, 49028",
+   "site": "http://stmarysbronson.org/",
+   "phone": "517-369-2120",
+   "email": null,
+   "finderId": "massTimes_38872",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "1:30 PM",
+       "lang": "ES"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY m tu f multiAbbr",
+     "dayText": "M Tu F",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "12:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FIRST_SATURDAY",
+     "dayText": "1st Saturday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 41.871117,
+    "lng": -85.202845,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Mary's Visitation Parish",
+   "address": "2459 146th Avenue, Byron Center, MI, 49315",
+   "site": "https://smvchurch.org/",
+   "phone": "616-681-9701",
+   "email": null,
+   "finderId": "massTimes_24998",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN",
+       "note": "(Live-Streamed)"
+      },
+      {
+       "time": "11:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY w th f multiShort",
+     "dayText": "WedFri",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FIRST_FRIDAY",
+     "dayText": "1st Friday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FIRST_SATURDAY",
+     "dayText": "1st Saturday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.812251,
+    "lng": -85.722806,
+    "source": "nominatim:town"
+   }
+  },
+  {
+   "name": "St. Monica Parish",
+   "address": "4408 S Westnedge Ave, Kalamazoo, MI, 49008",
+   "site": "https://stmonicachurchkzoo.com/",
+   "phone": "(269) 345-4389",
+   "email": null,
+   "finderId": "massTimes_21062",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "9:30 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "11:00 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "7:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY m tu th multiAbbr",
+     "dayText": "M Tu Th",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY w f multiShort",
+     "dayText": "Wed Fri",
+     "times": [
+      {
+       "time": "7:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FIRST_SATURDAY",
+     "dayText": "1st Saturday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.247249,
+    "lng": -85.589746,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Peter Parish",
+   "address": "100 St. Peter Drive, Douglas, MI, 49406",
+   "site": "https://stpeter-douglas.org/",
+   "phone": "269-857-7951",
+   "email": null,
+   "finderId": "massTimes_19962",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "lang": "EN",
+       "note": "Open to the Public"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN",
+       "note": "Live-Streamed, Open to the Public"
+      },
+      {
+       "time": "10:30 AM",
+       "lang": "EN",
+       "note": "Live-Streamed, Open to the Public"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY m tu th f multiAbbr",
+     "dayText": "M Tu Th F",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.645471,
+    "lng": -86.205561,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Philip Parish",
+   "address": "112 Capital Avenue NE, Battle Creek, MI, 49017",
+   "site": "https://stphilipbc.org/",
+   "phone": "269-968-6645",
+   "email": null,
+   "finderId": "massTimes_19971",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:30 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN",
+       "note": "(live streamed) Combined w/ St. Joseph 10 am 9-20-26"
+      },
+      {
+       "time": "11:30 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "7:00 PM",
+       "lang": "LA"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY m w th f sa multiAbbr",
+     "dayText": "M WSa",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "12:10 PM",
+       "lang": "EN"
+      },
+      {
+       "time": "6:30 PM",
+       "lang": "EN",
+       "note": "Mass with Healing Prayers"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "lang": "LA"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.321495,
+    "lng": -85.178392,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Rose of Lima Parish",
+   "address": "800 S. Michigan Avenue, Hastings, MI, 49058",
+   "site": "https://strosehastings.com/",
+   "phone": "269-945-4246",
+   "email": null,
+   "finderId": "massTimes_19714",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:30 PM",
+       "lang": "EN",
+       "note": "St. Rose"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "lang": "EN",
+       "note": "St. Rose"
+      },
+      {
+       "time": "10:00 AM",
+       "lang": "EN",
+       "note": "St. Rose"
+      },
+      {
+       "time": "12:00 PM",
+       "lang": "EN",
+       "note": "St. Cyril"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MULTIDAY m tu w th f multiShort",
+     "dayText": "MonFri",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.642333,
+    "lng": -85.285961,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Stanislaus Parish",
+   "address": "1871 136th Avenue, Dorr, MI, 49323",
+   "site": "https://st-stanschurch.net/",
+   "phone": "269-793-7268",
+   "email": null,
+   "finderId": "massTimes_19715",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:30 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "10:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "5:30 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "10:00 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FIRST_FRIDAY",
+     "dayText": "1st Friday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.681708,
+    "lng": -85.728044,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Therese of Lisieux Parish",
+   "address": "128 Cedar Street, Wayland, MI, 49348",
+   "site": "https://sttparishwayland.org/",
+   "phone": "269-792-2138",
+   "email": null,
+   "finderId": "massTimes_19716",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "10:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "9:30 AM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "9:30 AM",
+       "lang": "EN"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.670062,
+    "lng": -85.643672,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Thomas More Student Parish",
+   "address": "421 Monroe Street, Kalamazoo, MI, 49006",
+   "site": "https://sttomskazoo.org/",
+   "phone": "269-381-8917",
+   "email": null,
+   "finderId": "massTimes_19941",
+   "panels": [
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SATURDAY_VIGIL",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "lang": "EN",
+       "note": "In person and streamed live on You Tube"
+      }
+     ]
+    },
+    {
+     "cat": "Sunday Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "lang": "EN"
+      },
+      {
+       "time": "10:30 AM",
+       "lang": "EN",
+       "note": "In person and streamed live on You Tube"
+      },
+      {
+       "time": "6:00 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "6:30 PM",
+       "lang": "EN",
+       "note": "Mass or Remembrance Nov. 2"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "5:15 PM",
+       "lang": "EN",
+       "note": "No Mass Tuesdays during WMU Fall & Spring Semesters"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "5:15 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "5:15 PM",
+       "lang": "EN"
+      }
+     ]
+    },
+    {
+     "cat": "Daily Mass Schedule",
+     "ulClass": "sacramentTimes mass normal times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "12:10 PM",
+       "lang": "EN",
+       "note": "at Kanley Chapel, WMU Campus"
+      }
+     ]
+    }
+   ],
+   "geo": {
+    "lat": 42.288137,
+    "lng": -85.603706,
+    "source": "nominatim:address"
+   }
+  }
+ ]
+}

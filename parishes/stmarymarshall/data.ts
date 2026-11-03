@@ -41,6 +41,7 @@ const parish: Parish = {
   mapUrl: "https://www.google.com/maps/dir/?api=1&destination=214+S.+Eagle+Street%2C+Marshall%2C+MI+49068",
   facebook: "https://www.facebook.com/St-Mary-Marshall-101547054894575",
   bulletins: "https://discovermass.com/church/st-mary-marshall-mi/",
+  finderId: "massTimes_6225",
   findAMass: "https://findamass.org/",
 
   photos: {

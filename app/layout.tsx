@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
+import { headers } from "next/headers";
+import { after } from "next/server";
+import { bump } from "@/lib/tally";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { strings } from "@/lib/i18n";
@@ -37,6 +40,9 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const p = await getParish();
   const s = strings(p.lang);
+  const h = await headers();
+  const path = h.get("x-path");
+  if (path) after(() => bump(h.get("host") ?? "", "view", path));
   const nameRest = p.name.startsWith(p.shortName) ? p.name.slice(p.shortName.length).trim() : "";
   return (
     <html lang={p.lang} className={`${display.variable} ${body.variable}`} style={themeStyle(p)}>

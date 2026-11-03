@@ -223,6 +223,14 @@ const en = {
     corner: (corner: string) => ` At the ${corner}.`,
     confession: (day: string, start: string, end: string | undefined) => `Confession ${day} ${start}${end ? ` to ${end}` : ""}. `,
   },
+  diocese: {
+    kicker: "Diocese of Kalamazoo",
+    near: { title: "Mass near you", lede: "Every parish in the diocese, nearest first, with the next Mass worked out from the clock.", where: "Where are you?", placeholder: "Zip code or town", go: "Find Mass", useLocation: "Use my location", locating: "Finding you…", radius: "Within", milesShort: "mi", noResults: (r: number) => `No parish within ${r} miles of there. Widen the search.`, badPlace: "That is not a Michigan zip code or a town we know. Try the zip.", from: (label: string) => `Near ${label}`, nextMass: "Next Mass", nextConfession: "Next Confession", nextAdoration: "Next Adoration", schedule: "Full schedule", fromFinder: "Times from the diocesan Parish Finder", fromPlatform: "Times from the parish’s own data", site: "Parish site", call: "Call", directions: "Directions", away: (m: string) => `${m} miles`, all: "All parishes", count: (n: number, r: number) => `${n} parishes within ${r} miles` },
+    events: { title: "This week across the diocese", lede: "Every event on every parish calendar on the platform, soonest first. Coffee hours, studies, fish fries, young adult nights.", kind: "Kind", anyKind: "Everything", town: "Town", anyTown: "Everywhere", filter: "Show", none: "Nothing on the calendars for these days yet.", at: (name: string) => `at ${name}`, add: "Add to calendar", more: "The parish calendar", days: (n: number) => `The next ${n} days` },
+    groups: { title: "Groups across the diocese", lede: "Councils, ministries, studies and the people to call, from every parish on the platform. If your parish does not have one, the next one over might.", none: "No groups listed yet.", contact: "Contact", parishPage: "On the parish site", ministries: "Councils and ministries", formation: "Study and formation" },
+    notices: { label: "From the diocese" },
+    nav: { near: "Mass near you", events: "Across the diocese", groups: "Groups", parishes: "Every parish", strip: "Nearby parishes", stripLede: "Can’t make these? The next Mass near here:" },
+  },
   ics: { calendarName: (name: string) => `${name} calendar` },
 };
 
@@ -441,6 +449,14 @@ const es: Strings = {
     prayer: (parish, city) => `Pide a la gente de ${parish}, ${city}, que ore por ti o por alguien que quieres. Las peticiones van a la oficina parroquial y, si quieres, al boletín.`,
     corner: (corner) => ` En la ${corner}.`,
     confession: (day, start, end) => `Confesiones ${day.toLowerCase()} ${start}${end ? ` a ${end}` : ""}. `,
+  },
+  diocese: {
+    kicker: "Diócesis de Kalamazoo",
+    near: { title: "Misa cerca de ti", lede: "Todas las parroquias de la diócesis, de la más cercana a la más lejana, con la próxima Misa calculada según la hora.", where: "¿Dónde estás?", placeholder: "Código postal o ciudad", go: "Buscar Misa", useLocation: "Usar mi ubicación", locating: "Buscándote…", radius: "A menos de", milesShort: "mi", noResults: (r) => `No hay parroquias a menos de ${r} millas de ahí. Amplía la búsqueda.`, badPlace: "No reconocemos ese código postal o ciudad de Michigan. Prueba con el código postal.", from: (label) => `Cerca de ${label}`, nextMass: "Próxima Misa", nextConfession: "Próxima confesión", nextAdoration: "Próxima adoración", schedule: "Horario completo", fromFinder: "Horarios del buscador de parroquias de la diócesis", fromPlatform: "Horarios de los datos de la parroquia", site: "Sitio de la parroquia", call: "Llamar", directions: "Cómo llegar", away: (m) => `${m} millas`, all: "Todas las parroquias", count: (n, r) => `${n} parroquias a menos de ${r} millas` },
+    events: { title: "Esta semana en la diócesis", lede: "Todos los eventos del calendario de cada parroquia de la plataforma, del más próximo en adelante. Cafés, estudios, cenas, noches de jóvenes adultos.", kind: "Tipo", anyKind: "Todo", town: "Ciudad", anyTown: "Todas", filter: "Mostrar", none: "Aún no hay nada en los calendarios para estos días.", at: (name) => `en ${name}`, add: "Añadir al calendario", more: "El calendario de la parroquia", days: (n) => `Los próximos ${n} días` },
+    groups: { title: "Grupos en la diócesis", lede: "Consejos, ministerios, grupos de estudio y las personas a quienes llamar, de cada parroquia de la plataforma. Si tu parroquia no tiene uno, quizá la de al lado sí.", none: "Aún no hay grupos.", contact: "Contacto", parishPage: "En el sitio de la parroquia", ministries: "Consejos y ministerios", formation: "Estudio y formación" },
+    notices: { label: "De la diócesis" },
+    nav: { near: "Misa cerca de ti", events: "En la diócesis", groups: "Grupos", parishes: "Todas las parroquias", strip: "Parroquias cercanas", stripLede: "¿No puedes venir a estas? La próxima Misa cerca de aquí:" },
   },
   ics: { calendarName: (name) => `Calendario de ${name}` },
 };

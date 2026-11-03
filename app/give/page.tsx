@@ -39,7 +39,7 @@ export default async function Give() {
             )}
             {g.url && (
               <div className="mt-8">
-                <GoldButton href={g.url} external>
+                <GoldButton href="/give/out" external>
                   {t.giveOnline}
                 </GoldButton>
               </div>

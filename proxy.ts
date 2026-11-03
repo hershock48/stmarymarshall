@@ -30,8 +30,12 @@ export function proxy(req: NextRequest) {
     return letterHost(letter[1]) === host ? NextResponse.next() : gone(req);
   }
   const one = /^\/([^/.]+)\/?$/.exec(pathname);
-  if (!one) return NextResponse.next();
-  return knowsPath(parishForHost(host), one[1]) ? NextResponse.next() : gone(req);
+  if (one && !knowsPath(parishForHost(host), one[1])) return gone(req);
+  // The layout counts pages served, by path (lib/tally.ts), and cannot see
+  // the URL on its own, so the path rides along as a request header.
+  const h = new Headers(req.headers);
+  h.set("x-path", pathname);
+  return NextResponse.next({ request: { headers: h } });
 }
 
 function gone(req: NextRequest) {

@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { after } from "next/server";
+import { bump } from "@/lib/tally";
 import { configured, send } from "@/lib/mail";
 import { getParish } from "@/lib/parish";
 import { isRequestKind, REQUESTS, summarizeRequest } from "@/lib/requests";
@@ -35,6 +37,7 @@ export async function POST(req: Request) {
   if (!configured(p.mailTo)) return thanks("unconfigured");
   try {
     await send(subject, text, data.email, p.mailTo);
+    after(() => bump(new URL(req.url).host, "form", `${kind}:${p.slug}`));
     return thanks("sent");
   } catch (err) {
     console.error(`[${kind}:${p.slug}] send failed`, err);

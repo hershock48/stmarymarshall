@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import DiocesanNotice from "@/components/DiocesanNotice";
 import { NextUp } from "@/components/Schedule";
 import EventList from "@/components/EventList";
 import { Band, GoldButton, H2, LineButton } from "@/components/ui";
@@ -28,6 +29,7 @@ export default async function Home() {
 
   return (
     <>
+      <DiocesanNotice parish={p} />
       <section className="relative isolate overflow-hidden bg-navy">
         <Image src={p.photos.hero.src} alt={p.photos.hero.alt} fill priority sizes="100vw" className="object-cover object-[50%_35%] opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/20" aria-hidden="true" />
@@ -84,11 +86,10 @@ export default async function Home() {
             <div className="mt-6">
               <EventList items={week} lang={p.lang} onPaper={false} />
             </div>
-            {p.events.length > 0 && (
-              <div className="mt-8">
-                <LineButton href="/events">{h.fullCalendar}</LineButton>
-              </div>
-            )}
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              {p.events.length > 0 && <LineButton href="/events">{h.fullCalendar}</LineButton>}
+              <LineButton href="/diocese/events">{s.diocese.nav.events}</LineButton>
+            </div>
           </div>
           <div className="space-y-4">
             {p.bulletins && <Card title={h.bulletin.title} body={h.bulletin.body} href="/bulletin" cta={h.bulletin.cta} />}

@@ -54,6 +54,8 @@ const parish: Parish = {
   mapUrl: "https://www.google.com/maps/dir/?api=1&destination=5586+117th+Ave%2C+Fennville%2C+MI+49408",
   facebook: "https://www.facebook.com/parroquia.s.dejesus",
   livestream: "https://www.facebook.com/parroquia.s.dejesus",
+  geo: { lat: 42.594105, lng: -86.104596 },
+  finderId: "massTimes_19696",
   findAMass: "https://findamass.org/",
 
   photos: {

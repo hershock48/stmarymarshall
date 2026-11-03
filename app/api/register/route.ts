@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { after } from "next/server";
+import { bump } from "@/lib/tally";
 import { configured, send } from "@/lib/mail";
 import { getParish } from "@/lib/parish";
 import { summarize } from "@/lib/register";
@@ -41,6 +43,7 @@ export async function POST(req: Request) {
   if (!configured(p.mailTo)) return thanks("unconfigured");
   try {
     await send(subject, text, data.email, p.mailTo);
+    after(() => bump(new URL(req.url).host, "form", `register:${p.slug}`));
     return thanks("sent");
   } catch (err) {
     console.error(`[register:${p.slug}] send failed`, err);

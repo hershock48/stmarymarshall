@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import DioceseNav from "@/components/DioceseNav";
 import { Band, H2 } from "@/components/ui";
 import { fmtTime, DAY_NAMES } from "@/lib/schedule";
 import { allParishes, getParish } from "@/lib/parish";
@@ -36,7 +37,7 @@ function rows(list: Service[]) {
 
 export default async function Diocese() {
   // Only so the page knows which host it is on; the content is every parish.
-  await getParish();
+  const p = await getParish();
   const parishes = allParishes();
   return (
     <>
@@ -53,6 +54,7 @@ export default async function Diocese() {
           </p>
         </div>
       </section>
+      <DioceseNav lang={p.lang} current="parishes" />
       <Band tone="paper">
         <div className="grid gap-8 lg:grid-cols-3">
           {parishes.map((p) => {

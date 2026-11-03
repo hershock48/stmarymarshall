@@ -58,6 +58,8 @@ const parish: Parish = {
   youtube: "https://www.youtube.com/user/StPhilipCatholic",
   bulletins: "https://discovermass.com/church/st-philip-battle-creek-mi/",
   livestream: "https://www.facebook.com/stphilipbc",
+  geo: { lat: 42.321495, lng: -85.178392 },
+  finderId: "massTimes_19971",
   findAMass: "https://findamass.org/",
 
   photos: {
