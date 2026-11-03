@@ -11,6 +11,7 @@
    "finderId": "massTimes_14715",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -23,6 +24,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -35,6 +37,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MONDAY",
@@ -47,6 +50,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -59,6 +63,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FIRST_FRIDAY",
@@ -68,6 +73,54 @@
        "time": "6:00 PM",
        "lang": "EN",
        "note": "Adoration at 5:00 pm Wednesday Mass Cancelled"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "7:00 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "8:30 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "8:30 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:00 PM"
       }
      ]
     }
@@ -87,6 +140,7 @@
    "finderId": "massTimes_20751",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -99,6 +153,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -119,6 +174,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY m tu w th f multiShort",
@@ -131,6 +187,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -139,6 +196,61 @@
       {
        "time": "6:00 PM",
        "lang": "ES"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "7:00 PM",
+       "end": "8:00 PM",
+       "note": "Until finished"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "end": "11:00 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "9:15 AM",
+       "end": "5:30 PM",
+       "note": "Evening prayer 5:30 in Spanish, Spanish Mass follows"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "9:15 AM",
+       "end": "5:30 PM",
+       "note": "Evening Prayer 5:30 English."
       }
      ]
     }
@@ -158,6 +270,7 @@
    "finderId": "massTimes_25352",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -170,6 +283,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -182,6 +296,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -194,6 +309,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY",
@@ -202,6 +318,46 @@
       {
        "time": "6:00 PM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "11:00 AM",
+       "end": "12:00 PM",
+       "note": "3rd Friday of the Month - Mass at 12:15 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "5:15 PM",
+       "end": "5:45 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "end": "7:00 PM"
       }
      ]
     }
@@ -221,6 +377,7 @@
    "finderId": "massTimes_8595",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -233,6 +390,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY w f multiShort",
@@ -241,6 +399,31 @@
       {
        "time": "8:30 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:15 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "end": "7:00 PM"
       }
      ]
     }
@@ -260,6 +443,7 @@
    "finderId": "massTimes_19691",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -273,6 +457,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -291,6 +476,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MONDAY",
@@ -304,6 +490,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -317,6 +504,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY w f multiShort",
@@ -326,6 +514,48 @@
        "time": "8:30 AM",
        "lang": "EN",
        "note": "Immaculate Conception"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "end": "8:20 AM",
+       "note": "At St Clare, Centreville"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "3:45 PM",
+       "note": "At IC Church Or by appointment"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "end": "8:00 PM",
+       "note": "(First Friday of the Month)"
       }
      ]
     }
@@ -345,6 +575,7 @@
    "finderId": "massTimes_19272",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -358,6 +589,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -386,6 +618,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -398,6 +631,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -411,6 +645,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "THURSDAY",
@@ -424,6 +659,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -445,6 +681,84 @@
        "note": "3rd Friday Mass + Adoration until 5 AM WOMEN"
       }
      ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "7:45 PM",
+       "end": "8:30 PM",
+       "note": "Immaculate Conception"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "5:30 PM",
+       "end": "6:30 PM",
+       "note": "SACRED HEART"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "3:45 PM",
+       "note": "Immaculate Conception"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "5:30 PM",
+       "end": "6:30 PM",
+       "note": "SACRED HEART"
+      },
+      {
+       "time": "7:00 PM",
+       "end": "8:00 PM",
+       "note": "Spanish, Immaculate Conception Church"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:00 PM",
+       "note": "First Friday of Month ENDS AT 5 AM, Men"
+      },
+      {
+       "time": "8:00 PM",
+       "note": "Third Friday of Month, ENDS at 5 AM, Women"
+      }
+     ]
     }
    ],
    "geo": {
@@ -462,6 +776,7 @@
    "finderId": "massTimes_8589",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -489,6 +804,7 @@
    "finderId": "massTimes_38267",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -516,6 +832,7 @@
    "finderId": "massTimes_5403",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -528,6 +845,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -544,6 +862,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -556,6 +875,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -568,6 +888,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -580,6 +901,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Upcoming Special Masses",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "HOLY_DAY",
@@ -592,6 +914,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Upcoming Special Masses",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "HOLY_DAY",
@@ -600,6 +923,32 @@
       {
        "time": "5:30 PM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "4:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FIRST_FRIDAY",
+     "dayText": "1st Friday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "end": "10:00 AM"
       }
      ]
     }
@@ -619,6 +968,7 @@
    "finderId": "massTimes_8584",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -631,6 +981,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -647,6 +998,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY m tu w th f sa multiShort",
@@ -655,6 +1007,32 @@
       {
        "time": "9:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "3:30 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FIRST_FRIDAY",
+     "dayText": "1st Friday",
+     "times": [
+      {
+       "time": "9:45 AM",
+       "end": "12:00 PM"
       }
      ]
     }
@@ -674,6 +1052,7 @@
    "finderId": "massTimes_34492",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -682,6 +1061,18 @@
       {
        "time": "8:30 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM"
       }
      ]
     }
@@ -701,6 +1092,7 @@
    "finderId": "massTimes_24910",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -713,6 +1105,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MONDAY",
@@ -725,6 +1118,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -734,6 +1128,32 @@
        "time": "12:15 PM",
        "lang": "EN",
        "note": "2nd & 4th Fridays of the Month"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "11:00 AM",
+       "end": "12:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "end": "7:00 PM"
       }
      ]
     }
@@ -753,6 +1173,7 @@
    "finderId": "massTimes_21046",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -765,6 +1186,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY w th multiShort",
@@ -773,6 +1195,33 @@
       {
        "time": "9:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "5:30 PM",
+       "end": "6:30 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "5:30 PM",
+       "end": "6:30 PM",
+       "note": "Eucharistic Adoration"
       }
      ]
     }
@@ -792,6 +1241,7 @@
    "finderId": "massTimes_19696",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -804,6 +1254,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "THURSDAY",
@@ -812,6 +1263,45 @@
       {
        "time": "6:30 PM",
        "lang": "ES"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "note": "or by appointment"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "end": "8:00 PM",
+       "note": "3rd Sunday of each month"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "5:00 PM"
       }
      ]
     }
@@ -831,6 +1321,7 @@
    "finderId": "massTimes_19304",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -843,6 +1334,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -859,6 +1351,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -867,6 +1360,47 @@
       {
        "time": "9:30 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "3:45 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "6:30 PM",
+       "end": "7:30 PM",
+       "note": "1st, 3rd, and 5th Mondays of the month at St. Therese"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "12:00 PM",
+       "end": "1:00 PM",
+       "note": "2nd and 4th Wednesday of the month at SSCM (English)"
       }
      ]
     }
@@ -886,6 +1420,7 @@
    "finderId": "massTimes_26939",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -899,6 +1434,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -922,6 +1458,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MONDAY",
@@ -935,6 +1472,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -948,6 +1486,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -961,6 +1500,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -970,6 +1510,80 @@
        "time": "8:00 AM",
        "lang": "EN",
        "note": "St. John"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "4:30 PM",
+       "end": "5:30 PM",
+       "note": "St. Bernard"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "note": "St. John"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:30 PM",
+       "end": "4:30 PM",
+       "note": "St. Bernard"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "MONDAY",
+     "dayText": "Monday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "end": "4:30 PM",
+       "note": "St. Bernard"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "end": "12:00 PM",
+       "note": "St. John"
+      },
+      {
+       "time": "8:00 PM",
+       "end": "11:30 PM",
+       "note": "First Friday of the Month at St. Bernard Church (door #8)"
       }
      ]
     }
@@ -989,6 +1603,7 @@
    "finderId": "massTimes_8618",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1001,6 +1616,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -1009,6 +1625,19 @@
       {
        "time": "8:30 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "end": "8:30 AM"
       }
      ]
     }
@@ -1028,6 +1657,7 @@
    "finderId": "massTimes_19697",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1045,6 +1675,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MONDAY",
@@ -1057,6 +1688,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -1069,6 +1701,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -1081,6 +1714,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "THURSDAY",
@@ -1093,6 +1727,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -1101,6 +1736,34 @@
       {
        "time": "8:30 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "end": "5:30 PM",
+       "note": "St. Ambrose"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "1:00 PM",
+       "end": "2:00 PM",
+       "note": "St. Ambrose"
       }
      ]
     }
@@ -1120,6 +1783,7 @@
    "finderId": "massTimes_26448",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -1133,6 +1797,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1151,6 +1816,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -1163,6 +1829,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Upcoming Special Masses",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "HOLY_DAY",
@@ -1171,6 +1838,33 @@
       {
        "time": "9:15 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "end": "4:45 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "9:45 AM",
+       "end": "10:00 AM",
+       "note": "After 9:15 AM Mass"
       }
      ]
     }
@@ -1190,6 +1884,7 @@
    "finderId": "massTimes_20446",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1202,6 +1897,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "THURSDAY",
@@ -1210,6 +1906,32 @@
       {
        "time": "9:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "9:30 AM",
+       "end": "10:30 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "9:30 AM",
+       "end": "10:30 AM"
       }
      ]
     }
@@ -1229,6 +1951,7 @@
    "finderId": "massTimes_20105",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -1241,6 +1964,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1257,6 +1981,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -1269,6 +1994,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -1281,6 +2007,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "THURSDAY",
@@ -1293,6 +2020,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -1301,6 +2029,100 @@
       {
        "time": "8:15 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "7:30 AM",
+       "end": "8:30 AM"
+      },
+      {
+       "time": "12:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "7:30 AM",
+       "end": "8:00 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "7:30 AM",
+       "end": "8:00 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "7:30 AM",
+       "end": "8:00 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "7:30 AM",
+       "end": "8:00 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "2:30 PM",
+       "end": "4:30 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "PERPETUAL",
+     "dayText": "Perpetual",
+     "times": [
+      {
+       "time": "",
+       "note": "24 hours per day, 7 days per week, 365 days per year (except during Easter Triduum)"
       }
      ]
     }
@@ -1320,6 +2142,7 @@
    "finderId": "massTimes_39077",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -1333,6 +2156,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1356,6 +2180,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -1369,6 +2194,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY w th f multiShort",
@@ -1377,6 +2203,46 @@
       {
        "time": "9:00 AM",
        "lang": "EN",
+       "note": "St. Anthony"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "1:00 PM",
+       "note": "St. Gabriel - Spanish"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "note": "St. Gabriel - English"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "3:45 PM",
        "note": "St. Anthony"
       }
      ]
@@ -1397,6 +2263,7 @@
    "finderId": "massTimes_5540",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -1410,6 +2277,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1431,6 +2299,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY m tu w th f multiShort",
@@ -1447,6 +2316,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY",
@@ -1455,6 +2325,79 @@
       {
        "time": "8:45 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "end": "9:45 AM"
+      },
+      {
+       "time": "11:00 AM",
+       "end": "11:45 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "MULTIDAY m tu w th f",
+     "dayText": "MonFri",
+     "times": [
+      {
+       "time": "11:00 AM",
+       "end": "11:45 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "11:00 AM",
+       "end": "12:00 PM"
+      },
+      {
+       "time": "2:00 PM",
+       "end": "3:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "end": "11:59 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "12:00 AM",
+       "end": "3:00 PM"
       }
      ]
     }
@@ -1474,6 +2417,7 @@
    "finderId": "massTimes_8586",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1482,6 +2426,19 @@
       {
        "time": "8:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "7:30 AM",
+       "end": "7:50 AM"
       }
      ]
     }
@@ -1501,6 +2458,7 @@
    "finderId": "massTimes_22717",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -1513,6 +2471,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1533,6 +2492,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MONDAY",
@@ -1545,6 +2505,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -1557,6 +2518,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -1569,6 +2531,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -1577,6 +2540,46 @@
       {
        "time": "9:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:30 PM",
+       "end": "4:30 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "end": "9:00 PM",
+       "note": "En Espanol"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "9:30 AM",
+       "end": "12:00 PM"
       }
      ]
     }
@@ -1596,6 +2599,7 @@
    "finderId": "massTimes_19059",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -1609,6 +2613,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1633,6 +2638,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MONDAY",
@@ -1646,6 +2652,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -1659,6 +2666,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -1672,6 +2680,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "THURSDAY",
@@ -1685,6 +2694,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -1698,6 +2708,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY",
@@ -1707,6 +2718,45 @@
        "time": "9:15 AM",
        "lang": "EN",
        "note": "Trinity Chapel"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "11:00 AM",
+       "end": "12:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "10:00 AM",
+       "end": "1:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FIRST_FRIDAY",
+     "dayText": "1st Friday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "7:00 PM"
       }
      ]
     }
@@ -1726,6 +2776,7 @@
    "finderId": "massTimes_31317",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -1739,6 +2790,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1757,6 +2809,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY tu w th multiShort",
@@ -1770,6 +2823,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -1779,6 +2833,52 @@
        "time": "12:00 PM",
        "lang": "EN",
        "note": "St. Charles Borromeo"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FIRST_FRIDAY",
+     "dayText": "1st Friday",
+     "times": [
+      {
+       "time": "12:30 PM",
+       "end": "1:00 PM",
+       "note": "After Daily Mass at St. Charles"
+      },
+      {
+       "time": "5:00 PM",
+       "end": "6:00 PM",
+       "note": "Our Lady of Fatima"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "2:00 PM",
+       "end": "3:00 PM",
+       "note": "St. Charles Borromeo"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "PERPETUAL",
+     "dayText": "Perpetual",
+     "times": [
+      {
+       "time": "",
+       "note": "Adoration Chapel"
       }
      ]
     }
@@ -1798,6 +2898,7 @@
    "finderId": "massTimes_8625",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1810,6 +2911,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -1838,6 +2940,7 @@
    "finderId": "massTimes_20295",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1846,6 +2949,44 @@
       {
        "time": "9:30 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "1:00 PM",
+       "end": "2:00 PM",
+       "note": "First Saturday of each month (St. Cyril of Jerusalem)"
+      },
+      {
+       "time": "3:00 PM",
+       "end": "4:00 PM",
+       "note": "Each Saturday (St. Rose of Lima in Hastings)"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FIRST_FRIDAY",
+     "dayText": "1st Friday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "5:00 PM",
+       "note": "St Rose of Lima Adoration"
+      },
+      {
+       "time": "7:00 PM",
+       "end": "8:00 PM",
+       "note": "St Cyril of Jerusalem"
       }
      ]
     }
@@ -1865,6 +3006,7 @@
    "finderId": "massTimes_19698",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -1877,6 +3019,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1890,6 +3033,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY tu th multiShort",
@@ -1898,6 +3042,33 @@
       {
        "time": "9:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "2:30 PM",
+       "end": "3:30 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "6:30 PM",
+       "end": "7:30 PM",
+       "note": "First Wednesday’s at St Edward and Third Wednesday’s at St Martin"
       }
      ]
     }
@@ -1917,6 +3088,7 @@
    "finderId": "massTimes_8583",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1933,6 +3105,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -1941,6 +3114,45 @@
       {
        "time": "5:00 PM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "1:00 PM",
+       "note": "Spanish"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "note": "English"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "11:00 AM",
+       "note": "Last Friday"
       }
      ]
     }
@@ -1960,6 +3172,7 @@
    "finderId": "massTimes_21044",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -1972,6 +3185,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -1984,6 +3198,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -1992,6 +3207,31 @@
       {
        "time": "9:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:30 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "10:00 AM",
+       "end": "5:00 PM"
       }
      ]
     }
@@ -2011,6 +3251,7 @@
    "finderId": "massTimes_5297",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -2024,6 +3265,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -2047,6 +3289,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY tu w th f multiShort",
@@ -2061,6 +3304,33 @@
        "time": "9:00 AM",
        "lang": "EN",
        "note": "Sept thru May"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "3:45 PM",
+       "note": "1st & 3rd Saturday only"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "10:00 AM",
+       "note": "following Daily Mass"
       }
      ]
     }
@@ -2080,6 +3350,7 @@
    "finderId": "massTimes_25725",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -2092,6 +3363,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -2104,6 +3376,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MONDAY",
@@ -2116,6 +3389,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -2128,6 +3402,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "THURSDAY",
@@ -2140,6 +3415,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -2148,6 +3424,33 @@
       {
        "time": "9:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "2:30 PM",
+       "end": "3:30 PM",
+       "note": "or by appointment- please contact the parish"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "2:30 PM",
+       "end": "3:30 PM"
       }
      ]
     }
@@ -2167,6 +3470,7 @@
    "finderId": "massTimes_8630",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -2179,6 +3483,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -2191,6 +3496,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "THURSDAY",
@@ -2199,6 +3505,45 @@
       {
        "time": "5:30 PM",
        "lang": "EN",
+       "note": "First Thursday"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "4:30 PM",
+       "end": "5:20 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:15 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "9:30 AM",
+       "end": "5:15 PM",
        "note": "First Thursday"
       }
      ]
@@ -2219,6 +3564,7 @@
    "finderId": "massTimes_40435",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -2248,6 +3594,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY m tu w th f sa multiShort",
@@ -2260,6 +3607,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "THURSDAY",
@@ -2268,6 +3616,68 @@
       {
        "time": "6:00 PM",
        "lang": "ES"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FIRST_FRIDAY",
+     "dayText": "1st Friday",
+     "times": [
+      {
+       "time": "12:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:30 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FIRST_SATURDAY",
+     "dayText": "1st Saturday",
+     "times": [
+      {
+       "time": "8:30 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "end": "6:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "end": "5:00 PM"
       }
      ]
     }
@@ -2287,6 +3697,7 @@
    "finderId": "massTimes_28507",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -2299,6 +3710,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -2319,6 +3731,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY m w f multiAbbr",
@@ -2331,6 +3744,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -2339,6 +3753,64 @@
       {
        "time": "6:00 PM",
        "lang": "ES"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "end": "8:25 AM"
+      },
+      {
+       "time": "12:30 PM",
+       "end": "12:55 PM",
+       "note": "If many people in line, confessions will be heard after mass"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:30 PM",
+       "end": "4:30 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "end": "6:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:00 PM",
+       "end": "11:00 PM",
+       "note": "On the first Friday of the month."
       }
      ]
     }
@@ -2358,6 +3830,7 @@
    "finderId": "massTimes_19739",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -2370,6 +3843,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -2386,6 +3860,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY m tu w sa multiAbbr",
@@ -2398,6 +3873,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -2406,6 +3882,47 @@
       {
        "time": "5:15 PM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "6:05 PM",
+       "end": "6:40 PM",
+       "note": "Confessions heard during Adoration"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:30 PM",
+       "end": "4:30 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "end": "7:00 PM",
+       "note": "With Confession"
       }
      ]
     }
@@ -2425,6 +3942,7 @@
    "finderId": "massTimes_12487",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -2438,6 +3956,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -2466,6 +3985,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MONDAY",
@@ -2479,6 +3999,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "THURSDAY",
@@ -2492,6 +4013,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -2505,6 +4027,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY",
@@ -2514,6 +4037,64 @@
        "time": "8:00 AM",
        "lang": "EN",
        "note": "Downtown"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "11:30 AM",
+       "end": "1:00 PM",
+       "note": "Downtown"
+      },
+      {
+       "time": "3:00 PM",
+       "end": "3:40 PM",
+       "note": "South"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "PERPETUAL",
+     "dayText": "Perpetual",
+     "times": [
+      {
+       "time": "",
+       "note": "We are working to return to perpetual status again. Please help us!"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "end": "11:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "12:00 AM",
+       "end": "3:00 PM"
       }
      ]
     }
@@ -2533,6 +4114,7 @@
    "finderId": "massTimes_8620",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -2546,6 +4128,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -2563,6 +4146,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -2571,6 +4155,32 @@
       {
        "time": "9:30 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "3:40 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "PERPETUAL",
+     "dayText": "Perpetual",
+     "times": [
+      {
+       "time": "",
+       "note": "Sacred Heart Chapel"
       }
      ]
     }
@@ -2590,6 +4200,7 @@
    "finderId": "massTimes_20750",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -2602,6 +4213,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "THURSDAY",
@@ -2610,6 +4222,46 @@
       {
        "time": "10:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "10:00 AM",
+       "note": "By Appointment only"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "11:00 AM",
+       "note": "By Appointment only"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "end": "10:00 AM",
+       "note": "--Mass begins at 10 am"
       }
      ]
     }
@@ -2629,6 +4281,7 @@
    "finderId": "massTimes_8604",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -2656,6 +4309,7 @@
    "finderId": "massTimes_20317",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -2668,6 +4322,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -2680,6 +4335,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -2692,6 +4348,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -2700,6 +4357,42 @@
       {
        "time": "9:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "9:45 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "8:30 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:15 AM"
       }
      ]
     }
@@ -2719,6 +4412,7 @@
    "finderId": "massTimes_24304",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -2737,6 +4431,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -2749,6 +4444,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "THURSDAY",
@@ -2761,6 +4457,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -2769,6 +4466,19 @@
       {
        "time": "8:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "end": "10:00 AM"
       }
      ]
     }
@@ -2788,6 +4498,7 @@
    "finderId": "massTimes_19060",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -2800,6 +4511,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -2816,6 +4528,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY w f multiShort",
@@ -2824,6 +4537,48 @@
       {
        "time": "9:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "10:00 AM",
+       "end": "11:00 AM",
+       "note": "or by appointment"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "6:30 PM",
+       "end": "7:30 PM",
+       "note": "Bimonthly rotating between St Edward 1st Wednesdays & St Martin 3rd Wednesdays"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "end": "9:00 AM",
+       "note": "On First Fridays, 8:00 AM - 9:00 AM and 9:30 AM - 7:00 PM"
       }
      ]
     }
@@ -2843,6 +4598,7 @@
    "finderId": "massTimes_34494",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -2855,6 +4611,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY m w multiShort",
@@ -2863,6 +4620,32 @@
       {
        "time": "8:30 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "3:45 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "end": "9:30 AM"
       }
      ]
     }
@@ -2882,6 +4665,7 @@
    "finderId": "massTimes_11002",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -2894,6 +4678,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -2914,6 +4699,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MONDAY",
@@ -2926,6 +4712,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -2938,6 +4725,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -2950,6 +4738,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -2958,6 +4747,36 @@
       {
        "time": "9:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:30 PM",
+       "end": "4:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "8:00 PM",
+       "note": "First Friday-Ladies Only-until 5:30 AM Saturday"
+      },
+      {
+       "time": "8:00 PM",
+       "note": "Second Friday - Men Only until 5:30 AM Saturday"
       }
      ]
     }
@@ -2977,6 +4796,7 @@
    "finderId": "massTimes_19061",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -2995,6 +4815,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -3013,6 +4834,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MONDAY",
@@ -3026,6 +4848,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -3044,6 +4867,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -3057,6 +4881,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -3066,6 +4891,67 @@
        "time": "8:30 AM",
        "lang": "EN",
        "note": "St. Mary of the Lake"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "end": "8:30 AM",
+       "note": "St. Agnes"
+      },
+      {
+       "time": "6:00 PM",
+       "end": "6:45 PM",
+       "note": "St. Mary of the Lake"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "3:45 PM",
+       "note": "St. Mary of the Assumption"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "end": "7:00 PM",
+       "note": "St. Mary of the Lake"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "end": "9:30 AM",
+       "note": "St. Mary of the Assumption"
       }
      ]
     }
@@ -3085,6 +4971,7 @@
    "finderId": "massTimes_6225",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -3097,6 +4984,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -3113,6 +5001,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -3125,6 +5014,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -3137,6 +5027,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -3149,6 +5040,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Upcoming Special Masses",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "HOLY_DAY",
@@ -3157,6 +5049,33 @@
       {
        "time": "9:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:30 PM",
+       "end": "4:30 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:30 PM",
+       "end": "4:30 PM",
+       "note": "During Confession"
       }
      ]
     }
@@ -3176,6 +5095,7 @@
    "finderId": "massTimes_19243",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -3188,6 +5108,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -3200,6 +5121,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -3209,6 +5131,34 @@
        "time": "9:00 AM",
        "lang": "EN",
        "note": "Communion Service Only"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "3:45 PM",
+       "note": "And by appointment"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "8:15 AM",
+       "end": "9:00 AM",
+       "note": "Our Lady of Perpetual Help Novena"
       }
      ]
     }
@@ -3228,6 +5178,7 @@
    "finderId": "massTimes_20260",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -3241,6 +5192,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -3264,6 +5216,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY m tu w th f sa multiShort",
@@ -3273,6 +5226,57 @@
        "time": "8:00 AM",
        "lang": "EN",
        "note": "(1962) Low Mass"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "7:30 AM",
+       "end": "7:55 AM"
+      },
+      {
+       "time": "9:30 AM",
+       "end": "9:55 AM"
+      },
+      {
+       "time": "11:30 AM",
+       "end": "11:55 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "8:45 AM",
+       "end": "9:30 AM"
+      },
+      {
+       "time": "3:00 PM",
+       "end": "3:50 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "end": "6:00 PM"
       }
      ]
     }
@@ -3292,6 +5296,7 @@
    "finderId": "massTimes_38872",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -3304,6 +5309,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -3320,6 +5326,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY m tu f multiAbbr",
@@ -3332,6 +5339,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -3344,6 +5352,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FIRST_SATURDAY",
@@ -3352,6 +5361,32 @@
       {
        "time": "9:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "end": "6:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:30 PM",
+       "end": "3:50 PM"
       }
      ]
     }
@@ -3371,6 +5406,7 @@
    "finderId": "massTimes_24998",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -3383,6 +5419,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -3400,6 +5437,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY w th f multiShort",
@@ -3412,6 +5450,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FIRST_FRIDAY",
@@ -3424,6 +5463,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FIRST_SATURDAY",
@@ -3432,6 +5472,46 @@
       {
        "time": "8:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "end": "7:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "4:00 PM",
+       "end": "4:45 PM",
+       "note": "or by appointment"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "6:00 AM",
+       "end": "11:00 PM"
       }
      ]
     }
@@ -3451,6 +5531,7 @@
    "finderId": "massTimes_21062",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -3463,6 +5544,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -3487,6 +5569,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY m tu th multiAbbr",
@@ -3499,6 +5582,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY w f multiShort",
@@ -3511,6 +5595,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FIRST_SATURDAY",
@@ -3519,6 +5604,44 @@
       {
        "time": "9:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "end": "7:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "4:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "PERPETUAL",
+     "dayText": "Perpetual",
+     "times": [
+      {
+       "time": ""
       }
      ]
     }
@@ -3538,6 +5661,7 @@
    "finderId": "massTimes_19962",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -3551,6 +5675,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -3569,6 +5694,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY m tu th f multiAbbr",
@@ -3577,6 +5703,46 @@
       {
        "time": "8:30 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:30 PM",
+       "end": "4:30 PM",
+       "note": "or by appointment"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "end": "8:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "end": "12:00 PM"
       }
      ]
     }
@@ -3596,6 +5762,7 @@
    "finderId": "massTimes_19971",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -3608,6 +5775,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -3629,6 +5797,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY m w th f sa multiAbbr",
@@ -3641,6 +5810,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -3658,6 +5828,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -3666,6 +5837,98 @@
       {
        "time": "5:00 PM",
        "lang": "LA"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:15 AM"
+      },
+      {
+       "time": "10:45 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "MULTIDAY m w th f sa",
+     "dayText": "M WSa",
+     "times": [
+      {
+       "time": "7:15 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "4:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "9:00 AM",
+       "end": "11:59 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "12:00 AM",
+       "end": "11:59 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FRIDAY",
+     "dayText": "Friday",
+     "times": [
+      {
+       "time": "12:00 AM",
+       "end": "11:59 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "12:00 AM",
+       "end": "9:00 AM"
       }
      ]
     }
@@ -3685,6 +5948,7 @@
    "finderId": "massTimes_19714",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -3698,6 +5962,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -3721,6 +5986,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MULTIDAY m tu w th f multiShort",
@@ -3729,6 +5995,53 @@
       {
        "time": "8:30 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "3:00 PM",
+       "end": "4:00 PM",
+       "note": "St. Rose"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FIRST_SATURDAY",
+     "dayText": "1st Saturday",
+     "times": [
+      {
+       "time": "1:00 PM",
+       "end": "2:00 PM",
+       "note": "St. Cyril"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "FIRST_FRIDAY",
+     "dayText": "1st Friday",
+     "times": [
+      {
+       "time": "2:00 PM",
+       "end": "6:00 PM",
+       "note": "Benediction from 5:00pm to 6:00pm (St. Rose)"
+      },
+      {
+       "time": "7:00 PM",
+       "end": "8:00 PM",
+       "note": "St. Cyril"
       }
      ]
     }
@@ -3748,6 +6061,7 @@
    "finderId": "massTimes_19715",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -3760,6 +6074,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -3772,6 +6087,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -3784,6 +6100,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -3796,6 +6113,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FIRST_FRIDAY",
@@ -3804,6 +6122,63 @@
       {
        "time": "9:00 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "end": "8:20 AM",
+       "note": "Sacred Heart Church"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "end": "5:20 PM"
+      },
+      {
+       "time": "6:15 PM",
+       "end": "7:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "11:00 AM",
+       "end": "12:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "10:00 AM",
+       "end": "6:00 PM"
       }
      ]
     }
@@ -3823,6 +6198,7 @@
    "finderId": "massTimes_19716",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -3835,6 +6211,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -3847,6 +6224,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MONDAY",
@@ -3859,6 +6237,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -3871,6 +6250,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -3883,6 +6263,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "THURSDAY",
@@ -3891,6 +6272,45 @@
       {
        "time": "9:30 AM",
        "lang": "EN"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "TUESDAY",
+     "dayText": "Tuesday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "end": "6:00 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "10:00 AM",
+       "end": "11:00 AM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "8:30 AM",
+       "end": "9:30 AM"
       }
      ]
     }
@@ -3910,6 +6330,7 @@
    "finderId": "massTimes_19941",
    "panels": [
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SATURDAY_VIGIL",
@@ -3923,6 +6344,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Sunday Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "SUNDAY",
@@ -3944,6 +6366,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "MONDAY",
@@ -3957,6 +6380,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "TUESDAY",
@@ -3970,6 +6394,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "WEDNESDAY",
@@ -3982,6 +6407,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "THURSDAY",
@@ -3994,6 +6420,7 @@
      ]
     },
     {
+     "sacrament": "mass",
      "cat": "Daily Mass Schedule",
      "ulClass": "sacramentTimes mass normal times",
      "dayClass": "FRIDAY",
@@ -4003,6 +6430,73 @@
        "time": "12:10 PM",
        "lang": "EN",
        "note": "at Kanley Chapel, WMU Campus"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SUNDAY",
+     "dayText": "Sunday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "end": "5:30 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "end": "6:30 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "confession",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "SATURDAY",
+     "dayText": "Saturday",
+     "times": [
+      {
+       "time": "5:00 PM",
+       "end": "5:30 PM"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "WEDNESDAY",
+     "dayText": "Wednesday",
+     "times": [
+      {
+       "time": "8:00 AM",
+       "end": "9:00 AM",
+       "note": "No Adoration April 30 & May 7"
+      }
+     ]
+    },
+    {
+     "sacrament": "adoration",
+     "cat": "",
+     "ulClass": "sacramentTimes times",
+     "dayClass": "THURSDAY",
+     "dayText": "Thursday",
+     "times": [
+      {
+       "time": "6:00 PM",
+       "end": "7:00 PM",
+       "note": "*September through April when WMU classes are in session."
       }
      ]
     }

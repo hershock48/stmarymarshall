@@ -59,8 +59,11 @@ tools/finder-import.mjs <saved parishfinder.html> parishes/diocese/finder.json`
 reads that page in a browser (fetch it with curl first; `finder.json` records
 the date) and geocodes each address through Nominatim once, one request a
 second; a parish's `finderId` in its data.ts replaces its finder row the
-day it joins. The finder's own page carries Mass panels only, so Confession
-and Adoration come from platform parishes alone for now. Distances and the
+day it joins. The finder keeps three blocks per parish, Mass, Confession
+and Adoration, and all three are read; a note that carries the real rule
+("2nd & 4th Fridays", "May-October", "Communion Service Only") becomes
+dated rows, a seasonal gate, or nothing, and Perpetual Adoration is a flag
+rather than a time. Distances and the
 zip lookup are offline (`lib/geo.ts`, `parishes/diocese/zips.json` from
 GeoNames). Every parish site shows its three nearest parishes on the Mass
 times page (`components/NearbyStrip.tsx`) and the chancery's notices

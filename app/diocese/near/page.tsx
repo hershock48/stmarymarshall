@@ -61,7 +61,15 @@ function Card({ p, lang }: { p: Near; lang: "en" | "es" }) {
       <div className="mt-4 grid gap-4 sm:grid-cols-3">
         <Tile name={s.nextMass} n={p.next.mass} lang={lang} />
         <Tile name={s.nextConfession} n={p.next.confession} lang={lang} />
-        <Tile name={s.nextAdoration} n={p.next.adoration} lang={lang} />
+        {p.adorationPerpetual ? (
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-marian">{s.nextAdoration}</p>
+            <p className="mt-0.5 text-lg font-semibold leading-tight text-ink">{s.perpetual}</p>
+            <p className="text-sm text-ink-soft">{p.adorationPerpetual}</p>
+          </div>
+        ) : (
+          <Tile name={s.nextAdoration} n={p.next.adoration} lang={lang} />
+        )}
       </div>
       <p className="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-sm font-semibold">
         {schedule ? (

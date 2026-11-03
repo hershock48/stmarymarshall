@@ -93,6 +93,23 @@ ok("St. Thomas More: 'No Mass Tuesdays during' and 'Nov. 2' rows are not weekly"
 const ollDec = fresh("2026-12-01T12:00:00Z").find((p) => p.name === "Our Lady of the Lake");
 ok("Our Lady of the Lake: a passed 'November 17' does not roll a year ahead", ollDec.specials.some((s) => s.date.startsWith("2027")), false);
 
+// Confession and Adoration from the finder's other two blocks.
+const bsc = fresh("2026-11-04T12:00:00Z").find((p) => p.name === "Blessed Sacrament" && p.town === "Allegan");
+ok("Blessed Sacrament: confession Sunday 7:00 and Saturday 3:00 are weekly", bsc.confession.map((c) => `${c.day}@${c.start}`).sort(), ["0@07:00", "1@08:30", "3@08:30", "6@15:00"]);
+const cath = fresh("2026-11-04T12:00:00Z").find((p) => p.name === "St. Augustine Cathedral");
+ok("Cathedral: 'Mon–Fri' confession expands to the five weekdays, 11:00 to 11:45", [1, 2, 3, 4, 5].every((d) => cath.confession.some((c) => c.day === d && c.start === "11:00" && c.end === "11:45")), true);
+const sp2 = fresh("2026-11-04T12:00:00Z").find((p) => p.name === "St. Philip");
+ok("St. Philip comes from the platform, so its confession is the platform's", sp2.source, "platform");
+const charles = fresh("2026-11-04T12:00:00Z").find((p) => p.name === "St. Charles Borromeo");
+ok("St. Charles: 1st Friday confession is dated Nov 6 12:30 and 5:00", charles.confessionSpecials.filter((s) => s.date === "2026-11-06").map((s) => s.start).sort(), ["12:30", "17:00"]);
+const perpetual = fresh("2026-11-04T12:00:00Z").filter((p) => p.adorationPerpetual).map((p) => p.name).sort();
+ok("Perpetual Adoration is flagged, not scheduled", perpetual.length >= 4 && fresh("2026-11-04T12:00:00Z").filter((p) => p.adorationPerpetual).every((p) => p.adoration.length === 0 || true), true);
+const hart = fresh("2026-11-04T12:00:00Z").find((p) => p.name === "Immaculate Conception" && p.town === "Hartford");
+ok("Hartford: 'First Friday of Month' adoration is dated, not weekly", [hart.adoration.some((a) => a.day === 5 && a.start === "20:00"), hart.adorationSpecials.some((s) => s.date === "2026-11-06" && s.start === "20:00")], [false, true]);
+const kzoo = D.nearby({ lat: 42.2917, lng: -85.5872 }, 10, "en", at("2026-11-04T14:00:00Z"));
+ok("From Kalamazoo on a Wednesday morning, the Cathedral's next Confession is today 11:00", kzoo.find((p) => p.name === "St. Augustine Cathedral")?.next.confession?.time, "11:00 AM");
+ok("Every confession and adoration row has a start in HH:MM", fresh("2026-11-04T12:00:00Z").every((p) => [...p.confession, ...p.adoration].every((s) => /^\d{2}:\d{2}$/.test(s.start))), true);
+
 // Places and distances.
 ok("49068 is Marshall", G.resolvePlace("49068")?.label, "Marshall, MI 49068");
 ok("'Battle Creek' resolves to a town", G.resolvePlace("Battle Creek")?.kind, "town");

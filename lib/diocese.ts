@@ -40,11 +40,15 @@ export type DioceseParish = {
   masses: Service[];
   specials: DatedMass[];
   confession: Service[];
+  confessionSpecials: DatedMass[];
   adoration: Service[];
+  adorationSpecials: DatedMass[];
+  /** Perpetual Adoration: a chapel open around the clock, so there is no "next". */
+  adorationPerpetual?: string;
 };
 
 type FinderTime = { time: string; end?: string; lang?: string; note?: string };
-type Panel = { cat: string; ulClass: string; dayClass: string; dayText: string; times: FinderTime[]; text?: string };
+type Panel = { sacrament?: "mass" | "confession" | "adoration"; cat: string; ulClass: string; dayClass: string; dayText: string; times: FinderTime[]; text?: string };
 type FinderRow = { name: string; address: string; site: string | null; phone: string | null; email: string | null; finderId: string | null; geo?: { lat: number; lng: number; source: string }; panels: Panel[] };
 const FINDER = finder.parishes as FinderRow[];
 
@@ -99,12 +103,12 @@ function monthDay(text: string, now: LocalNow): string | null {
   return date <= addDays(finder.readAt, 70) ? date : null;
 }
 
-const ORDINAL: Record<string, number> = { "1st": 1, first: 1, "2nd": 2, second: 2, "3rd": 3, third: 3, "4th": 4, fourth: 4 };
+const ORDINAL: Record<string, number> = { "1st": 1, first: 1, "2nd": 2, second: 2, "3rd": 3, third: 3, "4th": 4, fourth: 4, "5th": 5, fifth: 5 };
 
 /** "2nd & 4th Fridays", "First Thursday", "1st Friday Mass + Adoration": the ordinals in a note, or none. */
 function ordinals(note: string): number[] {
   const out: number[] = [];
-  for (const m of note.toLowerCase().matchAll(/\b(1st|2nd|3rd|4th|first|second|third|fourth)\b/g)) out.push(ORDINAL[m[1]]);
+  for (const m of note.toLowerCase().matchAll(/\b(1st|2nd|3rd|4th|5th|first|second|third|fourth|fifth)\b/g)) out.push(ORDINAL[m[1]]);
   return [...new Set(out)];
 }
 
@@ -145,14 +149,26 @@ function inSeason(note: string, now: LocalNow): boolean {
 }
 
 function fromFinder(r: FinderRow, now: LocalNow): DioceseParish {
-  const masses: Service[] = [];
-  const specials: DatedMass[] = [];
+  const lists = {
+    mass: { weekly: [] as Service[], dated: [] as DatedMass[] },
+    confession: { weekly: [] as Service[], dated: [] as DatedMass[] },
+    adoration: { weekly: [] as Service[], dated: [] as DatedMass[] },
+  };
+  let perpetual: string | undefined;
   for (const p of r.panels) {
+    const which = lists[p.sacrament ?? "mass"];
+    const masses = which.weekly;
+    const specials = which.dated;
+    if (p.dayClass === "PERPETUAL") {
+      perpetual = p.times[0]?.note || "Perpetual Adoration";
+      continue;
+    }
     for (const t of p.times) {
       const start = to24(t.time);
       if (!start) continue;
+      const end = t.end ? (to24(t.end) ?? undefined) : undefined;
       const lang = t.lang && LANG[t.lang] !== undefined ? LANG[t.lang] : t.lang;
-      const base = { start, lang: lang || undefined, where: t.note || undefined };
+      const base = { start, end, lang: lang || undefined, where: t.note || undefined };
       if (p.dayClass === "HOLY_DAY") {
         const date = monthDay(p.dayText, now);
         if (date) specials.push({ date, start, label: p.cat === "Upcoming Special Masses" ? `Special Mass${t.note ? `, ${t.note}` : ""}` : p.dayText, lang: base.lang });
@@ -185,6 +201,8 @@ function fromFinder(r: FinderRow, now: LocalNow): DioceseParish {
       for (const day of days) masses.push({ day, ...base });
     }
   }
+  const masses = lists.mass.weekly;
+  const specials = lists.mass.dated;
   const town = (r.address.split(",").slice(-3, -2)[0] ?? "").trim().replace(/^Fenville$/, "Fennville");
   const es = masses.length > 0 && masses.every((m) => m.lang === "Español");
   return {
@@ -200,8 +218,11 @@ function fromFinder(r: FinderRow, now: LocalNow): DioceseParish {
     source: "finder",
     masses,
     specials,
-    confession: [],
-    adoration: [],
+    confession: lists.confession.weekly,
+    confessionSpecials: lists.confession.dated,
+    adoration: lists.adoration.weekly,
+    adorationSpecials: lists.adoration.dated,
+    adorationPerpetual: perpetual,
   };
 }
 
@@ -221,7 +242,9 @@ function fromPlatform(p: Parish): DioceseParish {
     masses: p.masses,
     specials: datedMasses(p),
     confession: p.confession,
+    confessionSpecials: [],
     adoration: p.adoration,
+    adorationSpecials: [],
   };
 }
 
@@ -249,8 +272,8 @@ export function nearby(point: Point, radius: number, lang: Lang = "en", now: Loc
       ...p,
       next: {
         mass: nextService(p.masses, now, p.specials, lang),
-        confession: p.confession.length ? nextService(p.confession, now, [], lang) : null,
-        adoration: p.adoration.length ? nextService(p.adoration, now, [], lang) : null,
+        confession: p.confession.length || p.confessionSpecials.length ? nextService(p.confession, now, p.confessionSpecials, lang) : null,
+        adoration: p.adoration.length || p.adorationSpecials.length ? nextService(p.adoration, now, p.adorationSpecials, lang) : null,
       },
     }));
 }

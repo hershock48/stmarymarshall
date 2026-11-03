@@ -47,12 +47,16 @@ const rows = await page.evaluate(() => {
     const address = query.startsWith(name) ? query.slice(name.length).trim() : lines[lines.indexOf(name) + 1] || "";
     const mt = card.querySelector('a[href^="#massTimes_"]');
     const id = mt ? mt.getAttribute("href").slice(1) : null;
-    const panel = id ? document.getElementById(id) : null;
+    const num = id ? id.replace("massTimes_", "") : null;
     const site = [...card.querySelectorAll('a[href^="http"]')].map((x) => x.href).filter((h) => !/google\.com\/maps|diokzoo\.org|facebook|youtube/.test(h))[0] || null;
     const phone = (card.innerText.match(/\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/) || [null])[0];
     const email = [...card.querySelectorAll('a[href^="mailto:"]')].map((x) => x.href.slice(7))[0] || null;
     const panels = [];
-    if (panel) {
+    // The finder keeps three blocks per parish, one per sacrament, same
+    // markup in each: massTimes_<n>, confessionTimes_<n>, adorationTimes_<n>.
+    for (const sacrament of ["mass", "confession", "adoration"]) {
+      const panel = num ? document.getElementById(`${sacrament}Times_${num}`) : null;
+      if (!panel) continue;
       let cat = "";
       for (const el of panel.querySelectorAll(".categoryName, ul.sacramentTimes")) {
         if (el.classList.contains("categoryName")) {
@@ -62,7 +66,24 @@ const rows = await page.evaluate(() => {
         const ulClass = el.className;
         for (const li of el.querySelectorAll("li.sacramentDay")) {
           const d = li.querySelector(".day");
-          const dayClass = [...(d ? d.classList : [])].filter((c) => !["day", "massModeSacramentDay"].includes(c)).join(" ");
+          let dayClass = [...(d ? d.classList : [])].filter((c) => !["day", "massModeSacramentDay"].includes(c)).join(" ");
+          // The Confession and Adoration blocks write a multi-day row as
+          // child spans ("M, W–Sa": multiMonday addComma, multiWednesday
+          // addDash, multiSaturday addColon) instead of tokens in the
+          // class. Expand them to the Mass blocks' token form so one
+          // reader handles both: a dash is a range to the next day.
+          if (dayClass === "MULTIDAY" && d) {
+            const order = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const tok = ["su", "m", "tu", "w", "th", "f", "sa"];
+            const parts = [...d.querySelectorAll("[class*=multi]")].map((s) => ({ day: order.findIndex((n) => s.classList.contains(`multi${n}`)), dash: s.classList.contains("addDash") })).filter((p) => p.day >= 0);
+            const days = new Set();
+            parts.forEach((p, i) => {
+              days.add(p.day);
+              const next = parts[i + 1];
+              if (p.dash && next) for (let x = p.day; x !== next.day; x = (x + 1) % 7) days.add(x);
+            });
+            dayClass = `MULTIDAY ${[...days].sort().map((x) => tok[x]).join(" ")}`;
+          }
           const dayText = d ? d.textContent.replace(":", "").trim() : "";
           const times = [...li.querySelectorAll(".sacramentTime")].map((t) => ({
             time: (t.querySelector(".startTime")?.textContent || "").replace(/\s+/g, " ").trim(),
@@ -70,7 +91,7 @@ const rows = await page.evaluate(() => {
             lang: (t.querySelector(".abbrLanguage")?.textContent || "").trim() || undefined,
             note: (t.querySelector(".notes")?.textContent || "").replace(/\s+/g, " ").trim() || undefined,
           }));
-          panels.push({ cat, ulClass, dayClass, dayText, times, text: times.length ? undefined : li.innerText.replace(/\s+/g, " ").trim() });
+          panels.push({ sacrament, cat, ulClass, dayClass, dayText, times, text: times.length ? undefined : li.innerText.replace(/\s+/g, " ").trim() });
         }
       }
     }
