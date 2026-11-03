@@ -64,7 +64,7 @@ export function to24(t: string): string | null {
 }
 
 function daysOf(p: Panel): Weekday[] {
-  if (p.dayClass in DAY) return [DAY[p.dayClass]];
+  if (Object.hasOwn(DAY, p.dayClass)) return [DAY[p.dayClass]];
   if (p.dayClass.startsWith("MULTIDAY")) return p.dayClass.split(" ").filter((t) => t in MULTI).map((t) => MULTI[t]);
   return [];
 }
@@ -82,15 +82,66 @@ function nthDates(nth: number, weekday: Weekday, now: LocalNow, count = 3): stri
   return out;
 }
 
-/** "November 17" to the next such date from today. */
+/**
+ * "November 17" (or "Nov. 2") to the next such date from today, as long as
+ * it falls within seventy days of the day the finder was read: a dated
+ * Mass in a stale finder.json must not roll a year forward.
+ */
 function monthDay(text: string, now: LocalNow): string | null {
-  const m = /^([A-Za-z]+)\s+(\d{1,2})$/.exec(text.trim());
+  const m = /^([A-Za-z]+)\.?\s+(\d{1,2})$/.exec(text.trim());
   if (!m) return null;
-  const mi = MONTHS.indexOf(m[1].toLowerCase());
+  const word = m[1].toLowerCase().slice(0, 3);
+  const mi = MONTHS.findIndex((mo) => mo.startsWith(word));
   if (mi < 0) return null;
   const y = Number(now.iso.slice(0, 4));
   const mk = (yy: number) => `${yy}-${String(mi + 1).padStart(2, "0")}-${String(Number(m[2])).padStart(2, "0")}`;
-  return mk(y) >= now.iso ? mk(y) : mk(y + 1);
+  const date = mk(y) >= now.iso ? mk(y) : mk(y + 1);
+  return date <= addDays(finder.readAt, 70) ? date : null;
+}
+
+const ORDINAL: Record<string, number> = { "1st": 1, first: 1, "2nd": 2, second: 2, "3rd": 3, third: 3, "4th": 4, fourth: 4 };
+
+/** "2nd & 4th Fridays", "First Thursday", "1st Friday Mass + Adoration": the ordinals in a note, or none. */
+function ordinals(note: string): number[] {
+  const out: number[] = [];
+  for (const m of note.toLowerCase().matchAll(/\b(1st|2nd|3rd|4th|first|second|third|fourth)\b/g)) out.push(ORDINAL[m[1]]);
+  return [...new Set(out)];
+}
+
+function pad(n: number): string {
+  return String(n).padStart(2, "0");
+}
+
+/** The first Monday of September, the last Monday of May: the summer schedules' ends. */
+function firstMonday(y: number, month: number): string {
+  const first = new Date(Date.UTC(y, month - 1, 1)).getUTCDay();
+  return `${y}-${pad(month)}-${pad(1 + ((1 - first + 7) % 7))}`;
+}
+function lastMonday(y: number, month: number): string {
+  const last = new Date(Date.UTC(y, month, 0)).getUTCDate();
+  const wd = new Date(Date.UTC(y, month - 1, last)).getUTCDay();
+  return `${y}-${pad(month)}-${pad(last - ((wd - 1 + 7) % 7))}`;
+}
+
+/**
+ * Whether a note's season ("May-October", "Sept thru May", "Memorial Day
+ * thru Labor Day") includes today. No season word means yes. A season
+ * the parser cannot read, or a "no Mass during" note, means no, so an
+ * unreadable rule never sends anyone to a locked church.
+ */
+function inSeason(note: string, now: LocalNow): boolean {
+  const t = note.toLowerCase();
+  if (/\bno mass\b/.test(t)) return false;
+  const y = Number(now.iso.slice(0, 4));
+  if (/memorial day/.test(t) && /labor day/.test(t)) return now.iso >= lastMonday(y, 5) && now.iso <= firstMonday(y, 9);
+  const months = [...t.matchAll(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z.]*/g)].map((m) => MONTHS.findIndex((mo) => mo.startsWith(m[1])) + 1);
+  if (months.length >= 2) {
+    const [a, b] = months;
+    const m = Number(now.iso.slice(5, 7));
+    return a <= b ? m >= a && m <= b : m >= a || m <= b;
+  }
+  if (/\b(thru|through|during|semester|summer|winter)s?\b/.test(t)) return false;
+  return true;
 }
 
 function fromFinder(r: FinderRow, now: LocalNow): DioceseParish {
@@ -107,12 +158,31 @@ function fromFinder(r: FinderRow, now: LocalNow): DioceseParish {
         if (date) specials.push({ date, start, label: p.cat === "Upcoming Special Masses" ? `Special Mass${t.note ? `, ${t.note}` : ""}` : p.dayText, lang: base.lang });
         continue;
       }
-      if (p.dayClass in NTH) {
+      if (Object.hasOwn(NTH, p.dayClass)) {
         const [nth, wd] = NTH[p.dayClass];
         for (const date of nthDates(nth, wd, now)) specials.push({ date, start, label: `${p.dayText}${t.note ? `, ${t.note}` : ""}`, lang: base.lang });
         continue;
       }
-      for (const day of daysOf(p)) masses.push({ day, ...base });
+      const note = t.note ?? "";
+      // A Communion service is not a Mass; it is left off rather than shown as one.
+      if (/communion service/i.test(note)) continue;
+      const days = daysOf(p);
+      // "2nd & 4th Fridays", "First Thursday": dated, from the ordinals in the note.
+      const nths = ordinals(note);
+      if (nths.length && days.length === 1) {
+        for (const nth of nths) for (const date of nthDates(nth, days[0], now, 2)) specials.push({ date, start, label: note, lang: base.lang });
+        continue;
+      }
+      // "Nov. 2": a one-off written into a weekly row.
+      const dated = /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}\b/i.exec(note);
+      if (dated) {
+        const date = monthDay(dated[0], now);
+        if (date) specials.push({ date, start, label: note, lang: base.lang });
+        continue;
+      }
+      // "May-October", "Sept thru May", "Memorial Day thru Labor Day": weekly, in season only.
+      if (!inSeason(note, now)) continue;
+      for (const day of days) masses.push({ day, ...base });
     }
   }
   const town = (r.address.split(",").slice(-3, -2)[0] ?? "").trim().replace(/^Fenville$/, "Fennville");

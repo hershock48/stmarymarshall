@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata(): Promise<Metadata> {
   const p = await getParish();
   const s = strings(p.lang).diocese;
-  return { title: `${s.groups.title} | ${s.kicker}`, description: s.groups.lede, robots: { index: false } };
+  return { title: `${s.groups.title} | ${s.kicker}`, description: s.groups.lede, robots: { index: false }, alternates: {} };
 }
 
 export default async function GroupsPage() {

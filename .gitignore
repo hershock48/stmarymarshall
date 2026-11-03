@@ -11,3 +11,4 @@ tools/out
 
 # scratch from tools/logic-tests.mjs
 .next-logic-tests
+.next-diocese-tests

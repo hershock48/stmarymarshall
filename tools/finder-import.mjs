@@ -27,7 +27,8 @@ if (!htmlFile || !outFile) {
   console.error("usage: node tools/finder-import.mjs <parishfinder.html> <out.json>");
   process.exit(1);
 }
-const previous = fs.existsSync(outFile) ? JSON.parse(fs.readFileSync(outFile, "utf8")) : [];
+const previousFile = fs.existsSync(outFile) ? JSON.parse(fs.readFileSync(outFile, "utf8")) : { parishes: [] };
+const previous = Array.isArray(previousFile) ? previousFile : previousFile.parishes ?? [];
 const geoCache = new Map(previous.filter((p) => p.geo).map((p) => [p.address, p.geo]));
 
 const chromium = await loadChromium();

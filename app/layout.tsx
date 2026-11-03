@@ -41,8 +41,9 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   const p = await getParish();
   const s = strings(p.lang);
   const h = await headers();
+  // Only what the proxy set: a path, never a client's own header on a route the proxy skips.
   const path = h.get("x-path");
-  if (path) after(() => bump(h.get("host") ?? "", "view", path));
+  if (path && path.startsWith("/") && path.length <= 200) after(() => bump(h.get("host") ?? "", "view", path));
   const nameRest = p.name.startsWith(p.shortName) ? p.name.slice(p.shortName.length).trim() : "";
   return (
     <html lang={p.lang} className={`${display.variable} ${body.variable}`} style={themeStyle(p)}>

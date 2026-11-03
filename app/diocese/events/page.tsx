@@ -22,7 +22,7 @@ const DAYS = 14;
 export async function generateMetadata(): Promise<Metadata> {
   const p = await getParish();
   const s = strings(p.lang).diocese;
-  return { title: `${s.events.title} | ${s.kicker}`, description: s.events.lede, robots: { index: false } };
+  return { title: `${s.events.title} | ${s.kicker}`, description: s.events.lede, robots: { index: false }, alternates: {} };
 }
 
 export default async function EventsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {

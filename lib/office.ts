@@ -27,6 +27,8 @@ export function matches(passcode: string): boolean {
 export async function admitted(): Promise<boolean> {
   if (!configured()) return false;
   const c = (await cookies()).get(COOKIE)?.value ?? "";
-  const t = token();
-  return c.length === t.length && timingSafeEqual(Buffer.from(c), Buffer.from(t));
+  // Both sides hashed first, so the comparison is always over two buffers
+  // of the same length whatever bytes the cookie carries.
+  const digest = (v: string) => createHmac("sha256", "chancery-cookie").update(v).digest();
+  return timingSafeEqual(digest(c), digest(token()));
 }

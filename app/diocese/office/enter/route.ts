@@ -14,6 +14,7 @@ export async function POST(req: Request) {
   const code = String(form.get("code") ?? "");
   if (!matches(code)) return back("?no=1");
   const res = back("");
-  res.cookies.set(COOKIE, token(), { httpOnly: true, sameSite: "lax", secure: true, path: "/diocese/office", maxAge: 60 * 60 * 12 });
+  // Secure only where there is HTTPS; on a plain `next start` the cookie would otherwise never come back and the form would loop.
+  res.cookies.set(COOKIE, token(), { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production" && !/^(localhost|127\.0\.0\.1)(:|$)/.test(new URL(req.url).host), path: "/diocese/office", maxAge: 60 * 60 * 12 });
   return res;
 }

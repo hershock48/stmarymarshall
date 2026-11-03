@@ -17,7 +17,7 @@ import type { Service } from "@/lib/types";
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "Every parish, one page | Diocese of Kalamazoo pilot", description: "Mass, Confession and Adoration times for every parish on the platform, with its address and its site.", robots: { index: false } };
+  return { title: "Every parish, one page | Diocese of Kalamazoo pilot", description: "Mass, Confession and Adoration times for every parish on the platform, with its address and its site.", robots: { index: false }, alternates: {} };
 }
 
 function rows(list: Service[]) {

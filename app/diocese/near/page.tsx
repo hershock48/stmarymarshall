@@ -28,7 +28,7 @@ const RADII = [10, 25, 50];
 export async function generateMetadata(): Promise<Metadata> {
   const p = await getParish();
   const s = strings(p.lang).diocese.near;
-  return { title: `${s.title} | ${strings(p.lang).diocese.kicker}`, description: s.lede, robots: { index: false } };
+  return { title: `${s.title} | ${strings(p.lang).diocese.kicker}`, description: s.lede, robots: { index: false }, alternates: {} };
 }
 
 function Tile({ name, n, lang }: { name: string; n: NextService | null; lang: "en" | "es" }) {
@@ -56,7 +56,7 @@ function Card({ p, lang }: { p: Near; lang: "en" | "es" }) {
       </div>
       <p className="mt-1 text-sm text-ink-soft">
         {p.address}
-        {p.lang === "es" ? <span className="ml-2 text-xs font-semibold uppercase tracking-wider text-marian">Español</span> : null}
+        {p.masses.some((m) => /espa/i.test(m.lang ?? "")) ? <span className="ml-2 text-xs font-semibold uppercase tracking-wider text-marian">Español</span> : null}
       </p>
       <div className="mt-4 grid gap-4 sm:grid-cols-3">
         <Tile name={s.nextMass} n={p.next.mass} lang={lang} />
@@ -108,7 +108,7 @@ export default async function NearPage({ searchParams }: { searchParams: Promise
           <form action="/diocese/near" method="get" className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end">
             <label className="flex flex-col gap-1 text-sm font-semibold text-cream">
               {t.where}
-              <input name="q" defaultValue={place && place.kind !== "point" ? q : ""} placeholder={t.placeholder} inputMode="text" autoComplete="postal-code" className="min-h-11 w-full rounded-sm border border-navy-line bg-navy-soft px-3 text-base text-cream placeholder:text-dim sm:w-64" />
+              <input name="q" defaultValue={place?.kind === "point" ? "" : q} placeholder={t.placeholder} inputMode="text" autoComplete="postal-code" className="min-h-11 w-full rounded-sm border border-navy-line bg-navy-soft px-3 text-base text-cream placeholder:text-dim sm:w-64" />
             </label>
             <label className="flex flex-col gap-1 text-sm font-semibold text-cream">
               {t.radius}

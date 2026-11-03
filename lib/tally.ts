@@ -38,13 +38,24 @@ export type Count = { host: string; kind: string; key: string; n: number };
 /** Totals by host, kind and key over the last `days` days. */
 export async function totals(days: number): Promise<Count[]> {
   if (!sql) return [];
-  const rows = await sql`select host, kind, key, sum(n)::int as n from tally where day >= current_date - ${days}::int group by host, kind, key order by n desc`;
-  return rows as Count[];
+  try {
+    const rows = await sql`select host, kind, key, sum(n)::int as n from tally where day >= current_date - ${days}::int group by host, kind, key order by n desc`;
+    return rows as Count[];
+  } catch (err) {
+    // The table missing (db/tally.sql not applied yet) must not take the chancery page down.
+    console.error("[tally] totals", err);
+    return [];
+  }
 }
 
 /** Per-day totals of one kind, oldest first, for a small chart. */
 export async function byDay(kind: string, days: number): Promise<{ day: string; n: number }[]> {
   if (!sql) return [];
-  const rows = await sql`select to_char(day, 'YYYY-MM-DD') as day, sum(n)::int as n from tally where kind = ${kind} and day >= current_date - ${days}::int group by day order by day`;
-  return rows as { day: string; n: number }[];
+  try {
+    const rows = await sql`select to_char(day, 'YYYY-MM-DD') as day, sum(n)::int as n from tally where kind = ${kind} and day >= current_date - ${days}::int group by day order by day`;
+    return rows as { day: string; n: number }[];
+  } catch (err) {
+    console.error("[tally] byDay", err);
+    return [];
+  }
 }

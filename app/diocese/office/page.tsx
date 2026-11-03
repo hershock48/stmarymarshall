@@ -21,7 +21,7 @@ import finder from "@/parishes/diocese/finder.json";
  */
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = { title: "The chancery view | Diocese of Kalamazoo pilot", robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: "The chancery view | Diocese of Kalamazoo pilot", robots: { index: false, follow: false }, alternates: {} };
 
 const DAYS = 30;
 
@@ -101,7 +101,8 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
   // Freshness and what is still unconfirmed, from the data itself.
   const health = onPlatform.map((p) => {
     const next28 = occurrences(p.events, now, 28).length;
-    const after = occurrences(p.events, localNow(TIME_ZONE, new Date(`${nextMonthFrom}T12:00:00Z`)), 28).length;
+    const [yy, mm, dd] = nextMonthFrom.split("-").map(Number);
+    const after = occurrences(p.events, { iso: nextMonthFrom, weekday: new Date(Date.UTC(yy, mm - 1, dd)).getUTCDay() as 0 | 1 | 2 | 3 | 4 | 5 | 6, minutes: 0 }, 28).length;
     const tba = p.holyDays.filter((h) => h.masses === null && h.date >= now.iso).length;
     return [p.name, p.church.city, p.live ? "live on its domain" : "pitch host only", p.mailTo ? "set" : "not set", next28, after, tba, p.officeHours?.length ? "yes" : "no"];
   });

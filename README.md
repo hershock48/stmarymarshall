@@ -14,6 +14,7 @@ npm install
 npm run build && npm start -- -p 4490     # production, which is what gets audited
 npm run dev                                # for editing only
 node tools/logic-tests.mjs                 # date logic against all three parishes
+node tools/diocese-tests.mjs               # the finder, the places, the distances
 ```
 
 ## How a parish gets served
@@ -131,7 +132,10 @@ words are whatever its data says.
 
 `node tools/logic-tests.mjs` (42 cases over all three parishes, Spanish
 included) before any change to `lib/schedule.ts`, `lib/events.ts`,
-`lib/ics.ts` or `lib/sentences.ts`. Then, against the production server on
+`lib/ics.ts` or `lib/sentences.ts`; `node tools/diocese-tests.mjs` (27
+cases: the finder's panel conversion, first Fridays and dated Masses at
+fixed instants, the place lookup, distances) before any change to
+`lib/diocese.ts`, `lib/geo.ts` or `tools/finder-import.mjs`. Then, against the production server on
 4490: the glaze auditor, `width-check.mjs`, `perf-check.mjs`,
 `node tools/ux-check.mjs`, and `node tools/render.mjs [--host <parish
 domain>] --prefix <xx->` to screenshot every route of one parish for a look

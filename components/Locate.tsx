@@ -4,9 +4,11 @@ import { useRouter } from "next/navigation";
 
 /**
  * "Use my location": asks the browser once, then opens the finder at that
- * point. The point never leaves the URL bar except rounded to about seven
- * miles for the count of where searches come from (lib/tally.ts). Without
- * JavaScript the button is simply absent and the zip box does the job.
+ * point, rounded to two decimals (about half a mile), which is all a
+ * ten-mile radius needs and is what the URL, and so any server log, ever
+ * sees; the count of where searches come from rounds further still
+ * (lib/tally.ts). Without JavaScript the button is simply absent and the
+ * zip box does the job.
  */
 export default function Locate({ label, busy, radius }: { label: string; busy: string; radius: number }) {
   const router = useRouter();
@@ -24,7 +26,7 @@ export default function Locate({ label, busy, radius }: { label: string; busy: s
         if (!("geolocation" in navigator)) return setState("denied");
         setState("busy");
         navigator.geolocation.getCurrentPosition(
-          (pos) => router.push(`/diocese/near?q=${pos.coords.latitude.toFixed(4)},${pos.coords.longitude.toFixed(4)}&r=${radius}`),
+          (pos) => router.push(`/diocese/near?q=${pos.coords.latitude.toFixed(2)},${pos.coords.longitude.toFixed(2)}&r=${radius}`),
           () => setState("denied"),
           { maximumAge: 300000, timeout: 10000 },
         );

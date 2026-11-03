@@ -34,6 +34,7 @@ export function proxy(req: NextRequest) {
   // The layout counts pages served, by path (lib/tally.ts), and cannot see
   // the URL on its own, so the path rides along as a request header.
   const h = new Headers(req.headers);
+  h.delete("x-path");
   h.set("x-path", pathname);
   return NextResponse.next({ request: { headers: h } });
 }
@@ -46,5 +47,5 @@ function gone(req: NextRequest) {
 
 export const config = {
   // Skip the paths Next and the public folder serve on their own.
-  matcher: ["/((?!_next/|api/|parishes/|diocese/|favicon\\.ico).*)"],
+  matcher: ["/((?!_next/|api/|parishes/|favicon\\.ico).*)"],
 };
