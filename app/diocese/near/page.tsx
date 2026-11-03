@@ -65,7 +65,7 @@ function Card({ p, lang }: { p: Near; lang: "en" | "es" }) {
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-marian">{s.nextAdoration}</p>
             <p className="mt-0.5 text-lg font-semibold leading-tight text-ink">{s.perpetual}</p>
-            <p className="text-sm text-ink-soft">{p.adorationPerpetual}</p>
+            {p.adorationPerpetual !== "Perpetual Adoration" ? <p className="text-sm text-ink-soft">{p.adorationPerpetual}</p> : null}
           </div>
         ) : (
           <Tile name={s.nextAdoration} n={p.next.adoration} lang={lang} />
