@@ -8,6 +8,7 @@ import { strings } from "@/lib/i18n";
 import { occurrenceId } from "@/lib/ics";
 import { getParish } from "@/lib/parish";
 import { localNow } from "@/lib/schedule";
+import { DEANERIES, deaneryOfTown } from "@/parishes/diocese/deaneries";
 
 /**
  * This week across the diocese: every event on every platform parish's
@@ -36,7 +37,8 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
   const all = dioceseEvents(DAYS, now);
   const towns = [...new Set(all.map((o) => o.town))].sort();
   const town = typeof sp.town === "string" && towns.includes(sp.town) ? sp.town : null;
-  const items = all.filter((o) => (!kind || o.kind === kind) && (!town || o.town === town));
+  const deanery = typeof sp.deanery === "string" && DEANERIES.some((d) => d.name === sp.deanery) ? sp.deanery : null;
+  const items = all.filter((o) => (!kind || o.kind === kind) && (!town || o.town === town) && (!deanery || deaneryOfTown(o.town) === deanery));
   const days = new Map<string, typeof items>();
   for (const o of items) {
     if (!days.has(o.date)) days.set(o.date, []);
@@ -69,6 +71,17 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
                 {towns.map((tw) => (
                   <option key={tw} value={tw}>
                     {tw}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="flex flex-col gap-1 text-sm font-semibold text-cream">
+              {t.deanery}
+              <select name="deanery" defaultValue={deanery ?? ""} className="min-h-11 rounded-sm border border-navy-line bg-navy-soft px-3 text-base text-cream">
+                <option value="">{t.anyDeanery}</option>
+                {DEANERIES.map((d) => (
+                  <option key={d.name} value={d.name}>
+                    {d.name}
                   </option>
                 ))}
               </select>

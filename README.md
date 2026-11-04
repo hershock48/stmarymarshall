@@ -115,6 +115,11 @@ on now. `components/HolyDayNotice.tsx` is the line at the top of every
 parish page in the week before a holy day or a dated Mass, from the same
 `holyDays` and `specialMasses` the Mass times page uses.
 
+`parishes/diocese/deaneries.ts` holds the five deaneries and their
+collaboratives as the diocese's own directory prints them (December 2025);
+`deaneryOf` matches every finder row, the test fails if one is left out,
+the finder cards say the deanery and `/diocese/events` filters by it.
+
 The week's news is compiled, not typed (`lib/news.ts`): what the office
 wrote (`announcements` on the parish, each with a run window and an optional
 Spanish block, `diocesan: true` to offer it to the diocese), the dated Masses

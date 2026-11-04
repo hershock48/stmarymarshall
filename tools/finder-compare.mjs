@@ -40,7 +40,9 @@ for (const s of shots) {
   await page.waitForTimeout(400);
   const png = await page.screenshot({ type: "png" });
   await sharp(png).webp({ quality: 82 }).toFile(path.join(out, `${s.name}.webp`));
-  await sharp(png).png().toFile(path.join(out, `${s.name}.png`));
+  // The PNG is for looking at, not shipping: tools/out is not committed.
+  fs.mkdirSync(path.join(ROOT, "tools/out"), { recursive: true });
+  await sharp(png).png().toFile(path.join(ROOT, "tools/out", `${s.name}.png`));
   console.log(s.name, (fs.statSync(path.join(out, `${s.name}.webp`)).size / 1024).toFixed(0) + " KB");
   await page.close();
 }

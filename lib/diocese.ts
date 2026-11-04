@@ -4,6 +4,7 @@ import { miles, type Point } from "@/lib/geo";
 import { occurrences, type Occurrence } from "@/lib/events";
 import { occurrenceId } from "@/lib/ics";
 import { DIOCESE_EVENTS } from "@/parishes/diocese/events";
+import { deaneryOf } from "@/parishes/diocese/deaneries";
 import { addDays, datedMasses, localNow, nextService, type LocalNow, type NextService, type Weekday } from "@/lib/schedule";
 import type { DatedMass, Parish, Section, Service } from "@/lib/types";
 import type { Lang } from "@/lib/i18n";
@@ -32,6 +33,9 @@ export type DioceseParish = {
   name: string;
   town: string;
   address: string;
+  /** From the diocese's directory (parishes/diocese/deaneries.ts). */
+  deanery?: string;
+  collaborative?: string[];
   phone?: string;
   email?: string;
   site?: string;
@@ -218,6 +222,7 @@ function fromFinder(r: FinderRow, now: LocalNow): DioceseParish {
     lang: es ? "es" : "en",
     geo: r.geo ? { lat: r.geo.lat, lng: r.geo.lng } : undefined,
     source: "finder",
+    ...deaneryOf(r.name, town),
     masses,
     specials,
     confession: lists.confession.weekly,
@@ -240,6 +245,7 @@ function fromPlatform(p: Parish): DioceseParish {
     lang: p.lang,
     geo: p.geo,
     source: "platform",
+    ...deaneryOf(p.name, p.church.city),
     parish: p,
     masses: p.masses,
     specials: datedMasses(p),

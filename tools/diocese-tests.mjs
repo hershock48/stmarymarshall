@@ -23,7 +23,7 @@ const transpile = (file, out) => {
 };
 for (const f of ["i18n", "schedule", "events", "ics", "sentences", "geo", "diocese", "paths", "voice", "news"]) transpile(path.join(ROOT, "lib", f + ".ts"), f + ".mjs");
 for (const slug of ["stmarymarshall", "stphilipbc", "sanfelipe"]) transpile(path.join(ROOT, "parishes", slug, "data.ts"), `data-${slug}.mjs`);
-for (const f of ["events", "notices", "voice"]) transpile(path.join(ROOT, "parishes/diocese", f + ".ts"), `diocese-${f}.mjs`);
+for (const f of ["events", "notices", "voice", "deaneries"]) transpile(path.join(ROOT, "parishes/diocese", f + ".ts"), `diocese-${f}.mjs`);
 for (const j of ["finder", "zips"]) fs.copyFileSync(path.join(ROOT, "parishes/diocese", j + ".json"), path.join(tmp, j + ".json"));
 fs.copyFileSync(path.join(ROOT, "parishes/registry.json"), path.join(tmp, "registry.json"));
 const S = await import(pathToFileURL(path.join(tmp, "schedule.mjs")).href);
@@ -164,6 +164,15 @@ ok("Advent: the chancery's confession notice is on the parish's week", w2.dioces
 ok("Advent: Immaculate Conception shows with no times", w2.masses.map((m) => [m.kind, m.when ?? null]), [["holyDay", null]]);
 ok("The feed is one flat list, newest-dated first", N.weekFeed(w2).every((x, i, a) => i === 0 || x.date <= a[i - 1].date), true);
 ok("A Spanish parish gets the Spanish notice", N.parishWeek(SF, at("2026-12-01T12:00:00Z"), 7, "es").diocese[0].title, "Confesiones de Adviento en toda la diócesis");
+
+// Deaneries: every parish in the diocese lands in one, from the directory's own roster.
+const allP = D.dioceseParishes(at("2026-11-04T12:00:00Z"));
+ok("Every parish has a deanery", allP.filter((p) => !p.deanery).map((p) => `${p.name} (${p.town})`), []);
+ok("St. Mary Marshall is Eastern, with Albion", [allP.find((p) => p.id === "stmarymarshall")?.deanery, allP.find((p) => p.id === "stmarymarshall")?.collaborative?.length], ["Eastern Deanery", 2]);
+ok("San Felipe is Northern, with South Haven and Douglas", allP.find((p) => p.id === "sanfelipe")?.collaborative?.length, 3);
+ok("Sacred Heart of Mary (Silver Creek) is Southern", allP.find((p) => p.name === "Sacred Heart of Mary (mission)")?.deanery, "Southern Deanery");
+ok("The Stevensville church of St. Joseph sits with its parish in the Western Deanery", allP.find((p) => p.town === "Stevensville")?.collaborative?.includes("St. Joseph Parish, St. Joseph"), true);
+ok("Five deaneries cover the finder", new Set(allP.map((p) => p.deanery)).size, 5);
 
 console.log(fails ? `\n${fails} failed` : "\nall passed");
 process.exit(fails ? 1 : 0);
