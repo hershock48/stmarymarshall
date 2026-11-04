@@ -458,7 +458,7 @@ footer .gmark{height:78px;width:auto}
   <div class="demo">
     <div class="k">The diocese layer</div>
     <h3>Mass near you, for all sixty parishes, from the first day</h3>
-    <p>A zip code, a town, or the phone&rsquo;s own location, and every parish within ten, twenty-five or fifty miles, nearest first, with its next Mass worked out from the clock. <strong>It covers all sixty parishes and missions today</strong>: the three on the platform from their own data, the other fifty-seven read from the diocese&rsquo;s own Parish Finder, each marked with where its times came from. The diocese&rsquo;s finder stops depending on eCatholic the week this goes live, before a single parish moves, and it gets better one parish at a time as each one joins. Every parish site carries the three nearest parishes and their next Mass at the foot of its own Mass times page.</p>
+    <p>A zip code, a town, or the phone&rsquo;s own location, and every parish within ten, twenty-five or fifty miles, nearest first, with its next Mass worked out from the clock. <strong>It covers all sixty parishes and missions today</strong>: the three on the platform from their own data, the other fifty-seven read from the diocese&rsquo;s own public Parish Finder, each marked with where its times came from. Under the agreement that reading is done at the diocese&rsquo;s request, of the diocese&rsquo;s own page, and the diocese is the source of the result. The diocese&rsquo;s finder stops depending on eCatholic the week this goes live, before a single parish moves, and it gets better one parish at a time as each one joins. Every parish site carries the three nearest parishes and their next Mass at the foot of its own Mass times page.</p>
     <a href="https://kalamazoo.glazedweb.com/diocese/near?q=49007&amp;r=25" target="_blank" rel="noopener">Try it from Kalamazoo ↗</a>
     <span class="vurl" style="color:#B9A894">kalamazoo.glazedweb.com/diocese/near</span>
   </div>
@@ -479,7 +479,18 @@ footer .gmark{height:78px;width:auto}
 
   <h3>How the rest would be built</h3>
   <p>The 41 eCatholic sites share one markup, which is why St. Philip&rsquo;s 78 pages took a day: the tabs, the MassTime panel, the staff list, the documents on files.ecatholic.com and the calendar feed are all in predictable places. Each parish is read into the same data shape the three sites use, a person reads the result once, and the parish office confirms the handful of facts only it knows: holy day Mass times, office hours, which inbox the forms go to. <strong>The order: the three sites here, then the parishes the diocese picks, then the block of seventeen when their agreement allows, then the fourteen parishes and missions with no website at all.</strong></p>
-  <p class="note">Two of the three sites were built from public pages without the parishes&rsquo; involvement, as a demonstration for the diocese. They are hidden from search engines and would not go live at a parish&rsquo;s address without that parish&rsquo;s yes and its office&rsquo;s corrections. St. Mary&rsquo;s was built with the parish&rsquo;s permission.</p>
+  <h3>What stays, what changes</h3>
+  <p>A parish keeps everything that works. The platform replaces the website and takes on the schedule, the calendar and the forms; it links to the rest rather than replacing it, so no parish re-enrolls donors or retrains an office on our account.</p>
+  <table class="cmp">
+    <tr><th>Today</th><th>Under the agreement</th></tr>
+    <tr><td>Online giving on Vanco, OSV or whichever provider the parish has</td><td>Stays. The site&rsquo;s Give button goes straight to it; the platform never sees a card or a dollar.</td></tr>
+    <tr><td>The bulletin printed and hosted by LPi or Diocesan (DiscoverMass)</td><td>Stays. The site reads this week&rsquo;s issue and the last three months from where it is already published.</td></tr>
+    <tr><td>Flocknote email and texts</td><td>Stays. The site links the parish&rsquo;s sign-up; the chancery&rsquo;s own notices ride on every site without it.</td></tr>
+    <tr><td>Livestream on YouTube or Facebook</td><td>Stays, linked from the Mass times page as &ldquo;Watch Mass online.&rdquo;</td></tr>
+    <tr><td>Church management (ParishSOFT, OSV, GabrielSoft)</td><td>Stays. The platform keeps no member database; forms go to the office&rsquo;s inbox.</td></tr>
+    <tr><td>The website, the Mass schedule, the calendar, the forms, the Parish Finder&rsquo;s data</td><td>Ours to build and mind, the diocese&rsquo;s to own.</td></tr>
+  </table>
+  <p class="note">Two of the three sites were built from public pages without the parishes&rsquo; involvement, as a demonstration for the diocese. They are hidden from search engines, would not go live at a parish&rsquo;s address without that parish&rsquo;s yes and its office&rsquo;s corrections, and come down the day a parish asks. St. Mary&rsquo;s was built with the parish&rsquo;s permission.</p>
 </div></section>
 
 <section id="cost"><div class="wrap">
@@ -494,7 +505,7 @@ footer .gmark{height:78px;width:auto}
   <h3>What the monthly covers</h3>
   <table class="cmp">
     <tr><td>Hosting</td><td colspan="2">On a global network, with HTTPS and the certificates renewed without anyone noticing. Two of the diocese&rsquo;s sites are down today for want of exactly that.</td></tr>
-    <tr><td>Security</td><td colspan="2">The framework and every dependency updated the week a fix ships, with the whole site rebuilt and re-checked before it goes live. No plugins, no login page for someone to guess.</td></tr>
+    <tr><td>Security</td><td colspan="2">The framework and every dependency updated the week a fix ships, with the whole site rebuilt and re-checked before it goes live. No plugins, no login page for someone to guess, no card data anywhere. What is stored, what is not, and where it runs is one page: <a href="https://kalamazoo.glazedweb.com/diocese/security" target="_blank" rel="noopener">what we store ↗</a>.</td></tr>
     <tr><td>Backups</td><td colspan="2">Every parish&rsquo;s data, photos and documents in a repository the diocese holds, with the full history. Nothing lives only on a vendor&rsquo;s server.</td></tr>
     <tr><td>The edits</td><td colspan="2">A changed Mass time, a holy day schedule, a new pastor, next year&rsquo;s religious education calendar, a new ministry page. The office texts or emails the change; it is up the same week, and there is no per-edit charge.</td></tr>
     <tr><td>The checks</td><td colspan="2">Accessibility, page weight and speed measured again after every change, on a phone profile, so a site that passed on launch day still passes next Advent.</td></tr>

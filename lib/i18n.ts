@@ -37,6 +37,7 @@ const en = {
   massTimes: {
     title: "Mass Times and Directions",
     lede: (name: string, confession: boolean, adoration: boolean) => `Mass${confession ? ", Confession" : ""}${adoration ? " and Adoration" : ""} at ${name}, and how to find the door.`,
+    watch: "Watch Mass online",
     finding: "Finding the church",
     isAt: (name: string, street: string, corner: string | undefined, city: string) => `${name} is at ${street}${corner ? `, at the ${corner},` : ""} in ${city}.`,
     officeAt: (street: string) => ` The parish office is at ${street}, and that is the mailing address.`,
@@ -264,6 +265,7 @@ const es: Strings = {
   massTimes: {
     title: "Horarios de Misa y cómo llegar",
     lede: (name, confession, adoration) => `Misa${confession ? ", confesiones" : ""}${adoration ? " y adoración" : ""} en ${name}, y cómo encontrar la puerta.`,
+    watch: "Ver la Misa en línea",
     finding: "Cómo encontrar la iglesia",
     isAt: (name, street, corner, city) => `${name} está en ${street}${corner ? `, en la ${corner},` : ""} en ${city}.`,
     officeAt: (street) => ` La oficina parroquial está en ${street}, y esa es la dirección postal.`,

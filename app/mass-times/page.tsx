@@ -52,6 +52,11 @@ export default async function MassTimes() {
               <GoldButton href={p.mapUrl} external>
                 {t.directions}
               </GoldButton>
+              {p.livestream && (
+                <LineButton href={p.livestream} external onPaper>
+                  {t.watch}
+                </LineButton>
+              )}
               <LineButton href={p.phoneHref} onPaper>
                 {t.call(p.phone)}
               </LineButton>

@@ -131,7 +131,7 @@ export function FullSchedule({ parish: p }: { parish: Parish }) {
           {p.adorationNote && <p className="mt-4 text-sm leading-relaxed text-dim">{p.adorationNote}</p>}
           <p className="mt-6 text-sm leading-relaxed text-dim">
             {s.anotherTime}{" "}
-            <a href={p.findAMass} target="_blank" rel="noopener noreferrer" className="text-cream underline underline-offset-4">
+            <a href={p.geo ? `/diocese/near?q=${p.geo.lat.toFixed(2)},${p.geo.lng.toFixed(2)}&r=25` : p.findAMass} {...(p.geo ? {} : { target: "_blank", rel: "noopener noreferrer" })} className="text-cream underline underline-offset-4">
               {s.findAMass}
             </a>
             .

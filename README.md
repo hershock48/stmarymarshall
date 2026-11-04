@@ -34,6 +34,7 @@ the registry default, St. Mary.
 | any host, `/diocese` | Every parish on one page (address, Mass, Confession, Adoration, site and calendar links): the readable twin of the JSON feed, dressed in the host's parish |
 | any host, `/diocese/near` | Mass near you: a zip, a town or `lat,lng` from the phone, every parish within 10, 25 or 50 miles, nearest first, with the next Mass, Confession and Adoration from the clock. All sixty parishes and missions: the platform's from their data, the rest from `parishes/diocese/finder.json` |
 | any host, `/diocese/events`, `/diocese/groups` | Every platform parish's calendar for 14 days by kind and town; every ministry and formation group with its contact |
+| any host, `/diocese/security` | What we store, what we do not, where it runs: the security and data page a chancellor can hand to IT. It describes this code; change it in the same commit as the behavior it describes |
 | any host, `/diocese/office` | The chancery view, behind `DIOCESE_PASSCODE`: each site's freshness and unconfirmed facts from the data, the finder's coverage, and (with `DATABASE_URL`) pages served, finder searches, forms sent and Give taps as counts |
 | `stmarymarshall.vercel.app` | The default parish, noindex |
 
@@ -69,6 +70,13 @@ GeoNames). Every parish site shows its three nearest parishes on the Mass
 times page (`components/NearbyStrip.tsx`) and the chancery's notices
 (`parishes/diocese/notices.ts`) at the top of its home page unless
 `diocesanNotices: false`.
+
+Every response carries the headers listed on that page (`next.config.ts`:
+nosniff, referrer policy, a permissions policy that allows geolocation
+only for the finder, frame-ancestors self; HSTS is Vercel's). The Mass
+times page links a parish's livestream as "Watch Mass online" when
+`livestream` is set, and its "find a Mass nearby" link goes to the
+diocese's own finder from that church instead of eCatholic's FindAMass.
 
 Counting (`lib/tally.ts`) is per day, host, kind and key, with no visitor
 in it: a page served by path (the proxy passes the path as `x-path`), a

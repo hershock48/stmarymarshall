@@ -57,7 +57,18 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     const noindex = [{ key: "X-Robots-Tag", value: "noindex, nofollow" }];
+    // What every response carries, on every host, listed on /diocese/security.
+    // HSTS comes from Vercel. Geolocation is allowed only for the site's own
+    // finder button; no page here ever needs a camera or a microphone, and no
+    // other site may put these pages in a frame.
+    const security = [
+      { key: "X-Content-Type-Options", value: "nosniff" },
+      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+      { key: "Permissions-Policy", value: "geolocation=(self), camera=(), microphone=(), payment=()" },
+      { key: "Content-Security-Policy", value: "frame-ancestors 'self'" },
+    ];
     return [
+      { source: "/:path*", headers: security },
       ...pitchHosts.map((h) => ({ source: "/:path*", has: onHost(h), headers: noindex })),
       { source: "/:path*", has: [{ type: "host" as const, value: "(.*)\\.vercel\\.app" }], headers: noindex },
     ];
