@@ -56,6 +56,21 @@ dynamic segment returns an empty client-rendered body in this Next version
 
 ## The diocese layer
 
+A diocese is a folder, `dioceses/<slug>/`, with a `config.ts` that gathers
+its name in both languages, site, clock, hosts, bishop, the finder read from
+the diocese's own page (`finder.json`), the chancery's dates (`events.ts`)
+and notices (`notices.ts`), the bishop's recordings (`voice.ts`) and the
+deanery roster (`deaneries.ts`); `dioceses/index.ts` lists them and
+`parishes/registry.json` repeats each one's hosts for next.config.ts. A
+parish names its diocese by slug in its data.ts. Nothing in a page names a
+diocese: `getDiocese()` answers from the host (a diocese's own host or
+letter host, else the host's parish's diocese). Two today: Kalamazoo
+(eCatholic Parish Finder, read by `tools/finder-import.mjs`) and Lansing
+(a Drupal directory with no Mass times, read by `tools/lansing-import.mjs`,
+which also writes `vicariates.json` for the roster; its finder rows show
+the parish, address, phone and site, and a Nominatim miss lands on the zip
+centroid from `dioceses/zips-mi.json`, marked `source: "zip"`).
+
 `lib/diocese.ts` joins the three platform parishes with the other
 fifty-seven read from the diocese's own Parish Finder. `node
 tools/finder-import.mjs <saved parishfinder.html> dioceses/kalamazoo/finder.json`

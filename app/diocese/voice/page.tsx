@@ -31,7 +31,8 @@ export default async function VoicePage() {
   const s = strings(lang).diocese;
   const t = s.voice;
   const featured = latestVoice(d, lang);
-  const entries = voiceEntries(d, lang).filter((v) => v.id !== featured?.id);
+  // An audio-only newest entry stays in the list with its player; the featured block is for video.
+  const entries = voiceEntries(d, lang).filter((v) => v.id !== featured?.id || !featured?.youtube);
   const channel = await channelVideos(d, 8);
   return (
     <>
@@ -89,10 +90,15 @@ export default async function VoicePage() {
                 <p className="mt-3 flex flex-wrap gap-x-5 text-sm font-semibold">
                   {v.youtube ? (
                     <a href={watchUrl(v.youtube)} target="_blank" rel="noopener noreferrer" className="inline-block min-h-6 text-marian underline decoration-marian/40 underline-offset-4">
-                      {v.kind === "audio" ? t.listen : t.watch}
+                      {t.watch}
+                    </a>
+                  ) : v.audio ? (
+                    <a href={v.audio.url} className="inline-block min-h-6 text-marian underline decoration-marian/40 underline-offset-4">
+                      {t.listen}
                     </a>
                   ) : null}
                 </p>
+                {v.audio ? <audio controls preload="none" src={v.audio.url} className="mt-3 w-full" /> : null}
               </div>
             </li>
           ))}

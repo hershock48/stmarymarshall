@@ -2,7 +2,8 @@
   "comment": "Host routing for next.config.ts, which cannot import the TypeScript data. Keep in step with each parish's data.ts. The default is what an unknown host (a Vercel preview URL) serves.",
   "default": "stmarymarshall",
   "dioceses": [
-    { "slug": "kalamazoo", "pitchHost": "kalamazoo.glazedweb.com", "host": "finder.kalamazoo.glazedweb.com", "siteHosts": ["diokzoo.org", "www.diokzoo.org"] }
+    { "slug": "kalamazoo", "pitchHost": "kalamazoo.glazedweb.com", "host": "finder.kalamazoo.glazedweb.com", "siteHosts": ["diokzoo.org", "www.diokzoo.org"] },
+    { "slug": "lansing", "pitchHost": "lansing.glazedweb.com", "host": "finder.lansing.glazedweb.com", "siteHosts": ["dioceseoflansing.org", "www.dioceseoflansing.org"] }
   ],
   "parishes": [
     { "slug": "stmarymarshall", "hosts": ["stmarymarshall.org", "www.stmarymarshall.org", "stmarymarshall.vercel.app"], "pitchHost": "stmarymarshall.glazedweb.com" },

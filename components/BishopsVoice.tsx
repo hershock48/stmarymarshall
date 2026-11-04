@@ -37,6 +37,10 @@ export default function BishopsVoice({ parish: p }: { parish: Parish }) {
               <a href={watchUrl(v.youtube)} target="_blank" rel="noopener noreferrer" className="inline-block min-h-6 text-marian underline decoration-marian/40 underline-offset-4">
                 {t.watch}
               </a>
+            ) : v.audio ? (
+              <a href={v.audio.url} className="inline-block min-h-6 text-marian underline decoration-marian/40 underline-offset-4">
+                {t.listen}
+              </a>
             ) : null}
             <Link href="/diocese/voice" className="inline-block min-h-6 text-marian underline decoration-marian/40 underline-offset-4">
               {t.all}

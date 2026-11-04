@@ -30,7 +30,9 @@ export type DioceseParish = {
   name: string;
   town: string;
   address: string;
-  /** From the diocese's directory (dioceses/kalamazoo/deaneries.ts). */
+  /** "Includes St Ann Oratory, Bellevue": a second church the directory lists under this parish. */
+  also?: string;
+  /** From the diocese's directory (dioceses/<slug>/deaneries.ts). */
   deanery?: string;
   collaborative?: string[];
   phone?: string;
@@ -204,9 +206,14 @@ function fromFinder(d: Diocese, r: FinderRow, now: LocalNow): DioceseParish {
   const specials = lists.mass.dated;
   const town = (r.address.split(",").slice(-3, -2)[0] ?? "").trim().replace(/^Fenville$/, "Fennville");
   const es = masses.length > 0 && masses.every((m) => m.lang === "Español");
+  // Lansing's directory folds a parish's oratories into its name, "St Mary
+  // (includes St Ann Oratory, Bellevue)": that part becomes the card's
+  // second line rather than its title.
+  const includes = /\s*\((includes[^)]*)\)/i.exec(r.name)?.[1];
   return {
     id: r.finderId ?? r.name,
-    name: r.name.replace(/\s+/g, " ").replace(/ Parish$/, "").replace(/ Mission$/, " (mission)"),
+    name: r.name.replace(/\s*\(includes[^)]*\)/i, "").replace(/\s+/g, " ").replace(/ Parish$/, "").replace(/ Mission$/, " (mission)"),
+    also: includes ? includes.charAt(0).toUpperCase() + includes.slice(1) : undefined,
     town,
     address: r.address.replace(/\s*,\s*/g, ", ").replace(/, ,/g, ","),
     phone: r.phone ?? undefined,

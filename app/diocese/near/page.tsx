@@ -61,6 +61,7 @@ function Card({ p, lang, readAt }: { p: Near; lang: "en" | "es"; readAt: string 
         {p.masses.some((m) => /espa/i.test(m.lang ?? "")) ? <span className="ml-2 text-xs font-semibold uppercase tracking-wider text-marian">Español</span> : null}
         {p.deanery ? <span className="ml-2 text-xs uppercase tracking-wider text-ink-soft">{p.deanery}</span> : null}
       </p>
+      {p.also ? <p className="mt-0.5 text-sm text-ink-soft">{p.also}.</p> : null}
       <div className="mt-4 grid gap-4 sm:grid-cols-3">
         <Tile name={s.nextMass} n={p.next.mass} lang={lang} />
         <Tile name={s.nextConfession} n={p.next.confession} lang={lang} />

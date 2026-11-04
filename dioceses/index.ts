@@ -1,6 +1,7 @@
 import type { Lang } from "@/lib/i18n";
 import type { Diocese, Parish } from "@/lib/types";
 import kalamazoo from "./kalamazoo/config";
+import lansing from "./lansing/config";
 
 /**
  * Every diocese on the platform. A diocese is a folder under dioceses/
@@ -9,7 +10,7 @@ import kalamazoo from "./kalamazoo/config";
  * routing). Nothing in the pages names a diocese: they ask which one the
  * host or the parish belongs to.
  */
-export const DIOCESES: Diocese[] = [kalamazoo];
+export const DIOCESES: Diocese[] = [kalamazoo, lansing];
 const BY_SLUG = new Map(DIOCESES.map((d) => [d.slug, d]));
 
 export function dioceseBySlug(slug: string): Diocese | undefined {

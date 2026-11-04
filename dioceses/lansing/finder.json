@@ -1,0 +1,1174 @@
+{
+ "readAt": "2026-11-04",
+ "source": "https://www.dioceseoflansing.org/parish-list-vicariate",
+ "parishes": [
+  {
+   "name": "St Mary (includes St Ann Oratory, Bellevue)",
+   "address": "807 St. Marys Blvd, Charlotte, MI, 48813",
+   "site": "http://www.stmarycharlotte.org/",
+   "phone": "517-543-4319",
+   "email": null,
+   "finderId": "dol_st-mary-charlotte",
+   "town": "Charlotte",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.5702,
+    "lng": -84.8352,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "Catholic Community of St Jude",
+   "address": "801 N. Bridge Street, DeWitt, MI, 48820",
+   "site": "http://www.stjudedewitt.com/",
+   "phone": "517-669-8335",
+   "email": null,
+   "finderId": "dol_catholic-community-st-jude-dewitt",
+   "town": "DeWitt",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.849489,
+    "lng": -84.569003,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Thomas Aquinas  (includes St John the Evangelist Church and Student Center, East Lansing)",
+   "address": "955 Alton Road, East Lansing, MI, 48823",
+   "site": "http://www.elcatholics.org/",
+   "phone": "517-351-7215",
+   "email": null,
+   "finderId": "dol_st-thomas-aquinas-east-lansing",
+   "town": "East Lansing",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.744004,
+    "lng": -84.474261,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Peter",
+   "address": "515 East Knight Street, Eaton Rapids, MI, 48827",
+   "site": "https://www.spceatonrapids.org/",
+   "phone": "517-663-4735",
+   "email": null,
+   "finderId": "dol_st-peter-eaton-rapids",
+   "town": "Eaton Rapids",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.512668,
+    "lng": -84.647261,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Most Holy Trinity",
+   "address": "545 N Maple St, Fowler, MI, 48835",
+   "site": "http://www.mhtparish.com",
+   "phone": "989-593-2162",
+   "email": null,
+   "finderId": "dol_most-holy-trinity-fowler",
+   "town": "Fowler",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 43.006956,
+    "lng": -84.74114,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Michael Parish",
+   "address": "345 Edwards St., Grand Ledge, MI, 48837",
+   "site": "http://www.stmichaelgl.org/",
+   "phone": "517-627-8493",
+   "email": null,
+   "finderId": "dol_st-michael-grand-ledge",
+   "town": "Grand Ledge",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.744554,
+    "lng": -84.746632,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Church of the Resurrection",
+   "address": "1505 E. Michigan Ave, Lansing, MI, 48912",
+   "site": "https://www.corlansing.org/",
+   "phone": "517-482-4749",
+   "email": null,
+   "finderId": "dol_church-resurrection-lansing",
+   "town": "Lansing",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.733941,
+    "lng": -84.528731,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Cristo Rey",
+   "address": "201 West Miller Road, Lansing, MI, 48911",
+   "site": "http://www.cristoreychurch.org/",
+   "phone": "517-394-4639",
+   "email": null,
+   "finderId": "dol_cristo-rey-lansing",
+   "town": "Lansing",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.669213,
+    "lng": -84.55407,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Immaculate Heart of Mary",
+   "address": "3815 South Cedar Street, Lansing, MI, 48910",
+   "site": "http://www.ihmparishlansing.org/",
+   "phone": "517-393-3030",
+   "email": null,
+   "finderId": "dol_ihm-lansing",
+   "town": "Lansing",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.693286,
+    "lng": -84.547636,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Andrew Dung-Lac",
+   "address": "1611 West Oakland Avenue, Lansing, MI, 48915",
+   "site": "https://www.facebook.com/pages/St-Andrew-Dung-Lac/116383675053530",
+   "phone": "517-580-7557",
+   "email": null,
+   "finderId": "dol_st-andrew-dung-lac-lansing",
+   "town": "Lansing",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.742886,
+    "lng": -84.573116,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Gerard",
+   "address": "4437 West Willow Hwy, Lansing, MI, 48917",
+   "site": "http://www.stgerard.org/",
+   "phone": "517-323-2379",
+   "email": null,
+   "finderId": "dol_st-gerard-lansing",
+   "town": "Lansing",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.7376,
+    "lng": -84.6244,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "St. Mary Cathedral",
+   "address": "219 Seymour Avenue, Lansing, MI, 48933",
+   "site": "http://www.stmarylansing.org/",
+   "phone": "517-484-5331",
+   "email": null,
+   "finderId": "dol_st-mary-cathedral-lansing",
+   "town": "Lansing",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.735634,
+    "lng": -84.556019,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Therese",
+   "address": "102 West Randolph St., Lansing, MI, 48906",
+   "site": "http://www.sttherese.org/",
+   "phone": "517-487-3749",
+   "email": null,
+   "finderId": "dol_st-therese-lansing",
+   "town": "Lansing",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.760113,
+    "lng": -84.552967,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "The Catholic Community of Saint James (includes Sts Cornelius & Cyprian Oratory, Leslie)",
+   "address": "1010 South Lansing Street, Mason, MI, 48854",
+   "site": "http://stjamesmason.org/",
+   "phone": "517-676-9111",
+   "email": null,
+   "finderId": "dol_catholic-community-sts-mason",
+   "town": "Mason",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.571322,
+    "lng": -84.444234,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Mary",
+   "address": "509 N Main St, Morrice, MI, 48857",
+   "site": "http://stmarymorrice.org/",
+   "phone": "517-625-4260",
+   "email": null,
+   "finderId": "dol_st-mary-morrice",
+   "town": "Morrice",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.837873,
+    "lng": -84.177901,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Martha",
+   "address": "1100 West Grand River, Okemos, MI, 48864",
+   "site": "http://www.st-martha.org/",
+   "phone": "517-349-1763",
+   "email": null,
+   "finderId": "dol_st-martha-okemos",
+   "town": "Okemos",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.713608,
+    "lng": -84.385836,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Joseph",
+   "address": "109 Linden Street, Saint Johns, MI, 48879",
+   "site": "http://www.stjoecatholic.com/",
+   "phone": "989-224-8994",
+   "email": null,
+   "finderId": "dol_st-joseph-saint-johns",
+   "town": "Saint Johns",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 43.001206,
+    "lng": -84.557789,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Mary",
+   "address": "201 Westphalia St, Westphalia, MI, 48894",
+   "site": "http://www.stmarychurch.net",
+   "phone": "989-587-4201",
+   "email": null,
+   "finderId": "dol_st-mary-westphalia",
+   "town": "Westphalia",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.930442,
+    "lng": -84.798664,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Mary",
+   "address": "157 High Street, Williamston, MI, 48895",
+   "site": "https://stmarywilliamston.org/",
+   "phone": "517-655-2620",
+   "email": null,
+   "finderId": "dol_st-mary-williamston",
+   "town": "Williamston",
+   "vicariate": "Clinton/Eaton/Ingham",
+   "panels": [],
+   "geo": {
+    "lat": 42.689822,
+    "lng": -84.281786,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Rita",
+   "address": "10516 Hayes Road, Clarklake, MI, 49234",
+   "site": "https://www.stritacatholicparish.com/",
+   "phone": "517-592-5470",
+   "email": null,
+   "finderId": "dol_st-rita-clarklake",
+   "town": "Clarklake",
+   "vicariate": "Jackson",
+   "panels": [],
+   "geo": {
+    "lat": 42.1235,
+    "lng": -84.3521,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "St Catherine Laboure",
+   "address": "211 Harmon Street, Concord, MI, 49237",
+   "site": "http://stcatherinelaboureconcord.org/",
+   "phone": "517-524-7578",
+   "email": null,
+   "finderId": "dol_st-catherine-laboure-concord",
+   "town": "Concord",
+   "vicariate": "Jackson",
+   "panels": [],
+   "geo": {
+    "lat": 42.1875,
+    "lng": -84.6529,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "Queen of the Miraculous Medal",
+   "address": "606 South Wisner Street, Jackson, MI, 49203",
+   "site": "http://www.queenschurch.com/",
+   "phone": "517-783-2748",
+   "email": null,
+   "finderId": "dol_queen-miraculous-medal-jackson-mi",
+   "town": "Jackson",
+   "vicariate": "Jackson",
+   "panels": [],
+   "geo": {
+    "lat": 42.242906,
+    "lng": -84.428362,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Mary Star of the Sea (includes St Stanislaus Oratory, Jackson)",
+   "address": "120 East Wesley St., Jackson, MI, 49201",
+   "site": "http://stmaryjackson.com/",
+   "phone": "517-784-7184",
+   "email": null,
+   "finderId": "dol_st-mary-star-sea-jackson",
+   "town": "Jackson",
+   "vicariate": "Jackson",
+   "panels": [],
+   "geo": {
+    "lat": 42.244953,
+    "lng": -84.405398,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. John the Evangelist Church (includes St Joseph Oratory, Jackson)",
+   "address": "711 North Francis St., Jackson, MI, 49201",
+   "site": "https://saintjohnjackson.org",
+   "phone": "517-784-0553",
+   "email": null,
+   "finderId": "dol_st-john-evangelist-jackson",
+   "town": "Jackson",
+   "vicariate": "Jackson",
+   "panels": [],
+   "geo": {
+    "lat": 42.2545,
+    "lng": -84.3875,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "Our Lady of Fatima",
+   "address": "913 Napoleon Road, MI, Center, MI 49254",
+   "site": "http://www.fatimaparish.net/",
+   "phone": "517-764-2088",
+   "email": null,
+   "finderId": "dol_our-lady-fatima-michigan-center",
+   "town": "MI",
+   "vicariate": "Jackson",
+   "panels": [],
+   "geo": {
+    "lat": 42.221709,
+    "lng": -84.308022,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Holy Family (Includes St Joseph Oratory, Adrian)",
+   "address": "305 Division Street, Adrian, MI, 49221",
+   "site": "https://holyfamilyadrian.org/",
+   "phone": "517-263-4681",
+   "email": null,
+   "finderId": "dol_holy-family-adrian",
+   "town": "Adrian",
+   "vicariate": "Lenawee/Hillsdale",
+   "panels": [],
+   "geo": {
+    "lat": 41.895123,
+    "lng": -84.03384,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Joseph Shrine",
+   "address": "8743 US 12, Brooklyn, MI, 49230",
+   "site": "https://sites.google.com/site/stjosephbrooklynmi/",
+   "phone": "517-467-2183",
+   "email": null,
+   "finderId": "dol_st-joseph-shrine-brooklyn",
+   "town": "Brooklyn",
+   "vicariate": "Lenawee/Hillsdale",
+   "panels": [],
+   "geo": {
+    "lat": 42.1044,
+    "lng": -84.2414,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "Light of Christ",
+   "address": "222 Carey Street, Deerfield, MI, 49238",
+   "site": "http://www.lightofchristparish.com/",
+   "phone": "517-447-3500",
+   "email": null,
+   "finderId": "dol_light-christ-deerfield",
+   "town": "Deerfield",
+   "vicariate": "Lenawee/Hillsdale",
+   "panels": [],
+   "geo": {
+    "lat": 41.890987,
+    "lng": -83.779372,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Anthony of Padua",
+   "address": "11 North Broad Street, Hillsdale, MI, 49242",
+   "site": "http://stanthonyhillsdale.com/",
+   "phone": "517-437-3305",
+   "email": null,
+   "finderId": "dol_st-anthony-hillsdale",
+   "town": "Hillsdale",
+   "vicariate": "Lenawee/Hillsdale",
+   "panels": [],
+   "geo": {
+    "lat": 41.922429,
+    "lng": -84.631908,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Sacred Heart",
+   "address": "207 South Market Street, Hudson, MI, 49247",
+   "site": "https://www.sacredhearthudson.org/",
+   "phone": "517-448-3811",
+   "email": null,
+   "finderId": "dol_sacred-heart-hudson",
+   "town": "Hudson",
+   "vicariate": "Lenawee/Hillsdale",
+   "panels": [],
+   "geo": {
+    "lat": 41.853862,
+    "lng": -84.353655,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Mary on the Lake",
+   "address": "450 Manitou Road, Manitou Beach, MI, 49253",
+   "site": "http://www.saintmarymanitoubeach.org/",
+   "phone": "517-547-7496",
+   "email": null,
+   "finderId": "dol_st-mary-lake-manitou-beach",
+   "town": "Manitou Beach",
+   "vicariate": "Lenawee/Hillsdale",
+   "panels": [],
+   "geo": {
+    "lat": 41.964745,
+    "lng": -84.316003,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Elizabeth (includes St Dominic Oratory, Clinton)",
+   "address": "Rev. Daniel Wheeler, Pastor, 506 North Union St., Tecumseh, MI, 49286",
+   "site": "http://stelizabethstdominic.org/",
+   "phone": "517-423-2447",
+   "email": null,
+   "finderId": "dol_st-elizabeth-tecumseh",
+   "town": "Tecumseh",
+   "vicariate": "Lenawee/Hillsdale",
+   "panels": [],
+   "geo": {
+    "lat": 41.9953,
+    "lng": -83.9555,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "Holy Spirit",
+   "address": "9565 Musch Road, Brighton, MI, 48116",
+   "site": "https://holyspiritparishbrighton.org/",
+   "phone": "810-231-9199",
+   "email": null,
+   "finderId": "dol_holy-spirit-brighton",
+   "town": "Brighton",
+   "vicariate": "Livingston",
+   "panels": [],
+   "geo": {
+    "lat": 42.5371,
+    "lng": -83.7756,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "St Mary Magdalen",
+   "address": "2201 South Old US 23 Hwy, Brighton, MI, 48114",
+   "site": "http://www.saintmarymagdalen.org",
+   "phone": "810-229-8624",
+   "email": null,
+   "finderId": "dol_st-mary-magdalen-brighton",
+   "town": "Brighton",
+   "vicariate": "Livingston",
+   "panels": [],
+   "geo": {
+    "lat": 42.57,
+    "lng": -83.7484,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "St Patrick",
+   "address": "711 Rickett Road, Brighton, MI, 48116",
+   "site": "https://www.stpatrickcatholicparish.org/",
+   "phone": "810-229-9863",
+   "email": null,
+   "finderId": "dol_st-patrick-brighton",
+   "town": "Brighton",
+   "vicariate": "Livingston",
+   "panels": [],
+   "geo": {
+    "lat": 42.523707,
+    "lng": -83.776484,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Agnes",
+   "address": "855 East Grand River Ave., Fowlerville, MI, 48836",
+   "site": "http://stagnesmi.weconnect.com/",
+   "phone": "517-223-8684",
+   "email": null,
+   "finderId": "dol_st-agnes-fowlerville",
+   "town": "Fowlerville",
+   "vicariate": "Livingston",
+   "panels": [],
+   "geo": {
+    "lat": 42.661957,
+    "lng": -84.061209,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Augustine",
+   "address": "6481 Faussett Road, Howell, MI, 48855",
+   "site": "http://www.staugustinehowell.com/",
+   "phone": "517-546-9807",
+   "email": null,
+   "finderId": "dol_st-augustine-howell",
+   "town": "Howell",
+   "vicariate": "Livingston",
+   "panels": [],
+   "geo": {
+    "lat": 42.6871,
+    "lng": -83.914,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "St John the Baptist",
+   "address": "2099 North Hacker Road, Howell, MI, 48855",
+   "site": "http://stjohnhowell.com/",
+   "phone": "517-546-7200",
+   "email": null,
+   "finderId": "dol_st-john-baptist-howell",
+   "town": "Howell",
+   "vicariate": "Livingston",
+   "panels": [],
+   "geo": {
+    "lat": 42.6871,
+    "lng": -83.914,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "St Joseph",
+   "address": "440 East Washington Street, Howell, MI, 48843",
+   "site": "http://www.stjosephhowell.com/",
+   "phone": "517-546-0090",
+   "email": null,
+   "finderId": "dol_st-joseph-howell",
+   "town": "Howell",
+   "vicariate": "Livingston",
+   "panels": [],
+   "geo": {
+    "lat": 42.603139,
+    "lng": -83.923951,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Mary",
+   "address": "10601 Dexter Pinckney Road, Pinckney, MI, 48169",
+   "site": "http://www.stmarypinckney.org",
+   "phone": "734-878-3161",
+   "email": null,
+   "finderId": "dol_st-mary-pinckney",
+   "town": "Pinckney",
+   "vicariate": "Livingston",
+   "panels": [],
+   "geo": {
+    "lat": 42.445939,
+    "lng": -83.933958,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Holy Redeemer",
+   "address": "1227 East Bristol Road, Burton, MI, 48529",
+   "site": "http://www.holyredeemerburton.org",
+   "phone": "810-743-3050",
+   "email": null,
+   "finderId": "dol_holy-redeemer-burton",
+   "town": "Burton",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 42.974145,
+    "lng": -83.683977,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "SS Charles & Helena",
+   "address": "230 East Vienna Street, Clio, MI, 48420",
+   "site": "http://sscharlesandhelena.org/",
+   "phone": "810-686-9861",
+   "email": null,
+   "finderId": "dol_ss-charles-helena-clio",
+   "town": "Clio",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 43.177434,
+    "lng": -83.730941,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St John the Evangelist (includes Blessed Sacrament Oratory, Burton)",
+   "address": "404 North Dayton Street, Davison, MI, 48423",
+   "site": "http://www.stjohndavison.org/",
+   "phone": "810-653-2377",
+   "email": null,
+   "finderId": "dol_st-john-evangelist-davison",
+   "town": "Davison",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 43.0348,
+    "lng": -83.5268,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "St. Mary and St. Joseph (includes St Joseph Oratory, Gaines)",
+   "address": "700 Columbia Drive, Durand, MI, 48429",
+   "site": "https://stmarystjoseph.org/",
+   "phone": "1-855-288-6704",
+   "email": null,
+   "finderId": "dol_st-mary-and-st-joseph-durand",
+   "town": "Durand",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 42.915193,
+    "lng": -83.976619,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St John the Evangelist",
+   "address": "600 North Adelaide Street, Fenton, MI, 48430",
+   "site": "http://www.stjohnfenton.org/",
+   "phone": "810-629-2251",
+   "email": null,
+   "finderId": "dol_st-john-evangelist-fenton",
+   "town": "Fenton",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 42.802645,
+    "lng": -83.709477,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Christ the King",
+   "address": "1832 Seymour Street, Flint, MI, 48503",
+   "site": "https://christthekingparishflint.org/",
+   "phone": "810-233-0402",
+   "email": null,
+   "finderId": "dol_christ-king-flint",
+   "town": "Flint",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 43.0128,
+    "lng": -83.6914,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "Holy Rosary",
+   "address": "5199 Richfield Road, Flint, MI, 48506",
+   "site": "http://holyrosaryflint.com/",
+   "phone": "810-736-4040",
+   "email": null,
+   "finderId": "dol_holy-rosary-flint",
+   "town": "Flint",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 43.050987,
+    "lng": -83.640786,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Our Lady of Guadalupe",
+   "address": "2316 West Coldwater Road, Flint, MI, 48505",
+   "site": "http://ologflint.org/",
+   "phone": "810-787-5701",
+   "email": null,
+   "finderId": "dol_our-lady-guadalupe-flint",
+   "town": "Flint",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 43.0634,
+    "lng": -83.7001,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "St John Vianney (includes St Mary Oratory, Flint and St Michael Oratory, Flint)",
+   "address": "2415 Bagley Street, Flint, MI, 48504",
+   "site": "http://www.flintcatholic.org/stjohnvianney",
+   "phone": "810-235-1812",
+   "email": null,
+   "finderId": "dol_st-john-vianney-flint",
+   "town": "Flint",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 43.020174,
+    "lng": -83.721859,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Matthew",
+   "address": "706 Beach Street, Flint, MI, 48502",
+   "site": "https://www.stmatthewflint.org/",
+   "phone": "810-232-0880",
+   "email": null,
+   "finderId": "dol_st-matthew-flint",
+   "town": "Flint",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 43.013236,
+    "lng": -83.690366,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Pius X - CLOSED",
+   "address": "G-3139 Hogarth Avenue, Flint, MI, 48532",
+   "site": "http://www.spxparish.com",
+   "phone": "810-235-8574",
+   "email": null,
+   "finderId": "dol_st-pius-x-flint",
+   "town": "Flint",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 42.995666,
+    "lng": -83.73901,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St. Robert Bellarmine",
+   "address": "310 North Cherry Street, Flushing, MI, 48433",
+   "site": "https://srbcatholic.com/",
+   "phone": "810-659-2501",
+   "email": null,
+   "finderId": "dol_st-robert-bellarmine-flushing",
+   "town": "Flushing",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 43.065133,
+    "lng": -83.85318,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Church of the Holy Family",
+   "address": "11804 South Saginaw Street, Grand Blanc, MI, 48439",
+   "site": "http://hfgb.org/",
+   "phone": "810-694-4891",
+   "email": null,
+   "finderId": "dol_holy-family-grand-blanc",
+   "town": "Grand Blanc",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 42.926971,
+    "lng": -83.629392,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Mark the Evangelist",
+   "address": "7296 Gale Rd., Grand Blanc, MI, 48439",
+   "site": "http://www.stmarkgoodrich.org/",
+   "phone": "810-636-2216",
+   "email": null,
+   "finderId": "dol_st-mark-evangelist-grand-blanc",
+   "town": "Grand Blanc",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 42.9282,
+    "lng": -83.6264,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "St Isidore",
+   "address": "310 Crum Street, Laingsburg, MI, 48848",
+   "site": "https://www.saintisidoreholyfamily.org/",
+   "phone": "517-651-6722",
+   "email": null,
+   "finderId": "dol_st-isidore-laingsburg",
+   "town": "Laingsburg",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 42.894111,
+    "lng": -84.352,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Good Shepherd",
+   "address": "400 N Saginaw St, Montrose, MI, 48457",
+   "site": "http://www.goodshepherdmontrose.org/",
+   "phone": "810-639-7600",
+   "email": null,
+   "finderId": "dol_good-shepherd-montrose",
+   "town": "Montrose",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 43.183782,
+    "lng": -83.891811,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Mary",
+   "address": "11110 North Saginaw Street, Mount Morris, MI, 48458",
+   "site": "http://stmarymountmorris.org/",
+   "phone": "810-686-3920",
+   "email": null,
+   "finderId": "dol_st-mary-mount-morris",
+   "town": "Mount Morris",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 43.112531,
+    "lng": -83.694252,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Francis Xavier",
+   "address": "212 Center Street, Otisville, MI, 48463",
+   "site": "http://sfxotisville.org",
+   "phone": "810-631-6305",
+   "email": null,
+   "finderId": "dol_st-francis-xavier-otisville",
+   "town": "Otisville",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 43.16983,
+    "lng": -83.519891,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Holy Family",
+   "address": "510 North Mabbitt Road, Ovid, MI, 48866",
+   "site": "https://www.saintisidoreholyfamily.org/",
+   "phone": "989-834-5855",
+   "email": null,
+   "finderId": "dol_holy-family-ovid",
+   "town": "Ovid",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 42.9969,
+    "lng": -84.3649,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "St Paul (includes St Joseph Oratory, Owosso)",
+   "address": "111 North Howell St., Owosso, MI, 48867",
+   "site": "http://www.stpaulowosso.org/",
+   "phone": "989-723-4277",
+   "email": null,
+   "finderId": "dol_st-paul-owosso",
+   "town": "Owosso",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 42.998049,
+    "lng": -84.17998,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Mary Queen of Angels",
+   "address": "4413 Morrish Road, Swartz Creek, MI, 48473",
+   "site": "http://www.smqa.net/",
+   "phone": "810-635-3240",
+   "email": null,
+   "finderId": "dol_st-mary-swartz-creek",
+   "town": "Swartz Creek",
+   "vicariate": "Shiawasee/Genesee",
+   "panels": [],
+   "geo": {
+    "lat": 42.960063,
+    "lng": -83.830652,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Christ the King",
+   "address": "4000 Ave Maria Drive, Ann Arbor, MI, 48105",
+   "site": "http://www.ctkcc.net",
+   "phone": "734-665-5040",
+   "email": null,
+   "finderId": "dol_christ-king-ann-arbor",
+   "town": "Ann Arbor",
+   "vicariate": "Washtenaw",
+   "panels": [],
+   "geo": {
+    "lat": 42.31204,
+    "lng": -83.682704,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Francis of Assisi",
+   "address": "2250 East Stadium Blvd, Ann Arbor, MI, 48104",
+   "site": "http://www.stfrancisa2.com/",
+   "phone": "734-821-2100",
+   "email": null,
+   "finderId": "dol_st-francis-assisi-ann-arbor",
+   "town": "Ann Arbor",
+   "vicariate": "Washtenaw",
+   "panels": [],
+   "geo": {
+    "lat": 42.260312,
+    "lng": -83.717937,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Mary Student",
+   "address": "331 Thompson Street, Ann Arbor, MI, 48104",
+   "site": "http://www.stmarystudentparish.org/",
+   "phone": "734-663-0557",
+   "email": null,
+   "finderId": "dol_st-mary-student-ann-arbor",
+   "town": "Ann Arbor",
+   "vicariate": "Washtenaw",
+   "panels": [],
+   "geo": {
+    "lat": 42.27833,
+    "lng": -83.742983,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Patrick",
+   "address": "5671 Whitmore Lake Road, Ann Arbor, MI, 48105",
+   "site": "http://stpatricka2.org/",
+   "phone": "734-662-8141",
+   "email": null,
+   "finderId": "dol_st-patrick-ann-arbor",
+   "town": "Ann Arbor",
+   "vicariate": "Washtenaw",
+   "panels": [],
+   "geo": {
+    "lat": 42.301824,
+    "lng": -83.745399,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Thomas the Apostle",
+   "address": "530 Elizabeth Street, Ann Arbor, MI, 48104",
+   "site": "https://sta2.org/church/",
+   "phone": "734-761-8606",
+   "email": null,
+   "finderId": "dol_st-thomas-apostle-ann-arbor",
+   "town": "Ann Arbor",
+   "vicariate": "Washtenaw",
+   "panels": [],
+   "geo": {
+    "lat": 42.285314,
+    "lng": -83.741591,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Mary",
+   "address": "14200 E. Old US Highway 12, Chelsea, MI, 48118",
+   "site": "http://www.stmarychelsea.org",
+   "phone": "734-475-7561",
+   "email": null,
+   "finderId": "dol_st-mary-chelsea",
+   "town": "Chelsea",
+   "vicariate": "Washtenaw",
+   "panels": [],
+   "geo": {
+    "lat": 42.304825,
+    "lng": -84.010809,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Joseph",
+   "address": "Village Church - 3430 Dover St., Country Church - 6805 Mast Road, Dexter, MI, 48130",
+   "site": "http://www.stjos.com",
+   "phone": "734-426-8483",
+   "email": null,
+   "finderId": "dol_st-joseph-dexter",
+   "town": "Dexter",
+   "vicariate": "Washtenaw",
+   "panels": [],
+   "geo": {
+    "lat": 42.3583,
+    "lng": -83.9,
+    "source": "zip"
+   }
+  },
+  {
+   "name": "St Mary",
+   "address": "210 West Main Street, Manchester, MI, 48158",
+   "site": "http://www.stmarymanchester.org/",
+   "phone": "734-428-8811",
+   "email": null,
+   "finderId": "dol_st-mary-manchester",
+   "town": "Manchester",
+   "vicariate": "Washtenaw",
+   "panels": [],
+   "geo": {
+    "lat": 42.1488,
+    "lng": -84.041656,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "Immaculate Conception",
+   "address": "420 North St., Milan, MI, 48160",
+   "site": "http://www.iccmilan.com/",
+   "phone": "734-439-2030",
+   "email": null,
+   "finderId": "dol_immaculate-conception-milan",
+   "town": "Milan",
+   "vicariate": "Washtenaw",
+   "panels": [],
+   "geo": {
+    "lat": 42.089002,
+    "lng": -83.682208,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Andrew",
+   "address": "910 Austin Drive, Saline, MI, 48176",
+   "site": "http://standrewsaline.org/",
+   "phone": "734-429-5210",
+   "email": null,
+   "finderId": "dol_st-andrew-saline",
+   "town": "Saline",
+   "vicariate": "Washtenaw",
+   "panels": [],
+   "geo": {
+    "lat": 42.162615,
+    "lng": -83.797782,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St John the Baptist",
+   "address": "411 Florence Street, Ypsilanti, MI, 48197",
+   "site": "http://www.ypsilanticatholic.com",
+   "phone": "734-483-3360",
+   "email": null,
+   "finderId": "dol_st-john-baptist-ypsilanti",
+   "town": "Ypsilanti",
+   "vicariate": "Washtenaw",
+   "panels": [],
+   "geo": {
+    "lat": 42.246518,
+    "lng": -83.61783,
+    "source": "nominatim:address"
+   }
+  },
+  {
+   "name": "St Joseph",
+   "address": "9425 Whittaker Road, Ypsilanti, MI, 48197",
+   "site": "https://www.sjypsi.com/",
+   "phone": "734-461-6555",
+   "email": null,
+   "finderId": "dol_st-joseph-ypsilanti",
+   "town": "Ypsilanti",
+   "vicariate": "Washtenaw",
+   "panels": [],
+   "geo": {
+    "lat": 42.151329,
+    "lng": -83.599504,
+    "source": "nominatim:address"
+   }
+  }
+ ]
+}

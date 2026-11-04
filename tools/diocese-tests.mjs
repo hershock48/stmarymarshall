@@ -11,25 +11,31 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const ts = (await import(pathToFileURL(path.join(ROOT, "node_modules/typescript/lib/typescript.js")).href)).default;
 const tmp = path.join(ROOT, ".next-diocese-tests");
 fs.mkdirSync(tmp, { recursive: true });
-const transpile = (file, out) => {
+// A diocese folder's files are flattened into the temp dir with the slug as
+// a prefix, so two dioceses' sibling imports ("./voice", "./finder.json")
+// cannot collide.
+const transpile = (file, out, prefix = "") => {
   const src = fs
     .readFileSync(file, "utf8")
     .replace(/from "@\/lib\/(\w+)"/g, 'from "./$1.mjs"')
     .replace(/from "@\/parishes\/(\w+)\/data"/g, 'from "./data-$1.mjs"')
     .replace(/from "@\/dioceses"/g, 'from "./dioceses.mjs"')
-    .replace(/from "\.\/kalamazoo\/config"/g, 'from "./kalamazoo-config.mjs"')
-    .replace(/from "\.\/(deaneries|events|notices|voice)"/g, 'from "./kalamazoo-$1.mjs"')
-    .replace(/import (\w+) from "(?:@\/[\w\/-]*\/|\.\/)([\w-]+)\.json";/g, 'import $1 from "./$2.json" with { type: "json" };')
-    .replace(/from "@\/parishes\/diocese\/(\w+)"/g, 'from "./diocese-$1.mjs"');
+    .replace(/from "\.\/(\w+)\/config"/g, 'from "./$1-config.mjs"')
+    .replace(/from "\.\/(deaneries|events|notices|voice)"/g, `from "./${prefix}$1.mjs"`)
+    .replace(/import (\w+) from "\.\/([\w-]+)\.json";/g, `import $1 from "./${prefix}$2.json" with { type: "json" };`)
+    .replace(/import (\w+) from "@\/[\w\/-]*\/([\w-]+)\.json";/g, 'import $1 from "./$2.json" with { type: "json" };');
   const js = ts.transpileModule(src, { compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022, verbatimModuleSyntax: false } }).outputText;
   fs.writeFileSync(path.join(tmp, out), js);
 };
 for (const f of ["i18n", "schedule", "events", "ics", "sentences", "geo", "diocese", "paths", "voice", "news", "notices", "deaneries"]) transpile(path.join(ROOT, "lib", f + ".ts"), f + ".mjs");
 transpile(path.join(ROOT, "dioceses/index.ts"), "dioceses.mjs");
-transpile(path.join(ROOT, "dioceses/kalamazoo/config.ts"), "kalamazoo-config.mjs");
 for (const slug of ["stmarymarshall", "stphilipbc", "sanfelipe"]) transpile(path.join(ROOT, "parishes", slug, "data.ts"), `data-${slug}.mjs`);
-for (const f of ["events", "notices", "voice", "deaneries"]) transpile(path.join(ROOT, "dioceses/kalamazoo", f + ".ts"), `kalamazoo-${f}.mjs`);
-fs.copyFileSync(path.join(ROOT, "dioceses/kalamazoo/finder.json"), path.join(tmp, "finder.json"));
+for (const d of fs.readdirSync(path.join(ROOT, "dioceses"), { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name)) {
+  const dir = path.join(ROOT, "dioceses", d);
+  transpile(path.join(dir, "config.ts"), `${d}-config.mjs`, `${d}-`);
+  for (const f of ["events", "notices", "voice", "deaneries"]) transpile(path.join(dir, f + ".ts"), `${d}-${f}.mjs`, `${d}-`);
+  for (const j of fs.readdirSync(dir).filter((n) => n.endsWith(".json"))) fs.copyFileSync(path.join(dir, j), path.join(tmp, `${d}-${j}`));
+}
 fs.copyFileSync(path.join(ROOT, "dioceses/zips-mi.json"), path.join(tmp, "zips-mi.json"));
 fs.copyFileSync(path.join(ROOT, "parishes/registry.json"), path.join(tmp, "registry.json"));
 const S = await import(pathToFileURL(path.join(tmp, "schedule.mjs")).href);
@@ -180,6 +186,19 @@ ok("San Felipe is Northern, with South Haven and Douglas", allP.find((p) => p.id
 ok("Sacred Heart of Mary (Silver Creek) is Southern", allP.find((p) => p.name === "Sacred Heart of Mary (mission)")?.deanery, "Southern Deanery");
 ok("The Stevensville church of St. Joseph sits with its parish in the Western Deanery", allP.find((p) => p.town === "Stevensville")?.collaborative?.includes("St. Joseph Parish, St. Joseph"), true);
 ok("Five deaneries cover the finder", new Set(allP.map((p) => p.deanery)).size, 5);
+
+// The second diocese: Lansing, read from its own directory, no Mass times of its own.
+const L = (await import(pathToFileURL(path.join(tmp, "dioceses.mjs")).href)).DIOCESES[1];
+const lan = D.dioceseParishes(L, at("2026-11-04T12:00:00Z"));
+ok("Lansing has its 73 parishes", lan.length, 73);
+ok("Every Lansing parish has a vicariate", lan.filter((p) => !p.deanery).map((p) => `${p.name} (${p.town})`), []);
+ok("Six vicariates", new Set(lan.map((p) => p.deanery)).size, 6);
+ok("Every Lansing parish is on the map", lan.filter((p) => !p.geo).length, 0);
+const el = D.nearby(L, G.resolvePlace("48823").point, 10, "en", at("2026-11-04T14:00:00Z"));
+ok("From East Lansing, St Thomas Aquinas is within ten miles", el.some((p) => /Thomas Aquinas/.test(p.name)), true);
+ok("A Lansing finder row has no next Mass, and says so with null rather than a guess", el[0].next.mass, null);
+ok("Kalamazoo is untouched by the second diocese", D.dioceseParishes(K, at("2026-11-04T12:00:00Z")).length, 60);
+ok("Lansing's bishop entry is audio with a file", L.voice[0].kind === "audio" && Boolean(L.voice[0].audio?.url), true);
 
 console.log(fails ? `\n${fails} failed` : "\nall passed");
 process.exit(fails ? 1 : 0);
