@@ -1,10 +1,9 @@
-import finder from "@/parishes/diocese/finder.json";
 import { ALL } from "@/lib/paths";
+import { deaneryOf } from "@/lib/deaneries";
 import { miles, type Point } from "@/lib/geo";
 import { occurrences, type Occurrence } from "@/lib/events";
 import { occurrenceId } from "@/lib/ics";
-import { DIOCESE_EVENTS } from "@/parishes/diocese/events";
-import { deaneryOf } from "@/parishes/diocese/deaneries";
+import type { Diocese, FinderPanel, FinderRow } from "@/lib/types";
 import { addDays, datedMasses, localNow, nextService, type LocalNow, type NextService, type Weekday } from "@/lib/schedule";
 import type { DatedMass, Parish, Section, Service } from "@/lib/types";
 import type { Lang } from "@/lib/i18n";
@@ -24,8 +23,6 @@ import type { Lang } from "@/lib/i18n";
  * So the finder covers all sixty from the first day, and gets better one
  * parish at a time, which is what the diocese letter promises.
  */
-export const TIME_ZONE = "America/Detroit";
-
 export type Source = "platform" | "finder";
 
 export type DioceseParish = {
@@ -33,7 +30,7 @@ export type DioceseParish = {
   name: string;
   town: string;
   address: string;
-  /** From the diocese's directory (parishes/diocese/deaneries.ts). */
+  /** From the diocese's directory (dioceses/kalamazoo/deaneries.ts). */
   deanery?: string;
   collaborative?: string[];
   phone?: string;
@@ -53,11 +50,6 @@ export type DioceseParish = {
   adorationPerpetual?: string;
 };
 
-type FinderTime = { time: string; end?: string; lang?: string; note?: string };
-type Panel = { sacrament?: "mass" | "confession" | "adoration"; cat: string; ulClass: string; dayClass: string; dayText: string; times: FinderTime[]; text?: string };
-type FinderRow = { name: string; address: string; site: string | null; phone: string | null; email: string | null; finderId: string | null; geo?: { lat: number; lng: number; source: string }; panels: Panel[] };
-const FINDER = finder.parishes as FinderRow[];
-
 const DAY: Record<string, Weekday> = { SUNDAY: 0, MONDAY: 1, TUESDAY: 2, WEDNESDAY: 3, THURSDAY: 4, FRIDAY: 5, SATURDAY: 6, SATURDAY_VIGIL: 6 };
 const MULTI: Record<string, Weekday> = { su: 0, m: 1, tu: 2, w: 3, th: 4, f: 5, sa: 6 };
 const NTH: Record<string, [number, Weekday]> = { FIRST_FRIDAY: [1, 5], FIRST_SATURDAY: [1, 6], FIRST_SUNDAY: [1, 0], FIRST_THURSDAY: [1, 4] };
@@ -73,7 +65,7 @@ export function to24(t: string): string | null {
   return `${String(h).padStart(2, "0")}:${m[2]}`;
 }
 
-function daysOf(p: Panel): Weekday[] {
+function daysOf(p: FinderPanel): Weekday[] {
   if (Object.hasOwn(DAY, p.dayClass)) return [DAY[p.dayClass]];
   if (p.dayClass.startsWith("MULTIDAY")) return p.dayClass.split(" ").filter((t) => t in MULTI).map((t) => MULTI[t]);
   return [];
@@ -97,7 +89,7 @@ function nthDates(nth: number, weekday: Weekday, now: LocalNow, count = 3): stri
  * it falls within seventy days of the day the finder was read: a dated
  * Mass in a stale finder.json must not roll a year forward.
  */
-function monthDay(text: string, now: LocalNow): string | null {
+function monthDay(text: string, now: LocalNow, readAt: string): string | null {
   const m = /^([A-Za-z]+)\.?\s+(\d{1,2})$/.exec(text.trim());
   if (!m) return null;
   const word = m[1].toLowerCase().slice(0, 3);
@@ -106,7 +98,7 @@ function monthDay(text: string, now: LocalNow): string | null {
   const y = Number(now.iso.slice(0, 4));
   const mk = (yy: number) => `${yy}-${String(mi + 1).padStart(2, "0")}-${String(Number(m[2])).padStart(2, "0")}`;
   const date = mk(y) >= now.iso ? mk(y) : mk(y + 1);
-  return date <= addDays(finder.readAt, 70) ? date : null;
+  return date <= addDays(readAt, 70) ? date : null;
 }
 
 const ORDINAL: Record<string, number> = { "1st": 1, first: 1, "2nd": 2, second: 2, "3rd": 3, third: 3, "4th": 4, fourth: 4, "5th": 5, fifth: 5 };
@@ -154,7 +146,8 @@ function inSeason(note: string, now: LocalNow): boolean {
   return true;
 }
 
-function fromFinder(r: FinderRow, now: LocalNow): DioceseParish {
+function fromFinder(d: Diocese, r: FinderRow, now: LocalNow): DioceseParish {
+  const readAt = d.finder.readAt;
   const lists = {
     mass: { weekly: [] as Service[], dated: [] as DatedMass[] },
     confession: { weekly: [] as Service[], dated: [] as DatedMass[] },
@@ -176,7 +169,7 @@ function fromFinder(r: FinderRow, now: LocalNow): DioceseParish {
       const lang = t.lang && LANG[t.lang] !== undefined ? LANG[t.lang] : t.lang;
       const base = { start, end, lang: lang || undefined, where: t.note || undefined };
       if (p.dayClass === "HOLY_DAY") {
-        const date = monthDay(p.dayText, now);
+        const date = monthDay(p.dayText, now, readAt);
         if (date) specials.push({ date, start, label: p.cat === "Upcoming Special Masses" ? `Special Mass${t.note ? `, ${t.note}` : ""}` : p.dayText, lang: base.lang });
         continue;
       }
@@ -198,7 +191,7 @@ function fromFinder(r: FinderRow, now: LocalNow): DioceseParish {
       // "Nov. 2": a one-off written into a weekly row.
       const dated = /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}\b/i.exec(note);
       if (dated) {
-        const date = monthDay(dated[0], now);
+        const date = monthDay(dated[0], now, readAt);
         if (date) specials.push({ date, start, label: note, lang: base.lang });
         continue;
       }
@@ -222,7 +215,7 @@ function fromFinder(r: FinderRow, now: LocalNow): DioceseParish {
     lang: es ? "es" : "en",
     geo: r.geo ? { lat: r.geo.lat, lng: r.geo.lng } : undefined,
     source: "finder",
-    ...deaneryOf(r.name, town),
+    ...deaneryOf(d.deaneries, r.name, town),
     masses,
     specials,
     confession: lists.confession.weekly,
@@ -233,7 +226,7 @@ function fromFinder(r: FinderRow, now: LocalNow): DioceseParish {
   };
 }
 
-function fromPlatform(p: Parish): DioceseParish {
+function fromPlatform(d: Diocese, p: Parish): DioceseParish {
   return {
     id: p.slug,
     name: p.name.replace(/ Catholic Church$/, "").replace(/^Parroquia /, ""),
@@ -245,7 +238,7 @@ function fromPlatform(p: Parish): DioceseParish {
     lang: p.lang,
     geo: p.geo,
     source: "platform",
-    ...deaneryOf(p.name, p.church.city),
+    ...deaneryOf(d.deaneries, p.name, p.church.city),
     parish: p,
     masses: p.masses,
     specials: datedMasses(p),
@@ -256,22 +249,29 @@ function fromPlatform(p: Parish): DioceseParish {
   };
 }
 
-let cache: { iso: string; list: DioceseParish[] } | null = null;
+const cache = new Map<string, { iso: string; list: DioceseParish[] }>();
 
-/** Every parish, platform rows first, the finder's rows for the rest. Dated entries are computed from today, so the list is cached per day. */
-export function dioceseParishes(now: LocalNow = localNow(TIME_ZONE)): DioceseParish[] {
-  if (cache && cache.iso === now.iso) return cache.list;
-  const replaced = new Set(ALL.map((p) => p.finderId).filter(Boolean));
-  const list = [...ALL.map(fromPlatform), ...FINDER.filter((r) => !replaced.has(r.finderId ?? "")).map((r) => fromFinder(r, now))];
-  cache = { iso: now.iso, list };
+/** The platform parishes of one diocese. */
+export function platformParishes(d: Diocese): Parish[] {
+  return ALL.filter((p) => p.diocese.slug === d.slug);
+}
+
+/** Every parish of a diocese, platform rows first, the finder's rows for the rest. Dated entries are computed from today, so the list is cached per diocese per day. */
+export function dioceseParishes(d: Diocese, now: LocalNow = localNow(d.timeZone)): DioceseParish[] {
+  const hit = cache.get(d.slug);
+  if (hit && hit.iso === now.iso) return hit.list;
+  const mine = platformParishes(d);
+  const replaced = new Set(mine.map((p) => p.finderId).filter(Boolean));
+  const list = [...mine.map((p) => fromPlatform(d, p)), ...(d.finder.parishes as FinderRow[]).filter((r) => !replaced.has(r.finderId ?? "")).map((r) => fromFinder(d, r, now))];
+  cache.set(d.slug, { iso: now.iso, list });
   return list;
 }
 
 export type Near = DioceseParish & { miles: number; next: { mass: NextService | null; confession: NextService | null; adoration: NextService | null } };
 
 /** Parishes within `radius` miles of a point, nearest first, each with its next Mass, Confession and Adoration from the clock. */
-export function nearby(point: Point, radius: number, lang: Lang = "en", now: LocalNow = localNow(TIME_ZONE)): Near[] {
-  return dioceseParishes(now)
+export function nearby(d: Diocese, point: Point, radius: number, lang: Lang = "en", now: LocalNow = localNow(d.timeZone)): Near[] {
+  return dioceseParishes(d, now)
     .filter((p) => p.geo)
     .map((p) => ({ ...p, miles: miles(point, p.geo as Point) }))
     .filter((p) => p.miles <= radius)
@@ -288,17 +288,17 @@ export function nearby(point: Point, radius: number, lang: Lang = "en", now: Loc
 
 /**
  * One row on the diocese calendar. From a platform parish it carries the
- * parish; from parishes/diocese/events.ts (the chancery's dates and the
+ * parish; from dioceses/kalamazoo/events.ts (the chancery's dates and the
  * parishes still on their old sites) it carries the host's name and no
  * parish, so the page links the diocese's own feed for it.
  */
 export type DioceseOccurrence = Occurrence & { parish?: Parish; host: string; town: string; id: string; href?: string };
 
 /** The diocese file's rows as occurrences, within the window and still ahead today. */
-function dioceseFileEvents(now: LocalNow, days: number): DioceseOccurrence[] {
+function dioceseFileEvents(d: Diocese, now: LocalNow, days: number): DioceseOccurrence[] {
   const last = addDays(now.iso, days - 1);
   const out: DioceseOccurrence[] = [];
-  for (const e of DIOCESE_EVENTS) {
+  for (const e of d.events) {
     const until = e.through ?? e.date;
     if (until < now.iso || e.date > last) continue;
     for (let d = e.date; d <= until && d <= last; d = addDays(d, 1)) {
@@ -314,25 +314,25 @@ function dioceseFileEvents(now: LocalNow, days: number): DioceseOccurrence[] {
 }
 
 /** Every event across the diocese for the next `days`, soonest first: platform calendars plus the diocese file. */
-export function dioceseEvents(days: number, now: LocalNow = localNow(TIME_ZONE)): DioceseOccurrence[] {
+export function dioceseEvents(d: Diocese, days: number, now: LocalNow = localNow(d.timeZone)): DioceseOccurrence[] {
   const out: DioceseOccurrence[] = [];
-  for (const p of ALL) for (const o of occurrences(p.events, now, days)) out.push({ ...o, id: occurrenceId(o), parish: p, host: p.shortName, town: p.church.city });
-  out.push(...dioceseFileEvents(now, days));
+  for (const p of platformParishes(d)) for (const o of occurrences(p.events, now, days)) out.push({ ...o, id: occurrenceId(o), parish: p, host: p.shortName, town: p.church.city });
+  out.push(...dioceseFileEvents(d, now, days));
   out.sort((a, b) => a.date.localeCompare(b.date) || (a.start ?? "").localeCompare(b.start ?? ""));
   return out;
 }
 
 /** One diocese-file event by its occurrence id, from today's date forward, or null. */
-export function dioceseFileEvent(id: string, now: LocalNow = localNow(TIME_ZONE)): DioceseOccurrence | null {
-  return dioceseFileEvents({ ...now, minutes: 0 }, 400).find((o) => o.id === id) ?? null;
+export function dioceseFileEvent(d: Diocese, id: string, now: LocalNow = localNow(d.timeZone)): DioceseOccurrence | null {
+  return dioceseFileEvents(d, { ...now, minutes: 0 }, 400).find((o) => o.id === id) ?? null;
 }
 
 export type DioceseGroup = Section & { parish: Parish; town: string; kind: "ministries" | "formation" };
 
 /** Every ministry and formation group on every platform parish, by parish. */
-export function dioceseGroups(): DioceseGroup[] {
+export function dioceseGroups(d: Diocese): DioceseGroup[] {
   const out: DioceseGroup[] = [];
-  for (const p of ALL) {
+  for (const p of platformParishes(d)) {
     for (const s of p.ministries) out.push({ ...s, parish: p, town: p.church.city, kind: "ministries" });
     for (const s of p.formation) out.push({ ...s, parish: p, town: p.church.city, kind: "formation" });
   }
@@ -340,6 +340,6 @@ export function dioceseGroups(): DioceseGroup[] {
 }
 
 /** The towns the diocese's parishes sit in, for a filter. */
-export function dioceseTowns(): string[] {
-  return [...new Set(dioceseParishes().map((p) => p.town))].sort();
+export function dioceseTowns(d: Diocese): string[] {
+  return [...new Set(dioceseParishes(d).map((p) => p.town))].sort();
 }

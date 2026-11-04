@@ -34,7 +34,7 @@ the registry default, St. Mary.
 | `stphilip.glazedweb.com`, `sanfelipe.glazedweb.com` | The St. Philip and San Felipe demos at `/` and `/demo`, noindex (no letter yet) |
 | `kalamazoo.glazedweb.com` | The diocese letter at `/`; the diocesan feed at `/diocese/mass-times.json` |
 | any host, `/diocese` | Every parish on one page (address, Mass, Confession, Adoration, site and calendar links): the readable twin of the JSON feed, dressed in the host's parish |
-| any host, `/diocese/near` | Mass near you: a zip, a town or `lat,lng` from the phone, every parish within 10, 25 or 50 miles, nearest first, with the next Mass, Confession and Adoration from the clock. All sixty parishes and missions: the platform's from their data, the rest from `parishes/diocese/finder.json` |
+| any host, `/diocese/near` | Mass near you: a zip, a town or `lat,lng` from the phone, every parish within 10, 25 or 50 miles, nearest first, with the next Mass, Confession and Adoration from the clock. All sixty parishes and missions: the platform's from their data, the rest from `dioceses/kalamazoo/finder.json` |
 | any host, `/diocese/events`, `/diocese/groups` | Every platform parish's calendar for 14 days by kind and town; every ministry and formation group with its contact |
 | any host, `/diocese/security` | What we store, what we do not, where it runs: the security and data page a chancellor can hand to IT. It describes this code; change it in the same commit as the behavior it describes |
 | any host, `/diocese/office` | The chancery view, behind `DIOCESE_PASSCODE`: each site's freshness and unconfirmed facts from the data, the finder's coverage, and (with `DATABASE_URL`) pages served, finder searches, forms sent and Give taps as counts |
@@ -58,7 +58,7 @@ dynamic segment returns an empty client-rendered body in this Next version
 
 `lib/diocese.ts` joins the three platform parishes with the other
 fifty-seven read from the diocese's own Parish Finder. `node
-tools/finder-import.mjs <saved parishfinder.html> parishes/diocese/finder.json`
+tools/finder-import.mjs <saved parishfinder.html> dioceses/kalamazoo/finder.json`
 reads that page in a browser (fetch it with curl first; `finder.json` records
 the date) and geocodes each address through Nominatim once, one request a
 second; a parish's `finderId` in its data.ts replaces its finder row the
@@ -67,10 +67,10 @@ and Adoration, and all three are read; a note that carries the real rule
 ("2nd & 4th Fridays", "May-October", "Communion Service Only") becomes
 dated rows, a seasonal gate, or nothing, and Perpetual Adoration is a flag
 rather than a time. Distances and the
-zip lookup are offline (`lib/geo.ts`, `parishes/diocese/zips.json` from
+zip lookup are offline (`lib/geo.ts`, `dioceses/zips-mi.json` from
 GeoNames). Every parish site shows its three nearest parishes on the Mass
 times page (`components/NearbyStrip.tsx`) and the chancery's notices
-(`parishes/diocese/notices.ts`) at the top of its home page unless
+(`dioceses/kalamazoo/notices.ts`) at the top of its home page unless
 `diocesanNotices: false`.
 
 Every response carries the headers listed on that page (`next.config.ts`:
@@ -85,7 +85,7 @@ finder.kalamazoo.glazedweb.com): the finder at `/`, the diocese pages under
 `/diocese`, the diocese's own header and footer (`components/DioceseChrome.tsx`)
 and no parish anywhere (proxy.ts sends parish paths there to the 404). The
 finder may be framed by diokzoo.org and by nothing else (next.config.ts);
-every other page may be framed by no one. `DIOCESE_DEFAULT=1 npm start`
+every other page may be framed by no one. `DIOCESE_DEFAULT=kalamazoo npm start` (or `=1` for the first diocese)
 makes a local server answer as that host so the auditor can run against
 it. Every finder card says when the Parish Finder was read and carries
 "Wrong time? Tell us" (`/diocese/report`, `/api/report`, delivered to
@@ -95,10 +95,10 @@ which refuses a parse shorter than ninety percent of the last one, runs the
 tests, and commits `finder.json` only when it changed.
 
 `/diocese/events` joins the platform parishes' calendars with
-`parishes/diocese/events.ts`, the chancery's and the other parishes' dates
+`dioceses/kalamazoo/events.ts`, the chancery's and the other parishes' dates
 typed from the diocese's weekly email (The Insider), and `/diocese/events.ics`
 is the whole diocese as one subscription. `/diocese/voice` is the bishop's
-voice: `parishes/diocese/voice.ts` lists the recordings the diocese has
+voice: `dioceses/kalamazoo/voice.ts` lists the recordings the diocese has
 published, newest first, every parish home page carries the newest one
 (`components/BishopsVoice.tsx`, off with `bishopsVoice: false`),
 `/diocese/voice.xml` is the same list as RSS, and the page's tail reads the
@@ -115,7 +115,7 @@ on now. `components/HolyDayNotice.tsx` is the line at the top of every
 parish page in the week before a holy day or a dated Mass, from the same
 `holyDays` and `specialMasses` the Mass times page uses.
 
-`parishes/diocese/deaneries.ts` holds the five deaneries and their
+`dioceses/kalamazoo/deaneries.ts` holds the five deaneries and their
 collaboratives as the diocese's own directory prints them (December 2025);
 `deaneryOf` matches every finder row, the test fails if one is left out,
 the finder cards say the deanery and `/diocese/events` filters by it.

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { after } from "next/server";
 import { dioceseParishes } from "@/lib/diocese";
 import { configured, send } from "@/lib/mail";
+import { getDiocese } from "@/lib/parish";
 import { bump } from "@/lib/tally";
 
 /**
@@ -26,7 +27,7 @@ export async function POST(req: Request) {
   const what = get("what");
   if (!what) return back("required");
   const id = get("parish");
-  const parish = dioceseParishes().find((p) => p.id === id);
+  const parish = dioceseParishes(await getDiocese()).find((p) => p.id === id);
   const who = parish ? `${parish.name}, ${parish.town} (${parish.source}, ${parish.id})` : "parish not chosen";
   const text = `Parish: ${who}\n\nWhat is wrong:\n${what}\n\nFrom: ${get("email") || "no address given"}\nHost: ${new URL(req.url).host}`;
   const subject = `[finder] wrong time: ${parish ? parish.name : "unknown parish"}`;

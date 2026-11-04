@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { nearby, TIME_ZONE } from "@/lib/diocese";
+import { nearby } from "@/lib/diocese";
+import { dioceseOfParish } from "@/dioceses";
 import { strings } from "@/lib/i18n";
 import { localNow, whenWord } from "@/lib/schedule";
 import type { Parish } from "@/lib/types";
@@ -12,7 +13,7 @@ import type { Parish } from "@/lib/types";
 export default function NearbyStrip({ parish: p }: { parish: Parish }) {
   if (!p.geo) return null;
   const s = strings(p.lang).diocese;
-  const near = nearby(p.geo, 30, p.lang, localNow(TIME_ZONE)).filter((n) => n.id !== p.slug && n.next.mass).slice(0, 3);
+  const near = nearby(dioceseOfParish(p), p.geo, 30, p.lang, localNow(p.timeZone)).filter((n) => n.id !== p.slug && n.next.mass).slice(0, 3);
   if (!near.length) return null;
   const q = `${p.geo.lat.toFixed(4)},${p.geo.lng.toFixed(4)}`;
   return (

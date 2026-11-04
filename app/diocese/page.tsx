@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import DioceseNav from "@/components/DioceseNav";
 import { Band, H2 } from "@/components/ui";
 import { fmtTime, DAY_NAMES } from "@/lib/schedule";
-import { allParishes, getParish } from "@/lib/parish";
+import { platformParishes } from "@/lib/diocese";
+import { getDiocese, getParish } from "@/lib/parish";
 import type { Service } from "@/lib/types";
 
 /**
@@ -17,7 +18,8 @@ import type { Service } from "@/lib/types";
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "Every parish, one page | Diocese of Kalamazoo pilot", description: "Mass, Confession and Adoration times for every parish on the platform, with its address and its site.", robots: { index: false }, alternates: {} };
+  const d = await getDiocese();
+  return { title: `Every parish, one page | ${d.name} pilot`, description: "Mass, Confession and Adoration times for every parish on the platform, with its address and its site.", robots: { index: false }, alternates: {} };
 }
 
 function rows(list: Service[]) {
@@ -38,12 +40,13 @@ function rows(list: Service[]) {
 export default async function Diocese() {
   // Only so the page knows which host it is on; the content is every parish.
   const p = await getParish();
-  const parishes = allParishes();
+  const d = await getDiocese();
+  const parishes = platformParishes(d);
   return (
     <>
       <section className="bg-navy">
         <div className="mx-auto max-w-7xl px-4 pb-12 pt-16 sm:px-6 sm:pt-20 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Diocese of Kalamazoo · pilot</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{d.name} · pilot</p>
           <h1 className="display mt-3 max-w-3xl text-4xl leading-tight text-cream sm:text-5xl lg:text-6xl">Every parish, one page</h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-dim">
             The parishes on the platform today, with their schedules read from the same data their own sites use. Nothing here is typed twice. The same page exists{" "}

@@ -2,7 +2,8 @@ import Link from "next/link";
 import GlazedPlate from "@/components/GlazedPlate";
 import { strings, type Lang } from "@/lib/i18n";
 import { fmtDate } from "@/lib/schedule";
-import finder from "@/parishes/diocese/finder.json";
+import type { Diocese } from "@/lib/types";
+import { dioceseName } from "@/dioceses";
 
 /**
  * The header and footer the diocese layer wears on its own host
@@ -10,7 +11,7 @@ import finder from "@/parishes/diocese/finder.json";
  * no parish anywhere. A parish host dresses the same pages in the parish's
  * own header; this is what the diocese's Parish Finder page would point at.
  */
-export function DioceseHeader({ lang }: { lang: Lang }) {
+export function DioceseHeader({ lang, diocese: d }: { lang: Lang; diocese: Diocese }) {
   const s = strings(lang);
   const c = s.diocese.chrome;
   const n = s.diocese.nav;
@@ -30,7 +31,7 @@ export function DioceseHeader({ lang }: { lang: Lang }) {
             <path d="M50 22v56M32 42h36" strokeWidth="8" />
           </svg>
           <span className="display text-xl leading-none sm:text-2xl">
-            {c.name} <span className="hidden text-dim sm:inline">· {c.sub}</span>
+            {dioceseName(d, lang)} <span className="hidden text-dim sm:inline">· {c.sub}</span>
             <span className="sr-only">, {c.home}</span>
           </span>
         </Link>
@@ -46,16 +47,16 @@ export function DioceseHeader({ lang }: { lang: Lang }) {
   );
 }
 
-export function DioceseFooter({ lang }: { lang: Lang }) {
+export function DioceseFooter({ lang, diocese: d }: { lang: Lang; diocese: Diocese }) {
   const s = strings(lang);
   const c = s.diocese.chrome;
   return (
     <footer className="border-t border-navy-line bg-navy">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 lg:px-8">
         <div>
-          <p className="display text-2xl leading-none text-cream">{c.name}</p>
+          <p className="display text-2xl leading-none text-cream">{dioceseName(d, lang)}</p>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-dim">{c.lede}</p>
-          <p className="mt-3 text-sm text-dim">{c.checked(fmtDate(finder.readAt, true, lang))}</p>
+          <p className="mt-3 text-sm text-dim">{c.checked(fmtDate(d.finder.readAt, true, lang))}</p>
         </div>
         <div className="text-sm">
           <ul className="space-y-2 text-dim">
@@ -65,8 +66,8 @@ export function DioceseFooter({ lang }: { lang: Lang }) {
               </Link>
             </li>
             <li>
-              <a href="https://www.diokzoo.org/" className="inline-block min-h-6 hover:text-cream" target="_blank" rel="noopener noreferrer">
-                {c.site}: diokzoo.org
+              <a href={d.site} className="inline-block min-h-6 hover:text-cream" target="_blank" rel="noopener noreferrer">
+                {c.site}: {d.siteHost}
               </a>
             </li>
             <li>

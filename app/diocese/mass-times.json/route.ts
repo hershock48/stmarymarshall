@@ -1,4 +1,5 @@
-import { allParishes } from "@/lib/parish";
+import { platformParishes } from "@/lib/diocese";
+import { getDiocese } from "@/lib/parish";
 import { fmtTime, DAY_NAMES } from "@/lib/schedule";
 
 export const dynamic = "force-dynamic";
@@ -13,7 +14,8 @@ export const dynamic = "force-dynamic";
  *
  *   GET /diocese/mass-times.json
  */
-export function GET() {
+export async function GET() {
+  const d = await getDiocese();
   const row = (s: { day: number; start: string; end?: string; label?: string; lang?: string; where?: string }) => ({
     day: DAY_NAMES[s.day],
     start: s.start,
@@ -24,10 +26,10 @@ export function GET() {
     ...(s.where ? { note: s.where } : {}),
   });
   const body = {
-    diocese: "Diocese of Kalamazoo",
+    diocese: d.name,
     generated: new Date().toISOString(),
-    timeZone: "America/Detroit",
-    parishes: allParishes().map((p) => ({
+    timeZone: d.timeZone,
+    parishes: platformParishes(d).map((p) => ({
       slug: p.slug,
       name: p.name,
       city: p.church.city,

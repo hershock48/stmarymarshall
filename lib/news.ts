@@ -1,9 +1,10 @@
 import { occurrences, type Occurrence } from "@/lib/events";
 import type { Lang } from "@/lib/i18n";
 import { addDays, fmtTime, upcomingHolyDays, upcomingSpecials, type LocalNow } from "@/lib/schedule";
-import type { Announcement, Parish } from "@/lib/types";
+import { liveNotices } from "@/lib/notices";
+import type { Announcement, Notice, Parish } from "@/lib/types";
 import { latestVoice } from "@/lib/voice";
-import { liveNotices, type Notice } from "@/parishes/diocese/notices";
+import { dioceseOfParish } from "@/dioceses";
 
 /**
  * The week's news for a parish, compiled rather than typed: what the
@@ -56,12 +57,13 @@ export function parishWeek(p: Parish, now: LocalNow, days = 7, lang: Lang = p.la
       .filter((h) => h.date <= last)
       .map((h) => ({ id: `holy-${h.date}`, kind: "holyDay" as const, date: h.date, title: h.label, when: h.masses && h.masses.length ? h.masses.map((m) => (m.label ? `${m.label} ${fmtTime(m.start)}` : fmtTime(m.start))).join(", ") : undefined, body: h.note })),
   ].sort((a, b) => a.date.localeCompare(b.date));
-  const bishop = p.bishopsVoice === false ? null : latestVoice(lang);
+  const d = dioceseOfParish(p);
+  const bishop = p.bishopsVoice === false ? null : latestVoice(d, lang);
   return {
     announcements: liveAnnouncements(p.announcements, now.iso, lang),
     masses,
     events: occurrences(p.events, now, days),
-    diocese: p.diocesanNotices === false ? [] : liveNotices(now.iso).map((n) => noticeItem(n, lang)),
+    diocese: p.diocesanNotices === false ? [] : liveNotices(d.notices, now.iso).map((n) => noticeItem(n, lang)),
     bishop: bishop ? { id: `bishop-${bishop.id}`, kind: "bishop", date: bishop.date, title: bishop.title, body: bishop.lede, href: bishop.youtube ? `https://www.youtube.com/watch?v=${bishop.youtube}` : "/diocese/voice" } : null,
   };
 }

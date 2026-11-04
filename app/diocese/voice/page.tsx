@@ -3,7 +3,8 @@ import Image from "next/image";
 import DioceseNav from "@/components/DioceseNav";
 import { Band } from "@/components/ui";
 import { strings } from "@/lib/i18n";
-import { getParish } from "@/lib/parish";
+import { getDiocese, getParish } from "@/lib/parish";
+import { dioceseName } from "@/dioceses";
 import { fmtDate } from "@/lib/schedule";
 import { channelVideos, embedUrl, latestVoice, pairOf, thumb, voiceEntries, watchUrl } from "@/lib/voice";
 
@@ -18,23 +19,25 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const p = await getParish();
+  const d = await getDiocese();
   const s = strings(p.lang).diocese;
-  return { title: `${s.voice.title} | ${s.kicker}`, description: s.voice.lede, robots: { index: false }, alternates: {} };
+  return { title: `${s.voice.title} | ${dioceseName(d, p.lang)}`, description: s.voice.lede, robots: { index: false }, alternates: {} };
 }
 
 export default async function VoicePage() {
   const p = await getParish();
+  const d = await getDiocese();
   const lang = p.lang;
   const s = strings(lang).diocese;
   const t = s.voice;
-  const featured = latestVoice(lang);
-  const entries = voiceEntries(lang).filter((v) => v.id !== featured?.id);
-  const channel = await channelVideos(8);
+  const featured = latestVoice(d, lang);
+  const entries = voiceEntries(d, lang).filter((v) => v.id !== featured?.id);
+  const channel = await channelVideos(d, 8);
   return (
     <>
       <section className="bg-navy">
         <div className="mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-6 sm:pt-20 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{s.kicker}</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{dioceseName(d, p.lang)}</p>
           <h1 className="display mt-3 max-w-3xl text-4xl leading-tight text-cream sm:text-5xl lg:text-6xl">{t.title}</h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-dim">{t.lede}</p>
           <p className="mt-6 text-sm">
@@ -56,10 +59,10 @@ export default async function VoicePage() {
               <h2 className="display mt-2 text-3xl leading-tight text-cream">{featured.title}</h2>
               <p className="mt-3 text-dim">{featured.lede}</p>
               <p className="mt-2 text-sm text-dim">{t.published(fmtDate(featured.date, true, lang))}</p>
-              {pairOf(featured)?.youtube ? (
+              {pairOf(d, featured)?.youtube ? (
                 <p className="mt-3 text-sm">
-                  <a href={watchUrl(pairOf(featured)!.youtube!)} target="_blank" rel="noopener noreferrer" className="inline-block min-h-6 font-semibold text-gold underline underline-offset-4 hover:text-gold-light">
-                    {pairOf(featured)!.lang === "es" ? t.inSpanish : t.inEnglish}
+                  <a href={watchUrl(pairOf(d, featured)!.youtube!)} target="_blank" rel="noopener noreferrer" className="inline-block min-h-6 font-semibold text-gold underline underline-offset-4 hover:text-gold-light">
+                    {pairOf(d, featured)!.lang === "es" ? t.inSpanish : t.inEnglish}
                   </a>
                 </p>
               ) : null}

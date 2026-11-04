@@ -1,7 +1,8 @@
 import "server-only";
 import { headers } from "next/headers";
-import { ALL, isDioceseHost, parishBySlug as bySlug, parishForHost } from "@/lib/paths";
-import type { Parish } from "@/lib/types";
+import { ALL, dioceseSlugForHost, isDioceseHost, parishBySlug as bySlug, parishForHost } from "@/lib/paths";
+import type { Diocese, Parish } from "@/lib/types";
+import { DIOCESES, dioceseBySlug } from "@/dioceses";
 
 /**
  * Which parish a request is for, from the Host header.
@@ -40,7 +41,13 @@ export async function isNoindexHost(): Promise<boolean> {
   return !p.live || p.pitchHost === h || isDioceseHost(h) || /\.vercel\.app$/.test(h);
 }
 
-/** True on the diocese layer's own host (lib/paths.ts), where the pages wear the diocese's chrome, not a parish's. */
+/** True on a diocese layer's own host (lib/paths.ts), where the pages wear the diocese's chrome, not a parish's. */
 export async function onDioceseHost(): Promise<boolean> {
   return isDioceseHost((await headers()).get("host"));
+}
+
+/** The diocese a request is for: the host's own diocese, or the host's parish's diocese. */
+export async function getDiocese(): Promise<Diocese> {
+  const slug = dioceseSlugForHost((await headers()).get("host"));
+  return dioceseBySlug(slug) ?? DIOCESES[0];
 }

@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { Band } from "@/components/ui";
-import { dioceseParishes, TIME_ZONE } from "@/lib/diocese";
+import { dioceseParishes } from "@/lib/diocese";
 import { occurrences } from "@/lib/events";
 import { admitted, configured } from "@/lib/office";
-import { getParish } from "@/lib/parish";
+import { getDiocese, getParish } from "@/lib/parish";
 import { ALL } from "@/lib/paths";
 import { addDays, localNow } from "@/lib/schedule";
 import { byDay, counting, totals } from "@/lib/tally";
-import finder from "@/parishes/diocese/finder.json";
 
 /**
  * The chancery view: every site's health and pull on one page, behind a
@@ -21,7 +20,7 @@ import finder from "@/parishes/diocese/finder.json";
  */
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = { title: "The chancery view | Diocese of Kalamazoo pilot", robots: { index: false, follow: false }, alternates: {} };
+export const metadata: Metadata = { title: "The chancery view | pilot", robots: { index: false, follow: false }, alternates: {} };
 
 const DAYS = 30;
 
@@ -65,6 +64,7 @@ function Table({ head, rows }: { head: string[]; rows: (string | number)[][] }) 
 }
 
 export default async function OfficePage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
+  const d = await getDiocese();
   await getParish();
   const sp = await searchParams;
   const ok = await admitted();
@@ -72,7 +72,7 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
     return (
       <Band tone="paper">
         <div className="mx-auto max-w-md">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-marian">Diocese of Kalamazoo · pilot</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-marian">{d.name} · pilot</p>
           <h1 className="display mt-3 text-4xl text-ink">The chancery view</h1>
           {configured() ? (
             <form action="/diocese/office/enter" method="post" className="mt-6 flex flex-col gap-3">
@@ -93,8 +93,8 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
     );
   }
 
-  const now = localNow(TIME_ZONE);
-  const all = dioceseParishes(now);
+  const now = localNow(d.timeZone);
+  const all = dioceseParishes(d, now);
   const onPlatform = ALL;
   const nextMonthFrom = addDays(now.iso, 28);
 
@@ -127,7 +127,7 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
     <>
       <section className="bg-navy">
         <div className="mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-6 sm:pt-20 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Diocese of Kalamazoo · pilot</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{d.name} · pilot</p>
           <h1 className="display mt-3 max-w-3xl text-4xl leading-tight text-cream sm:text-5xl lg:text-6xl">The chancery view</h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-dim">Every site on the platform: what is current, what is still unconfirmed, and how much it is used. Counts only. No cookies, no visitor ids, no addresses, no contents of any form. Nothing here is about a person.</p>
         </div>
@@ -137,7 +137,7 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
           <Table head={["Parish", "Town", "Where it answers", "Forms inbox", "Events next 4 weeks", "Events the 4 after", "Holy days without a time", "Office hours published"]} rows={health} />
         </Section>
 
-        <Section title="The finder" lede={`All ${all.length} parishes and missions are on the finder. ${onPlatform.length} answer from their own data; ${finderRows.length} are read from the diocesan Parish Finder as of ${finder.readAt}. ${finderNoSite} have no website at all. ${spanish} list a Mass in Spanish.`}>
+        <Section title="The finder" lede={`All ${all.length} parishes and missions are on the finder. ${onPlatform.length} answer from their own data; ${finderRows.length} are read from the diocesan Parish Finder as of ${d.finder.readAt}. ${finderNoSite} have no website at all. ${spanish} list a Mass in Spanish.`}>
           <Table head={["Parish", "Town", "Source", "Website", "Masses listed"]} rows={all.map((p) => [p.name, p.town, p.source === "platform" ? "its own data" : "Parish Finder", p.site ? "yes" : "none", p.masses.length + p.specials.length])} />
         </Section>
 

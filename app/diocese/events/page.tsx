@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import DioceseNav from "@/components/DioceseNav";
 import { Band } from "@/components/ui";
-import { dioceseEvents, TIME_ZONE } from "@/lib/diocese";
+import { dioceseEvents } from "@/lib/diocese";
 import { fmtLongDate, fmtRange, KINDS, kindLabel } from "@/lib/events";
 import type { EventKind } from "@/lib/types";
 import { strings } from "@/lib/i18n";
 import { occurrenceId } from "@/lib/ics";
-import { getParish } from "@/lib/parish";
+import { getDiocese, getParish } from "@/lib/parish";
+import { dioceseName } from "@/dioceses";
 import { localNow } from "@/lib/schedule";
-import { DEANERIES, deaneryOfTown } from "@/parishes/diocese/deaneries";
+import { deaneryOfTown } from "@/lib/deaneries";
 
 /**
  * This week across the diocese: every event on every platform parish's
@@ -22,23 +23,25 @@ const DAYS = 14;
 
 export async function generateMetadata(): Promise<Metadata> {
   const p = await getParish();
+  const d = await getDiocese();
   const s = strings(p.lang).diocese;
-  return { title: `${s.events.title} | ${s.kicker}`, description: s.events.lede, robots: { index: false }, alternates: {} };
+  return { title: `${s.events.title} | ${dioceseName(d, p.lang)}`, description: s.events.lede, robots: { index: false }, alternates: {} };
 }
 
 export default async function EventsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const p = await getParish();
+  const d = await getDiocese();
   const lang = p.lang;
   const s = strings(lang).diocese;
   const t = s.events;
   const sp = await searchParams;
   const kind = KINDS.includes(sp.kind as EventKind) ? (sp.kind as EventKind) : null;
-  const now = localNow(TIME_ZONE);
-  const all = dioceseEvents(DAYS, now);
+  const now = localNow(d.timeZone);
+  const all = dioceseEvents(d, DAYS, now);
   const towns = [...new Set(all.map((o) => o.town))].sort();
   const town = typeof sp.town === "string" && towns.includes(sp.town) ? sp.town : null;
-  const deanery = typeof sp.deanery === "string" && DEANERIES.some((d) => d.name === sp.deanery) ? sp.deanery : null;
-  const items = all.filter((o) => (!kind || o.kind === kind) && (!town || o.town === town) && (!deanery || deaneryOfTown(o.town) === deanery));
+  const deanery = typeof sp.deanery === "string" && d.deaneries.some((x) => x.name === sp.deanery) ? sp.deanery : null;
+  const items = all.filter((o) => (!kind || o.kind === kind) && (!town || o.town === town) && (!deanery || deaneryOfTown(d.deaneries, o.town) === deanery));
   const days = new Map<string, typeof items>();
   for (const o of items) {
     if (!days.has(o.date)) days.set(o.date, []);
@@ -49,7 +52,7 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
     <>
       <section className="bg-navy">
         <div className="mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-6 sm:pt-20 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{s.kicker}</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{dioceseName(d, p.lang)}</p>
           <h1 className="display mt-3 max-w-3xl text-4xl leading-tight text-cream sm:text-5xl lg:text-6xl">{t.title}</h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-dim">{t.lede}</p>
           <form action="/diocese/events" method="get" className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end">
@@ -79,9 +82,9 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
               {t.deanery}
               <select name="deanery" defaultValue={deanery ?? ""} className="min-h-11 rounded-sm border border-navy-line bg-navy-soft px-3 text-base text-cream">
                 <option value="">{t.anyDeanery}</option>
-                {DEANERIES.map((d) => (
-                  <option key={d.name} value={d.name}>
-                    {d.name}
+                {d.deaneries.map((dn) => (
+                  <option key={dn.name} value={dn.name}>
+                    {dn.name}
                   </option>
                 ))}
               </select>

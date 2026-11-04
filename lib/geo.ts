@@ -1,4 +1,4 @@
-import zips from "@/parishes/diocese/zips.json";
+import zips from "@/dioceses/zips-mi.json";
 
 /**
  * Distance and place lookup for the diocese finder. Everything here is

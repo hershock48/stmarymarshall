@@ -1,6 +1,6 @@
 /**
  * The charts in the diocese letter, generated from their data and written
- * between the <!-- chart:name --> markers in public/pitch/diocese/index.html.
+ * between the <!-- chart:name --> markers in public/pitch/kalamazoo/index.html.
  *
  *   node tools/letter-charts.mjs
  *
@@ -17,7 +17,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
-const FILE = path.join(ROOT, "public/pitch/diocese/index.html");
+const FILE = path.join(ROOT, "public/pitch/kalamazoo/index.html");
 const PINK = "#CE3672";
 const GREEN = "#467C3D";
 const GRAY = "#C9BBA8";

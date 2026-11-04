@@ -25,7 +25,7 @@ const parish: Parish = {
   parishName: "St. Philip Parish",
   tagline: "A Catholic parish in Battle Creek, Michigan, since 1869",
   founded: 1869,
-  diocese: { name: "Diocese of Kalamazoo", url: "https://www.diokzoo.org/" },
+  diocese: { slug: "kalamazoo", name: "Diocese of Kalamazoo", url: "https://www.diokzoo.org/" },
   timeZone: "America/Detroit",
   // The parish's own logo, from its old site.
   mark: { type: "image", src: `${P}/img/logo.png`, width: 268, height: 441 },

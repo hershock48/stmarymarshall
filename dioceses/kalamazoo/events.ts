@@ -1,4 +1,4 @@
-import type { EventKind } from "@/lib/types";
+import type { DioceseEvent } from "@/lib/types";
 
 /**
  * Events across the diocese that do not come from a platform parish's own
@@ -14,24 +14,6 @@ import type { EventKind } from "@/lib/types";
  * the inbox, kept by hand, and the diff is the news. A date the email got
  * wrong is corrected here and the correction noted.
  */
-export type DioceseEvent = {
-  id: string;
-  date: string;
-  /** A second date for a two-day event; it shows on both days. */
-  through?: string;
-  start?: string;
-  end?: string;
-  title: string;
-  /** Who is holding it: a parish, the bishop, an office. */
-  host: string;
-  where?: string;
-  town: string;
-  kind: EventKind;
-  note?: string;
-  href?: string;
-  source: string;
-};
-
 const INSIDER = "The Insider, 2026-11-03";
 
 export const DIOCESE_EVENTS: DioceseEvent[] = [

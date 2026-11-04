@@ -109,7 +109,8 @@ export type Parish = {
   parishName: string;
   tagline: string;
   founded?: number;
-  diocese: { name: string; url: string };
+  /** The diocese the parish belongs to (dioceses/<slug>/config.ts). */
+  diocese: { slug: string; name: string; url: string };
   timeZone: string;
   mark: Mark;
   theme?: Theme;
@@ -121,11 +122,11 @@ export type Parish = {
   office?: { street: string; city: string; state: string; zip: string };
   officeHours?: string[];
   geo?: { lat: number; lng: number };
-  /** The parish's row in the diocesan Parish Finder (parishes/diocese/finder.json), which this data replaces on the diocese pages. */
+  /** The parish's row in the diocesan Parish Finder (dioceses/kalamazoo/finder.json), which this data replaces on the diocese pages. */
   finderId?: string;
-  /** Show the diocese's notices (parishes/diocese/notices.ts) on the home page. On unless the parish says otherwise. */
+  /** Show the diocese's notices (dioceses/kalamazoo/notices.ts) on the home page. On unless the parish says otherwise. */
   diocesanNotices?: boolean;
-  /** Carry the bishop's newest message (parishes/diocese/voice.ts) on the home page. On unless the parish says otherwise. */
+  /** Carry the bishop's newest message (dioceses/kalamazoo/voice.ts) on the home page. On unless the parish says otherwise. */
   bishopsVoice?: boolean;
   /** The parish's YouTube channel id (UC…), for the live embed on /watch; `youtube` above is the channel's page. */
   youtubeChannelId?: string;
@@ -177,4 +178,48 @@ export type Parish = {
   /** Where the three forms are delivered; falls back to MAIL_TO. */
   mailTo?: string;
   credit: string;
+};
+
+/**
+ * A diocese, as data (dioceses/<slug>/config.ts). Everything the diocese
+ * layer needs that is not a parish: the name in both languages, the site,
+ * the clock, the hosts, the bishop, the finder read from the diocese's own
+ * page, the chancery's dates and notices, the bishop's recordings and the
+ * deanery roster. A second diocese is a second folder, never a fork.
+ */
+export type FinderTime = { time: string; end?: string; lang?: string; note?: string };
+export type FinderPanel = { sacrament?: "mass" | "confession" | "adoration"; cat: string; ulClass: string; dayClass: string; dayText: string; times: FinderTime[]; text?: string };
+export type FinderRow = { name: string; address: string; site: string | null; phone: string | null; email: string | null; finderId: string | null; geo?: { lat: number; lng: number; source: string }; panels: FinderPanel[] };
+export type Finder = { readAt: string; source: string; parishes: FinderRow[] };
+
+/** Something the chancery wants on every parish home page between two dates. */
+export type Notice = { id: string; from: string; until: string; title: string; body: string; href?: string; label?: string; es?: { title: string; body: string; label?: string } };
+
+/** A recording the diocese has published: the bishop's voice. */
+export type VoiceEntry = { id: string; date: string; title: string; lede: string; lang: "en" | "es"; kind: "video" | "audio"; youtube?: string; audio?: { url: string; type: string; bytes?: number }; pair?: string };
+
+/** A date on the diocese calendar that belongs to no platform parish. */
+export type DioceseEvent = { id: string; date: string; through?: string; start?: string; end?: string; title: string; host: string; where?: string; town: string; kind: EventKind; note?: string; href?: string; source: string };
+
+export type Deanery = { name: string; collaboratives: string[][] };
+
+export type Diocese = {
+  slug: string;
+  name: string;
+  nameEs: string;
+  shortName: string;
+  site: string;
+  siteHost: string;
+  timeZone: string;
+  /** The letter host; the letter is public/pitch/<slug>/index.html. */
+  pitchHost?: string;
+  /** The diocese layer's own host: the finder at /, the diocese pages under /diocese. */
+  host?: string;
+  bishop: string;
+  youtubeChannelId?: string;
+  finder: Finder;
+  events: DioceseEvent[];
+  notices: Notice[];
+  voice: VoiceEntry[];
+  deaneries: Deanery[];
 };

@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import DioceseNav from "@/components/DioceseNav";
 import { Band } from "@/components/ui";
-import { dioceseEvents, TIME_ZONE } from "@/lib/diocese";
+import { dioceseEvents } from "@/lib/diocese";
 import { fmtLongDate, fmtRange } from "@/lib/events";
 import { strings } from "@/lib/i18n";
 import { liveAnnouncements } from "@/lib/news";
-import { getParish } from "@/lib/parish";
+import { getDiocese, getParish } from "@/lib/parish";
+import { dioceseName } from "@/dioceses";
 import { ALL } from "@/lib/paths";
 import { fmtDate, localNow } from "@/lib/schedule";
 import { latestVoice, watchUrl } from "@/lib/voice";
-import { liveNotices } from "@/parishes/diocese/notices";
+import { liveNotices } from "@/lib/notices";
 
 /**
  * This week in the diocese: the chancery's notices, the bishop's newest
@@ -25,20 +26,22 @@ const DAYS = 14;
 
 export async function generateMetadata(): Promise<Metadata> {
   const p = await getParish();
+  const d = await getDiocese();
   const s = strings(p.lang).diocese;
-  return { title: `${s.news.digestTitle} | ${s.kicker}`, description: s.news.digestLede, robots: { index: false }, alternates: {} };
+  return { title: `${s.news.digestTitle} | ${dioceseName(d, p.lang)}`, description: s.news.digestLede, robots: { index: false }, alternates: {} };
 }
 
 export default async function InsiderPage() {
   const p = await getParish();
+  const d = await getDiocese();
   const lang = p.lang;
   const s = strings(lang).diocese;
   const t = s.news;
-  const now = localNow(TIME_ZONE);
-  const notices = liveNotices(now.iso);
-  const bishop = latestVoice(lang);
+  const now = localNow(d.timeZone);
+  const notices = liveNotices(d.notices, now.iso);
+  const bishop = latestVoice(d, lang);
   const offered = ALL.flatMap((q) => liveAnnouncements(q.announcements?.filter((a) => a.diocesan), now.iso, lang).map((a) => ({ ...a, parish: q })));
-  const events = dioceseEvents(DAYS, now);
+  const events = dioceseEvents(d, DAYS, now);
   const days = new Map<string, typeof events>();
   for (const o of events) {
     if (!days.has(o.date)) days.set(o.date, []);
@@ -49,7 +52,7 @@ export default async function InsiderPage() {
     <>
       <section className="bg-navy">
         <div className="mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-6 sm:pt-20 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{s.kicker}</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{dioceseName(d, p.lang)}</p>
           <h1 className="display mt-3 max-w-3xl text-4xl leading-tight text-cream sm:text-5xl lg:text-6xl">{t.digestTitle}</h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-dim">{t.digestLede}</p>
           <p className="mt-6 text-sm">

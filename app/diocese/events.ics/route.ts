@@ -1,6 +1,6 @@
-import { dioceseEvents, dioceseFileEvent, TIME_ZONE } from "@/lib/diocese";
+import { dioceseEvents, dioceseFileEvent } from "@/lib/diocese";
+import { getDiocese } from "@/lib/parish";
 import { dioceseFeed, type FeedEvent } from "@/lib/ics";
-import { localNow } from "@/lib/schedule";
 
 export const dynamic = "force-dynamic";
 
@@ -21,12 +21,13 @@ export async function GET(req: Request) {
   const url = new URL(req.url);
   const host = url.host;
   const id = url.searchParams.get("e");
+  const d = await getDiocese();
   let body: string | null;
   if (id) {
-    const o = dioceseFileEvent(id);
-    body = o ? dioceseFeed(host, TIME_ZONE, o.title, [toFeed(o, host)]) : null;
+    const o = dioceseFileEvent(d, id);
+    body = o ? dioceseFeed(host, d.timeZone, o.title, [toFeed(o, host)]) : null;
   } else {
-    body = dioceseFeed(host, TIME_ZONE, "Diocese of Kalamazoo", dioceseEvents(90, localNow(TIME_ZONE)).map((o) => toFeed(o, host)));
+    body = dioceseFeed(host, d.timeZone, d.name, dioceseEvents(d, 90).map((o) => toFeed(o, host)));
   }
   if (!body) return new Response("Not found", { status: 404 });
   return new Response(body, {

@@ -3,7 +3,8 @@ import DioceseNav from "@/components/DioceseNav";
 import { Band, Contact } from "@/components/ui";
 import { dioceseGroups } from "@/lib/diocese";
 import { strings } from "@/lib/i18n";
-import { getParish } from "@/lib/parish";
+import { getDiocese, getParish } from "@/lib/parish";
+import { dioceseName } from "@/dioceses";
 
 /**
  * Groups across the diocese: every council, ministry and study group on
@@ -14,21 +15,23 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const p = await getParish();
+  const d = await getDiocese();
   const s = strings(p.lang).diocese;
-  return { title: `${s.groups.title} | ${s.kicker}`, description: s.groups.lede, robots: { index: false }, alternates: {} };
+  return { title: `${s.groups.title} | ${dioceseName(d, p.lang)}`, description: s.groups.lede, robots: { index: false }, alternates: {} };
 }
 
 export default async function GroupsPage() {
   const p = await getParish();
+  const d = await getDiocese();
   const s = strings(p.lang).diocese;
   const t = s.groups;
-  const groups = dioceseGroups();
+  const groups = dioceseGroups(d);
   const parishes = [...new Set(groups.map((g) => g.parish.slug))].map((slug) => groups.find((g) => g.parish.slug === slug)!.parish);
   return (
     <>
       <section className="bg-navy">
         <div className="mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-6 sm:pt-20 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{s.kicker}</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{dioceseName(d, p.lang)}</p>
           <h1 className="display mt-3 max-w-3xl text-4xl leading-tight text-cream sm:text-5xl lg:text-6xl">{t.title}</h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-dim">{t.lede}</p>
         </div>

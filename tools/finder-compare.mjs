@@ -1,7 +1,7 @@
 /**
  * Two phone screenshots for the diocese letter: the diocese's own Parish
  * Finder as it stands, and Narthex's finder from the same place (Marshall,
- * 49068), both at 390px wide. Written as WebP into public/pitch/diocese/.
+ * 49068), both at 390px wide. Written as WebP into public/pitch/kalamazoo/.
  *
  *   node tools/finder-compare.mjs
  *
@@ -16,7 +16,7 @@ import sharp from "sharp";
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const helper = path.join(ROOT, "..", "glazedweb", "glaze", "scripts", "lib", "browser.mjs");
 const { loadChromium, launchOpts } = await import(pathToFileURL(helper).href);
-const out = path.join(ROOT, "public/pitch/diocese");
+const out = path.join(ROOT, "public/pitch/kalamazoo");
 const shots = [
   { name: "finder-theirs", url: "https://www.diokzoo.org/parishfinder", wait: 'a[href^="#massTimes_"]' },
   { name: "finder-ours", url: "https://finder.kalamazoo.glazedweb.com/?q=49068&r=25", wait: "main li h2", scrollTo: "main li" },

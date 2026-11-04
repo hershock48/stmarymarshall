@@ -3,7 +3,9 @@ import Link from "next/link";
 import DioceseNav from "@/components/DioceseNav";
 import { Band } from "@/components/ui";
 import { strings } from "@/lib/i18n";
-import { allParishes, getParish } from "@/lib/parish";
+import { platformParishes } from "@/lib/diocese";
+import { getDiocese, getParish } from "@/lib/parish";
+import { dioceseName } from "@/dioceses";
 import { hasWatch } from "@/lib/paths";
 import { datedMasses, localNow, massOnNow, nextService, whenWord } from "@/lib/schedule";
 import { watchSource } from "@/lib/stream";
@@ -19,29 +21,31 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const p = await getParish();
+  const d = await getDiocese();
   const s = strings(p.lang).diocese;
-  return { title: `${s.watch.dioceseTitle} | ${s.kicker}`, description: s.watch.dioceseLede, robots: { index: false }, alternates: {} };
+  return { title: `${s.watch.dioceseTitle} | ${dioceseName(d, p.lang)}`, description: s.watch.dioceseLede, robots: { index: false }, alternates: {} };
 }
 
 export default async function DioceseWatch() {
   const p = await getParish();
+  const d = await getDiocese();
   const lang = p.lang;
   const s = strings(lang).diocese;
   const t = s.watch;
-  const rows = allParishes()
+  const rows = platformParishes(d)
     .filter(hasWatch)
     .map((q) => {
       const now = localNow(q.timeZone);
       const specials = datedMasses(q);
       return { q, src: watchSource(q)!, on: massOnNow(q.masses, now, specials), next: nextService(q.masses, now, specials, lang) };
     });
-  const bishop = latestVoice(lang);
+  const bishop = latestVoice(d, lang);
   const site = (q: (typeof rows)[number]["q"]) => (q.pitchHost ? `https://${q.pitchHost}/demo` : `https://${q.hosts[0]}`);
   return (
     <>
       <section className="bg-navy">
         <div className="mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-6 sm:pt-20 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{s.kicker}</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{dioceseName(d, p.lang)}</p>
           <h1 className="display mt-3 max-w-3xl text-4xl leading-tight text-cream sm:text-5xl lg:text-6xl">{t.dioceseTitle}</h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-dim">{t.dioceseLede}</p>
         </div>

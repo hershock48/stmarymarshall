@@ -25,7 +25,7 @@ const parish: Parish = {
   parishName: "Parroquia San Felipe de Jesús",
   // The parish's own motto, from the top of its old site.
   tagline: "Unidos en la fe y la esperanza, marchamos hacia el Reino de Dios",
-  diocese: { name: "Diócesis de Kalamazoo", url: "https://www.diokzoo.org/" },
+  diocese: { slug: "kalamazoo", name: "Diócesis de Kalamazoo", url: "https://www.diokzoo.org/" },
   timeZone: "America/Detroit",
   mark: { type: "ring", letters: "SF" },
   // Clay, marigold and talavera blue: a deep terracotta ground, marigold

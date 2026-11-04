@@ -24,11 +24,11 @@ import registry from "./parishes/registry.json";
  */
 const pitch = registry.parishes.filter((p) => p.pitchHost).map((p) => ({ slug: p.slug, host: p.pitchHost as string, letter: fs.existsSync(path.join(process.cwd(), "public/pitch", p.slug, "index.html")) }));
 const onHost = (host: string) => [{ type: "host" as const, value: host.replace(/\./g, "\\.") }];
-const diocese = registry.diocesePitchHost;
-// The diocese layer's own host (lib/paths.ts): proxy.ts serves the finder at
-// its /; here it is noindex and its / may be framed by the diocese's site.
-const dioceseHost = registry.dioceseHost;
-const pitchHosts = [...pitch.map((p) => p.host), ...(diocese ? [diocese] : []), ...(dioceseHost ? [dioceseHost] : [])];
+// Each diocese: a letter host (public/pitch/<slug>/index.html at /) and the
+// layer's own host (lib/paths.ts; proxy.ts serves the finder at its /). Both
+// are noindex, and the finder may be framed by that diocese's own site.
+const dioceses = registry.dioceses.map((d) => ({ ...d, letter: fs.existsSync(path.join(process.cwd(), "public/pitch", d.slug, "index.html")) }));
+const pitchHosts = [...pitch.map((p) => p.host), ...dioceses.flatMap((d) => [d.pitchHost, d.host].filter(Boolean) as string[])];
 
 const nextConfig: NextConfig = {
   // YouTube thumbnails for the bishop's messages are the one remote image source.
@@ -45,7 +45,7 @@ const nextConfig: NextConfig = {
           { source: "/demo", destination: "/", has: onHost(p.host) },
           { source: "/demo/:path*", destination: "/:path*", has: onHost(p.host) },
         ]),
-        ...(diocese ? [{ source: "/", destination: "/pitch/diocese/index.html", has: onHost(diocese) }] : []),
+        ...dioceses.filter((d) => d.letter && d.pitchHost).map((d) => ({ source: "/", destination: `/pitch/${d.slug}/index.html`, has: onHost(d.pitchHost as string) })),
         // Each letter answers only on its own host; proxy.ts sends every
         // other host's request for it to the 404 page.
       ],
@@ -73,12 +73,12 @@ const nextConfig: NextConfig = {
       { key: "Permissions-Policy", value: "geolocation=(self), camera=(), microphone=(), payment=()" },
     ];
     const framing = (ancestors: string) => ({ key: "Content-Security-Policy", value: `frame-ancestors ${ancestors}` });
-    const finderAncestors = "'self' https://diokzoo.org https://www.diokzoo.org";
+    const finderAncestors = ["'self'", ...dioceses.flatMap((d) => d.siteHosts.map((h) => `https://${h}`))].join(" ");
     return [
       { source: "/:path*", headers: security },
       { source: "/:path((?!diocese/near$).*)", headers: [framing("'self'")] },
       { source: "/diocese/near", headers: [framing(finderAncestors)] },
-      ...(dioceseHost ? [{ source: "/", has: onHost(dioceseHost), headers: [framing(finderAncestors)] }] : []),
+      ...dioceses.filter((d) => d.host).map((d) => ({ source: "/", has: onHost(d.host as string), headers: [framing(finderAncestors)] })),
       ...pitchHosts.map((h) => ({ source: "/:path*", has: onHost(h), headers: noindex })),
       { source: "/:path*", has: [{ type: "host" as const, value: "(.*)\\.vercel\\.app" }], headers: noindex },
     ];

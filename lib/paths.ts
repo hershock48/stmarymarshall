@@ -28,23 +28,33 @@ export function parishBySlug(slug: string): Parish | undefined {
 }
 
 /**
- * The diocese layer's own host: the finder at /, the diocese pages under
- * /diocese, nothing of any parish. The diocese can point its Parish Finder
- * page at it before a single parish moves; the day the diocese gives the
- * layer a host it owns, that host goes here.
+ * A diocese layer's own host: the finder at /, the diocese pages under
+ * /diocese, nothing of any parish. A diocese can point its Parish Finder
+ * page at it before a single parish moves; the day a diocese gives the
+ * layer a host it owns, that host goes in the registry. Returns the
+ * diocese's slug, or null when the host is a parish's.
  */
-export function isDioceseHost(host: string | null | undefined): boolean {
+export function dioceseHostSlug(host: string | null | undefined): string | null {
   const h = (host ?? "").toLowerCase().split(":")[0];
-  // DIOCESE_DEFAULT=1 makes a local server answer as the diocese host on
-  // 127.0.0.1, so the auditor (base URL, no Host header) can run against it.
-  if (process.env.DIOCESE_DEFAULT === "1" && /^(127\.0\.0\.1|localhost)$/.test(h)) return true;
-  return Boolean(registry.dioceseHost) && h === registry.dioceseHost;
+  // DIOCESE_DEFAULT=<slug> makes a local server answer as that diocese's host
+  // on 127.0.0.1, so the auditor (base URL, no Host header) can run against it.
+  if (process.env.DIOCESE_DEFAULT && /^(127\.0\.0\.1|localhost)$/.test(h)) return process.env.DIOCESE_DEFAULT === "1" ? registry.dioceses[0]?.slug ?? null : process.env.DIOCESE_DEFAULT;
+  return registry.dioceses.find((d) => d.host === h)?.slug ?? null;
 }
 
-/** The host a letter under public/pitch/<slug>/ belongs to, or none. */
+export function isDioceseHost(host: string | null | undefined): boolean {
+  return dioceseHostSlug(host) !== null;
+}
+
+/** Which diocese a host is for: its own layer host, its letter host, or the host's parish's diocese. */
+export function dioceseSlugForHost(host: string | null | undefined): string {
+  const h = (host ?? "").toLowerCase().split(":")[0];
+  return dioceseHostSlug(h) ?? registry.dioceses.find((d) => d.pitchHost === h)?.slug ?? parishForHost(h).diocese.slug;
+}
+
+/** The host a letter under public/pitch/<slug>/ belongs to, or none: a diocese's letter or a parish's. */
 export function letterHost(slug: string): string | undefined {
-  if (slug === "diocese") return registry.diocesePitchHost || undefined;
-  return BY_SLUG.get(slug)?.pitchHost;
+  return registry.dioceses.find((d) => d.slug === slug)?.pitchHost || BY_SLUG.get(slug)?.pitchHost;
 }
 
 /** True when the parish has anywhere to watch Mass: hosted video, a YouTube channel, or a livestream link. */

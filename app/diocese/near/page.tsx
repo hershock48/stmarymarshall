@@ -5,13 +5,13 @@ import { after } from "next/server";
 import DioceseNav from "@/components/DioceseNav";
 import Locate from "@/components/Locate";
 import { Band } from "@/components/ui";
-import { nearby, TIME_ZONE, type Near } from "@/lib/diocese";
+import { nearby, type Near } from "@/lib/diocese";
 import { coarse, resolvePlace } from "@/lib/geo";
 import { strings } from "@/lib/i18n";
-import { getParish } from "@/lib/parish";
+import { getDiocese, getParish } from "@/lib/parish";
+import { dioceseName } from "@/dioceses";
 import { fmtDate, localNow, whenWord, type NextService } from "@/lib/schedule";
 import { bump } from "@/lib/tally";
-import finder from "@/parishes/diocese/finder.json";
 
 /**
  * Mass near you: every parish in the diocese within a radius of a zip, a
@@ -28,8 +28,9 @@ const RADII = [10, 25, 50];
 
 export async function generateMetadata(): Promise<Metadata> {
   const p = await getParish();
+  const d = await getDiocese();
   const s = strings(p.lang).diocese.near;
-  return { title: `${s.title} | ${strings(p.lang).diocese.kicker}`, description: s.lede, robots: { index: false }, alternates: {} };
+  return { title: `${s.title} | ${dioceseName(d, p.lang)}`, description: s.lede, robots: { index: false }, alternates: {} };
 }
 
 function Tile({ name, n, lang }: { name: string; n: NextService | null; lang: "en" | "es" }) {
@@ -45,7 +46,7 @@ function Tile({ name, n, lang }: { name: string; n: NextService | null; lang: "e
   );
 }
 
-function Card({ p, lang }: { p: Near; lang: "en" | "es" }) {
+function Card({ p, lang, readAt }: { p: Near; lang: "en" | "es"; readAt: string }) {
   const s = strings(lang).diocese.near;
   const schedule = p.source === "platform" ? `${p.site}/mass-times` : p.site;
   const maps = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${p.name} ${p.address}`)}`;
@@ -89,7 +90,7 @@ function Card({ p, lang }: { p: Near; lang: "en" | "es" }) {
         ) : null}
       </p>
       <p className="mt-3 flex flex-wrap gap-x-4 text-xs text-ink-soft">
-        <span>{p.source === "platform" ? s.fromPlatform : `${s.fromFinder}, ${fmtDate(finder.readAt, true, lang)}`}</span>
+        <span>{p.source === "platform" ? s.fromPlatform : `${s.fromFinder}, ${fmtDate(readAt, true, lang)}`}</span>
         <Link href={`/diocese/report?p=${encodeURIComponent(p.id)}`} className="inline-block min-h-6 font-semibold text-marian underline decoration-marian/40 underline-offset-4">
           {strings(lang).diocese.chrome.report}
         </Link>
@@ -100,6 +101,7 @@ function Card({ p, lang }: { p: Near; lang: "en" | "es" }) {
 
 export default async function NearPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const p = await getParish();
+  const d = await getDiocese();
   const lang = p.lang;
   const s = strings(lang).diocese;
   const t = s.near;
@@ -108,8 +110,8 @@ export default async function NearPage({ searchParams }: { searchParams: Promise
   const radius = RADII.includes(Number(sp.r)) ? Number(sp.r) : 25;
   const place = q ? resolvePlace(q) : null;
   const spanish = sp.es === "1";
-  const now = localNow(TIME_ZONE);
-  const results = place ? nearby(place.point, radius, lang, now).filter((r) => !spanish || r.lang === "es" || r.masses.some((m) => /espa/i.test(m.lang ?? ""))) : [];
+  const now = localNow(d.timeZone);
+  const results = place ? nearby(d, place.point, radius, lang, now).filter((r) => !spanish || r.lang === "es" || r.masses.some((m) => /espa/i.test(m.lang ?? ""))) : [];
   if (place) {
     const host = (await headers()).get("host") ?? "";
     after(() => bump(host, "search", `${coarse(place.point)}:${results.length}`));
@@ -118,7 +120,7 @@ export default async function NearPage({ searchParams }: { searchParams: Promise
     <>
       <section className="bg-navy">
         <div className="mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-6 sm:pt-20 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{s.kicker}</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{dioceseName(d, p.lang)}</p>
           <h1 className="display mt-3 max-w-3xl text-4xl leading-tight text-cream sm:text-5xl lg:text-6xl">{t.title}</h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-dim">{t.lede}</p>
           <form action="/diocese/near" method="get" className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end">
@@ -157,7 +159,7 @@ export default async function NearPage({ searchParams }: { searchParams: Promise
             {results.length ? (
               <ul className="mt-6 grid gap-5 lg:grid-cols-2">
                 {results.map((r) => (
-                  <Card key={r.id} p={r} lang={lang} />
+                  <Card key={r.id} p={r} lang={lang} readAt={d.finder.readAt} />
                 ))}
               </ul>
             ) : (

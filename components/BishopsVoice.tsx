@@ -4,17 +4,18 @@ import { strings } from "@/lib/i18n";
 import { fmtDate } from "@/lib/schedule";
 import type { Parish } from "@/lib/types";
 import { latestVoice, thumb, watchUrl } from "@/lib/voice";
+import { dioceseOfParish } from "@/dioceses";
 
 /**
  * The bishop's newest message on a parish home page: one card between the
  * hero and the parish's own words, in the parish's language where the
  * message exists in it. The diocese writes the entry once
- * (parishes/diocese/voice.ts) and every site carries it; a parish turns it
+ * (dioceses/kalamazoo/voice.ts) and every site carries it; a parish turns it
  * off with bishopsVoice: false.
  */
 export default function BishopsVoice({ parish: p }: { parish: Parish }) {
   if (p.bishopsVoice === false) return null;
-  const v = latestVoice(p.lang);
+  const v = latestVoice(dioceseOfParish(p), p.lang);
   if (!v) return null;
   const t = strings(p.lang).diocese.voice;
   return (

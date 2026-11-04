@@ -24,7 +24,7 @@ const parish: Parish = {
   parishName: "St. Mary Parish",
   tagline: "A Catholic parish in Marshall, Michigan, since 1852",
   founded: 1852,
-  diocese: { name: "Diocese of Kalamazoo", url: "https://www.diokzoo.org/" },
+  diocese: { slug: "kalamazoo", name: "Diocese of Kalamazoo", url: "https://www.diokzoo.org/" },
   timeZone: "America/Detroit",
   // The ring-and-M from the parish's own favicon (components/Mark.tsx).
   mark: { type: "ring", letters: "M" },

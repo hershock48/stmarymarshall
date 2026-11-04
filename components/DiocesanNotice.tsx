@@ -2,7 +2,8 @@ import Link from "next/link";
 import { strings } from "@/lib/i18n";
 import { localNow } from "@/lib/schedule";
 import type { Parish } from "@/lib/types";
-import { liveNotices } from "@/parishes/diocese/notices";
+import { liveNotices } from "@/lib/notices";
+import { dioceseOfParish } from "@/dioceses";
 
 /**
  * The line from the chancery at the top of a parish home page: a title, a
@@ -11,7 +12,7 @@ import { liveNotices } from "@/parishes/diocese/notices";
  */
 export default function DiocesanNotice({ parish: p }: { parish: Parish }) {
   if (p.diocesanNotices === false) return null;
-  const live = liveNotices(localNow(p.timeZone).iso);
+  const live = liveNotices(dioceseOfParish(p).notices, localNow(p.timeZone).iso);
   if (!live.length) return null;
   const s = strings(p.lang).diocese.notices;
   return (

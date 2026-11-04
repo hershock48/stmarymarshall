@@ -6,7 +6,7 @@
  * Nominatim (one request a second, as its policy asks).
  *
  *   curl -A "Mozilla/5.0" -o parishfinder.html https://diokzoo.org/parishfinder
- *   node tools/finder-import.mjs parishfinder.html parishes/diocese/finder.json
+ *   node tools/finder-import.mjs parishfinder.html dioceses/kalamazoo/finder.json
  *
  * The finder is eCatholic's MassTime data as the diocese publishes it; the
  * page is parsed in a real browser so the markup is read the way the

@@ -8,7 +8,8 @@ import Footer from "@/components/Footer";
 import HolyDayNotice from "@/components/HolyDayNotice";
 import { strings } from "@/lib/i18n";
 import { DioceseFooter, DioceseHeader } from "@/components/DioceseChrome";
-import { getParish, isNoindexHost, onDioceseHost } from "@/lib/parish";
+import { getDiocese, getParish, isNoindexHost, onDioceseHost } from "@/lib/parish";
+import { dioceseName } from "@/dioceses";
 import { navFor } from "@/lib/nav";
 import { pageMetadata } from "@/lib/meta";
 import { churchSchema, jsonLd } from "@/lib/jsonld";
@@ -31,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const p = await getParish();
   const s = strings(p.lang);
   // The diocese host carries no parish: its own title and description, no parish link card.
-  if (await onDioceseHost()) return { title: `${s.diocese.chrome.name} · ${s.diocese.chrome.sub}`, description: s.diocese.chrome.lede, robots: { index: false } };
+  if (await onDioceseHost()) return { title: `${dioceseName(await getDiocese(), p.lang)} · ${s.diocese.chrome.sub}`, description: s.diocese.chrome.lede, robots: { index: false } };
   const noindex = await isNoindexHost();
   return pageMetadata(p, {
     title: p.name,
@@ -52,15 +53,16 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   // On the diocese layer's own host the pages wear the diocese's chrome and
   // carry no parish: no parish header, footer or Church record.
   if (await onDioceseHost()) {
+    const d = await getDiocese();
     return (
       <html lang={p.lang} className={`${display.variable} ${body.variable}`} style={themeStyle(p)}>
         <body>
           <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-sm focus:bg-gold focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-navy">
             {s.header.skip}
           </a>
-          <DioceseHeader lang={p.lang} />
+          <DioceseHeader lang={p.lang} diocese={d} />
           <main id="main">{children}</main>
-          <DioceseFooter lang={p.lang} />
+          <DioceseFooter lang={p.lang} diocese={d} />
         </body>
       </html>
     );

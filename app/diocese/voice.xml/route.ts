@@ -1,4 +1,4 @@
-import { VOICE } from "@/parishes/diocese/voice";
+import { getDiocese } from "@/lib/parish";
 import { watchUrl } from "@/lib/voice";
 
 export const dynamic = "force-dynamic";
@@ -11,9 +11,10 @@ export const dynamic = "force-dynamic";
  */
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
-export function GET(req: Request) {
+export async function GET(req: Request) {
+  const d = await getDiocese();
   const base = `https://${new URL(req.url).host}`;
-  const items = [...VOICE]
+  const items = [...d.voice]
     .sort((a, b) => b.date.localeCompare(a.date))
     .map((v) => {
       const link = v.youtube ? watchUrl(v.youtube) : `${base}/diocese/voice`;
@@ -21,6 +22,6 @@ export function GET(req: Request) {
       return `<item><title>${esc(v.title)}</title><link>${esc(link)}</link><guid isPermaLink="false">${esc(v.id)}</guid><pubDate>${new Date(`${v.date}T12:00:00-05:00`).toUTCString()}</pubDate><description>${esc(v.lede)}</description>${enclosure}</item>`;
     })
     .join("");
-  const xml = `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>The bishop’s voice · Diocese of Kalamazoo</title><link>${base}/diocese/voice</link><atom:link href="${base}/diocese/voice.xml" rel="self" type="application/rss+xml" /><description>Messages, homilies and talks from Bishop Edward M. Lohse to the Diocese of Kalamazoo, newest first.</description><language>en-us</language>${items}</channel></rss>`;
+  const xml = `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>${esc(`The bishop’s voice · ${d.name}`)}</title><link>${base}/diocese/voice</link><atom:link href="${base}/diocese/voice.xml" rel="self" type="application/rss+xml" /><description>${esc(`Messages, homilies and talks from ${d.bishop} to the ${d.name}, newest first.`)}</description><language>en-us</language>${items}</channel></rss>`;
   return new Response(xml, { headers: { "content-type": "application/rss+xml; charset=utf-8", "cache-control": "public, max-age=3600" } });
 }

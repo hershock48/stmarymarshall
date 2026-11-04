@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Band } from "@/components/ui";
-import { getParish } from "@/lib/parish";
+import { getDiocese, getParish } from "@/lib/parish";
 
 /**
  * What we store, what we do not, where it runs. One page a chancellor can
@@ -10,7 +10,10 @@ import { getParish } from "@/lib/parish";
  */
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = { title: "What we store, what we do not, where it runs | Diocese of Kalamazoo pilot", description: "The parish platform's security and data practices, in plain English.", robots: { index: false }, alternates: {} };
+export async function generateMetadata(): Promise<Metadata> {
+  const d = await getDiocese();
+  return { title: `What we store, what we do not, where it runs | ${d.name} pilot`, description: "The parish platform's security and data practices, in plain English.", robots: { index: false }, alternates: {} };
+}
 
 function Row({ k, children }: { k: string; children: React.ReactNode }) {
   return (
@@ -23,11 +26,12 @@ function Row({ k, children }: { k: string; children: React.ReactNode }) {
 
 export default async function SecurityPage() {
   await getParish();
+  const d = await getDiocese();
   return (
     <>
       <section className="bg-navy">
         <div className="mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-6 sm:pt-20 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Diocese of Kalamazoo · pilot</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{d.name} · pilot</p>
           <h1 className="display mt-3 max-w-3xl text-4xl leading-tight text-cream sm:text-5xl lg:text-6xl">What we store, what we do not, where it runs</h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-dim">The whole of it, for whoever at the Pastoral Center asks. Every line describes the code the diocese would hold; when the code changes, this page changes with it.</p>
         </div>
@@ -53,7 +57,7 @@ export default async function SecurityPage() {
           <h2 className="display mt-12 text-3xl text-ink">Where it runs</h2>
           <div className="mt-4 border-b border-paper-dim">
             <Row k="Hosting">Vercel, in its US East region, on a global edge network. Every page is served over HTTPS with certificates renewed automatically; plain HTTP is redirected and browsers are told to insist on HTTPS for two years (HSTS).</Row>
-            <Row k="Headers">Every response says it may not be framed by another site (the one exception is the finder, which the diocese&rsquo;s own site diokzoo.org may embed), may not be sniffed into another content type, sends only the site&rsquo;s origin as a referrer to other sites, and allows location access only for the finder&rsquo;s own button, with camera, microphone and payment APIs switched off.</Row>
+            <Row k="Headers">Every response says it may not be framed by another site (the one exception is the finder, which the diocese&rsquo;s own site {d.siteHost} may embed), may not be sniffed into another content type, sends only the site&rsquo;s origin as a referrer to other sites, and allows location access only for the finder&rsquo;s own button, with camera, microphone and payment APIs switched off.</Row>
             <Row k="Software">A current web framework with no plugins and no page-builder login. Dependencies are updated the week a fix ships; the site is rebuilt and re-checked (accessibility, page weight, every route) before each change goes live.</Row>
             <Row k="Email">Form mail goes out through a sending-only account on the studio&rsquo;s domain, with the visitor&rsquo;s address as reply-to; no mailbox is read by the platform.</Row>
             <Row k="Backups">The repository is the backup: every parish&rsquo;s data and files, with history, in a place the diocese holds and can clone at any time.</Row>
