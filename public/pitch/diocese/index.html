@@ -408,7 +408,7 @@ footer .gmark{height:78px;width:auto}
   <div class="demo" style="text-align:left;background:var(--card);color:var(--body);border:2px solid var(--green)">
     <div class="k" style="color:var(--green-d)">What we would do instead</div>
     <h3 style="color:var(--ink);margin-top:8px">The diocese owns the platform. The parishes are its tenants.</h3>
-    <p style="color:var(--body);margin:0">One codebase, every parish on its own domain with its own photos and words, none of them a template. The diocese holds the repository, the hosting and the data, in writing. The Mass schedule of every parish is published as structured data and as one diocesan feed, so the finder, Google and the Mass-finder apps read it from the diocese instead of from a vendor. If the diocese ever leaves us, it gets the working project, repository, hosting and logins. <strong>Not a snapshot. Not an export.</strong> A twelve-month first term on the diocesan agreement, then month to month, thirty days&rsquo; notice, no exit fee. That clause is titled <em>No hostage-taking</em>, because we would rather say it plainly than bury it.</p>
+    <p style="color:var(--body);margin:0">The platform is called Narthex, after the entrance hall of a church where the bulletin board and the sign-up sheets live, and Glazed Web builds it. One codebase, every parish on its own domain with its own photos and words, none of them a template. The diocese holds the repository, the hosting and the data, in writing. The Mass schedule of every parish is published as structured data and as one diocesan feed, so the finder, Google and the Mass-finder apps read it from the diocese instead of from a vendor. If the diocese ever leaves us, it gets the working project, repository, hosting and logins. <strong>Not a snapshot. Not an export.</strong> A twelve-month first term on the diocesan agreement, then month to month, thirty days&rsquo; notice, no exit fee. That clause is titled <em>No hostage-taking</em>, because we would rather say it plainly than bury it.</p>
   </div>
 
   <h3>Not a vendor</h3>
@@ -459,8 +459,10 @@ footer .gmark{height:78px;width:auto}
     <div class="k">The diocese layer</div>
     <h3>Mass near you, for all sixty parishes, from the first day</h3>
     <p>A zip code, a town, or the phone&rsquo;s own location, and every parish within ten, twenty-five or fifty miles, nearest first, with its next Mass worked out from the clock. <strong>It covers all sixty parishes and missions today</strong>: the three on the platform from their own data, the other fifty-seven read from the diocese&rsquo;s own public Parish Finder, each marked with where its times came from. Under the agreement that reading is done at the diocese&rsquo;s request, of the diocese&rsquo;s own page, and the diocese is the source of the result. The diocese&rsquo;s finder stops depending on eCatholic the week this goes live, before a single parish moves, and it gets better one parish at a time as each one joins. Every parish site carries the three nearest parishes and their next Mass at the foot of its own Mass times page.</p>
-    <a href="https://kalamazoo.glazedweb.com/diocese/near?q=49007&amp;r=25" target="_blank" rel="noopener">Try it from Kalamazoo ↗</a>
-    <span class="vurl" style="color:#B9A894">kalamazoo.glazedweb.com/diocese/near</span>
+    <p><strong>Take the finder today, with nothing to sign.</strong> It runs on its own address, re-reads the diocese&rsquo;s Parish Finder every Monday, says on every card when it last did, and carries a &ldquo;wrong time? tell us&rdquo; link that reaches the chancery. Point the Parish Finder page on diokzoo.org at it, or embed it there (it is built to allow that for diokzoo.org and no other site), and the diocese&rsquo;s finder is its own from that day, whether or not a single parish ever moves.</p>
+    <a href="https://finder.kalamazoo.glazedweb.com/?q=49007&amp;r=25" target="_blank" rel="noopener">The finder on its own address ↗</a>
+    <a href="https://kalamazoo.glazedweb.com/diocese/near?q=49007&amp;r=25" target="_blank" rel="noopener">The same, inside a parish site ↗</a>
+    <span class="vurl" style="color:#B9A894">finder.kalamazoo.glazedweb.com</span>
   </div>
   <div class="demo">
     <div class="k">The diocese layer</div>
@@ -476,6 +478,15 @@ footer .gmark{height:78px;width:auto}
     <h3>Every site&rsquo;s health and use, on one page, behind a passcode</h3>
     <p>What each parish has confirmed and what is still waiting on its office, what its calendar holds for the next month and the one after, pages served per parish, where finder searches come from and which came up empty (a map of towns searching with no parish within reach is planning data the diocese has never had), forms sent and Give taps per parish. Counts only: no cookies, no visitor ids, no addresses, no contents of any form, nothing about any person. It is built and we will open it on the call; it is priced with the office panel, below, not with the monthly.</p>
   </div>
+  <div class="demo">
+    <div class="k">The diocese layer</div>
+    <h3>The bishop&rsquo;s voice on every parish site, and Watch</h3>
+    <p>What Bishop Lohse has said to the diocese, in his own voice: the Easter and Christmas messages in English and Spanish, the Chrism Mass homily, his talk to parish staff. The diocese lists a recording once and <strong>every parish home page carries the newest one</strong>, in the parish&rsquo;s language where it exists, with a feed anyone can subscribe to in a podcast app, so none of it depends on Facebook. Each parish that streams gets a Watch page that knows the schedule: the player from a quarter hour before Mass to ninety minutes after, the next Mass in words the rest of the week, so nobody meets an offline player. Today it plays from the parish&rsquo;s own YouTube or Facebook; hosting the stream ourselves, with automatic recordings, clips and the bishop&rsquo;s Mass shared to every site at once, is the one priced add-on in this letter, about $49 a month for a parish that streams. The same data gives every parish a line at the top of every page in the week before a holy day, with the Mass times, which is the one thing the St. Mary office told us it liked about the old site.</p>
+    <a href="https://kalamazoo.glazedweb.com/diocese/voice" target="_blank" rel="noopener">The bishop&rsquo;s voice ↗</a>
+    <a href="https://stphilip.glazedweb.com/demo/watch" target="_blank" rel="noopener">Watch, at St. Philip ↗</a>
+    <a href="https://kalamazoo.glazedweb.com/diocese/watch" target="_blank" rel="noopener">Watch across the diocese ↗</a>
+    <span class="vurl" style="color:#B9A894">kalamazoo.glazedweb.com/diocese/voice · the feed: /diocese/voice.xml</span>
+  </div>
 
   <h3>How the rest would be built</h3>
   <p>The 41 eCatholic sites share one markup, which is why St. Philip&rsquo;s 78 pages took a day: the tabs, the MassTime panel, the staff list, the documents on files.ecatholic.com and the calendar feed are all in predictable places. Each parish is read into the same data shape the three sites use, a person reads the result once, and the parish office confirms the handful of facts only it knows: holy day Mass times, office hours, which inbox the forms go to. <strong>The order: the three sites here, then the parishes the diocese picks, then the block of seventeen when their agreement allows, then the fourteen parishes and missions with no website at all.</strong></p>
@@ -486,7 +497,7 @@ footer .gmark{height:78px;width:auto}
     <tr><td>Online giving on Vanco, OSV or whichever provider the parish has</td><td>Stays. The site&rsquo;s Give button goes straight to it; the platform never sees a card or a dollar.</td></tr>
     <tr><td>The bulletin printed and hosted by LPi or Diocesan (DiscoverMass)</td><td>Stays. The site reads this week&rsquo;s issue and the last three months from where it is already published.</td></tr>
     <tr><td>Flocknote email and texts</td><td>Stays. The site links the parish&rsquo;s sign-up; the chancery&rsquo;s own notices ride on every site without it.</td></tr>
-    <tr><td>Livestream on YouTube or Facebook</td><td>Stays, linked from the Mass times page as &ldquo;Watch Mass online.&rdquo;</td></tr>
+    <tr><td>Livestream on YouTube or Facebook</td><td>Stays, and gets a Watch page that knows the Mass schedule. Hosting the stream on the parish&rsquo;s own player, with recordings and clips, is the one priced add-on, for the parishes that want it.</td></tr>
     <tr><td>Church management (ParishSOFT, OSV, GabrielSoft)</td><td>Stays. The platform keeps no member database; forms go to the office&rsquo;s inbox.</td></tr>
     <tr><td>The website, the Mass schedule, the calendar, the forms, the Parish Finder&rsquo;s data</td><td>Ours to build and mind, the diocese&rsquo;s to own.</td></tr>
   </table>
@@ -510,7 +521,7 @@ footer .gmark{height:78px;width:auto}
     <tr><td>The edits</td><td colspan="2">A changed Mass time, a holy day schedule, a new pastor, next year&rsquo;s religious education calendar, a new ministry page. The office texts or emails the change; it is up the same week, and there is no per-edit charge.</td></tr>
     <tr><td>The checks</td><td colspan="2">Accessibility, page weight and speed measured again after every change, on a phone profile, so a site that passed on launch day still passes next Advent.</td></tr>
     <tr><td>The feed</td><td colspan="2">Every parish&rsquo;s schedule as structured data, for the Parish Finder and for Google, kept valid as the schedules change.</td></tr>
-    <tr><td>The diocese layer</td><td colspan="2">Mass near you for all sixty parishes, this week across the diocese, the groups, every parish on one page, and the chancery&rsquo;s notices on every site. Read from the same data, kept current with it, at no charge beyond the monthly.</td></tr>
+    <tr><td>The diocese layer</td><td colspan="2">Mass near you for all sixty parishes on its own address, this week across the diocese, the groups, every parish on one page, the chancery&rsquo;s notices and the bishop&rsquo;s voice on every site, the holy-day line, and a Watch page for every parish that streams. Read from the same data, kept current with it, at no charge beyond the monthly.</td></tr>
     <tr><td>People</td><td colspan="2">Inside the diocese, reachable by phone and email, who know which parish is which.</td></tr>
   </table>
   <p class="pricesrc">The struck number is Glazed Web&rsquo;s own published price for a six-page site with forms, the Baker&rsquo;s Dozen on <a href="https://www.glazedweb.com/#menu" target="_blank" rel="noopener">glazedweb.com ↗</a>. The monthly is the menu&rsquo;s smallest, the one that goes with a one-page site, applied to every parish whatever its size.</p>
