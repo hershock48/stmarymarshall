@@ -2,6 +2,8 @@ import finder from "@/parishes/diocese/finder.json";
 import { ALL } from "@/lib/paths";
 import { miles, type Point } from "@/lib/geo";
 import { occurrences, type Occurrence } from "@/lib/events";
+import { occurrenceId } from "@/lib/ics";
+import { DIOCESE_EVENTS } from "@/parishes/diocese/events";
 import { addDays, datedMasses, localNow, nextService, type LocalNow, type NextService, type Weekday } from "@/lib/schedule";
 import type { DatedMass, Parish, Section, Service } from "@/lib/types";
 import type { Lang } from "@/lib/i18n";
@@ -278,14 +280,45 @@ export function nearby(point: Point, radius: number, lang: Lang = "en", now: Loc
     }));
 }
 
-export type DioceseOccurrence = Occurrence & { parish: Parish; town: string };
+/**
+ * One row on the diocese calendar. From a platform parish it carries the
+ * parish; from parishes/diocese/events.ts (the chancery's dates and the
+ * parishes still on their old sites) it carries the host's name and no
+ * parish, so the page links the diocese's own feed for it.
+ */
+export type DioceseOccurrence = Occurrence & { parish?: Parish; host: string; town: string; id: string; href?: string };
 
-/** Every event on every platform parish's calendar for the next `days`, soonest first. */
+/** The diocese file's rows as occurrences, within the window and still ahead today. */
+function dioceseFileEvents(now: LocalNow, days: number): DioceseOccurrence[] {
+  const last = addDays(now.iso, days - 1);
+  const out: DioceseOccurrence[] = [];
+  for (const e of DIOCESE_EVENTS) {
+    const until = e.through ?? e.date;
+    if (until < now.iso || e.date > last) continue;
+    for (let d = e.date; d <= until && d <= last; d = addDays(d, 1)) {
+      if (d < now.iso) continue;
+      if (d === now.iso && e.start) {
+        const [h, m] = (e.end ?? e.start).split(":").map(Number);
+        if (h * 60 + m + (e.end ? 0 : 60) < now.minutes) continue;
+      }
+      out.push({ id: d === e.date ? e.id : `${e.id}-${d}`, date: d, start: e.start, end: e.end, title: e.title, note: e.note, where: e.where, kind: e.kind, host: e.host, town: e.town, href: e.href });
+    }
+  }
+  return out;
+}
+
+/** Every event across the diocese for the next `days`, soonest first: platform calendars plus the diocese file. */
 export function dioceseEvents(days: number, now: LocalNow = localNow(TIME_ZONE)): DioceseOccurrence[] {
   const out: DioceseOccurrence[] = [];
-  for (const p of ALL) for (const o of occurrences(p.events, now, days)) out.push({ ...o, parish: p, town: p.church.city });
+  for (const p of ALL) for (const o of occurrences(p.events, now, days)) out.push({ ...o, id: occurrenceId(o), parish: p, host: p.shortName, town: p.church.city });
+  out.push(...dioceseFileEvents(now, days));
   out.sort((a, b) => a.date.localeCompare(b.date) || (a.start ?? "").localeCompare(b.start ?? ""));
   return out;
+}
+
+/** One diocese-file event by its occurrence id, from today's date forward, or null. */
+export function dioceseFileEvent(id: string, now: LocalNow = localNow(TIME_ZONE)): DioceseOccurrence | null {
+  return dioceseFileEvents({ ...now, minutes: 0 }, 400).find((o) => o.id === id) ?? null;
 }
 
 export type DioceseGroup = Section & { parish: Parish; town: string; kind: "ministries" | "formation" };

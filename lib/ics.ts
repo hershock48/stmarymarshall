@@ -109,6 +109,35 @@ function wrap(p: Parish, events: Occurrence[], name: string): string {
   return lines.map(fold).join("\r\n") + "\r\n";
 }
 
+/**
+ * An event that belongs to no platform parish (the diocese file): the same
+ * VEVENT with the host's name as the location and the diocese host as the
+ * UID domain, so a subscribed diocese calendar updates rather than
+ * duplicates.
+ */
+export type FeedEvent = Occurrence & { id: string; location: string; url?: string };
+
+export function dioceseFeed(host: string, timeZone: string, name: string, events: FeedEvent[]): string {
+  const now = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d+Z$/, "Z");
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", `PRODID:-//${host}//Diocese calendar//EN`, "CALSCALE:GREGORIAN", "METHOD:PUBLISH", `X-WR-CALNAME:${esc(name)}`, `X-WR-TIMEZONE:${timeZone}`, ...vtimezone(timeZone)];
+  for (const o of events) {
+    lines.push("BEGIN:VEVENT", `UID:${o.id}@${host}`, `DTSTAMP:${now}`);
+    if (o.start) {
+      lines.push(`DTSTART;TZID=${timeZone}:${stamp(o.date, o.start)}`);
+      if (o.end) lines.push(`DTEND;TZID=${timeZone}:${stamp(o.date, o.end)}`);
+    } else {
+      lines.push(`DTSTART;VALUE=DATE:${o.date.replace(/-/g, "")}`, `DTEND;VALUE=DATE:${nextDay(o.date)}`);
+    }
+    lines.push(`SUMMARY:${esc(o.title)}`);
+    if (o.note) lines.push(`DESCRIPTION:${esc(o.note)}`);
+    lines.push(`LOCATION:${esc(o.location)}`);
+    if (o.url) lines.push(`URL:${o.url}`);
+    lines.push("END:VEVENT");
+  }
+  lines.push("END:VCALENDAR");
+  return lines.map(fold).join("\r\n") + "\r\n";
+}
+
 /** The subscribable feed: four weeks back and ninety days ahead. */
 export function calendarFeed(p: Parish): string {
   const now = localNow(p.timeZone);

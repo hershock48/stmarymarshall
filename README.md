@@ -1,6 +1,8 @@
-# Parish platform (St. Mary Marshall, St. Philip Battle Creek, San Felipe Fennville)
+# Narthex (St. Mary Marshall, St. Philip Battle Creek, San Felipe Fennville)
 
-One Next.js deployment that serves a parish website per domain. It began in
+Narthex is the parish and diocese platform, built by Glazed Web; the plan and
+the order of work are in `docs/narthex-plan.md`. One Next.js deployment that
+serves a parish website per domain. It began in
 October 2026 as the St. Mary Catholic Church rebuild (Marshall, Michigan,
 replacing the parish's eCatholic site) and became a platform on
 2026-11-02 so the same code could carry every parish in the Diocese of

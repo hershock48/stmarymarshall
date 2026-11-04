@@ -16,12 +16,14 @@ const transpile = (file, out) => {
     .readFileSync(file, "utf8")
     .replace(/from "@\/lib\/(\w+)"/g, 'from "./$1.mjs"')
     .replace(/from "@\/parishes\/(\w+)\/data"/g, 'from "./data-$1.mjs"')
+    .replace(/from "@\/parishes\/diocese\/(\w+)"/g, 'from "./diocese-$1.mjs"')
     .replace(/import (\w+) from "@\/parishes\/(?:diocese\/)?(\w+)\.json";/g, 'import $1 from "./$2.json" with { type: "json" };');
   const js = ts.transpileModule(src, { compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022, verbatimModuleSyntax: false } }).outputText;
   fs.writeFileSync(path.join(tmp, out), js);
 };
 for (const f of ["i18n", "schedule", "events", "ics", "sentences", "geo", "diocese", "paths"]) transpile(path.join(ROOT, "lib", f + ".ts"), f + ".mjs");
 for (const slug of ["stmarymarshall", "stphilipbc", "sanfelipe"]) transpile(path.join(ROOT, "parishes", slug, "data.ts"), `data-${slug}.mjs`);
+for (const f of ["events", "notices"]) transpile(path.join(ROOT, "parishes/diocese", f + ".ts"), `diocese-${f}.mjs`);
 for (const j of ["finder", "zips"]) fs.copyFileSync(path.join(ROOT, "parishes/diocese", j + ".json"), path.join(tmp, j + ".json"));
 fs.copyFileSync(path.join(ROOT, "parishes/registry.json"), path.join(tmp, "registry.json"));
 const S = await import(pathToFileURL(path.join(tmp, "schedule.mjs")).href);
@@ -123,6 +125,18 @@ ok("From Marshall the nearest is St. Mary Marshall", near[0].name, "St. Mary");
 ok("From Marshall, St. Philip is within 25 miles with a next Mass", near.some((p) => p.name === "St. Philip" && p.next.mass), true);
 ok("Nearest first", near.every((p, i) => i === 0 || p.miles >= near[i - 1].miles), true);
 ok("Coarse point rounds to a tenth", G.coarse({ lat: 42.2709, lng: -84.9615 }), "42.3,-85.0");
+
+// The diocese calendar: platform parishes plus the diocese file (The Insider).
+const week = D.dioceseEvents(14, at("2026-11-04T12:00:00Z"));
+ok("Gethsemane Night on Nov 5 is on the diocese calendar with its host", week.find((o) => o.id === "gethsemane-2026-11-05")?.host, "Office of Mission and Ministry");
+ok("A diocese-file row has no parish; a platform row has one", [week.find((o) => o.id === "gethsemane-2026-11-05")?.parish === undefined, week.some((o) => o.parish)], [true, true]);
+ok("The four-night mission appears once per night", D.dioceseEvents(21, at("2026-11-04T12:00:00Z")).filter((o) => o.id.startsWith("stjoseph-bc-mission-2026-11-16")).map((o) => o.date), ["2026-11-16", "2026-11-17", "2026-11-18", "2026-11-19"]);
+ok("A fourteen-day window clips the mission to the nights inside it", week.filter((o) => o.id.startsWith("stjoseph-bc-mission-2026-11-16")).length, 2);
+ok("Soonest first across both sources", week.every((o, i) => i === 0 || o.date >= week[i - 1].date), true);
+ok("Catholic Conversations at 6:30 PM is still ahead at noon on Nov 4", week.some((o) => o.id === "ya-conversations-2026-11-04"), true);
+ok("Catholic Conversations has dropped off by 9 PM on Nov 4", D.dioceseEvents(14, at("2026-11-05T02:00:00Z")).some((o) => o.id === "ya-conversations-2026-11-04"), false);
+ok("January's Gethsemane Night is in 2027", D.dioceseFileEvent("gethsemane-2027-01-07", at("2026-11-04T12:00:00Z"))?.date, "2027-01-07");
+ok("An unknown id is null", D.dioceseFileEvent("nope", at("2026-11-04T12:00:00Z")), null);
 
 console.log(fails ? `\n${fails} failed` : "\nall passed");
 process.exit(fails ? 1 : 0);

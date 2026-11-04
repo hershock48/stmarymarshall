@@ -42,10 +42,7 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
     if (!days.has(o.date)) days.set(o.date, []);
     days.get(o.date)!.push(o);
   }
-  const site = (slug: string) => {
-    const q = items.find((o) => o.parish.slug === slug)!.parish;
-    return q.pitchHost ? `https://${q.pitchHost}/demo` : `https://${q.hosts[0]}`;
-  };
+  const site = (q: NonNullable<(typeof items)[number]["parish"]>) => (q.pitchHost ? `https://${q.pitchHost}/demo` : `https://${q.hosts[0]}`);
   return (
     <>
       <section className="bg-navy">
@@ -98,17 +95,23 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
                     <p className="font-semibold tabular-nums text-ink">{fmtRange(o, lang)}</p>
                     <div>
                       <p className="font-semibold text-ink">
-                        {o.title} <span className="font-normal text-ink-soft">{t.at(`${o.parish.shortName}, ${o.town}`)}</span>
+                        {o.title} <span className="font-normal text-ink-soft">{t.at(`${o.host}, ${o.town}`)}</span>
                       </p>
                       <p className="text-sm text-ink-soft">{[o.where, kindLabel(o.kind, lang)].filter(Boolean).join(" · ")}</p>
                       {o.note ? <p className="mt-1 text-sm leading-relaxed text-ink-soft">{o.note}</p> : null}
                       <p className="mt-1 flex flex-wrap gap-x-5 text-sm font-semibold">
-                        <a href={`${site(o.parish.slug)}/calendar.ics?e=${occurrenceId(o)}`} className="inline-block min-h-6 text-marian underline decoration-marian/40 underline-offset-4">
+                        <a href={o.parish ? `${site(o.parish)}/calendar.ics?e=${occurrenceId(o)}` : `/diocese/events.ics?e=${o.id}`} className="inline-block min-h-6 text-marian underline decoration-marian/40 underline-offset-4">
                           {t.add}
                         </a>
-                        <a href={`${site(o.parish.slug)}/events`} className="inline-block min-h-6 text-marian underline decoration-marian/40 underline-offset-4" target="_blank" rel="noopener noreferrer">
-                          {t.more}
-                        </a>
+                        {o.parish ? (
+                          <a href={`${site(o.parish)}/events`} className="inline-block min-h-6 text-marian underline decoration-marian/40 underline-offset-4" target="_blank" rel="noopener noreferrer">
+                            {t.more}
+                          </a>
+                        ) : o.href ? (
+                          <a href={o.href} className="inline-block min-h-6 text-marian underline decoration-marian/40 underline-offset-4" target="_blank" rel="noopener noreferrer">
+                            {t.more}
+                          </a>
+                        ) : null}
                       </p>
                     </div>
                   </li>
