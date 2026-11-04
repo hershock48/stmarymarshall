@@ -25,6 +25,31 @@ and no visitors in them. The schedule is typed once and published as
 structured data, a feed, and the finder. The diocese holds the repository,
 the hosting and the data, in writing, and can leave with all of it.
 
+## The story the letters tell (Kevin, 2026-11-04)
+
+Not "we rebuilt three of fifty sites." The story is what one parish site
+turned into: a platform. A parish site that is alive, a proper reflection
+of a living faith, where the schedule, the calendar and the week's news run
+from the same data. Parishes connected to each other through one finder,
+one calendar, one set of groups. A layer for the diocese to see every site
+and to send, the bishop's voice long form and short, notices, gatherings
+across parishes. An upgrade from a stale drag-and-drop template. The
+rebuilt sites and the measurements are proof inside that story, never the
+headline. Both letters follow this order: alive, connected, the diocese,
+then what we measured, ownership, cost, next.
+
+## Progress (2026-11-04, evening)
+
+Built since the plan was written: the platform is multi-diocese
+(`dioceses/<slug>/config.ts`, Lansing added as the second with its own
+finder reader, vicariates, podcast voice, letter at lansing.glazedweb.com
+and finder.lansing.glazedweb.com); the Lansing audit (72 sites, seven
+platforms; `glaze/research/lansing-audit-2026-11.md`); religious education
+enrollment (`/enroll`); sacramental prep as checklists on the sacraments
+page; the chancery view by deanery with the finder's age and each parish's
+week. Still owed from this list: nothing. Next, per the plan: phase two's
+credential-gated pieces when the keys exist, and the office panel.
+
 ## Principles
 
 - **Typed once.** A fact lives in one data file; every page, feed and finder
