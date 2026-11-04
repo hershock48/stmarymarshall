@@ -115,6 +115,19 @@ on now. `components/HolyDayNotice.tsx` is the line at the top of every
 parish page in the week before a holy day or a dated Mass, from the same
 `holyDays` and `specialMasses` the Mass times page uses.
 
+The week's news is compiled, not typed (`lib/news.ts`): what the office
+wrote (`announcements` on the parish, each with a run window and an optional
+Spanish block, `diocesan: true` to offer it to the diocese), the dated Masses
+and holy days that differ from the usual week, the calendar, the chancery's
+notices and the bishop's newest message. One function feeds `/news`,
+`/news.xml` (RSS, for Flocknote or any tool that turns a feed into an
+email), `/bulletin-insert` (the same rows laid out for a half sheet; print
+to PDF on bulletin day) and `/diocese/insider` with `/diocese/insider.xml`,
+the diocese's weekly digest from notices, the bishop, the parishes' offered
+announcements and the next two weeks across the diocese. Nothing is keyed
+twice. `tools/finder-compare.mjs` takes the two phone screenshots of the
+finders that the diocese letter shows side by side.
+
 Counting (`lib/tally.ts`) is per day, host, kind and key, with no visitor
 in it: a page served by path (the proxy passes the path as `x-path`), a
 finder search by a point rounded to about seven miles plus the result

@@ -70,6 +70,11 @@ export function DioceseFooter({ lang }: { lang: Lang }) {
               </a>
             </li>
             <li>
+              <Link href="/diocese/insider" className="inline-block min-h-6 font-semibold text-gold underline underline-offset-4 hover:text-gold-light">
+                {s.diocese.news.digestTitle}
+              </Link>
+            </li>
+            <li>
               <Link href="/diocese/events.ics" className="inline-block min-h-6 hover:text-cream">
                 /diocese/events.ics
               </Link>

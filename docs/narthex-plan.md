@@ -129,16 +129,26 @@ before the diocese trusts us with the public layer.
 - Product: Narthex, built by Glazed Web. Domains free as of 2026-11-04:
   usenarthex.com, narthexhq.com; narthex.com and narthex.app are taken.
 
-## What Kevin holds
+## Kevin's to-do
 
-- `DIOCESE_PASSCODE`, `DATABASE_URL` and `db/tally.sql` for the chancery
-  view's counts (said "not yet" 2026-11-03).
-- SMTP variables for the forms and the report link.
-- Cloudflare Stream (or Mux) account and token for hosted video.
-- The diocese meetings; Vikki Sesna's introduction; the eCatholic back end
-  via Stacie's login, look only.
-- Price of hosted video and of the chancery view; St. Mary as the free
-  first-year reference parish; a named second person for support.
+Nothing here blocks the build; each one switches on a piece that is already
+built. Kevin said "not yet" to the first two on 2026-11-03 and to the third
+on 2026-11-04.
+
+- [ ] `DIOCESE_PASSCODE` in Vercel: opens the chancery view.
+- [ ] `DATABASE_URL` (Neon) in Vercel and `db/tally.sql` run once: starts the counts.
+- [ ] `DIOCESE_MAIL_TO` (or `MAIL_TO`) and the `SMTP_*` variables in Vercel: the
+      finder's wrong-time reports and the parish forms reach a person instead
+      of the log.
+- [ ] A Cloudflare Stream account; `STREAM_CUSTOMER_CODE` in Vercel; a live
+      input per parish that wants hosted video.
+- [ ] The price of hosted video (the letter says about $49 a month) and of the
+      chancery view.
+- [ ] Merge glazedweb PR #33 so /agreement/diokzoo and /build/diokzoo go live.
+- [ ] The diocese meetings; Vikki Sesna's introduction; the eCatholic back end
+      through Stacie's login, look only.
+- [ ] St. Mary as the free first-year reference parish; a named second person
+      for support.
 
 ## Order of work, phase one
 

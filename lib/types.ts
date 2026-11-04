@@ -37,6 +37,26 @@ export type Rule =
 
 export type EventKind = "worship" | "formation" | "music" | "meeting" | "family" | "service";
 
+/**
+ * Something the office wants said this week: typed once, with a run
+ * window, and shown on the home page, the news page, the feed, the
+ * printable bulletin insert and, if `diocesan`, the diocese's weekly
+ * digest. The dated things (Masses, holy days, events) are never typed
+ * here; the news page reads them from the schedule and the calendar.
+ */
+export type Announcement = {
+  id: string;
+  from: string;
+  until: string;
+  title: string;
+  body: string;
+  href?: string;
+  label?: string;
+  /** Offer it to the diocese's weekly digest as well. */
+  diocesan?: boolean;
+  es?: { title: string; body: string; label?: string };
+};
+
 export type ParishEvent = { title: string; note?: string; where?: string; rule: Rule; kind: EventKind };
 
 /**
@@ -128,6 +148,8 @@ export type Parish = {
   specialMasses: DatedMass[];
   holyDays: HolyDay[];
   events: ParishEvent[];
+  /** What the office wants said this week (lib/news.ts). */
+  announcements?: Announcement[];
 
   welcome: { heading: string; body: string[] };
   /** Questions a first visit asks, beyond the four the platform answers from the data. */

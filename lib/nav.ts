@@ -29,6 +29,7 @@ export function morePages(p: Parish): { href: string; label: string }[] {
   return [
     ...(p.give.url || p.give.extras?.length ? [{ href: "/give", label: s.give }] : []),
     ...(hasWatch(p) ? [{ href: "/watch", label: strings(p.lang).massTimes.watch }] : []),
+    { href: "/news", label: strings(p.lang).diocese.news.nav },
     { href: "/register", label: s.register },
     { href: "/mass-intentions", label: s.massIntentions },
     { href: "/prayer-request", label: s.prayerRequest },

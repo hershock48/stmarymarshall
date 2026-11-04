@@ -21,9 +21,9 @@ const transpile = (file, out) => {
   const js = ts.transpileModule(src, { compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022, verbatimModuleSyntax: false } }).outputText;
   fs.writeFileSync(path.join(tmp, out), js);
 };
-for (const f of ["i18n", "schedule", "events", "ics", "sentences", "geo", "diocese", "paths"]) transpile(path.join(ROOT, "lib", f + ".ts"), f + ".mjs");
+for (const f of ["i18n", "schedule", "events", "ics", "sentences", "geo", "diocese", "paths", "voice", "news"]) transpile(path.join(ROOT, "lib", f + ".ts"), f + ".mjs");
 for (const slug of ["stmarymarshall", "stphilipbc", "sanfelipe"]) transpile(path.join(ROOT, "parishes", slug, "data.ts"), `data-${slug}.mjs`);
-for (const f of ["events", "notices"]) transpile(path.join(ROOT, "parishes/diocese", f + ".ts"), `diocese-${f}.mjs`);
+for (const f of ["events", "notices", "voice"]) transpile(path.join(ROOT, "parishes/diocese", f + ".ts"), `diocese-${f}.mjs`);
 for (const j of ["finder", "zips"]) fs.copyFileSync(path.join(ROOT, "parishes/diocese", j + ".json"), path.join(tmp, j + ".json"));
 fs.copyFileSync(path.join(ROOT, "parishes/registry.json"), path.join(tmp, "registry.json"));
 const S = await import(pathToFileURL(path.join(tmp, "schedule.mjs")).href);
@@ -151,6 +151,19 @@ ok("Sunday 10:31 AM: ninety-one minutes after, nothing is on", S.massOnNow(SM.ma
 ok("Thanksgiving 9:30 AM: the dated Mass is on", S.massOnNow(SM.masses, at("2026-11-26T14:30:00Z"), S.datedMasses(SM))?.label, "Thanksgiving Mass");
 ok("Wednesday 11:50 AM: the noon Mass is on", S.massOnNow(SM.masses, at("2026-11-04T16:50:00Z"))?.start, "12:00");
 ok("Wednesday 3 PM: nothing", S.massOnNow(SM.masses, at("2026-11-04T20:00:00Z")), null);
+
+// The week's news, compiled from the data the parish already keeps.
+const N = await import(pathToFileURL(path.join(tmp, "news.mjs")).href);
+const SF = (await import(pathToFileURL(path.join(tmp, "data-sanfelipe.mjs")).href)).default;
+const w1 = N.parishWeek(SM, at("2026-11-20T12:00:00Z"), 7, "en");
+ok("Thanksgiving Mass is a 'mass' row in the week before", w1.masses.map((m) => [m.kind, m.title, m.when]), [["mass", "Thanksgiving Mass", "9:00 AM"]]);
+ok("No announcements typed means none listed, not a placeholder", w1.announcements, []);
+ok("The bishop's newest English message rides along", w1.bishop?.kind, "bishop");
+const w2 = N.parishWeek(SM, at("2026-12-01T12:00:00Z"), 7, "en");
+ok("Advent: the chancery's confession notice is on the parish's week", w2.diocese.map((d) => d.id), ["notice-2026-advent-confessions"]);
+ok("Advent: Immaculate Conception shows with no times", w2.masses.map((m) => [m.kind, m.when ?? null]), [["holyDay", null]]);
+ok("The feed is one flat list, newest-dated first", N.weekFeed(w2).every((x, i, a) => i === 0 || x.date <= a[i - 1].date), true);
+ok("A Spanish parish gets the Spanish notice", N.parishWeek(SF, at("2026-12-01T12:00:00Z"), 7, "es").diocese[0].title, "Confesiones de Adviento en toda la diócesis");
 
 console.log(fails ? `\n${fails} failed` : "\nall passed");
 process.exit(fails ? 1 : 0);

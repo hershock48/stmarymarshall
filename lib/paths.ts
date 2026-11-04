@@ -53,7 +53,7 @@ export function hasWatch(p: Parish): boolean {
 }
 
 /** The one-segment paths every parish has, whatever its data. */
-const ALWAYS = new Set(["", "new", "mass-times", "about", "sacraments", "register", "mass-intentions", "prayer-request", "demo", "diocese"]);
+const ALWAYS = new Set(["", "new", "mass-times", "about", "sacraments", "register", "mass-intentions", "prayer-request", "demo", "diocese", "news", "bulletin-insert"]);
 
 /**
  * True when the parish answers this one-segment path. The pages that
