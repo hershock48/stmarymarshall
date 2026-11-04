@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Band } from "@/components/ui";
-import { dioceseParishes } from "@/lib/diocese";
+import { dioceseEvents, dioceseParishes, platformParishes } from "@/lib/diocese";
+import { parishWeek } from "@/lib/news";
+import { liveNotices } from "@/lib/notices";
+import { latestVoice } from "@/lib/voice";
 import { occurrences } from "@/lib/events";
 import { admitted, configured } from "@/lib/office";
 import { getDiocese, getParish } from "@/lib/parish";
-import { ALL } from "@/lib/paths";
 import { addDays, localNow } from "@/lib/schedule";
 import { byDay, counting, totals } from "@/lib/tally";
 
@@ -36,7 +38,7 @@ function Section({ title, lede, children }: { title: string; lede?: string; chil
 
 function Table({ head, rows }: { head: string[]; rows: (string | number)[][] }) {
   return (
-    <div className="overflow-x-auto rounded-sm border border-paper-dim">
+    <div className="overflow-x-auto rounded-sm border border-paper-dim" tabIndex={0} role="region" aria-label={head.join(", ")}>
       <table className="w-full text-left text-sm">
         <thead className="bg-paper-dim/60 text-[11px] uppercase tracking-[0.14em] text-ink-soft">
           <tr>
@@ -95,8 +97,28 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
 
   const now = localNow(d.timeZone);
   const all = dioceseParishes(d, now);
-  const onPlatform = ALL;
+  const onPlatform = platformParishes(d);
   const nextMonthFrom = addDays(now.iso, 28);
+
+  // By deanery: how much of each is on the platform, from the diocese's own roster.
+  const deaneries = [...new Set(all.map((p) => p.deanery ?? "Not in the directory"))].sort();
+  const byDeanery = deaneries.map((name) => {
+    const rows = all.filter((p) => (p.deanery ?? "Not in the directory") === name);
+    return [name, rows.length, rows.filter((p) => p.source === "platform").length, rows.filter((p) => p.site).length, rows.filter((p) => p.masses.length + p.specials.length > 0).length];
+  });
+
+  // The finder's read and the Monday refresh: how old the diocese's page is in our copy.
+  const readDays = Math.round((Date.parse(`${now.iso}T00:00:00Z`) - Date.parse(`${d.finder.readAt}T00:00:00Z`)) / 86400000);
+  const refresh = readDays <= 8 ? "the weekly refresh is current" : `the weekly refresh has not run for ${readDays} days; check the Actions tab`;
+
+  // This week, per parish, from the same rows the news page and the insert use.
+  const thisWeek = onPlatform.map((p) => {
+    const w = parishWeek(p, localNow(p.timeZone), 7, p.lang);
+    return [p.name, w.announcements.length, w.masses.length, w.events.length, w.diocese.length, w.bishop ? "yes" : "off"];
+  });
+  const notices = liveNotices(d.notices, now.iso);
+  const bishop = latestVoice(d, "en");
+  const dioceseDates = dioceseEvents(d, 14, now).filter((o) => !o.parish).length;
 
   // Freshness and what is still unconfirmed, from the data itself.
   const health = onPlatform.map((p) => {
@@ -137,8 +159,16 @@ export default async function OfficePage({ searchParams }: { searchParams: Promi
           <Table head={["Parish", "Town", "Where it answers", "Forms inbox", "Events next 4 weeks", "Events the 4 after", "Holy days without a time", "Office hours published"]} rows={health} />
         </Section>
 
-        <Section title="The finder" lede={`All ${all.length} parishes and missions are on the finder. ${onPlatform.length} answer from their own data; ${finderRows.length} are read from the diocesan Parish Finder as of ${d.finder.readAt}. ${finderNoSite} have no website at all. ${spanish} list a Mass in Spanish.`}>
-          <Table head={["Parish", "Town", "Source", "Website", "Masses listed"]} rows={all.map((p) => [p.name, p.town, p.source === "platform" ? "its own data" : "Parish Finder", p.site ? "yes" : "none", p.masses.length + p.specials.length])} />
+        <Section title="This week" lede={`What each parish site is saying this week, from the rows its news page and bulletin insert are built from. Across the diocese: ${notices.length} chancery notice${notices.length === 1 ? "" : "s"} live, ${dioceseDates} diocesan date${dioceseDates === 1 ? "" : "s"} in the next two weeks, the bishop's newest message dated ${bishop?.date ?? "none"}.`}>
+          <Table head={["Parish", "Announcements typed", "Masses that differ", "Events next 7 days", "Chancery notices shown", "Bishop's card"]} rows={thisWeek} />
+        </Section>
+
+        <Section title="By deanery" lede="Each deanery from the diocese's own directory: how many of its parishes are on the platform, how many have any website, and how many have a schedule the finder can read.">
+          <Table head={["Deanery", "Parishes", "On the platform", "With a website", "With Mass times on the finder"]} rows={byDeanery} />
+        </Section>
+
+        <Section title="The finder" lede={`All ${all.length} parishes and missions are on the finder. ${onPlatform.length} answer from their own data; ${finderRows.length} are read from the diocese's own page as of ${d.finder.readAt} (${readDays} day${readDays === 1 ? "" : "s"} ago; ${refresh}). ${finderNoSite} have no website at all. ${spanish} list a Mass in Spanish.`}>
+          <Table head={["Parish", "Town", "Deanery", "Source", "Website", "Masses listed"]} rows={all.map((p) => [p.name, p.town, p.deanery ?? "", p.source === "platform" ? "its own data" : "the diocese's page", p.site ? "yes" : "none", p.masses.length + p.specials.length])} />
         </Section>
 
         {counting ? (
