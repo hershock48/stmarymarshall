@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { knowsPath, letterHost, parishForHost } from "@/lib/paths";
+import { isDioceseHost, knowsPath, letterHost, parishForHost } from "@/lib/paths";
 
 /**
  * Two kinds of request are steered to a path nothing matches, so the
@@ -28,6 +28,21 @@ export function proxy(req: NextRequest) {
   const letter = /^\/pitch\/([^/]+)(\/|$)/.exec(pathname);
   if (letter) {
     return letterHost(letter[1]) === host ? NextResponse.next() : gone(req);
+  }
+  // 3. The diocese host answers the finder at / and the diocese pages only;
+  //    a parish path asked for there is nobody's page. The rewrite of / is
+  //    done here rather than in next.config so DIOCESE_DEFAULT (lib/paths.ts)
+  //    works on a local server too.
+  if (isDioceseHost(host)) {
+    if (pathname === "/") {
+      const url = req.nextUrl.clone();
+      url.pathname = "/diocese/near";
+      const h = new Headers(req.headers);
+      h.delete("x-path");
+      h.set("x-path", "/");
+      return NextResponse.rewrite(url, { request: { headers: h } });
+    }
+    if (!/^\/(diocese(\/|$)|robots\.txt$|sitemap\.xml$|manifest\.webmanifest$|__404\/)/.test(pathname)) return gone(req);
   }
   const one = /^\/([^/.]+)\/?$/.exec(pathname);
   if (one && !knowsPath(parishForHost(host), one[1])) return gone(req);

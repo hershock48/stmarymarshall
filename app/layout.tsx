@@ -6,7 +6,8 @@ import { bump } from "@/lib/tally";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { strings } from "@/lib/i18n";
-import { getParish, isNoindexHost } from "@/lib/parish";
+import { DioceseFooter, DioceseHeader } from "@/components/DioceseChrome";
+import { getParish, isNoindexHost, onDioceseHost } from "@/lib/parish";
 import { navFor } from "@/lib/nav";
 import { pageMetadata } from "@/lib/meta";
 import { churchSchema, jsonLd } from "@/lib/jsonld";
@@ -28,6 +29,8 @@ const body = Source_Sans_3({ subsets: ["latin", "latin-ext"], weight: ["400", "6
 export async function generateMetadata(): Promise<Metadata> {
   const p = await getParish();
   const s = strings(p.lang);
+  // The diocese host carries no parish: its own title and description, no parish link card.
+  if (await onDioceseHost()) return { title: `${s.diocese.chrome.name} · ${s.diocese.chrome.sub}`, description: s.diocese.chrome.lede, robots: { index: false } };
   const noindex = await isNoindexHost();
   return pageMetadata(p, {
     title: p.name,
@@ -45,6 +48,22 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   const path = h.get("x-path");
   if (path && path.startsWith("/") && path.length <= 200) after(() => bump(h.get("host") ?? "", "view", path));
   const nameRest = p.name.startsWith(p.shortName) ? p.name.slice(p.shortName.length).trim() : "";
+  // On the diocese layer's own host the pages wear the diocese's chrome and
+  // carry no parish: no parish header, footer or Church record.
+  if (await onDioceseHost()) {
+    return (
+      <html lang={p.lang} className={`${display.variable} ${body.variable}`} style={themeStyle(p)}>
+        <body>
+          <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-sm focus:bg-gold focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-navy">
+            {s.header.skip}
+          </a>
+          <DioceseHeader lang={p.lang} />
+          <main id="main">{children}</main>
+          <DioceseFooter lang={p.lang} />
+        </body>
+      </html>
+    );
+  }
   return (
     <html lang={p.lang} className={`${display.variable} ${body.variable}`} style={themeStyle(p)}>
       <body>

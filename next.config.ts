@@ -25,7 +25,10 @@ import registry from "./parishes/registry.json";
 const pitch = registry.parishes.filter((p) => p.pitchHost).map((p) => ({ slug: p.slug, host: p.pitchHost as string, letter: fs.existsSync(path.join(process.cwd(), "public/pitch", p.slug, "index.html")) }));
 const onHost = (host: string) => [{ type: "host" as const, value: host.replace(/\./g, "\\.") }];
 const diocese = registry.diocesePitchHost;
-const pitchHosts = [...pitch.map((p) => p.host), ...(diocese ? [diocese] : [])];
+// The diocese layer's own host (lib/paths.ts): proxy.ts serves the finder at
+// its /; here it is noindex and its / may be framed by the diocese's site.
+const dioceseHost = registry.dioceseHost;
+const pitchHosts = [...pitch.map((p) => p.host), ...(diocese ? [diocese] : []), ...(dioceseHost ? [dioceseHost] : [])];
 
 const nextConfig: NextConfig = {
   images: { formats: ["image/avif", "image/webp"] },
@@ -60,15 +63,21 @@ const nextConfig: NextConfig = {
     // What every response carries, on every host, listed on /diocese/security.
     // HSTS comes from Vercel. Geolocation is allowed only for the site's own
     // finder button; no page here ever needs a camera or a microphone, and no
-    // other site may put these pages in a frame.
+    // other site may put these pages in a frame, with one exception: the
+    // finder may sit in a frame on the diocese's own site, so the diocese can
+    // embed it on its Parish Finder page without moving anything.
     const security = [
       { key: "X-Content-Type-Options", value: "nosniff" },
       { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
       { key: "Permissions-Policy", value: "geolocation=(self), camera=(), microphone=(), payment=()" },
-      { key: "Content-Security-Policy", value: "frame-ancestors 'self'" },
     ];
+    const framing = (ancestors: string) => ({ key: "Content-Security-Policy", value: `frame-ancestors ${ancestors}` });
+    const finderAncestors = "'self' https://diokzoo.org https://www.diokzoo.org";
     return [
       { source: "/:path*", headers: security },
+      { source: "/:path((?!diocese/near$).*)", headers: [framing("'self'")] },
+      { source: "/diocese/near", headers: [framing(finderAncestors)] },
+      ...(dioceseHost ? [{ source: "/", has: onHost(dioceseHost), headers: [framing(finderAncestors)] }] : []),
       ...pitchHosts.map((h) => ({ source: "/:path*", has: onHost(h), headers: noindex })),
       { source: "/:path*", has: [{ type: "host" as const, value: "(.*)\\.vercel\\.app" }], headers: noindex },
     ];

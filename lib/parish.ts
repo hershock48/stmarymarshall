@@ -1,6 +1,6 @@
 import "server-only";
 import { headers } from "next/headers";
-import { ALL, parishBySlug as bySlug, parishForHost } from "@/lib/paths";
+import { ALL, isDioceseHost, parishBySlug as bySlug, parishForHost } from "@/lib/paths";
 import type { Parish } from "@/lib/types";
 
 /**
@@ -37,5 +37,10 @@ export async function getParish(): Promise<Parish> {
 export async function isNoindexHost(): Promise<boolean> {
   const h = (await headers()).get("host")?.toLowerCase().split(":")[0] ?? "";
   const p = parishByHost(h);
-  return !p.live || p.pitchHost === h || /\.vercel\.app$/.test(h);
+  return !p.live || p.pitchHost === h || isDioceseHost(h) || /\.vercel\.app$/.test(h);
+}
+
+/** True on the diocese layer's own host (lib/paths.ts), where the pages wear the diocese's chrome, not a parish's. */
+export async function onDioceseHost(): Promise<boolean> {
+  return isDioceseHost((await headers()).get("host"));
 }

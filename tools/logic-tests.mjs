@@ -85,7 +85,8 @@ t("ics CRLF only", /\r\n/.test(feed) && !/[^\r]\n/.test(feed), true);
 t("ics no long lines", feed.split("\r\n").every((l) => Buffer.byteLength(l, "utf8") <= 75), true);
 t("ics has events", (feed.match(/BEGIN:VEVENT/g) || []).length > 20, true);
 t("ics uid domain", /@stmarymarshall\.org/.test(feed), true);
-const first = E.occurrences(SM.events, at("2026-11-03T12:00:00Z"), 1)[0];
+// singleEvent expands from the real today, so pick tomorrow's first occurrence rather than a fixed date that will pass.
+const first = E.occurrences(SM.events, at(new Date(Date.now() + 86400000).toISOString()), 7)[0];
 const id = I.occurrenceId(first);
 t("single event resolves", (I.singleEvent(SM, id) || "").includes("BEGIN:VEVENT"), true);
 t("single event unknown", I.singleEvent(SM, "nope"), null);

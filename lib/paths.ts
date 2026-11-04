@@ -27,6 +27,20 @@ export function parishBySlug(slug: string): Parish | undefined {
   return BY_SLUG.get(slug);
 }
 
+/**
+ * The diocese layer's own host: the finder at /, the diocese pages under
+ * /diocese, nothing of any parish. The diocese can point its Parish Finder
+ * page at it before a single parish moves; the day the diocese gives the
+ * layer a host it owns, that host goes here.
+ */
+export function isDioceseHost(host: string | null | undefined): boolean {
+  const h = (host ?? "").toLowerCase().split(":")[0];
+  // DIOCESE_DEFAULT=1 makes a local server answer as the diocese host on
+  // 127.0.0.1, so the auditor (base URL, no Host header) can run against it.
+  if (process.env.DIOCESE_DEFAULT === "1" && /^(127\.0\.0\.1|localhost)$/.test(h)) return true;
+  return Boolean(registry.dioceseHost) && h === registry.dioceseHost;
+}
+
 /** The host a letter under public/pitch/<slug>/ belongs to, or none. */
 export function letterHost(slug: string): string | undefined {
   if (slug === "diocese") return registry.diocesePitchHost || undefined;

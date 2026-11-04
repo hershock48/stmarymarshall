@@ -9,8 +9,9 @@ import { nearby, TIME_ZONE, type Near } from "@/lib/diocese";
 import { coarse, resolvePlace } from "@/lib/geo";
 import { strings } from "@/lib/i18n";
 import { getParish } from "@/lib/parish";
-import { localNow, whenWord, type NextService } from "@/lib/schedule";
+import { fmtDate, localNow, whenWord, type NextService } from "@/lib/schedule";
 import { bump } from "@/lib/tally";
+import finder from "@/parishes/diocese/finder.json";
 
 /**
  * Mass near you: every parish in the diocese within a radius of a zip, a
@@ -86,7 +87,12 @@ function Card({ p, lang }: { p: Near; lang: "en" | "es" }) {
           </a>
         ) : null}
       </p>
-      <p className="mt-3 text-xs text-ink-soft">{p.source === "platform" ? s.fromPlatform : s.fromFinder}</p>
+      <p className="mt-3 flex flex-wrap gap-x-4 text-xs text-ink-soft">
+        <span>{p.source === "platform" ? s.fromPlatform : `${s.fromFinder}, ${fmtDate(finder.readAt, true, lang)}`}</span>
+        <Link href={`/diocese/report?p=${encodeURIComponent(p.id)}`} className="inline-block min-h-6 font-semibold text-marian underline decoration-marian/40 underline-offset-4">
+          {strings(lang).diocese.chrome.report}
+        </Link>
+      </p>
     </li>
   );
 }

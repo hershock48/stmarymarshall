@@ -45,7 +45,7 @@ export default async function SecurityPage() {
           <h2 className="display mt-12 text-3xl text-ink">What we do store</h2>
           <div className="mt-4 border-b border-paper-dim">
             <Row k="The parish data">Each parish&rsquo;s schedule, calendar, staff list, pages, photos and documents, as files in a code repository the diocese holds, with the full history of every change.</Row>
-            <Row k="Form submissions">A registration, a Mass intention or a prayer request is emailed to the inbox the parish names and written to the server log so nothing is lost if mail fails. Logs are kept by the host for its standard retention and are not searched or used for anything else. Until a parish names its inbox, the form says so to the visitor rather than pretending to send.</Row>
+            <Row k="Form submissions">A registration, a Mass intention, a prayer request or a wrong-time report from the finder is emailed to the inbox the parish names and written to the server log so nothing is lost if mail fails. Logs are kept by the host for its standard retention and are not searched or used for anything else. Until a parish names its inbox, the form says so to the visitor rather than pretending to send.</Row>
             <Row k="Counts">Pages served, finder searches, forms sent and Give taps, as numbers per day, once a database is connected. Nothing in that table identifies anyone.</Row>
             <Row k="One cookie">The chancery view sets a single cookie after the passcode is typed, scoped to that page, expiring in twelve hours. No other page sets one.</Row>
           </div>
@@ -53,7 +53,7 @@ export default async function SecurityPage() {
           <h2 className="display mt-12 text-3xl text-ink">Where it runs</h2>
           <div className="mt-4 border-b border-paper-dim">
             <Row k="Hosting">Vercel, in its US East region, on a global edge network. Every page is served over HTTPS with certificates renewed automatically; plain HTTP is redirected and browsers are told to insist on HTTPS for two years (HSTS).</Row>
-            <Row k="Headers">Every response says it may not be framed by another site, may not be sniffed into another content type, sends only the site&rsquo;s origin as a referrer to other sites, and allows location access only for the finder&rsquo;s own button, with camera, microphone and payment APIs switched off.</Row>
+            <Row k="Headers">Every response says it may not be framed by another site (the one exception is the finder, which the diocese&rsquo;s own site diokzoo.org may embed), may not be sniffed into another content type, sends only the site&rsquo;s origin as a referrer to other sites, and allows location access only for the finder&rsquo;s own button, with camera, microphone and payment APIs switched off.</Row>
             <Row k="Software">A current web framework with no plugins and no page-builder login. Dependencies are updated the week a fix ships; the site is rebuilt and re-checked (accessibility, page weight, every route) before each change goes live.</Row>
             <Row k="Email">Form mail goes out through a sending-only account on the studio&rsquo;s domain, with the visitor&rsquo;s address as reply-to; no mailbox is read by the platform.</Row>
             <Row k="Backups">The repository is the backup: every parish&rsquo;s data and files, with history, in a place the diocese holds and can clone at any time.</Row>
