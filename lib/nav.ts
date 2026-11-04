@@ -30,6 +30,7 @@ export function morePages(p: Parish): { href: string; label: string }[] {
     ...(p.give.url || p.give.extras?.length ? [{ href: "/give", label: s.give }] : []),
     ...(hasWatch(p) ? [{ href: "/watch", label: strings(p.lang).massTimes.watch }] : []),
     { href: "/news", label: strings(p.lang).diocese.news.nav },
+    ...(p.formation.length ? [{ href: "/enroll", label: strings(p.lang).requests.enroll.title }] : []),
     { href: "/register", label: s.register },
     { href: "/mass-intentions", label: s.massIntentions },
     { href: "/prayer-request", label: s.prayerRequest },

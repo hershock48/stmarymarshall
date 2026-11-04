@@ -79,5 +79,6 @@ export function knowsPath(p: Parish, segment: string): boolean {
   if (segment === "bulletin") return Boolean(p.bulletins);
   if (segment === "give") return Boolean(p.give.url || p.give.extras?.length);
   if (segment === "watch") return hasWatch(p);
+  if (segment === "enroll") return p.formation.length > 0;
   return p.pages.some((pg) => pg.slug === segment);
 }

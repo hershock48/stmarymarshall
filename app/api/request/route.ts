@@ -31,7 +31,7 @@ export async function POST(req: Request) {
   if (spec.fields.some((f) => f.required && !data[f.name]?.trim())) return back(`${page}?error=required`);
 
   const text = summarizeRequest(kind, data);
-  const subject = `[${p.shortName}] ${spec.subject}: ${(data.intention_for ?? data.pray_for ?? "").trim().slice(0, 80)}`;
+  const subject = `[${p.shortName}] ${spec.subject}: ${(data.intention_for ?? data.pray_for ?? data.parent ?? "").trim().slice(0, 80)}`;
   console.log(`[${kind}:${p.slug}] ${subject}\n${text}`);
 
   if (!configured(p.mailTo)) return thanks("unconfigured");

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import OpenOnHash from "@/components/OpenOnHash";
 import SectionList from "@/components/SectionList";
-import { Band, PageHero } from "@/components/ui";
+import { Band, GoldButton, PageHero } from "@/components/ui";
 import { strings } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/meta";
 import { getParish } from "@/lib/parish";
@@ -28,6 +28,10 @@ export default async function FaithFormation() {
       <PageHero title={s.formation.title} lede={s.formation.lede} photo={p.photos.about ?? p.photos.hero} priority />
       <Band tone="paper">
         <OpenOnHash />
+        <div className="mb-10 flex flex-wrap items-center gap-4 rounded-sm border border-paper-dim bg-paper p-5">
+          <p className="text-[17px] leading-relaxed text-ink">{s.requests.enroll.lede}</p>
+          <GoldButton href="/enroll">{s.requests.enroll.h2}</GoldButton>
+        </div>
         <SectionList sections={p.formation} label={s.formation.label} contactWord={s.sections.contact} />
       </Band>
     </>
