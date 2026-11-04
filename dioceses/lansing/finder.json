@@ -13,9 +13,9 @@
    "vicariate": "Clinton/Eaton/Ingham",
    "panels": [],
    "geo": {
-    "lat": 42.5702,
-    "lng": -84.8352,
-    "source": "zip"
+    "lat": 42.563737,
+    "lng": -84.835579,
+    "source": "nominatim:town"
    }
   },
   {
@@ -173,9 +173,9 @@
    "vicariate": "Clinton/Eaton/Ingham",
    "panels": [],
    "geo": {
-    "lat": 42.7376,
-    "lng": -84.6244,
-    "source": "zip"
+    "lat": 42.733825,
+    "lng": -84.55463,
+    "source": "nominatim:town"
    }
   },
   {
@@ -317,9 +317,9 @@
    "vicariate": "Jackson",
    "panels": [],
    "geo": {
-    "lat": 42.1235,
-    "lng": -84.3521,
-    "source": "zip"
+    "lat": 42.121429,
+    "lng": -84.344951,
+    "source": "nominatim:town"
    }
   },
   {
@@ -333,9 +333,9 @@
    "vicariate": "Jackson",
    "panels": [],
    "geo": {
-    "lat": 42.1875,
-    "lng": -84.6529,
-    "source": "zip"
+    "lat": 42.177819,
+    "lng": -84.643021,
+    "source": "nominatim:town"
    }
   },
   {
@@ -381,19 +381,19 @@
    "vicariate": "Jackson",
    "panels": [],
    "geo": {
-    "lat": 42.2545,
-    "lng": -84.3875,
-    "source": "zip"
+    "lat": 42.241647,
+    "lng": -84.425589,
+    "source": "nominatim:town"
    }
   },
   {
    "name": "Our Lady of Fatima",
-   "address": "913 Napoleon Road, MI, Center, MI 49254",
+   "address": "913 Napoleon Road, Michigan Center, MI, 49254",
    "site": "http://www.fatimaparish.net/",
    "phone": "517-764-2088",
    "email": null,
    "finderId": "dol_our-lady-fatima-michigan-center",
-   "town": "MI",
+   "town": "Michigan Center",
    "vicariate": "Jackson",
    "panels": [],
    "geo": {
@@ -429,9 +429,9 @@
    "vicariate": "Lenawee/Hillsdale",
    "panels": [],
    "geo": {
-    "lat": 42.1044,
-    "lng": -84.2414,
-    "source": "zip"
+    "lat": 42.105874,
+    "lng": -84.248282,
+    "source": "nominatim:town"
    }
   },
   {
@@ -509,9 +509,9 @@
    "vicariate": "Lenawee/Hillsdale",
    "panels": [],
    "geo": {
-    "lat": 41.9953,
-    "lng": -83.9555,
-    "source": "zip"
+    "lat": 42.003933,
+    "lng": -83.944942,
+    "source": "nominatim:town"
    }
   },
   {
@@ -525,9 +525,9 @@
    "vicariate": "Livingston",
    "panels": [],
    "geo": {
-    "lat": 42.5371,
-    "lng": -83.7756,
-    "source": "zip"
+    "lat": 42.531692,
+    "lng": -83.784646,
+    "source": "nominatim:town"
    }
   },
   {
@@ -541,9 +541,9 @@
    "vicariate": "Livingston",
    "panels": [],
    "geo": {
-    "lat": 42.57,
-    "lng": -83.7484,
-    "source": "zip"
+    "lat": 42.531692,
+    "lng": -83.784646,
+    "source": "nominatim:town"
    }
   },
   {
@@ -589,9 +589,9 @@
    "vicariate": "Livingston",
    "panels": [],
    "geo": {
-    "lat": 42.6871,
-    "lng": -83.914,
-    "source": "zip"
+    "lat": 42.607255,
+    "lng": -83.929395,
+    "source": "nominatim:town"
    }
   },
   {
@@ -605,9 +605,9 @@
    "vicariate": "Livingston",
    "panels": [],
    "geo": {
-    "lat": 42.6871,
-    "lng": -83.914,
-    "source": "zip"
+    "lat": 42.607255,
+    "lng": -83.929395,
+    "source": "nominatim:town"
    }
   },
   {
@@ -685,9 +685,9 @@
    "vicariate": "Shiawasee/Genesee",
    "panels": [],
    "geo": {
-    "lat": 43.0348,
-    "lng": -83.5268,
-    "source": "zip"
+    "lat": 43.034687,
+    "lng": -83.518016,
+    "source": "nominatim:town"
    }
   },
   {
@@ -733,9 +733,9 @@
    "vicariate": "Shiawasee/Genesee",
    "panels": [],
    "geo": {
-    "lat": 43.0128,
-    "lng": -83.6914,
-    "source": "zip"
+    "lat": 43.016169,
+    "lng": -83.690021,
+    "source": "nominatim:town"
    }
   },
   {
@@ -765,9 +765,9 @@
    "vicariate": "Shiawasee/Genesee",
    "panels": [],
    "geo": {
-    "lat": 43.0634,
-    "lng": -83.7001,
-    "source": "zip"
+    "lat": 43.016169,
+    "lng": -83.690021,
+    "source": "nominatim:town"
    }
   },
   {
@@ -861,9 +861,9 @@
    "vicariate": "Shiawasee/Genesee",
    "panels": [],
    "geo": {
-    "lat": 42.9282,
-    "lng": -83.6264,
-    "source": "zip"
+    "lat": 42.927528,
+    "lng": -83.629952,
+    "source": "nominatim:town"
    }
   },
   {
@@ -941,9 +941,9 @@
    "vicariate": "Shiawasee/Genesee",
    "panels": [],
    "geo": {
-    "lat": 42.9969,
-    "lng": -84.3649,
-    "source": "zip"
+    "lat": 43.00584,
+    "lng": -84.37147,
+    "source": "nominatim:town"
    }
   },
   {
@@ -1085,9 +1085,9 @@
    "vicariate": "Washtenaw",
    "panels": [],
    "geo": {
-    "lat": 42.3583,
-    "lng": -83.9,
-    "source": "zip"
+    "lat": 42.3373,
+    "lng": -83.8842,
+    "source": "nominatim:town"
    }
   },
   {

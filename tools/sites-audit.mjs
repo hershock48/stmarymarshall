@@ -29,7 +29,14 @@ if (!finderFile || !outFile) {
   process.exit(1);
 }
 const finder = JSON.parse(fs.readFileSync(finderFile, "utf8"));
-const sites = [...new Map(finder.parishes.filter((p) => p.site).map((p) => [new URL(p.site).host.replace(/^www\./, ""), p])).entries()];
+const hostOf = (s) => {
+  try {
+    return new URL(/^https?:\/\//i.test(s) ? s : `https://${s}`).host.replace(/^www\./, "");
+  } catch {
+    return null;
+  }
+};
+const sites = [...new Map(finder.parishes.filter((p) => p.site && hostOf(p.site)).map((p) => [hostOf(p.site), p])).entries()];
 console.log(`${sites.length} distinct sites`);
 
 const chromium = await loadChromium();

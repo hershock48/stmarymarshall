@@ -27,10 +27,12 @@ jobs:
       - name: Read the Parish Finder
         run: node tools/finder-import.mjs https://www.diokzoo.org/parishfinder dioceses/kalamazoo/finder.json
       - name: The finder still converts
-        run: node tools/diocese-tests.mjs
+        # Structural checks only: the content pins (a dated Mass the diocese
+        # will remove after it passes) belong to the fixture, not the gate.
+        run: node tools/diocese-tests.mjs --structural
       - name: Commit if the finder changed
         run: |
-          if git diff --quiet -- dioceses/kalamazoo/finder.json; then
+          if git diff --quiet -I '"readAt"' -- dioceses/kalamazoo/finder.json; then
             echo "no change"
             exit 0
           fi

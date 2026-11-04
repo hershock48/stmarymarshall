@@ -1,3 +1,4 @@
+import { watchSource } from "@/lib/stream";
 import type { Parish } from "@/lib/types";
 import registry from "@/parishes/registry.json";
 import stmarymarshall from "@/parishes/stmarymarshall/data";
@@ -57,9 +58,9 @@ export function letterHost(slug: string): string | undefined {
   return registry.dioceses.find((d) => d.slug === slug)?.pitchHost || BY_SLUG.get(slug)?.pitchHost;
 }
 
-/** True when the parish has anywhere to watch Mass: hosted video, a YouTube channel, or a livestream link. */
+/** True when the parish has anywhere to watch Mass right now: the same test the Watch page makes, so a hosted-video parish without its credentials has no /watch rather than a broken one. */
 export function hasWatch(p: Parish): boolean {
-  return Boolean(p.stream || p.youtubeChannelId || p.livestream);
+  return watchSource(p) !== null;
 }
 
 /** The one-segment paths every parish has, whatever its data. */

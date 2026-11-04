@@ -50,8 +50,8 @@ function Input({ f, lang }: { f: Field; lang: Lang }) {
       <div className={wide}>
         {label}
         <select id={f.name} name={f.name} className="field">
-          {opts.map((o) => (
-            <option key={o} value={o}>
+          {opts.map((o, i) => (
+            <option key={`${i}-${o}`} value={o}>
               {o === "" ? s.choose : o === "Yes" ? s.yes : o === "No" ? s.no : trRequest(o, lang)}
             </option>
           ))}

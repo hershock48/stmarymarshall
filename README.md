@@ -107,7 +107,7 @@ it. Every finder card says when the Parish Finder was read and carries
 `DIOCESE_MAIL_TO` or `MAIL_TO`, always logged). `.github/workflows/finder-refresh.yml`
 re-reads the Parish Finder every Monday with `tools/finder-import.mjs <url>`,
 which refuses a parse shorter than ninety percent of the last one, runs the
-tests, and commits `finder.json` only when it changed.
+structural tests only (`node tools/diocese-tests.mjs --structural`; the dated content pins would fail the week the diocese removes a passed Mass), and commits `finder.json` only when something other than its read date changed.
 
 `/diocese/events` joins the platform parishes' calendars with
 `dioceses/kalamazoo/events.ts`, the chancery's and the other parishes' dates

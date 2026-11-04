@@ -195,7 +195,7 @@ export type Parish = {
  */
 export type FinderTime = { time: string; end?: string; lang?: string; note?: string };
 export type FinderPanel = { sacrament?: "mass" | "confession" | "adoration"; cat: string; ulClass: string; dayClass: string; dayText: string; times: FinderTime[]; text?: string };
-export type FinderRow = { name: string; address: string; site: string | null; phone: string | null; email: string | null; finderId: string | null; geo?: { lat: number; lng: number; source: string }; panels: FinderPanel[] };
+export type FinderRow = { name: string; address: string; town?: string; site: string | null; phone: string | null; email: string | null; finderId: string | null; geo?: { lat: number; lng: number; source: string }; panels: FinderPanel[] };
 export type Finder = { readAt: string; source: string; parishes: FinderRow[] };
 
 /** Something the chancery wants on every parish home page between two dates. */

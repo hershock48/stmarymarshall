@@ -27,7 +27,7 @@ const transpile = (file, out, prefix = "") => {
   const js = ts.transpileModule(src, { compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022, verbatimModuleSyntax: false } }).outputText;
   fs.writeFileSync(path.join(tmp, out), js);
 };
-for (const f of ["i18n", "schedule", "events", "ics", "sentences", "geo", "diocese", "paths", "voice", "news", "notices", "deaneries"]) transpile(path.join(ROOT, "lib", f + ".ts"), f + ".mjs");
+for (const f of ["i18n", "schedule", "events", "ics", "sentences", "geo", "diocese", "paths", "voice", "news", "notices", "deaneries", "stream"]) transpile(path.join(ROOT, "lib", f + ".ts"), f + ".mjs");
 transpile(path.join(ROOT, "dioceses/index.ts"), "dioceses.mjs");
 for (const slug of ["stmarymarshall", "stphilipbc", "sanfelipe"]) transpile(path.join(ROOT, "parishes", slug, "data.ts"), `data-${slug}.mjs`);
 for (const d of fs.readdirSync(path.join(ROOT, "dioceses"), { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name)) {
@@ -49,6 +49,8 @@ const ok = (name, got, want) => {
   if (!pass) fails++;
   console.log(`${pass ? "ok  " : "FAIL"} ${name}${pass ? "" : `\n     got  ${JSON.stringify(got)}\n     want ${JSON.stringify(want)}`}`);
 };
+// --structural: skip the pins on dated content the diocese will remove once it passes (the Monday refresh gate).
+const pin = process.argv.includes("--structural") ? (name) => console.log(`skip ${name}`) : ok;
 const at = (iso) => S.localNow("America/Detroit", new Date(iso));
 const find = (name, town) => D.dioceseParishes(K, at("2026-11-04T12:00:00Z")).find((p) => p.name === name && (!town || p.town === town));
 const next = (p, now) => {
@@ -67,9 +69,9 @@ const bs = find("Blessed Sacrament", "Allegan");
 ok("Blessed Sacrament: 1st Friday is dated, not weekly", bs.masses.some((m) => m.day === 5), false);
 ok("Blessed Sacrament: first Fridays Nov 6, Dec 4, Jan 1 at 18:00", bs.specials.filter((s) => s.start === "18:00").map((s) => s.date), ["2026-11-06", "2026-12-04", "2027-01-01"]);
 const oll = find("Our Lady of the Lake", "Edwardsburg");
-ok("Our Lady of the Lake: 'November 17' special resolves to 2026-11-17 18:30", oll.specials.some((s) => s.date === "2026-11-17" && s.start === "18:30"), true);
+pin("Our Lady of the Lake: 'November 17' special resolves to 2026-11-17 18:30", oll.specials.some((s) => s.date === "2026-11-17" && s.start === "18:30"), true);
 const sm = find("St. Mark", "Niles");
-ok("St. Mark Niles: note kept as where", sm.masses.find((m) => m.day === 0)?.where, "EST");
+pin("St. Mark Niles: note kept as where", sm.masses.find((m) => m.day === 0)?.where, "EST");
 ok("St. Philip comes from the platform, not the finder", find("St. Philip", "Battle Creek").source, "platform");
 ok("San Felipe is one row, from the platform, in Spanish", D.dioceseParishes(K, ).filter((p) => /San Felipe/.test(p.name)).map((p) => p.source + ":" + p.lang), ["platform:es"]);
 ok("Sixty rows in all", D.dioceseParishes(K, ).length, 60);
@@ -81,7 +83,7 @@ ok("Wed Nov 4 09:00: Holy Angels' next Mass is Thursday 8:30", next(ha, at("2026
 const stm = find("St. Thomas More Student", "Kalamazoo");
 ok("Sun Nov 8 07:00: St. Thomas More's next Mass is 8:30 today", next(stm, at("2026-11-08T12:00:00Z")), "Today 8:30 AM (Sunday)");
 const amb = find("St. Ambrose", "Parchment");
-ok("Thu Nov 26 08:00: St. Ambrose Parchment says Thanksgiving 9:15 today", next(amb, at("2026-11-26T13:00:00Z")), "Today 9:15 AM (Special Mass)");
+pin("Thu Nov 26 08:00: St. Ambrose Parchment says Thanksgiving 9:15 today", next(amb, at("2026-11-26T13:00:00Z")), "Today 9:15 AM (Special Mass)");
 
 // Notes that change the rule: ordinals, seasons, one-offs, non-Masses.
 const fresh = (iso) => {
@@ -199,6 +201,13 @@ ok("From East Lansing, St Thomas Aquinas is within ten miles", el.some((p) => /T
 ok("A Lansing finder row has no next Mass, and says so with null rather than a guess", el[0].next.mass, null);
 ok("Kalamazoo is untouched by the second diocese", D.dioceseParishes(K, at("2026-11-04T12:00:00Z")).length, 60);
 ok("Lansing's bishop entry is audio with a file", L.voice[0].kind === "audio" && Boolean(L.voice[0].audio?.url), true);
+
+// Review fixes 2026-11-04: a saint's name is not a month, and a "No X on <date>" note keeps the weekly row.
+const sjb = find("St. John Bosco", "Mattawan");
+ok("St. John Bosco: a Mass noted 'St. Margaret Mary (Marcellus)' is weekly in November, not a March-to-May season", sjb ? sjb.masses.some((m) => m.day === 0 && m.start === "09:45") : "no parish", true);
+const stmAdo = find("St. Thomas More Student", "Kalamazoo");
+ok("St. Thomas More: 'No Adoration April 30 & May 7' keeps the Wednesday row", stmAdo ? stmAdo.adoration.some((a) => a.day === 3) : "no parish", true);
+ok("Lansing: Michigan Center keeps its town", D.dioceseParishes(L, at("2026-11-04T12:00:00Z")).find((p) => /Our Lady of Fatima/.test(p.name))?.town, "Michigan Center");
 
 console.log(fails ? `\n${fails} failed` : "\nall passed");
 process.exit(fails ? 1 : 0);

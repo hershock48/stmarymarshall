@@ -52,7 +52,8 @@ for (const g of groups) {
     const name = (/<h1[^>]*>([\s\S]*?)<\/h1>/.exec(html)?.[1] ?? "").replace(/<[^>]+>/g, "").replace(/&#039;/g, "’").replace(/&amp;/g, "&").trim();
     const addrHtml = /<p class="address"[^>]*>([\s\S]*?)<\/p>/.exec(html)?.[1] ?? "";
     const parts = text(addrHtml);
-    const address = parts.join(", ").replace(/, (MI|Michigan),? ?/, ", MI, ").replace(/,\s*,/g, ",");
+    // The state only where it stands alone ("Michigan Center" is a town), and the zip after it.
+    const address = parts.join(", ").replace(/, (MI|Michigan)(?=,|\s+\d{5}|$),?\s*/, ", MI, ").replace(/,\s*,/g, ",");
     const phone = /field--name-field-phone[^>]*>\s*<a href="tel:([^"]+)"/.exec(html)?.[1] ?? null;
     const site = /field--name-field-website[^>]*>\s*<a href="([^"]+)"/.exec(html)?.[1] ?? null;
     const email = /href="mailto:([^"?]+)"/.exec(html)?.[1] ?? null;

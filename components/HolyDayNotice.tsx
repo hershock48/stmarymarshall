@@ -20,7 +20,9 @@ export default function HolyDayNotice({ parish: p }: { parish: Parish }) {
   const dayWord = (n: (typeof items)[number]) => {
     if (n.daysAhead === 0) return s.schedule.today;
     if (n.daysAhead === 1) return s.schedule.tomorrow;
-    return s.days[(((now.weekday + n.daysAhead) % 7) + 7) % 7 as Weekday];
+    const name = s.days[(((now.weekday + n.daysAhead) % 7) + 7) % 7 as Weekday];
+    // A week out is the same weekday as today: say "Next Tuesday", not "Tuesday".
+    return n.daysAhead >= 7 ? s.schedule.next(name) : name;
   };
   const list = (times: string[]) => (times.length > 1 ? `${times.slice(0, -1).join(", ")} ${s.schedule.and} ${times[times.length - 1]}` : times[0]);
   return (

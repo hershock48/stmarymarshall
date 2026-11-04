@@ -133,12 +133,23 @@ function lastMonday(y: number, month: number): string {
  * the parser cannot read, or a "no Mass during" note, means no, so an
  * unreadable rule never sends anyone to a locked church.
  */
+/**
+ * A word is a month only if it is a prefix of a month's name ("sept",
+ * "nov.", "march"), so "Margaret", "Mary" and "Marcellus" never read as
+ * March: a Mass whose note names St. Margaret Mary is weekly, not seasonal.
+ */
+function monthIndex(word: string): number {
+  const w = word.toLowerCase().replace(/\.$/, "");
+  if (w.length < 3) return 0;
+  return MONTHS.findIndex((mo) => mo.startsWith(w)) + 1;
+}
+
 function inSeason(note: string, now: LocalNow): boolean {
   const t = note.toLowerCase();
   if (/\bno mass\b/.test(t)) return false;
   const y = Number(now.iso.slice(0, 4));
   if (/memorial day/.test(t) && /labor day/.test(t)) return now.iso >= lastMonday(y, 5) && now.iso <= firstMonday(y, 9);
-  const months = [...t.matchAll(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z.]*/g)].map((m) => MONTHS.findIndex((mo) => mo.startsWith(m[1])) + 1);
+  const months = [...t.matchAll(/\b([a-z]+\.?)/g)].map((m) => monthIndex(m[1])).filter((n) => n > 0);
   if (months.length >= 2) {
     const [a, b] = months;
     const m = Number(now.iso.slice(5, 7));
@@ -190,10 +201,20 @@ function fromFinder(d: Diocese, r: FinderRow, now: LocalNow): DioceseParish {
         for (const nth of nths) for (const date of nthDates(nth, days[0], now, 2)) specials.push({ date, start, label: note, lang: base.lang });
         continue;
       }
-      // "Nov. 2": a one-off written into a weekly row.
-      const dated = /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}\b/i.exec(note);
-      if (dated) {
-        const date = monthDay(dated[0], now, readAt);
+      // "Nov. 2": a one-off written into a weekly row. "No Adoration April
+      // 30" is an exception to the weekly row, not a dated extra, so it keeps
+      // the weekly row (the exception itself is not modelled); and a date the
+      // parser cannot place leaves the row weekly rather than dropping it.
+      const dated = /\b([a-z]+\.?)\s+(\d{1,2})\b/i.exec(note);
+      const datedMonth = Boolean(dated && monthIndex(dated[1]) > 0);
+      if (datedMonth && /\bno\b/i.test(note)) {
+        // An exception to a weekly row: the row stays weekly.
+        for (const day of days) masses.push({ day, ...base });
+        continue;
+      }
+      if (datedMonth && dated) {
+        // A one-off: dated while it is still ahead, dropped once it has passed.
+        const date = monthDay(`${dated[1]} ${dated[2]}`, now, readAt);
         if (date) specials.push({ date, start, label: note, lang: base.lang });
         continue;
       }
@@ -204,7 +225,9 @@ function fromFinder(d: Diocese, r: FinderRow, now: LocalNow): DioceseParish {
   }
   const masses = lists.mass.weekly;
   const specials = lists.mass.dated;
-  const town = (r.address.split(",").slice(-3, -2)[0] ?? "").trim().replace(/^Fenville$/, "Fennville");
+  // The town: the reader's own field when it has one (Lansing), else the
+  // segment before the state in "street, town, MI, zip" (Kalamazoo).
+  const town = (r.town ?? r.address.split(",").slice(-3, -2)[0] ?? "").trim().replace(/^Fenville$/, "Fennville");
   const es = masses.length > 0 && masses.every((m) => m.lang === "Español");
   // Lansing's directory folds a parish's oratories into its name, "St Mary
   // (includes St Ann Oratory, Bellevue)": that part becomes the card's

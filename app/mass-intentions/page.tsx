@@ -31,7 +31,7 @@ function massSlots(p: Parish, lang: Lang): string[] {
   for (let i = 1; i <= 42; i++) {
     const iso = addDays(now.iso, i);
     const wd = ((now.weekday + i) % 7) as Weekday;
-    for (const m of p.masses.filter((x) => x.day === wd)) out.push(`${s[wd]} ${fmtDate(iso, false, lang)}, ${fmtTime(m.start)}${m.label && m.label !== s[wd] ? ` (${m.label})` : ""}`);
+    for (const m of p.masses.filter((x) => x.day === wd)) out.push(`${s[wd]} ${fmtDate(iso, false, lang)}, ${fmtTime(m.start)}${m.label && m.label !== s[wd] ? ` (${m.label})` : ""}${m.lang ? ` (${m.lang})` : ""}`);
     for (const d of dated.filter((x) => x.date === iso)) out.push(`${s[wd]} ${fmtDate(iso, false, lang)}, ${fmtTime(d.start)} (${d.label})`);
   }
   return out;

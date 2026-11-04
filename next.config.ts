@@ -73,12 +73,18 @@ const nextConfig: NextConfig = {
       { key: "Permissions-Policy", value: "geolocation=(self), camera=(), microphone=(), payment=()" },
     ];
     const framing = (ancestors: string) => ({ key: "Content-Security-Policy", value: `frame-ancestors ${ancestors}` });
-    const finderAncestors = ["'self'", ...dioceses.flatMap((d) => d.siteHosts.map((h) => `https://${h}`))].join(" ");
+    // The finder may be framed only by its own diocese's site: on a diocese's
+    // hosts by that diocese, on a parish's hosts by the parish's diocese.
+    const ancestorsOf = (slug: string) => ["'self'", ...(dioceses.find((d) => d.slug === slug)?.siteHosts ?? []).map((h) => `https://${h}`)].join(" ");
+    const finderHosts: { host: string; slug: string }[] = [
+      ...dioceses.flatMap((d) => [d.host, d.pitchHost].filter(Boolean).map((host) => ({ host: host as string, slug: d.slug }))),
+      ...registry.parishes.flatMap((p) => [...p.hosts, p.pitchHost].filter(Boolean).map((host) => ({ host: host as string, slug: p.diocese }))),
+    ];
     return [
       { source: "/:path*", headers: security },
       { source: "/:path((?!diocese/near$).*)", headers: [framing("'self'")] },
-      { source: "/diocese/near", headers: [framing(finderAncestors)] },
-      ...dioceses.filter((d) => d.host).map((d) => ({ source: "/", has: onHost(d.host as string), headers: [framing(finderAncestors)] })),
+      ...finderHosts.map((f) => ({ source: "/diocese/near", has: onHost(f.host), headers: [framing(ancestorsOf(f.slug))] })),
+      ...dioceses.filter((d) => d.host).map((d) => ({ source: "/", has: onHost(d.host as string), headers: [framing(ancestorsOf(d.slug))] })),
       ...pitchHosts.map((h) => ({ source: "/:path*", has: onHost(h), headers: noindex })),
       { source: "/:path*", has: [{ type: "host" as const, value: "(.*)\\.vercel\\.app" }], headers: noindex },
     ];

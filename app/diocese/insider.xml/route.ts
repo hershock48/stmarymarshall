@@ -1,3 +1,4 @@
+import { rssDate } from "@/lib/rss";
 import { dioceseEvents } from "@/lib/diocese";
 import { getDiocese } from "@/lib/parish";
 import { fmtRange } from "@/lib/events";
@@ -24,7 +25,7 @@ export async function GET(req: Request) {
   const lang = "en" as const;
   const t = strings(lang).diocese.news;
   const now = localNow(d.timeZone);
-  const item = (id: string, title: string, link: string, date: string, desc: string, cat: string) => `<item><title>${esc(title)}</title><link>${esc(link)}</link><guid isPermaLink="false">${esc(id)}</guid><pubDate>${new Date(`${date}T12:00:00-05:00`).toUTCString()}</pubDate><description>${esc(desc)}</description><category>${cat}</category></item>`;
+  const item = (id: string, title: string, link: string, date: string, desc: string, cat: string) => `<item><title>${esc(title)}</title><link>${esc(link)}</link><guid isPermaLink="false">${esc(id)}</guid><pubDate>${rssDate(date, d.timeZone)}</pubDate><description>${esc(desc)}</description><category>${cat}</category></item>`;
   const items: string[] = [];
   for (const n of liveNotices(d.notices, now.iso)) items.push(item(`notice-${n.id}`, n.title, n.href ? (n.href.startsWith("http") ? n.href : `${base}${n.href}`) : `${base}/diocese/insider`, n.from, n.body, "diocese"));
   const b = latestVoice(d, lang);
