@@ -1,4 +1,5 @@
 import { strings } from "@/lib/i18n";
+import { hasWatch } from "@/lib/paths";
 import type { Parish } from "@/lib/types";
 
 /**
@@ -27,6 +28,7 @@ export function morePages(p: Parish): { href: string; label: string }[] {
   const nav = navFor(p);
   return [
     ...(p.give.url || p.give.extras?.length ? [{ href: "/give", label: s.give }] : []),
+    ...(hasWatch(p) ? [{ href: "/watch", label: strings(p.lang).massTimes.watch }] : []),
     { href: "/register", label: s.register },
     { href: "/mass-intentions", label: s.massIntentions },
     { href: "/prayer-request", label: s.prayerRequest },

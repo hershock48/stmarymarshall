@@ -5,6 +5,7 @@ import { after } from "next/server";
 import { bump } from "@/lib/tally";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HolyDayNotice from "@/components/HolyDayNotice";
 import { strings } from "@/lib/i18n";
 import { DioceseFooter, DioceseHeader } from "@/components/DioceseChrome";
 import { getParish, isNoindexHost, onDioceseHost } from "@/lib/parish";
@@ -81,6 +82,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           give={Boolean(p.give.url || p.give.extras?.length)}
           words={{ home: s.header.home, main: s.header.main, mobile: s.header.mobile, openMenu: s.header.openMenu, closeMenu: s.header.closeMenu, register: s.header.register, call: s.header.call(p.phone), give: s.nav.give }}
         />
+        <HolyDayNotice parish={p} />
         <main id="main">{children}</main>
         <Footer parish={p} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(churchSchema(p)) }} />

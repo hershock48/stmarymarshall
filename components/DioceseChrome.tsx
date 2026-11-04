@@ -18,6 +18,7 @@ export function DioceseHeader({ lang }: { lang: Lang }) {
     { href: "/", label: n.near },
     { href: "/diocese/events", label: n.events },
     { href: "/diocese/groups", label: n.groups },
+    { href: "/diocese/voice", label: s.diocese.voice.nav },
     { href: "/diocese", label: n.parishes },
   ];
   return (

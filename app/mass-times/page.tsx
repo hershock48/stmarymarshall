@@ -5,6 +5,7 @@ import { Band, GoldButton, H2, LineButton, PageHero } from "@/components/ui";
 import { strings } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/meta";
 import { getParish } from "@/lib/parish";
+import { hasWatch } from "@/lib/paths";
 import { fmtDate, fmtTime, localNow, massTimesSentence, upcomingHolyDays } from "@/lib/schedule";
 import { confessionSentence, noDot, whereSentence } from "@/lib/sentences";
 
@@ -52,8 +53,8 @@ export default async function MassTimes() {
               <GoldButton href={p.mapUrl} external>
                 {t.directions}
               </GoldButton>
-              {p.livestream && (
-                <LineButton href={p.livestream} external onPaper>
+              {hasWatch(p) && (
+                <LineButton href="/watch" onPaper>
                   {t.watch}
                 </LineButton>
               )}

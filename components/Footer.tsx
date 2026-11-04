@@ -115,7 +115,7 @@ export default function Footer({ parish: p }: { parish: Parish }) {
           <div>
             <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-gold">{f.pages}</h2>
             <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-dim md:grid-cols-1">
-              {[...nav, ...morePages(p), { href: "/diocese/near", label: s.diocese.nav.near }, { href: "/diocese/events", label: s.diocese.nav.events }].map((item) => (
+              {[...nav, ...morePages(p), { href: "/diocese/near", label: s.diocese.nav.near }, { href: "/diocese/events", label: s.diocese.nav.events }, { href: "/diocese/voice", label: s.diocese.voice.nav }].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="inline-block min-h-6 hover:text-cream">
                     {item.label}

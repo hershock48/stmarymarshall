@@ -20,21 +20,34 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
+// The glaze kit's browser helper when this runs beside the glazedweb repo;
+// playwright by name in CI (.github/workflows/finder-refresh.yml).
 const helper = path.join(ROOT, "..", "glazedweb", "glaze", "scripts", "lib", "browser.mjs");
-const { loadChromium, launchOpts } = await import(pathToFileURL(helper).href);
-const [, , htmlFile, outFile] = process.argv;
-if (!htmlFile || !outFile) {
-  console.error("usage: node tools/finder-import.mjs <parishfinder.html> <out.json>");
+const { loadChromium, launchOpts } = fs.existsSync(helper)
+  ? await import(pathToFileURL(helper).href)
+  : { loadChromium: async () => (await import("playwright")).chromium, launchOpts: () => ({}) };
+const [, , source, outFile] = process.argv;
+if (!source || !outFile) {
+  console.error("usage: node tools/finder-import.mjs <parishfinder.html | https://...> <out.json>");
   process.exit(1);
 }
 const previousFile = fs.existsSync(outFile) ? JSON.parse(fs.readFileSync(outFile, "utf8")) : { parishes: [] };
 const previous = Array.isArray(previousFile) ? previousFile : previousFile.parishes ?? [];
 const geoCache = new Map(previous.filter((p) => p.geo).map((p) => [p.address, p.geo]));
+// A read that comes back short is a challenge page or a changed template,
+// not a diocese that lost its parishes: refuse to overwrite the last good file.
+const MIN_PARISHES = Math.max(50, Math.floor(previous.length * 0.9));
 
 const chromium = await loadChromium();
 const browser = await chromium.launch(launchOpts());
-const page = await browser.newPage();
-await page.setContent(fs.readFileSync(htmlFile, "utf8"));
+const page = await browser.newPage({ userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36", viewport: { width: 1280, height: 900 } });
+if (/^https?:\/\//.test(source)) {
+  await page.goto(source, { waitUntil: "networkidle", timeout: 90_000 });
+  // Cloudflare's challenge, if it fires, settles itself in a few seconds in a real browser; wait for the finder's own markup.
+  await page.waitForSelector('a[href^="#massTimes_"]', { timeout: 60_000 }).catch(() => {});
+} else {
+  await page.setContent(fs.readFileSync(source, "utf8"));
+}
 const rows = await page.evaluate(() => {
   const out = [];
   for (const a of document.querySelectorAll('a[href*="google.com/maps/search"]')) {
@@ -101,6 +114,10 @@ const rows = await page.evaluate(() => {
 });
 await browser.close();
 console.log(`${rows.length} parishes read from the finder`);
+if (rows.length < MIN_PARISHES) {
+  console.error(`only ${rows.length} parishes read (need ${MIN_PARISHES}); the page was probably a challenge or changed shape. ${outFile} left as it was.`);
+  process.exit(2);
+}
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 for (const r of rows) {

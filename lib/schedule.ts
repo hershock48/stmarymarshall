@@ -147,6 +147,49 @@ export function upcomingHolyDays(parish: Pick<Parish, "holyDays">, now: LocalNow
   return parish.holyDays.filter((h) => ahead(now, h.date, h.masses && h.masses.length ? h.masses[h.masses.length - 1].start : null)).sort((a, b) => a.date.localeCompare(b.date));
 }
 
+/**
+ * The Mass that is on, or about to be, right now: a quarter hour before a
+ * start to ninety minutes after it, weekly or dated. For the Watch page,
+ * which shows the player only then and the next Mass otherwise, so a
+ * visitor never meets an offline player.
+ */
+export function massOnNow(services: readonly Service[], now: LocalNow, specials: readonly DatedMass[] = []): { label: string; start: string } | null {
+  const inWindow = (start: string) => now.minutes >= toMinutes(start) - 15 && now.minutes <= toMinutes(start) + 90;
+  for (const sp of specials) if (sp.date === now.iso && inWindow(sp.start)) return { label: sp.label, start: sp.start };
+  for (const sv of services) if (sv.day === now.weekday && inWindow(sv.start)) return { label: sv.label ?? DAY_NAMES[sv.day], start: sv.start };
+  return null;
+}
+
+export type WeekNotice = { date: string; daysAhead: number; label: string; times: string[] | null; note?: string; kind: "holyDay" | "special" };
+
+/**
+ * What differs from the usual week in the next `days` days: holy days and
+ * dated special Masses, soonest first, for the line at the top of every
+ * page (components/HolyDayNotice.tsx). A holy day with no times known is
+ * still a notice; the line then points at the bulletin.
+ */
+export function weekNotices(parish: Pick<Parish, "specialMasses" | "holyDays">, now: LocalNow, days = 7): WeekNotice[] {
+  const last = addDays(now.iso, days);
+  const out: WeekNotice[] = [];
+  for (const h of upcomingHolyDays(parish, now)) {
+    if (h.date > last) continue;
+    out.push({ date: h.date, daysAhead: daysBetween(now.iso, h.date), label: h.label, times: h.masses && h.masses.length ? h.masses.map((m) => (m.label ? `${m.label} ${fmtTime(m.start)}` : fmtTime(m.start))) : null, note: h.note, kind: "holyDay" });
+  }
+  for (const sp of upcomingSpecials(parish, now)) {
+    if (sp.date > last) continue;
+    out.push({ date: sp.date, daysAhead: daysBetween(now.iso, sp.date), label: sp.label, times: [fmtTime(sp.start)], kind: "special" });
+  }
+  return out.sort((a, b) => a.date.localeCompare(b.date));
+}
+
+function daysBetween(a: string, b: string): number {
+  const d = (s: string) => {
+    const [y, m, dd] = s.split("-").map(Number);
+    return Date.UTC(y, m - 1, dd);
+  };
+  return Math.round((d(b) - d(a)) / 86400000);
+}
+
 /** "Saturday 5:00 PM, Sunday 9:00 and 11:00 AM" for descriptions, from the data. */
 export function massTimesSentence(masses: readonly Service[], lang: Lang = "en"): string {
   const s = strings(lang);

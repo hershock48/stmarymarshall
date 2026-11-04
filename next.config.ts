@@ -31,7 +31,8 @@ const dioceseHost = registry.dioceseHost;
 const pitchHosts = [...pitch.map((p) => p.host), ...(diocese ? [diocese] : []), ...(dioceseHost ? [dioceseHost] : [])];
 
 const nextConfig: NextConfig = {
-  images: { formats: ["image/avif", "image/webp"] },
+  // YouTube thumbnails for the bishop's messages are the one remote image source.
+  images: { formats: ["image/avif", "image/webp"], remotePatterns: [{ protocol: "https", hostname: "i.ytimg.com" }] },
   // The dev server otherwise writes an AGENTS.md into the repo root.
   agentRules: false,
   async rewrites() {

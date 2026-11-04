@@ -1,0 +1,41 @@
+# The weekly read of the diocese's Parish Finder, so the parishes still on
+# their old sites stay current in /diocese/near while the migration runs.
+# tools/finder-import.mjs refuses a short parse (a challenge page, a changed
+# template) and leaves finder.json alone; the tests must pass on the new
+# file before it is committed. A commit here deploys through Vercel like
+# any other. Run it by hand from the Actions tab after a known schedule
+# change at a parish.
+name: finder refresh
+on:
+  schedule:
+    - cron: "17 9 * * 1" # Mondays, 09:17 UTC (04:17 or 05:17 in Michigan)
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm install --no-save playwright@1.49.1
+      - run: npx playwright install --with-deps chromium
+      - name: Read the Parish Finder
+        run: node tools/finder-import.mjs https://www.diokzoo.org/parishfinder parishes/diocese/finder.json
+      - name: The finder still converts
+        run: node tools/diocese-tests.mjs
+      - name: Commit if the finder changed
+        run: |
+          if git diff --quiet -- parishes/diocese/finder.json; then
+            echo "no change"
+            exit 0
+          fi
+          git config user.name "finder refresh"
+          git config user.email "noreply@glazedweb.com"
+          git add parishes/diocese/finder.json
+          git commit -m "finder: weekly read of the diocese's Parish Finder, $(date -u +%Y-%m-%d)"
+          git push

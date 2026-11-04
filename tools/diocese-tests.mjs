@@ -138,5 +138,19 @@ ok("Catholic Conversations has dropped off by 9 PM on Nov 4", D.dioceseEvents(14
 ok("January's Gethsemane Night is in 2027", D.dioceseFileEvent("gethsemane-2027-01-07", at("2026-11-04T12:00:00Z"))?.date, "2027-01-07");
 ok("An unknown id is null", D.dioceseFileEvent("nope", at("2026-11-04T12:00:00Z")), null);
 
+// The line at the top of every page in the week before a holy day or a special Mass.
+const SM = (await import(pathToFileURL(path.join(tmp, "data-stmarymarshall.mjs")).href)).default;
+ok("Nothing to say on an ordinary week", S.weekNotices(SM, at("2026-11-04T12:00:00Z")).length, 0);
+ok("Thanksgiving Mass shows the week before, as a special", S.weekNotices(SM, at("2026-11-20T12:00:00Z")).map((n) => [n.kind, n.label, n.times[0], n.daysAhead]), [["special", "Thanksgiving Mass", "9:00 AM", 6]]);
+ok("Immaculate Conception shows with no times, pointing at the bulletin", S.weekNotices(SM, at("2026-12-05T12:00:00Z")).map((n) => [n.kind, n.label, n.times, n.daysAhead]), [["holyDay", "Immaculate Conception", null, 3]]);
+ok("A dated Mass drops off once its hour has passed", S.weekNotices(SM, at("2026-11-26T15:00:00Z")).length, 0);
+
+// The Watch page's window: a quarter hour before a Mass to ninety minutes after.
+ok("Sunday 8:50 AM: the 9:00 Mass is on", S.massOnNow(SM.masses, at("2026-11-08T13:50:00Z"))?.start, "09:00");
+ok("Sunday 10:31 AM: ninety-one minutes after, nothing is on", S.massOnNow(SM.masses, at("2026-11-08T15:31:00Z")), null);
+ok("Thanksgiving 9:30 AM: the dated Mass is on", S.massOnNow(SM.masses, at("2026-11-26T14:30:00Z"), S.datedMasses(SM))?.label, "Thanksgiving Mass");
+ok("Wednesday 11:50 AM: the noon Mass is on", S.massOnNow(SM.masses, at("2026-11-04T16:50:00Z"))?.start, "12:00");
+ok("Wednesday 3 PM: nothing", S.massOnNow(SM.masses, at("2026-11-04T20:00:00Z")), null);
+
 console.log(fails ? `\n${fails} failed` : "\nall passed");
 process.exit(fails ? 1 : 0);

@@ -47,6 +47,11 @@ export function letterHost(slug: string): string | undefined {
   return BY_SLUG.get(slug)?.pitchHost;
 }
 
+/** True when the parish has anywhere to watch Mass: hosted video, a YouTube channel, or a livestream link. */
+export function hasWatch(p: Parish): boolean {
+  return Boolean(p.stream || p.youtubeChannelId || p.livestream);
+}
+
 /** The one-segment paths every parish has, whatever its data. */
 const ALWAYS = new Set(["", "new", "mass-times", "about", "sacraments", "register", "mass-intentions", "prayer-request", "demo", "diocese"]);
 
@@ -63,5 +68,6 @@ export function knowsPath(p: Parish, segment: string): boolean {
   if (segment === "events") return p.events.length > 0;
   if (segment === "bulletin") return Boolean(p.bulletins);
   if (segment === "give") return Boolean(p.give.url || p.give.extras?.length);
+  if (segment === "watch") return hasWatch(p);
   return p.pages.some((pg) => pg.slug === segment);
 }

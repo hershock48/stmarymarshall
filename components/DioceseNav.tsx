@@ -2,12 +2,15 @@ import Link from "next/link";
 import { strings, type Lang } from "@/lib/i18n";
 
 /** The four diocese pages, as a row under each one's hero. */
-export default function DioceseNav({ lang, current }: { lang: Lang; current: "parishes" | "near" | "events" | "groups" }) {
-  const s = strings(lang).diocese.nav;
+export default function DioceseNav({ lang, current }: { lang: Lang; current: "parishes" | "near" | "events" | "groups" | "voice" | "watch" }) {
+  const d = strings(lang).diocese;
+  const s = d.nav;
   const items: { key: typeof current; href: string; label: string }[] = [
     { key: "near", href: "/diocese/near", label: s.near },
     { key: "events", href: "/diocese/events", label: s.events },
     { key: "groups", href: "/diocese/groups", label: s.groups },
+    { key: "voice", href: "/diocese/voice", label: d.voice.nav },
+    { key: "watch", href: "/diocese/watch", label: strings(lang).massTimes.watch },
     { key: "parishes", href: "/diocese", label: s.parishes },
   ];
   return (

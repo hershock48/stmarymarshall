@@ -105,6 +105,12 @@ export type Parish = {
   finderId?: string;
   /** Show the diocese's notices (parishes/diocese/notices.ts) on the home page. On unless the parish says otherwise. */
   diocesanNotices?: boolean;
+  /** Carry the bishop's newest message (parishes/diocese/voice.ts) on the home page. On unless the parish says otherwise. */
+  bishopsVoice?: boolean;
+  /** The parish's YouTube channel id (UC…), for the live embed on /watch; `youtube` above is the channel's page. */
+  youtubeChannelId?: string;
+  /** Hosted video (docs/narthex-plan.md, Watch): a Cloudflare Stream live input, played on /watch when STREAM_CUSTOMER_CODE is set. */
+  stream?: { provider: "cloudflare"; liveInputId: string };
   mapUrl: string;
   facebook?: string;
   youtube?: string;

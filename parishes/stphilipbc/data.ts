@@ -56,6 +56,7 @@ const parish: Parish = {
   mapUrl: "https://www.google.com/maps/dir/?api=1&destination=112+Capital+Ave+NE+Battle+Creek%2C+MI+49017-3927",
   facebook: "https://www.facebook.com/stphilipbc",
   youtube: "https://www.youtube.com/user/StPhilipCatholic",
+  youtubeChannelId: "UC5fMWslPevehFc3YxhNOeyg",
   bulletins: "https://discovermass.com/church/st-philip-battle-creek-mi/",
   livestream: "https://www.facebook.com/stphilipbc",
   geo: { lat: 42.321495, lng: -85.178392 },

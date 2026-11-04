@@ -1,5 +1,5 @@
 {
- "readAt": "2026-11-03",
+ "readAt": "2026-11-04",
  "source": "https://diokzoo.org/parishfinder",
  "parishes": [
   {
@@ -439,7 +439,7 @@
    "address": "645 S. Douglas, Three Rivers, MI, 49093",
    "site": "https://icthreerivers.org/",
    "phone": "269-273-8953",
-   "email": null,
+   "email": "iccatholicchurch@catholicweb.com",
    "finderId": "massTimes_19691",
    "panels": [
     {
@@ -571,7 +571,7 @@
    "address": "63559 60th Avenue, Hartford, MI, 49057",
    "site": "https://yq89va.sites.ecatholic.com/",
    "phone": "269-621-4106",
-   "email": null,
+   "email": "office@ichartford.org",
    "finderId": "massTimes_19272",
    "panels": [
     {
@@ -828,7 +828,7 @@
    "address": "24832 US 12 East, Edwardsburg, MI, 49112",
    "site": "https://ourladyedwardsburg.org/",
    "phone": "269-699-5870",
-   "email": null,
+   "email": "ourladyofthelake@comcast.net",
    "finderId": "massTimes_5403",
    "panels": [
     {
@@ -1653,7 +1653,7 @@
    "address": "11137 Floria Rd, Delton, MI, 49046",
    "site": "https://stambrosedelton.org/",
    "phone": "269-623-2490",
-   "email": null,
+   "email": "stambrose@mei.net",
    "finderId": "massTimes_19697",
    "panels": [
     {
@@ -1880,7 +1880,7 @@
    "address": "421 N. Broadway Street, Cassopolis, MI, 49031",
    "site": "https://stanncass.com/",
    "phone": "269-445-3000",
-   "email": null,
+   "email": "Stanncass@gmail.com",
    "finderId": "massTimes_20446",
    "panels": [
     {
@@ -1947,7 +1947,7 @@
    "address": "12648 East D Avenue, Augusta, MI, 49012",
    "site": "https://stannaugusta.org/",
    "phone": "269-731-4721",
-   "email": null,
+   "email": "office@stannaugusta.org",
    "finderId": "massTimes_20105",
    "panels": [
     {
@@ -2259,7 +2259,7 @@
    "address": "542 W. Michigan Avenue, Kalamazoo, MI, 49007",
    "site": "https://stakalamazoo.org/",
    "phone": "269-345-5147",
-   "email": null,
+   "email": "parishoffice@stakalamazoo.org",
    "finderId": "massTimes_5540",
    "panels": [
     {
@@ -2413,7 +2413,7 @@
    "address": "479 S. Burr Oak Road, Colon, MI, 49040",
    "site": null,
    "phone": "269-273-8953",
-   "email": null,
+   "email": "stmarybronson@yahoo.com",
    "finderId": "massTimes_8586",
    "panels": [
     {
@@ -2595,7 +2595,7 @@
    "address": "1150 W. Centre Avenue, Portage, MI, 49024",
    "site": "https://stcatherinesiena.org/",
    "phone": "269-327-5165",
-   "email": null,
+   "email": "frontdesk@stcatherinesiena.org",
    "finderId": "massTimes_19059",
    "panels": [
     {
@@ -3002,7 +3002,7 @@
    "address": "332 W. State Street, Mendon, MI, 49072",
    "site": "https://stedwardmendon.org/",
    "phone": "269-496-3525",
-   "email": null,
+   "email": "stedwardchurch@msn.com",
    "finderId": "massTimes_19698",
    "panels": [
     {
@@ -4408,7 +4408,7 @@
    "address": "3 North 19th Street, Niles, MI, 49120",
    "site": "https://stmarkniles.org/",
    "phone": "269-683-8650",
-   "email": null,
+   "email": "stmark319@yahoo.com",
    "finderId": "massTimes_24304",
    "panels": [
     {
@@ -4661,7 +4661,7 @@
    "address": "219 S. State Street, Niles, MI, 49120",
    "site": "https://stmarysniles.org/",
    "phone": "269-683-5087",
-   "email": null,
+   "email": "stmaryniles@sbcglobal.net",
    "finderId": "massTimes_11002",
    "panels": [
     {
@@ -4967,7 +4967,7 @@
    "address": "212 Hanover Street, Marshall, MI, 49068",
    "site": "https://stmarymarshall.org/",
    "phone": "269-781-3949",
-   "email": null,
+   "email": "StMaryMarshall@aol.com",
    "finderId": "massTimes_6225",
    "panels": [
     {
@@ -5527,7 +5527,7 @@
    "address": "4408 S Westnedge Ave, Kalamazoo, MI, 49008",
    "site": "https://stmonicachurchkzoo.com/",
    "phone": "(269) 345-4389",
-   "email": null,
+   "email": "stmonicakal@yahoo.com",
    "finderId": "massTimes_21062",
    "panels": [
     {
@@ -5657,7 +5657,7 @@
    "address": "100 St. Peter Drive, Douglas, MI, 49406",
    "site": "https://stpeter-douglas.org/",
    "phone": "269-857-7951",
-   "email": null,
+   "email": "ceci.garcia@stpeter-douglas.org",
    "finderId": "massTimes_19962",
    "panels": [
     {
@@ -6326,7 +6326,7 @@
    "address": "421 Monroe Street, Kalamazoo, MI, 49006",
    "site": "https://sttomskazoo.org/",
    "phone": "269-381-8917",
-   "email": null,
+   "email": "sttoms@sttomskazoo.org",
    "finderId": "massTimes_19941",
    "panels": [
     {

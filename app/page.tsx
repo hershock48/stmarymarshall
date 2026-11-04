@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BishopsVoice from "@/components/BishopsVoice";
 import DiocesanNotice from "@/components/DiocesanNotice";
 import { NextUp } from "@/components/Schedule";
 import EventList from "@/components/EventList";
@@ -50,6 +51,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
+      <BishopsVoice parish={p} />
 
       <Band tone="paper">
         <div className="grid gap-10 lg:grid-cols-5 lg:gap-16">

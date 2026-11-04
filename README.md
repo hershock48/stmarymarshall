@@ -80,6 +80,41 @@ times page links a parish's livestream as "Watch Mass online" when
 `livestream` is set, and its "find a Mass nearby" link goes to the
 diocese's own finder from that church instead of eCatholic's FindAMass.
 
+The layer has its own host, `registry.dioceseHost` (today
+finder.kalamazoo.glazedweb.com): the finder at `/`, the diocese pages under
+`/diocese`, the diocese's own header and footer (`components/DioceseChrome.tsx`)
+and no parish anywhere (proxy.ts sends parish paths there to the 404). The
+finder may be framed by diokzoo.org and by nothing else (next.config.ts);
+every other page may be framed by no one. `DIOCESE_DEFAULT=1 npm start`
+makes a local server answer as that host so the auditor can run against
+it. Every finder card says when the Parish Finder was read and carries
+"Wrong time? Tell us" (`/diocese/report`, `/api/report`, delivered to
+`DIOCESE_MAIL_TO` or `MAIL_TO`, always logged). `.github/workflows/finder-refresh.yml`
+re-reads the Parish Finder every Monday with `tools/finder-import.mjs <url>`,
+which refuses a parse shorter than ninety percent of the last one, runs the
+tests, and commits `finder.json` only when it changed.
+
+`/diocese/events` joins the platform parishes' calendars with
+`parishes/diocese/events.ts`, the chancery's and the other parishes' dates
+typed from the diocese's weekly email (The Insider), and `/diocese/events.ics`
+is the whole diocese as one subscription. `/diocese/voice` is the bishop's
+voice: `parishes/diocese/voice.ts` lists the recordings the diocese has
+published, newest first, every parish home page carries the newest one
+(`components/BishopsVoice.tsx`, off with `bishopsVoice: false`),
+`/diocese/voice.xml` is the same list as RSS, and the page's tail reads the
+diocese's YouTube channel feed, cached an hour (`lib/voice.ts`).
+
+`/watch` on a parish is schedule-aware (`lib/schedule.ts massOnNow`: a
+quarter hour before a Mass to ninety minutes after): the player then, the
+next Mass otherwise, so nobody meets an offline player. The source is
+whatever the parish has (`lib/stream.ts`): a Cloudflare Stream live input
+when `STREAM_CUSTOMER_CODE` is set, else the YouTube channel's live embed
+(`youtubeChannelId`), else the Facebook page as a link. A parish with none
+has no `/watch`. `/diocese/watch` lists every streaming parish with what is
+on now. `components/HolyDayNotice.tsx` is the line at the top of every
+parish page in the week before a holy day or a dated Mass, from the same
+`holyDays` and `specialMasses` the Mass times page uses.
+
 Counting (`lib/tally.ts`) is per day, host, kind and key, with no visitor
 in it: a page served by path (the proxy passes the path as `x-path`), a
 finder search by a point rounded to about seven miles plus the result
