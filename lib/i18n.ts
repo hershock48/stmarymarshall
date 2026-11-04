@@ -78,7 +78,7 @@ const en = {
   },
   formation: { title: "Faith Formation", lede: "Religious education for children, formation for adults, and the groups that meet to study.", label: "Faith formation programs" },
   ministries: { title: "Councils and Ministries", lede: "The people who sing, serve, visit, cook and keep the parish running. Every one of them would welcome you.", label: "Councils and ministries" },
-  sections: { contact: "Contact" },
+  sections: { contact: "Contact", prep: { title: "Before the day, step by step", bring: "What to have ready" } },
   events: {
     title: "Calendar",
     lede: (name: string, confession: boolean) => `The next six weeks at ${name}. Mass${confession ? " and Confession" : ""} times are on their own page.`,
@@ -324,7 +324,7 @@ const es: Strings = {
   },
   formation: { title: "Formación en la fe", lede: "Catequesis para los niños, formación para los adultos y los grupos que se reúnen para estudiar.", label: "Programas de formación" },
   ministries: { title: "Consejos y ministerios", lede: "Las personas que cantan, sirven, visitan, cocinan y mantienen la parroquia en marcha. Todas te darían la bienvenida.", label: "Consejos y ministerios" },
-  sections: { contact: "Contacto" },
+  sections: { contact: "Contacto", prep: { title: "Antes del día, paso a paso", bring: "Qué tener listo" } },
   events: {
     title: "Calendario",
     lede: (name, confession) => `Las próximas seis semanas en ${name}. Los horarios de Misa${confession ? " y de confesión" : ""} tienen su propia página.`,

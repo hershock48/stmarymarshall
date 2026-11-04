@@ -176,9 +176,21 @@ const parish: Parish = {
   },
 
   sacraments: [
-    { slug: "baptism", title: "Baptism", body: ["A baptism preparation class is required. Call the office to make an appointment with the deacon or priest. No date can be set before that meeting."], contact: `Call ${phone}` },
+    {
+      slug: "baptism",
+      title: "Baptism",
+      body: ["A baptism preparation class is required. Call the office to make an appointment with the deacon or priest. No date can be set before that meeting."],
+      prep: { steps: ["Call the office for an appointment with the deacon or priest.", "Attend the baptism preparation class.", "The date is set after that meeting, not before."] },
+      contact: `Call ${phone}`,
+    },
     { slug: "first-communion-confirmation", title: "First Communion and Confirmation", body: ["Children prepare through the parish Religious Education program. Contact the Religious Education office for class schedules."], contact: "Call (269) 781-5656" },
-    { slug: "matrimony", title: "Matrimony", body: ["Consult the priest eight months in advance of the desired date. No dates are reserved until the couple has met with the priest or deacon and met the requirements for marriage.", "Appointments are scheduled during the week, not on weekends. You must be a registered parishioner for at least one year."], contact: `Call ${phone}` },
+    {
+      slug: "matrimony",
+      title: "Matrimony",
+      body: ["Consult the priest eight months in advance of the desired date. No dates are reserved until the couple has met with the priest or deacon and met the requirements for marriage.", "Appointments are scheduled during the week, not on weekends. You must be a registered parishioner for at least one year."],
+      prep: { steps: ["Be a registered parishioner for at least one year.", "Call the office at least eight months before the date you hope for; appointments are during the week.", "Meet with the priest or deacon and complete the requirements for marriage.", "The date is reserved after that, not before."] },
+      contact: `Call ${phone}`,
+    },
     { slug: "anointing", title: "Anointing of the Sick", body: ["Call the office, or the rectory for emergencies at any time. Please let the parish priest know of anyone who is in the hospital or unable to leave home."], contact: `Call ${phone}` },
     { slug: "penance", title: "Penance", body: ["Confessions are heard Saturdays from 3:30 to 4:30 PM unless the bulletin says otherwise, and by appointment."], contact: `Call ${phone}` },
   ],

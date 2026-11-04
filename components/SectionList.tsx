@@ -1,3 +1,4 @@
+import PrepChecklist from "@/components/PrepChecklist";
 import { A, Contact, Fold, Prose } from "@/components/ui";
 import type { Section } from "@/lib/types";
 
@@ -7,7 +8,7 @@ import type { Section } from "@/lib/types";
  * index above lets a visitor jump straight to one; the anchor opens it
  * (components/OpenOnHash).
  */
-export default function SectionList({ sections, label, contactWord }: { sections: readonly Section[]; label: string; contactWord: string }) {
+export default function SectionList({ sections, label, contactWord, prepWords }: { sections: readonly Section[]; label: string; contactWord: string; prepWords?: { title: string; bring: string } }) {
   return (
     <div className="grid gap-12 lg:grid-cols-[18rem_1fr] lg:gap-16">
       <nav aria-label={label} className="lg:sticky lg:top-24 lg:self-start">
@@ -26,6 +27,7 @@ export default function SectionList({ sections, label, contactWord }: { sections
           <div key={s.slug} className="scroll-mt-24" id={s.slug}>
             <Fold id={`fold-${s.slug}`} title={s.title} open={i === 0}>
               <Prose paragraphs={s.body} />
+              {s.prep && prepWords && <PrepChecklist prep={s.prep} words={prepWords} />}
               {s.links && (
                 <ul className="mt-4 space-y-1.5">
                   {s.links.map((l) => (

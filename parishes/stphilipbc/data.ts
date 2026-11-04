@@ -179,6 +179,16 @@ const parish: Parish = {
         "Congratulations! One of the most important things you can do for your children is to bring them up in your Catholic faith. To have your baby baptized at St. Philip, we ask that you attend a Baptism Preparation class. If this is not your first baby and you have already attended one, here or at another Catholic church, a second is not required. If you are not registered at St. Philip, we ask for permission from your pastor.",
         "We will ask for the names of one or two sponsors. Godparents are Catholic witnesses to your child’s baptism: practicing Catholics who are not the child’s parents, at least sixteen years old, with a letter of good standing from their parish. If one of the people you would like is not Catholic, he or she can be a Christian Witness, who must be Christian.",
       ],
+      prep: {
+        steps: [
+          "Attend a Baptism Preparation class, unless you have already attended one here or at another Catholic church for an earlier child.",
+          "If you are not registered at St. Philip, ask your own pastor for a letter of permission.",
+          "Choose one or two godparents: practicing Catholics who are not the child’s parents, at least sixteen years old. One may be a Christian Witness instead, who must be Christian.",
+          "Each godparent asks their parish for a letter of good standing.",
+          "Call the parish office to set the date.",
+        ],
+        bring: ["The names of the sponsors", "The godparents’ letters of good standing", "Your pastor’s permission, if you are registered elsewhere"],
+      },
       contact: `Call the parish office to schedule a baptism, ${phone}`,
     },
     {
@@ -197,6 +207,15 @@ const parish: Parish = {
         "Preparation for the Eucharist draws your child into fuller and more active participation in the parish. It begins at home, through prayer and attendance at Mass, so that your child comes to a true understanding of the Mass and Communion. Baptism and First Reconciliation come before First Holy Communion.",
         "If your child was not baptized at St. Philip, a copy of the baptismal certificate goes to the Director of Religious Education or the parish office. Students are expected to attend every class session so they are fully prepared.",
       ],
+      prep: {
+        steps: [
+          "Enroll your child in religious education.",
+          "If your child was not baptized at St. Philip, give a copy of the baptismal certificate to the Director of Religious Education or the parish office.",
+          "First Reconciliation comes before First Holy Communion, in the same preparation.",
+          "Attend every class session; preparation continues at home through prayer and Sunday Mass.",
+        ],
+        bring: ["A copy of the baptismal certificate, if the baptism was elsewhere"],
+      },
       contact: "Tim McNamara, Director of Religious Education, tmcnamara@stphilipbc.org",
     },
     {
@@ -207,6 +226,15 @@ const parish: Parish = {
         "Preparation takes two years, normally beginning in 7th grade, with the sacrament received toward the end of 8th. The first year reviews the foundations of the faith at a deeper level and builds a mature prayer life; the second looks in depth at the sacramental life of the Church and spends several weeks on the Theology of the Body. The date of Confirmation is set by the Bishop’s office and given out after classes begin.",
         "High school students beyond the usual age follow a preparation closer to OCIA, handled case by case. For any circumstance outside the normal age of preparation, contact the Director of Faith Formation. Parents are expected to be involved in their children’s preparation whatever their age.",
       ],
+      prep: {
+        steps: [
+          "Enroll for the two-year preparation, normally beginning in 7th grade.",
+          "Choose a sponsor: a mature adult who walks with the candidate through the preparation.",
+          "Year one: the foundations of the faith at a deeper level and a mature prayer life. Year two: the sacramental life of the Church and the Theology of the Body.",
+          "The date of Confirmation comes from the Bishop’s office after classes begin.",
+          "Beyond the usual age, or in any other circumstance, contact the Director of Faith Formation for a preparation closer to OCIA.",
+        ],
+      },
       contact: "Tim McNamara, Director of Religious Education and Faith Formation, tmcnamara@stphilipbc.org",
     },
     {

@@ -22,7 +22,13 @@ export type Photo = { src: string; width: number; height: number; alt: string };
 
 export type Person = { role: string; name: string; phone?: string; ext?: string; email?: string; link?: { label: string; href: string } };
 
-export type Section = { slug: string; title: string; body: string[]; links?: { label: string; href: string; external?: boolean }[]; contact?: string };
+/**
+ * A section of a parish page. `prep` is the sacramental checklist: the
+ * steps the parish itself publishes, in order, and what to bring, so a
+ * family sees the whole path before the first phone call. Only what the
+ * parish has said; nothing is added to it.
+ */
+export type Section = { slug: string; title: string; body: string[]; links?: { label: string; href: string; external?: boolean }[]; contact?: string; prep?: { steps: string[]; bring?: string[] } };
 
 export type Service = { day: Weekday; start: string; end?: string; label?: string; lang?: string; where?: string };
 

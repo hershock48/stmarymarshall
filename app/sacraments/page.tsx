@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PrepChecklist from "@/components/PrepChecklist";
 import { A, Band, Contact, H2, LineButton, PageHero, Prose } from "@/components/ui";
 import { strings } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/meta";
@@ -43,6 +44,7 @@ export default async function Sacraments() {
                 <div className="mt-6">
                   <Prose paragraphs={x.body} />
                 </div>
+                {x.prep && <PrepChecklist prep={x.prep} words={s.sections.prep} />}
                 {x.links && (
                   <ul className="mt-4 space-y-1.5">
                     {x.links.map((l) => (
