@@ -107,8 +107,9 @@ export default async function NearPage({ searchParams }: { searchParams: Promise
   const q = typeof sp.q === "string" ? sp.q : "";
   const radius = RADII.includes(Number(sp.r)) ? Number(sp.r) : 25;
   const place = q ? resolvePlace(q) : null;
+  const spanish = sp.es === "1";
   const now = localNow(TIME_ZONE);
-  const results = place ? nearby(place.point, radius, lang, now) : [];
+  const results = place ? nearby(place.point, radius, lang, now).filter((r) => !spanish || r.lang === "es" || r.masses.some((m) => /espa/i.test(m.lang ?? ""))) : [];
   if (place) {
     const host = (await headers()).get("host") ?? "";
     after(() => bump(host, "search", `${coarse(place.point)}:${results.length}`));
@@ -134,6 +135,10 @@ export default async function NearPage({ searchParams }: { searchParams: Promise
                   </option>
                 ))}
               </select>
+            </label>
+            <label className="flex min-h-11 items-center gap-2 text-sm font-semibold text-cream">
+              <input type="checkbox" name="es" value="1" defaultChecked={spanish} className="h-5 w-5 accent-[var(--color-gold)]" />
+              {t.spanish}
             </label>
             <button type="submit" className="inline-flex min-h-11 items-center rounded-sm bg-gold px-5 text-sm font-semibold text-navy hover:bg-gold-light">
               {t.go}

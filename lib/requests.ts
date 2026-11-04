@@ -22,7 +22,8 @@ export const REQUESTS: Record<RequestKind, { title: string; subject: string; fie
       { name: "email", label: "Your email", type: "email" },
       { name: "intention_for", label: "The Mass is for", required: true, wide: true },
       { name: "status", label: "Living or deceased", type: "select", options: ["", "Deceased", "Living", "Special intention"] },
-      { name: "preferred", label: "Preferred date or Mass, if any", wide: true },
+      // The Mass intentions page swaps this for a select of the parish's actual Masses for six weeks.
+      { name: "preferred", label: "Preferred Mass, if any", wide: true },
       { name: "card", label: "Would you like a Mass card to give?", type: "yesno" },
       { name: "notes", label: "Anything else the office should know", wide: true },
     ],
@@ -50,7 +51,7 @@ const ES: Record<string, string> = {
   Deceased: "Difunto",
   Living: "Vivo",
   "Special intention": "Intención especial",
-  "Preferred date or Mass, if any": "Fecha o Misa preferida, si la hay",
+  "Preferred Mass, if any": "Misa preferida, si la hay",
   "Would you like a Mass card to give?": "¿Quieres una tarjeta de Misa para regalar?",
   "Anything else the office should know": "Algo más que la oficina deba saber",
   "Who or what to pray for": "Por quién o por qué orar",
