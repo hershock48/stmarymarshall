@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Announcements from "@/components/Announcements";
 import BishopsVoice from "@/components/BishopsVoice";
 import DiocesanNotice from "@/components/DiocesanNotice";
 import { NextUp } from "@/components/Schedule";
@@ -51,6 +52,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
+      <Announcements parish={p} />
       <BishopsVoice parish={p} />
 
       <Band tone="paper">
