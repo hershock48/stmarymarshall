@@ -254,6 +254,18 @@ footer, "Hecho por" on the Spanish parish.
 
 ## Traps
 
+- **A finder note is prose, not a rule.** A month is only a word that is a
+  prefix of a month's name (`monthIndex` in lib/diocese.ts), because
+  "St. Margaret Mary (Marcellus)" read as a March-to-May season once and
+  hid a Sunday Mass eleven months of the year. "No Adoration April 30"
+  is an exception to a weekly row, not a dated extra; the row stays
+  weekly and the exception is not modelled. "No Mass" with a season word
+  still drops the row, which is right for "No Mass Tuesdays during the
+  semester" and wrong for a one-date exception written that way; an
+  exdate would be the fix when one turns up.
+- **The Monday refresh gate runs the structural tests only.** The content
+  pins (a dated Mass that the diocese removes once it passes) are `pin()`
+  in tools/diocese-tests.mjs and skipped with `--structural`.
 - **Tailwind 4 on Next 16.4 needs the Turbopack loader rule in
   `next.config.ts`.** Drop it and every utility class vanishes while the
   build stays green.

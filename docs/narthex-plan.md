@@ -47,8 +47,15 @@ and finder.lansing.glazedweb.com); the Lansing audit (72 sites, seven
 platforms; `glaze/research/lansing-audit-2026-11.md`); religious education
 enrollment (`/enroll`); sacramental prep as checklists on the sacraments
 page; the chancery view by deanery with the finder's age and each parish's
-week. Still owed from this list: nothing. Next, per the plan: phase two's
-credential-gated pieces when the keys exist, and the office panel.
+week. Still owed from this list: nothing. A fresh-eyes review of the day's code
+(2026-11-04, evening) found ten defects; all are fixed and covered by
+tests where a test could hold them: a saint's name read as a month, a
+"No X on <date>" note deleting its weekly row, Michigan Center losing its
+name, the Watch page and its gate disagreeing, holy-day notices a week out
+reading as today, RSS dates an hour off in summer, every diocese's site
+allowed to frame every finder, the refresh gate pinned to content the
+diocese will remove. Next, per the plan: phase two's credential-gated
+pieces when the keys exist, and the office panel.
 
 ## Principles
 
