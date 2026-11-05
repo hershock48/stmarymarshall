@@ -22,8 +22,10 @@ them: a Mass finder for every parish in the diocese from day one, events and
 groups across parishes, the chancery's notices on every site, the bishop's
 voice on every site, a Watch page per parish, and a chancery view with counts
 and no visitors in them. The schedule is typed once and published as
-structured data, a feed, and the finder. The diocese holds the repository,
-the hosting and the data, in writing, and can leave with all of it.
+structured data, a feed, and the finder. The diocese owns its data, its
+content, its domains and its accounts outright, in writing, with export at
+any time; the platform is ours, and if we ever fail a diocese it receives a
+perpetual source-included license to run it for its own parishes.
 
 ## The story the letters tell (Kevin, 2026-11-04)
 
@@ -178,6 +180,42 @@ administration. So:
 
 Never say "$99 a parish" to a diocese.
 
+## Who owns what (Kevin, 2026-11-05)
+
+Researched in `glaze/research/narthex-ownership-2026-11.md` (glazedweb
+repo) and adopted. "The diocese holds the repository" was the single-site
+promise and no longer fits: the repository is the product and serves every
+diocese. What replaces it, in the letters and the agreement:
+
+- **Layer one, the diocese's outright:** every page, photo, document,
+  schedule, calendar, event, group, notice and form submission; domains in
+  its own registrar account; giving on each parish's own Stripe account
+  with full Dashboard (Customers, PaymentMethods, Prices and Subscriptions
+  created on the parish account, never cloned from ours, no platform
+  controls). Export at any time, self-serve where offered, free, as
+  readable files, as data and as a static copy of each site; feeds for its
+  own data never metered; ninety days of export after any ending, then
+  deletion confirmed in writing.
+- **Layer two, continuity:** if we dissolve, give notice of ceasing, file
+  for insolvency, discontinue the platform, terminate for convenience or
+  fail to cure a material support or uptime breach in sixty days, the
+  diocese receives a perpetual, non-exclusive, royalty-free license to the
+  source and build documentation as they stand, to run for its own
+  parishes, schools and institutions, modifiable by anyone it hires; no
+  resale, no hosting for another diocese. The diocese's own leaving is not
+  a trigger. A quarterly encrypted deposit (git bundle, schema, migrations,
+  runbook, env inventory, deploy steps) goes to storage the diocese names
+  with the hash and commit attested in writing; the key sits with our
+  attorney. Recites 11 U.S.C. 365(n).
+- **Layer three, source-available (FSL): not yet.** Revisit at three or
+  more dioceses after a security pass.
+- The lone parish ($99 a month) gets the same two layers.
+- General terms section 3 stays for single-site clients; Exhibit A says it
+  does not govern the platform.
+
+Build items this adds: the self-serve export (JSON, CSV, media zip, static
+site per parish) and the quarterly deposit script with its attestation.
+
 ## Hosts and names
 
 - Parish sites: the parish's own domain; until live, `<slug>.glazedweb.com`
@@ -209,6 +247,26 @@ on 2026-11-04.
       through Stacie's login, look only.
 - [ ] St. Mary as the free first-year reference parish; a named second person
       for support.
+- [ ] The product entity, before the first diocese signs (added 2026-11-05;
+      costs and sources in `glaze/research/narthex-ownership-2026-11.md`,
+      section 8): a Michigan LLC for the platform (sister LLC or subsidiary of
+      Glazed Web LLC, CPA picks; $50 state, attorney $0 to $1,500); an IP
+      assignment from Glazed Web LLC to it covering code, schema, designs,
+      content, domains and the mark, with a schedule of repositories, and a
+      check that no client-owned code sits inside the platform (attorney,
+      $500 to $2,000); the diocese agreement redrafted by the attorney as a
+      twelve-month SaaS license with a data-processing addendum, breach
+      notice and liability cap ($1,500 to $3,500, reused per diocese);
+      insurance in the entity's name, general liability $1M plus tech
+      E&O/cyber $1M, diocese and bishop as additional insureds, W-9 and
+      certificate in the vendor packet ($1,000 to $2,000 a year); the Stripe
+      platform account under the entity. About two weeks and $3,000 to
+      $8,000 with an attorney, under $1,500 filing the LLC yourself. The IP
+      assignment and the license review are the two not to do alone. Not
+      legal or tax advice.
+- [ ] After the first diocese pays: S-corp election review with the CPA;
+      federal mark (Class 42, intent to use, $350 a class) within thirty days
+      of a name.
 
 ## Order of work, phase one
 
