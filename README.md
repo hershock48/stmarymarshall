@@ -209,6 +209,28 @@ words are whatever its data says.
 - **Today's readings** is a computed USCCB link, Spanish first on a Spanish
   parish.
 
+## The letters' companion pages
+
+A diocese letter (`public/pitch/<slug>/index.html`, served at `/` on the
+diocese's letter host) has two pages beside it, served on that host only
+(`proxy.ts`, `letterSlugForHost` in `lib/paths.ts`):
+
+- `/terms`: the agreement's own text, written by
+  `node tools/terms-page.mjs kalamazoo diokzoo` from the glazedweb repo's
+  `lib/customOrders.js` (the one place that text is typed). Run it again
+  whenever that row changes and commit `terms.html`. It exists so the
+  letter's terms link answers before glazedweb.com/agreement/<order> is
+  live; a diocese with no `terms.html` gets the 404.
+- `/brief`: the letter on one printed sheet, written by
+  `node tools/brief-page.mjs` from the numbers at the top of that file.
+  The numbers must match the letter and the agreement; change them in all
+  three. `node tools/out/brief-check.mjs` prints each brief to PDF and
+  fails if one runs to a second page.
+
+The chancery view picture in the letters (`chancery.webp`) is a real
+screenshot: start the launch entry `stmary-office` (a local server with a
+test passcode) and run `node tools/out/office-shot.mjs`.
+
 ## Checks
 
 `node tools/logic-tests.mjs` (42 cases over all three parishes, Spanish

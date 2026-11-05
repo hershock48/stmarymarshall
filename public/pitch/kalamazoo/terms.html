@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>The terms · Glazed Web × the Diocese of Kalamazoo</title>
+<meta name="description" content="The diocesan agreement in plain words: what is included, what it costs, what the diocese owns, and what it receives if Glazed Web ever fails it.">
+<meta name="theme-color" content="#FDF6EC">
+<link rel="icon" type="image/svg+xml" href="/pitch/kalamazoo/favicon.svg">
+<link rel="icon" href="/pitch/kalamazoo/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="/pitch/kalamazoo/apple-touch-icon.png">
+<style>
+/* Stylesheet lifted verbatim from the St. Mary letter (public/pitch/stmarymarshall), which lifted it from
+   Mike's Place, Dark Horse and Griffin Claw in turn (glaze/proposal.md). The gradient ids on the three
+   marks are suffixed per instance so no two are the same id on one page. */
+:root{
+ --paper:#FDF6EC; --paper2:#FFF7EA; --card:#FFFDF8;
+ --ink:#2B1E16; --ink2:#201712; --body:#6B5747; --mute:#7F6D5B; --line:#E8DCC8;
+ --pink:#E84D8A; --pink-d:#CE3672;--pink-i:#C9356F; --pink-t:#FCE7F0;
+ --green:#BFE07A; --green-b:#A9D65C; --green-d:#467C3D; --green-t:#F1F8DC;
+ --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--body);font-family:var(--sans);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4,.k,.btn,nav,th,.num,.chip{font-family:var(--sans)}
+.k{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--green-d)}
+h2{font-size:clamp(30px,4.4vw,48px);font-weight:800;color:var(--ink);letter-spacing:-1.6px;line-height:1.08;margin:10px 0 14px}
+h3{font-size:19px;font-weight:800;color:var(--ink);margin:34px 0 10px;letter-spacing:-.4px}
+p{margin:0 0 14px}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--pink-i)}
+.rule{height:3px;width:52px;background:var(--pink);border-radius:2px;margin:0 0 18px}
+section{padding:60px 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+
+header{position:sticky;top:0;z-index:60;background:rgba(253,246,236,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand .gl{height:34px;width:auto;display:block}
+.brand .bw{font-family:var(--sans);font-weight:800;font-size:19px;color:var(--ink);letter-spacing:-.6px;line-height:1.1}
+.brand .bw span{font-weight:350;color:var(--mute)}
+.brand span{font-size:.72rem;color:var(--mute);font-style:italic}
+nav{display:flex;gap:20px;font-size:.72rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+nav a{color:var(--mute);text-decoration:none}
+nav a:hover{color:var(--pink-i)}
+.hright{display:flex;align-items:center;gap:20px}
+.hdemo{display:inline-flex;align-items:center;min-height:44px;background:var(--pink-d);color:#fff;font-weight:700;font-size:.72rem;letter-spacing:.09em;
+ text-transform:uppercase;padding:10px 18px;border-radius:999px;text-decoration:none;white-space:nowrap;
+ box-shadow:0 6px 16px -6px rgba(232,77,138,.55);transition:all .18s}
+.hdemo:hover{background:var(--green);color:var(--ink);transform:translateY(-1px)}
+.herocta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.herocta a{display:inline-flex;align-items:center;min-height:46px;padding:0 26px;border-radius:999px;font-family:var(--sans);font-weight:700;font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;background:var(--pink-d);color:#fff;box-shadow:0 6px 16px -6px rgba(232,77,138,.55);transition:all .18s}
+.herocta a:hover{background:var(--green);color:var(--ink);transform:translateY(-2px)}
+.herocta a.ghost{background:transparent;color:var(--ink);border:2px solid var(--line);box-shadow:none}
+.herocta a.ghost:hover{background:transparent;color:var(--ink);border-color:var(--green)}
+.herocta span{flex:1 1 20em;min-width:16em;font-size:.92rem;color:var(--body)}
+@media(max-width:720px){nav{display:none}.brand .bw~span{display:none}}
+@media(max-width:400px){.hdemo{font-size:.66rem;padding:9px 13px;letter-spacing:.06em}}
+
+.hero{padding:66px 0 54px;text-align:left}
+.hero h1{font-family:var(--sans);font-size:clamp(38px,5.5vw,60px);font-weight:800;color:var(--ink);letter-spacing:-2px;line-height:1.04}
+.hero h1 em{font-style:normal;color:var(--pink)}
+.hero .sub{font-size:1.12rem;color:var(--body);margin-top:20px;max-width:31em}
+.forwho{margin-top:26px;font-family:var(--sans);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);line-height:1.9}
+.forwho b{color:var(--ink)}
+
+.tldr{background:var(--ink);color:#F6EFE4;border-radius:16px;padding:26px 26px 22px;margin-top:38px}
+.tldr .k{color:var(--green)}
+.tldr ul{list-style:none;margin:14px 0 0}
+.tldr li{display:flex;gap:12px;padding:9px 0;border-top:1px solid rgba(255,255,255,.1);font-size:.97rem;line-height:1.5}
+.tldr li:first-child{border-top:0}
+.tldr .n{font-family:var(--sans);font-weight:800;color:var(--green);flex:0 0 auto;font-size:.8rem;padding-top:3px}
+.tldr b{color:#fff}
+
+.claim{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 20px;margin:12px 0;transition:border-color .16s,transform .16s}
+.claim:hover{border-color:var(--pink);transform:translateY(-1px)}
+.claim .h4{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--ink);margin:0 0 5px;letter-spacing:-.01em}
+.claim p{font-size:.95rem;margin:0}
+.claim p+p{margin-top:10px}
+.claim .verify{display:inline-flex;align-items:center;gap:7px;margin-top:12px;margin-right:8px;font-family:var(--sans);font-size:.71rem;font-weight:700;
+ letter-spacing:.1em;text-transform:uppercase;color:var(--pink-i);text-decoration:none;border:1.5px solid var(--pink);
+ padding:7px 13px;border-radius:999px;transition:all .16s}
+.claim .verify:hover{background:var(--pink-d);color:#fff}
+.claim .verify.plain{border-color:var(--line);color:var(--mute);cursor:default}
+.claim .verify.plain:hover{background:transparent;color:var(--mute)}
+.mono{font-family:ui-monospace,Menlo,monospace;font-size:.83em;color:var(--mute);overflow-wrap:anywhere}
+.cmp td,.claim p,.tldr li{overflow-wrap:anywhere}
+
+/* charts: generated by tools/letter-charts.mjs between the chart markers below.
+   Thin bars, square at the baseline, rounded at the data end, the value at the
+   tip; text in ink and mute, never in the series color. */
+.fig{margin:22px 0 26px}
+.fig .h4{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--ink);margin:0 0 2px;letter-spacing:-.01em}
+.fig .cap{font-size:.84rem;color:var(--mute);margin:0 0 10px}
+.bars{display:grid;gap:9px}
+.bars .row{display:grid;grid-template-columns:230px minmax(0,1fr);gap:12px;align-items:center}
+.bars .lab{text-align:right;font-size:.9rem;color:var(--ink);line-height:1.25}
+.bars .bar{display:block;border-left:1px solid #C9BBA8;padding-right:3.6em;white-space:nowrap;line-height:0;min-width:0}
+.bars .bar i{display:inline-block;vertical-align:middle;height:22px;border-radius:0 4px 4px 0}
+.bars .bar b{display:inline-block;vertical-align:middle;margin-left:8px;font-size:.9rem;line-height:1;color:var(--ink)}
+@media(max-width:600px){.bars{gap:12px}.bars .row{grid-template-columns:1fr;gap:3px}.bars .lab{text-align:left;font-size:.86rem}.bars .bar i{height:18px}}
+.fig .src{font-size:.78rem;color:var(--mute);margin:8px 0 0}
+.fig .src a{color:var(--pink-i)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 20px}
+.stat .n{font-family:var(--sans);font-size:2.4rem;font-weight:800;color:var(--ink);letter-spacing:-.03em;line-height:1}
+.stat .l{font-size:.9rem;color:var(--body);margin-top:8px;line-height:1.45}
+.stat .s{font-size:.76rem;color:var(--mute);margin-top:8px}
+.stat .s a{color:var(--pink-i)}
+@media(max-width:600px){.stats{grid-template-columns:1fr}}
+
+.cmp{width:100%;border-collapse:collapse;margin:16px 0;font-size:.93rem}
+.cmp th{font-family:var(--sans);text-align:left;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;
+ padding:0 10px 9px 0;border-bottom:2px solid var(--ink);color:var(--ink);vertical-align:bottom}
+.cmp td{padding:12px 10px 12px 0;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}
+.cmp td:first-child{font-weight:700;color:var(--ink);width:24%;font-family:var(--sans);font-size:.86rem}
+.cmp td:nth-child(2){width:36%;color:var(--mute)}
+.cmp td:nth-child(3){width:40%}
+.tick{color:var(--green-d);font-weight:800}
+/* The measured table: a number column and a sentence. */
+.cmp.meas td:first-child{width:46%}.cmp.meas td:nth-child(2){width:18%;color:var(--ink);font-family:var(--sans);font-weight:800;font-size:1.05rem;white-space:nowrap}.cmp.meas td:nth-child(3){width:36%}
+@media(max-width:600px){.cmp.meas td:nth-child(2){font-size:.95rem}}
+
+.pricebox{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.pricebox>div{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:20px}
+.pricebox .n{font-family:var(--sans);font-size:2rem;font-weight:800;color:var(--ink);letter-spacing:-.03em;line-height:1}
+.pricebox .l{font-size:.85rem;color:var(--mute);margin-top:7px;line-height:1.4}
+.pricebox .was{display:block;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.pricesrc{font-size:.84rem;color:var(--mute);margin:-4px 0 18px}
+@media(max-width:600px){.pricebox{grid-template-columns:1fr}}
+
+/* The three pilot cards. */
+.pilots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+.pilots a{display:block;background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden;text-decoration:none;color:var(--body);transition:border-color .16s,transform .16s}
+.pilots a:hover{border-color:var(--pink);transform:translateY(-2px)}
+.pilots img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.pilots .t{padding:14px 16px 16px}
+.pilots .t b{display:block;color:var(--ink);font-family:var(--sans);font-weight:800;font-size:1rem;letter-spacing:-.01em}
+.pilots .t span{display:block;font-size:.84rem;color:var(--mute);margin-top:4px;line-height:1.4}
+.pilots .t em{display:inline-block;margin-top:10px;font-style:normal;font-size:.71rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink-i)}
+@media(max-width:600px){.pilots{grid-template-columns:1fr}}
+
+.demo{background:linear-gradient(135deg,#201712,#3A2416);color:#F6EFE4;border-radius:18px;padding:32px;margin:22px 0;text-align:center}
+.demo .k{color:var(--green)}
+.demo h3{color:#fff;margin:10px 0 8px;font-size:1.4rem}
+.demo p{color:#D8CBBA;font-size:.98rem;max-width:34em;margin:0 auto 20px}
+.demo p:not([style]) strong{color:#FFF6EA}
+.demo a{display:inline-block;background:var(--pink-d);color:#fff;font-family:var(--sans);font-weight:700;font-size:.82rem;box-shadow:0 6px 16px -6px rgba(232,77,138,.55);
+ letter-spacing:.09em;text-transform:uppercase;padding:15px 30px;border-radius:999px;text-decoration:none;transition:all .18s}
+.demo a:hover{background:var(--green);color:var(--ink);transform:translateY(-2px)}
+.demo a.big{padding:18px 44px;font-size:.92rem;margin-top:4px}
+.demo .after{color:#D8CBBA;font-size:.92rem;max-width:38em;margin:14px auto 0;line-height:1.6}
+.demo .after a{display:inline;background:none;box-shadow:none;padding:0;border-radius:0;font-family:inherit;font-size:inherit;letter-spacing:0;text-transform:none;color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.demo .after a:hover{background:none;color:var(--green);transform:none}
+.vurl{font-family:var(--sans);font-size:.72rem;color:var(--mute);letter-spacing:.02em;word-break:break-all;display:block;margin-top:10px}
+
+.step{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.step .no{font-family:var(--sans);font-weight:800;font-size:.78rem;color:#fff;background:var(--pink-d);width:28px;height:28px;
+ border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.step .h4{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--ink);margin:0 0 4px;letter-spacing:0}
+.step p{font-size:.93rem;margin:0}
+
+footer{background:var(--ink2);color:#A6907F;padding:44px 0;font-size:.88rem;margin-top:30px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer b{color:#F6EFE4;display:block;font-family:var(--sans);font-size:.95rem;margin-bottom:4px}
+footer .bw{display:block;font-weight:800;color:#F6EFE4;letter-spacing:-.6px;margin-bottom:5px}
+footer .bw span{font-weight:350;color:#A6907F}
+footer a{color:var(--green)}
+.conf{font-size:.72rem;color:#A6907F;margin-top:14px;letter-spacing:.04em}
+.note{font-size:.85rem;color:var(--mute);font-style:italic;line-height:1.5}
+
+/* --- the mark, and its drip, lifted from glazedweb.com --- */
+.gmark{display:block;overflow:visible}
+.gmark .goo{transform-box:fill-box;transform-origin:50% 0;animation:breathe 6s ease-in-out infinite}
+.gmark .wob1,.gmark .wob2,.gmark .wob3,.gmark .wobB{transform-box:fill-box;transform-origin:50% 0}
+.gmark .wob1{animation:sagg 3.8s ease-in-out -.6s infinite}
+.gmark .wob2{animation:sagg 4.9s ease-in-out -2.1s infinite}
+.gmark .wob3{animation:sagg 4.3s ease-in-out -1.3s infinite}
+.gmark .wobB{animation:sagg 5.6s ease-in-out -3s infinite}
+.gmark .string{transform-box:fill-box;transform-origin:50% 0;animation:stringy 3.4s cubic-bezier(.55,.1,.8,.5) infinite}
+.gmark .droplet{transform-box:fill-box;transform-origin:center;animation:fall 3.4s cubic-bezier(.5,.08,.85,.6) infinite}
+.gmark .droplet2{transform-box:fill-box;transform-origin:center;animation:fall2 5.1s cubic-bezier(.5,.08,.85,.6) -2.4s infinite}
+@keyframes breathe{0%,to{transform:scaleY(1)}50%{transform:scaleY(1.02)}}
+@keyframes sagg{0%,to{transform:scaleY(1) scaleX(1)}50%{transform:scaleY(1.07) scaleX(.98)}}
+@keyframes stringy{0%{transform:scaleY(.1);opacity:0}25%{transform:scaleY(.8);opacity:1}60%{transform:scaleY(1.7);opacity:.85}80%{transform:scaleY(2.4);opacity:0}to{transform:scaleY(.1);opacity:0}}
+@keyframes fall{0%{transform:translateY(-16px) scaleY(1.5) scaleX(.7);opacity:0}22%{transform:translateY(-8px) scaleY(1.2) scaleX(.85);opacity:1}60%{transform:translateY(10px) scale(1);opacity:1}to{transform:translateY(38px) scaleY(1.15) scaleX(.9);opacity:0}}
+@keyframes fall2{0%{transform:translateY(-10px) scaleY(1.4) scaleX(.75);opacity:0}25%{transform:translateY(-4px) scale(1);opacity:1}65%{transform:translateY(8px) scale(1);opacity:1}to{transform:translateY(26px) scale(1);opacity:0}}
+@media (prefers-reduced-motion:reduce){
+ .gmark .goo,.gmark .wob1,.gmark .wob2,.gmark .wob3,.gmark .wobB,
+ .gmark .string,.gmark .droplet,.gmark .droplet2{animation:none}
+}
+.brand .gmark{height:38px;width:auto;margin-bottom:-6px}
+.hero .gmark{height:112px;width:auto;margin-bottom:26px}
+footer .gmark{height:78px;width:auto}
+</style>
+<style>
+.terms ol{margin:0 0 14px 22px}
+.terms li{margin:0 0 12px}
+.terms ul{margin:0 0 14px 20px}
+.terms .lead{color:var(--ink);font-weight:700}
+.terms table.cmp td:first-child{width:30%}
+@media print{
+  header,.hdemo,footer .gmark{display:none}
+  body{background:#fff;font-size:11pt}
+  section{padding:18px 0;border-top:0}
+  a{color:inherit;text-decoration:none}
+}
+</style>
+</head><body>
+
+<header><div class="wrap">
+  <a class="brand" href="/" aria-label="Glazed Web">
+    <svg class="gmark gl" viewBox="0 0 200 250" overflow="visible" aria-hidden="true"><defs><linearGradient id="dgGrad" x1="0" y1="92" x2="0" y2="165" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5FA850"></stop><stop offset="100%" stop-color="#43813A"></stop></linearGradient><linearGradient id="lgGrad" x1="0" y1="92" x2="0" y2="215" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#D9EDA0"></stop><stop offset="55%" stop-color="#BFE07A"></stop><stop offset="100%" stop-color="#A3CE55"></stop></linearGradient><radialGradient id="pinkGrad" cx="40%" cy="34%" r="75%"><stop offset="0%" stop-color="#F887B2"></stop><stop offset="55%" stop-color="#E84D8A"></stop><stop offset="100%" stop-color="#CE3672"></stop></radialGradient><linearGradient id="creepGrad" x1="0" y1="90" x2="0" y2="124" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E3F2B0"></stop><stop offset="100%" stop-color="#C3E181"></stop></linearGradient></defs><g class="goo"><g fill="url(#dgGrad)"><ellipse cx="100" cy="110" rx="38" ry="15"></ellipse><path class="wobB" d="M 86 100 C 86 116, 87 130, 88 142 C 88 148, 91 149, 92 142 C 93 130, 92 114, 92 100 Z"></path><path d="M 114 100 C 114 112, 115 124, 116 134 C 116 140, 119 141, 120 134 C 121 124, 120 110, 120 100 Z"></path></g><g fill="url(#lgGrad)"><path class="wob1" d="M 64 100 C 63 120, 65 138, 66 152 C 66 164, 68 172, 74 173 C 80 172, 83 165, 82 154 C 84 136, 85 116, 86 100 Z"></path><path class="wob2" d="M 92 100 C 91 128, 93 152, 94 172 C 94 188, 97 199, 104 200 C 111 199, 114 190, 112 174 C 113 150, 114 124, 114 100 Z"></path><path class="wob3" d="M 120 100 C 119 116, 120 130, 121 142 C 121 152, 123 159, 129 160 C 134 159, 137 153, 135 144 C 136 130, 137 114, 137 100 Z"></path></g></g><path class="string" d="M 104 199 L 104 209" stroke="#BFE07A" stroke-width="2.5" stroke-linecap="round" fill="none"></path><g class="droplet"><circle cx="104" cy="213" r="7" fill="#BFE07A"></circle><circle cx="102" cy="211" r="2" fill="#F1F8DC" opacity="0.9"></circle></g><circle class="droplet2" cx="74" cy="186" r="4.5" fill="#BFE07A"></circle><circle cx="100" cy="70" r="52" fill="url(#pinkGrad)"></circle><path d="M 56 98 A 52 52 0 0 0 144 98 C 142 94, 138 92, 134 94 C 130 97, 129 102, 125 104 C 119 106, 116 98, 110 96 C 104 94, 103 102, 98 105 C 93 107, 90 100, 84 97 C 78 95, 76 100, 71 102 C 66 103, 62 100, 56 98 Z" fill="url(#creepGrad)"></path><path d="M 68 106 A 42 42 0 0 0 84 116" fill="none" stroke="#F1F8DC" stroke-width="4" stroke-linecap="round" opacity="0.85"></path><path d="M 97 144 Q 103 151 109 144" fill="none" stroke="#55974A" stroke-width="4" stroke-linecap="round"></path><g stroke="#F1F8DC" fill="none" stroke-linecap="round"><path d="M 97 128 C 96 148, 97 166, 100 182" stroke-width="4.5" opacity="0.85"></path><path d="M 69 118 C 68 132, 70 146, 71 156" stroke-width="3.5" opacity="0.8"></path><path d="M 124 114 C 123 124, 125 138, 126 148" stroke-width="3.5" opacity="0.8"></path></g><circle cx="100" cy="192" r="2.5" fill="#F1F8DC" opacity="0.9"></circle><circle cx="100" cy="72" r="13" fill="#FDF6EC"></circle><circle cx="100" cy="72" r="13" fill="none" stroke="#C22F6B" stroke-width="3" opacity="0.3"></circle><path class="sheen" d="M 62 46 A 44 44 0 0 1 82 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path><circle class="sheen" cx="92" cy="26" r="3.5" fill="#FFFFFF"></circle></svg>
+    <span style="display:flex;flex-direction:column;line-height:1.15"><span class="bw">glazed<span>web</span></span><span>for the Diocese of Kalamazoo</span></span>
+  </a>
+  <div class="hright">
+    <nav>
+      <a href="/">The letter</a>
+      <a href="/brief">One page</a>
+    </nav>
+    <a class="hdemo" href="https://www.glazedweb.com/schedule" target="_blank" rel="noopener">Book a call ↗</a>
+  </div>
+</div></header>
+
+<main class="terms">
+<section id="top"><div class="wrap">
+  <div class="k">The terms, in plain words</div><div class="rule"></div>
+  <h1 style="font-size:clamp(30px,4.4vw,48px);font-weight:800;color:var(--ink);letter-spacing:-1.6px;line-height:1.08;margin:10px 0 14px">What the Diocese of Kalamazoo would be agreeing to.</h1>
+  <p>This is the text of the agreement we would put in front of the diocese, as it stands on November 5, 2026: Exhibit A: Diocese of Kalamazoo, prepared 2026-11-02. It sits on top of the <a href="https://www.glazedweb.com/agreement" target="_blank" rel="noopener">glazedweb Client Agreement v1.1 ↗</a>, the general terms every Glazed Web client gets. Where the two differ, this page governs, and part 3 says where.</p>
+  <p class="note">Opening this page signs nothing. The copy to sign comes after the call, with the diocese&rsquo;s legal name on it.</p>
+</div></section>
+
+<section id="part1"><div class="wrap">
+  <div class="k">Part 1</div><div class="rule"></div>
+  <h2>What is included.</h2>
+  <ul>
+    <li>One codebase, every parish on its own domain with its own photos, words, palette, schedule and calendar. The diocese holds its data, its content, its domains and its accounts outright; the platform is glazedweb’s, and part 3 says what the diocese receives if glazedweb ever fails it.</li>
+    <li>For each parish that joins: home, Mass times and directions, New here?, about (contact, staff, history), sacraments, faith formation, ministries, calendar, bulletin where the parish prints one, give, register, Mass intentions and prayer requests, in English or in Spanish throughout.</li>
+    <li>Mass, Confession and Adoration times with the next one computed from the clock, the parish calendar as the parish’s own data with a feed anyone can subscribe to, every photo and document carried over from the old site as the parish’s own files, and three forms that email the parish office.</li>
+    <li>Every parish’s schedule published as structured data on its own site and joined into one diocesan feed: name, address, language, Mass, Confession and Adoration times, for the Parish Finder, for Google and for the Mass-finder apps to read from the diocese.</li>
+    <li>The diocese layer, on the diocese’s own address: Mass near you (a zip, a town or the phone’s location; every parish within a radius, nearest first, with its next Mass from the clock), covering all sixty parishes and missions from the first day, the three on the platform from their own data and the rest read from the diocesan Parish Finder, each marked with its source; this week across the diocese (every platform parish’s calendar on one page, by kind and town, with add-to-calendar links); the groups across the diocese with their contacts; every parish on one page; and the chancery’s notices, written once and shown on every parish site that has not turned them off. Each parish site carries its three nearest parishes and their next Mass on its Mass times page. The finder runs on its own address from the first day, re-reads the diocesan Parish Finder weekly, says on every card when it last did, carries a wrong-time report that reaches the chancery, and may be embedded on the diocese’s own site, so the diocese can make it its finder before any parish moves.</li>
+    <li>The bishop’s voice: recordings the diocese has published (messages, homilies, talks), listed once by the diocese and carried on every parish home page that has not turned them off, in the parish’s language where the recording exists in it, with a feed anyone can subscribe to without a social network. A Watch page on every parish that streams, which shows the parish’s own YouTube or Facebook stream from a quarter hour before Mass to ninety minutes after and the next Mass in words otherwise. A line at the top of every parish page in the week before a holy day or a special Mass, with the times, from the same data as the schedule.</li>
+    <li>The migration of each parish: its eCatholic pages read into the platform’s data by script, read once by a person, and the handful of facts only the office knows confirmed with the office before the site goes live on its own domain. The old subscription ends after that, never before.</li>
+    <li>In this order: the three sites already built (St. Mary Marshall, St. Philip Battle Creek, San Felipe de Jesús Fennville), then the parishes the diocese picks, then the parishes whose eCatholic agreement allows it, then the parishes and missions with no website at all.</li>
+    <li>What a parish already has stays: giving on its own provider (the Give button links straight to it), the bulletin where it is printed and hosted, Flocknote, a YouTube or Facebook livestream linked as Watch Mass online, and its church-management system. The platform links to them and replaces none of them.</li>
+    <li>Search for every page: a title and description of its own, a Church record with the Mass schedule, a sitemap, a link card so a shared link shows the church. The small studio credit in each footer.</li>
+    <li>The week’s news written once: a news page on every parish compiled from its schedule, calendar, the chancery’s notices and the bishop’s message plus anything the office types with the dates it should run; the same rows as a feed any email tool can send and as a bulletin insert laid out to print; and for the diocese, this week across all parishes on one page that is also a feed, for the communications office’s weekly email. Mass intention requests that offer the parish’s actual Masses for the coming six weeks.</li>
+  </ul>
+  <h3>Not included, and quoted separately if wanted</h3>
+  <p>The chancery view (every site’s health and use on one page behind a passcode, as counts with no person in them; built, and priced with the office panel), an office panel for self-service edits, a diocesan directory, and any other work beyond keeping the sites current, each of which is quoted first and approved before it starts; online giving changes of any kind, which stay with each parish’s provider; eCatholic’s giving, messaging and church-management products, which this agreement does not replace; the add-ons a parish may choose and pays for itself (hosting its livestream on its own player with automatic recordings and clips, $89 a month; an office panel for self-service edits, $29 a month; texting at cost plus a margin), none of which changes the diocesan license; photography; printed materials; and a parish that comes outside this agreement, which pays the published build price under its own agreement.</p>
+</div></section>
+
+<section id="part2"><div class="wrap">
+  <div class="k">Part 2</div><div class="rule"></div>
+  <h2>What it costs.</h2>
+  <table class="cmp">
+    <tr><td>Build fee</td><td>None. Every parish is migrated at no charge against the first term.</td></tr>
+    <tr><td>Monthly service fee</td><td>$3,990 a month, for the diocese, every parish included however many move and whenever they do, from the first day of the month after the first parish site under this agreement is live on its own domain. No parish is billed. Every parish site in the diocese, however many, with hosting, SSL, security updates, backups and the checks run again after every change; the diocesan feed and the diocese layer (Mass near you on its own address, this week across the diocese, the groups, the notices, the bishop’s voice, the holy-day line, a Watch page for every parish that streams); and the edits each parish needs through the year. A twelve-month first term from the first parish going live, then month to month; part 3 says how.</td></tr>
+    <tr><td>Included edits</td><td>Up to 2 hours per month for each parish of small edits: a Mass time, a holy day schedule, a new pastor, a ministry contact, a document swapped for a new one, a line of copy, the calendar for a new season. The office emails or texts the change and it is up the same week.</td></tr>
+    <tr><td>Beyond scope</td><td>$125 per hour, always quoted and approved in writing before any work starts. Nothing lands on a bill unannounced.</td></tr>
+    <tr><td>The domains</td><td>Each parish’s own domain, each in the parish&rsquo;s or the diocese&rsquo;s own registrar account.</td></tr>
+  </table>
+</div></section>
+
+<section id="part3"><div class="wrap">
+  <div class="k">Part 3</div><div class="rule"></div>
+  <h2>The diocesan agreement and its first term.</h2>
+  <p>This agreement is between glazedweb and the diocese, for every parish the diocese brings onto the platform. These terms say how a parish joins, how long the first term is, and what happens after it. They are part of the agreement, and where they and section 5 of the general terms differ on how long the agreement lasts, these govern. Section 3 of the general terms (“You own the website”) was written for one site built for a fee; on this agreement, what the diocese owns and what it receives if glazedweb fails it are set out below, and where they and section 3 differ, these govern.</p>
+  <ol>
+    <li><span class="lead">The diocese signs once.</span> One acceptance covers every parish the diocese brings on. A parish joins by a note from the Pastoral Center naming the parish, its domain and the office that will confirm its facts. No parish signs anything, and no parish pays a build fee under this agreement. A parish or mission with no website today joins the same way.</li>
+    <li><span class="lead">The first term is twelve months.</span> The agreement runs twelve months from the day the first parish site under it is live on its own domain. During those twelve months neither of us can end it except for a material breach, on the fifteen days’ written notice and chance to fix the problem that the general terms give. The twelve months stand in for a build fee: every parish is migrated at no charge against them. After the first term the agreement is month to month, and either of us can end it on thirty days’ written notice with no fee, as the general terms say.</li>
+    <li><span class="lead">What is billed, and to whom.</span> One diocesan license, $3,990 a month, billed to the diocese from the first day of the month after the first parish site under this agreement is live on its own domain. It covers every parish and mission in the diocese, however many move and whenever they do, so no parish is ever billed for its site and the number does not change when a parish joins. The diocese may recharge its parishes as it sees fit; that is between the diocese and its parishes. A parish that comes onto the platform outside this agreement pays the published build price and $99 a month under its own agreement.</li>
+    <li><span class="lead">Leaving, and what the diocese keeps.</span> Ending the agreement ends it for every parish on it. The diocese and each parish keep everything that is theirs under “Export at any time”: every page as readable files and as a static site that runs on any host, every photo and document, every schedule, calendar, event, group, notice and form submission as data, their domains in their own registrar accounts, and their Stripe accounts with every donor and recurring gift in them. Export stays open for ninety days after the ending; glazedweb then deletes what it holds and confirms it in writing. A parish the diocese releases from the agreement can continue on its own at the same $99 a month, month to month, with no build fee, under its own agreement.</li>
+    <li><span class="lead">If glazedweb fails the diocese.</span> If glazedweb dissolves, gives written notice that it is ceasing operations, files for bankruptcy or insolvency, discontinues the platform, terminates this agreement for convenience, or fails to cure a material breach of its support or uptime obligations within sixty days of written notice, the diocese receives a perpetual, non-exclusive, royalty-free license to the platform’s source code and build documentation as they stand that day, to host its own parishes, schools and institutions, to modify them, and to hire anyone it chooses to do so; not to resell them or to host them for another diocese. Each quarter glazedweb delivers an encrypted copy of that code and documentation to storage the diocese names, with its hash and the exact version attested in writing; the key is held by glazedweb’s attorney and released on any of those events. This agreement is a license of intellectual property under 11 U.S.C. § 365(n), and those copies are embodiments of it. The diocese’s own decision to end the agreement does not trigger this item; what it keeps then is set out under “Leaving”.</li>
+    <li><span class="lead">Reading the diocese’s own pages.</span> The diocese asks us to read its own public Parish Finder and its parishes’ public websites, for the finder and for each parish’s migration, and the result belongs to the diocese. A demonstration site built from a parish’s public pages stays hidden from search engines, goes live at that parish’s address only with the parish’s yes, and comes down the day the parish asks.</li>
+    <li><span class="lead">What is stored, and what is not.</span> The platform keeps no card data, no visitor accounts and no member database; giving stays on each parish’s own provider and the forms go to the parish office. What is stored, what is not and where it runs is published at /diocese/security on the platform and changes with the code. A security report is answered the same day.</li>
+    <li><span class="lead">The feed is the diocese’s data.</span> The diocesan feed, every parish’s name, address, language, Mass, Confession and Adoration times as one file, is the diocese’s content under section 3. It is published at an address the diocese names, in the shape its Parish Finder reads, and kept valid as schedules change. It depends on nothing of eCatholic’s, so the Finder keeps reading it as parishes leave eCatholic one at a time.</li>
+    <li><span class="lead">Export at any time.</span> At any time, for any reason, with no fee, the diocese or any parish on the agreement can have every page as readable files, every photo and document, every schedule, calendar, event, group, notice and form submission as data, and a static copy of each site that runs on any host, within ten days of asking. Export is self-serve where the platform offers it and on written request otherwise, and it does not end the agreement.</li>
+    <li><span class="lead">The data has a way out while it is in.</span> Every parish’s schedule, calendar and events are published as feeds (structured data, iCalendar and JSON) that anyone the diocese chooses may read, and the diocese may build on them without asking. We do not block, rate-limit or charge for reading the diocese’s own data.</li>
+    <li><span class="lead">Giving, stated plainly.</span> A parish that takes gifts or payments through the platform does so on a Stripe account in the parish’s own name at Stripe’s nonprofit rate (2.2% plus 30 cents a card gift at the time of writing), so its donors and their recurring gifts belong to the parish and travel with it. The platform’s fee is 1% of each gift, capped at $5 a gift, which the giver is offered to cover at the time of giving and which the parish pays when the giver does not. There is no monthly fee for giving. The diocese may run its annual appeal on the same terms on an account in its own name. A parish that keeps its current giving provider keeps it, and the Give button on its site goes there.</li>
+  </ol>
+  <p class="note">Questions about any line: <a href="mailto:kevin@glazedweb.com?subject=Diocese%20of%20Kalamazoo%20agreement">kevin@glazedweb.com</a>, or <a href="https://www.glazedweb.com/schedule" target="_blank" rel="noopener">book the call ↗</a>.</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div>
+    <span class="bw" style="font-size:21px">glazed<span>web</span></span>
+    Kevin Hershock · Marshall, Michigan<br>
+    <a href="https://glazedweb.com" target="_blank" rel="noopener">glazedweb.com</a> · kevin@glazedweb.com
+    <div class="conf">Prepared for the Diocese of Kalamazoo · November 2026</div>
+  </div>
+  <svg class="gmark gl-foot" viewBox="0 0 200 250" overflow="visible" aria-hidden="true"><defs><linearGradient id="dgGrad3" x1="0" y1="92" x2="0" y2="165" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5FA850"></stop><stop offset="100%" stop-color="#43813A"></stop></linearGradient><linearGradient id="lgGrad3" x1="0" y1="92" x2="0" y2="215" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#D9EDA0"></stop><stop offset="55%" stop-color="#BFE07A"></stop><stop offset="100%" stop-color="#A3CE55"></stop></linearGradient><radialGradient id="pinkGrad3" cx="40%" cy="34%" r="75%"><stop offset="0%" stop-color="#F887B2"></stop><stop offset="55%" stop-color="#E84D8A"></stop><stop offset="100%" stop-color="#CE3672"></stop></radialGradient><linearGradient id="creepGrad3" x1="0" y1="90" x2="0" y2="124" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E3F2B0"></stop><stop offset="100%" stop-color="#C3E181"></stop></linearGradient></defs><g class="goo"><g fill="url(#dgGrad3)"><ellipse cx="100" cy="110" rx="38" ry="15"></ellipse><path class="wobB" d="M 86 100 C 86 116, 87 130, 88 142 C 88 148, 91 149, 92 142 C 93 130, 92 114, 92 100 Z"></path><path d="M 114 100 C 114 112, 115 124, 116 134 C 116 140, 119 141, 120 134 C 121 124, 120 110, 120 100 Z"></path></g><g fill="url(#lgGrad3)"><path class="wob1" d="M 64 100 C 63 120, 65 138, 66 152 C 66 164, 68 172, 74 173 C 80 172, 83 165, 82 154 C 84 136, 85 116, 86 100 Z"></path><path class="wob2" d="M 92 100 C 91 128, 93 152, 94 172 C 94 188, 97 199, 104 200 C 111 199, 114 190, 112 174 C 113 150, 114 124, 114 100 Z"></path><path class="wob3" d="M 120 100 C 119 116, 120 130, 121 142 C 121 152, 123 159, 129 160 C 134 159, 137 153, 135 144 C 136 130, 137 114, 137 100 Z"></path></g></g><path class="string" d="M 104 199 L 104 209" stroke="#BFE07A" stroke-width="2.5" stroke-linecap="round" fill="none"></path><g class="droplet"><circle cx="104" cy="213" r="7" fill="#BFE07A"></circle><circle cx="102" cy="211" r="2" fill="#F1F8DC" opacity="0.9"></circle></g><circle class="droplet2" cx="74" cy="186" r="4.5" fill="#BFE07A"></circle><circle cx="100" cy="70" r="52" fill="url(#pinkGrad3)"></circle><path d="M 56 98 A 52 52 0 0 0 144 98 C 142 94, 138 92, 134 94 C 130 97, 129 102, 125 104 C 119 106, 116 98, 110 96 C 104 94, 103 102, 98 105 C 93 107, 90 100, 84 97 C 78 95, 76 100, 71 102 C 66 103, 62 100, 56 98 Z" fill="url(#creepGrad3)"></path><path d="M 68 106 A 42 42 0 0 0 84 116" fill="none" stroke="#F1F8DC" stroke-width="4" stroke-linecap="round" opacity="0.85"></path><path d="M 97 144 Q 103 151 109 144" fill="none" stroke="#55974A" stroke-width="4" stroke-linecap="round"></path><g stroke="#F1F8DC" fill="none" stroke-linecap="round"><path d="M 97 128 C 96 148, 97 166, 100 182" stroke-width="4.5" opacity="0.85"></path><path d="M 69 118 C 68 132, 70 146, 71 156" stroke-width="3.5" opacity="0.8"></path><path d="M 124 114 C 123 124, 125 138, 126 148" stroke-width="3.5" opacity="0.8"></path></g><circle cx="100" cy="192" r="2.5" fill="#F1F8DC" opacity="0.9"></circle><circle cx="100" cy="72" r="13" fill="#201712"></circle><circle cx="100" cy="72" r="13" fill="none" stroke="#C22F6B" stroke-width="3" opacity="0.3"></circle><path class="sheen" d="M 62 46 A 44 44 0 0 1 82 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path><circle class="sheen" cx="92" cy="26" r="3.5" fill="#FFFFFF"></circle></svg>
+</div></footer>
+</body></html>

@@ -89,7 +89,7 @@ nav a:hover{color:var(--pink-i)}
 
 .claim{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 20px;margin:12px 0;transition:border-color .16s,transform .16s}
 .claim:hover{border-color:var(--pink);transform:translateY(-1px)}
-.claim h4{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+.claim .h4{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--ink);margin:0 0 5px;letter-spacing:-.01em}
 .claim p{font-size:.95rem;margin:0}
 .claim p+p{margin-top:10px}
 .claim .verify{display:inline-flex;align-items:center;gap:7px;margin-top:12px;margin-right:8px;font-family:var(--sans);font-size:.71rem;font-weight:700;
@@ -105,7 +105,7 @@ nav a:hover{color:var(--pink-i)}
    Thin bars, square at the baseline, rounded at the data end, the value at the
    tip; text in ink and mute, never in the series color. */
 .fig{margin:22px 0 26px}
-.fig h4{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--ink);margin:0 0 2px;letter-spacing:-.01em}
+.fig .h4{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--ink);margin:0 0 2px;letter-spacing:-.01em}
 .fig .cap{font-size:.84rem;color:var(--mute);margin:0 0 10px}
 .bars{display:grid;gap:9px}
 .bars .row{display:grid;grid-template-columns:230px minmax(0,1fr);gap:12px;align-items:center}
@@ -173,7 +173,7 @@ nav a:hover{color:var(--pink-i)}
 .step:last-child{border-bottom:0}
 .step .no{font-family:var(--sans);font-weight:800;font-size:.78rem;color:#fff;background:var(--pink-d);width:28px;height:28px;
  border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-.step h4{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:4px}
+.step .h4{font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--ink);margin:0 0 4px;letter-spacing:0}
 .step p{font-size:.93rem;margin:0}
 
 footer{background:var(--ink2);color:#A6907F;padding:44px 0;font-size:.88rem;margin-top:30px}
@@ -217,10 +217,11 @@ footer .gmark{height:78px;width:auto}
   </a>
   <div class="hright">
     <nav>
-      <a href="#found">Findings</a>
-      <a href="#why">Why</a>
+      <a href="#alive">Alive</a>
+      <a href="#together">Connected</a>
+      <a href="#diocese">The diocese</a>
+      <a href="#found">Measured</a>
       <a href="#own">Ownership</a>
-      <a href="#built">The pilot</a>
       <a href="#cost">Cost</a>
       <a href="#next">Next</a>
     </nav>
@@ -228,12 +229,14 @@ footer .gmark{height:78px;width:auto}
   </div>
 </div></header>
 
+<main>
+
 <div class="wrap" id="top">
 <div class="hero">
   <svg class="gmark mark" viewBox="0 0 200 250" overflow="visible" aria-hidden="true"><defs><linearGradient id="dgGrad2" x1="0" y1="92" x2="0" y2="165" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5FA850"></stop><stop offset="100%" stop-color="#43813A"></stop></linearGradient><linearGradient id="lgGrad2" x1="0" y1="92" x2="0" y2="215" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#D9EDA0"></stop><stop offset="55%" stop-color="#BFE07A"></stop><stop offset="100%" stop-color="#A3CE55"></stop></linearGradient><radialGradient id="pinkGrad2" cx="40%" cy="34%" r="75%"><stop offset="0%" stop-color="#F887B2"></stop><stop offset="55%" stop-color="#E84D8A"></stop><stop offset="100%" stop-color="#CE3672"></stop></radialGradient><linearGradient id="creepGrad2" x1="0" y1="90" x2="0" y2="124" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E3F2B0"></stop><stop offset="100%" stop-color="#C3E181"></stop></linearGradient></defs><g class="goo"><g fill="url(#dgGrad2)"><ellipse cx="100" cy="110" rx="38" ry="15"></ellipse><path class="wobB" d="M 86 100 C 86 116, 87 130, 88 142 C 88 148, 91 149, 92 142 C 93 130, 92 114, 92 100 Z"></path><path d="M 114 100 C 114 112, 115 124, 116 134 C 116 140, 119 141, 120 134 C 121 124, 120 110, 120 100 Z"></path></g><g fill="url(#lgGrad2)"><path class="wob1" d="M 64 100 C 63 120, 65 138, 66 152 C 66 164, 68 172, 74 173 C 80 172, 83 165, 82 154 C 84 136, 85 116, 86 100 Z"></path><path class="wob2" d="M 92 100 C 91 128, 93 152, 94 172 C 94 188, 97 199, 104 200 C 111 199, 114 190, 112 174 C 113 150, 114 124, 114 100 Z"></path><path class="wob3" d="M 120 100 C 119 116, 120 130, 121 142 C 121 152, 123 159, 129 160 C 134 159, 137 153, 135 144 C 136 130, 137 114, 137 100 Z"></path></g></g><path class="string" d="M 104 199 L 104 209" stroke="#BFE07A" stroke-width="2.5" stroke-linecap="round" fill="none"></path><g class="droplet"><circle cx="104" cy="213" r="7" fill="#BFE07A"></circle><circle cx="102" cy="211" r="2" fill="#F1F8DC" opacity="0.9"></circle></g><circle class="droplet2" cx="74" cy="186" r="4.5" fill="#BFE07A"></circle><circle cx="100" cy="70" r="52" fill="url(#pinkGrad2)"></circle><path d="M 56 98 A 52 52 0 0 0 144 98 C 142 94, 138 92, 134 94 C 130 97, 129 102, 125 104 C 119 106, 116 98, 110 96 C 104 94, 103 102, 98 105 C 93 107, 90 100, 84 97 C 78 95, 76 100, 71 102 C 66 103, 62 100, 56 98 Z" fill="url(#creepGrad2)"></path><path d="M 68 106 A 42 42 0 0 0 84 116" fill="none" stroke="#F1F8DC" stroke-width="4" stroke-linecap="round" opacity="0.85"></path><path d="M 97 144 Q 103 151 109 144" fill="none" stroke="#55974A" stroke-width="4" stroke-linecap="round"></path><g stroke="#F1F8DC" fill="none" stroke-linecap="round"><path d="M 97 128 C 96 148, 97 166, 100 182" stroke-width="4.5" opacity="0.85"></path><path d="M 69 118 C 68 132, 70 146, 71 156" stroke-width="3.5" opacity="0.8"></path><path d="M 124 114 C 123 124, 125 138, 126 148" stroke-width="3.5" opacity="0.8"></path></g><circle cx="100" cy="192" r="2.5" fill="#F1F8DC" opacity="0.9"></circle><circle cx="100" cy="72" r="13" fill="#FDF6EC"></circle><circle cx="100" cy="72" r="13" fill="none" stroke="#C22F6B" stroke-width="3" opacity="0.3"></circle><path class="sheen" d="M 62 46 A 44 44 0 0 1 82 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"></path><circle class="sheen" cx="92" cy="26" r="3.5" fill="#FFFFFF"></circle></svg>
   <div class="k">A letter to the Diocese of Lansing</div>
   <h1>Seventy-three parishes.<br>One living platform.<br><em>Connected to each other, and to the diocese.</em></h1>
-  <p class="sub">We build websites for a living, and one of us sits in the pews in the Diocese of Kalamazoo, where a single parish site we rebuilt as a gift turned into a platform for the whole diocese: parish sites that are alive, connected to each other through one finder and one calendar, with a layer for the diocese to see every site and put the bishop&rsquo;s voice on all of them at once. Parishioners there hold Lansing up as the diocese that gets this right: the bishop&rsquo;s podcast, the parishes that stream, the diocesan site built by hand rather than rented. So we read every one of Lansing&rsquo;s 73 parish websites and the diocese&rsquo;s own directory, and found the one thing a diocese this far ahead still does not have: a way for its parishes to be connected. Seventy-three sites on seven platforms, each on its own island, and a diocesan site that sends people to MassTimes.org to find a Mass. We built the finder for all 73 from the diocese&rsquo;s own directory, and put the bishop&rsquo;s podcast in it as his voice. Both are running now.</p>
+  <p class="sub">One of us sits in the pews in the Diocese of Kalamazoo, where a single parish site we rebuilt as a gift turned into a platform for the whole diocese: parish sites that are alive, connected to each other through one finder and one calendar, with a layer for the diocese to see every site and put the bishop&rsquo;s voice on all of them at once. Parishioners there hold Lansing up as the diocese that gets this right: the bishop&rsquo;s podcast, the parishes that stream, the diocesan site built by hand rather than rented. So we read every one of Lansing&rsquo;s 73 parish websites and the diocese&rsquo;s own directory, and found the one thing a diocese this far ahead still does not have: a way for its parishes to be connected. Seventy-three sites on seven platforms, each on its own island, and a diocesan site that sends people to MassTimes.org to find a Mass. We built the finder for all 73 from the diocese&rsquo;s own directory, and put the bishop&rsquo;s podcast in it as his voice. Both are running now.</p>
   <p class="herocta">
     <a href="https://finder.lansing.glazedweb.com/?q=48933&amp;r=25" target="_blank" rel="noopener">Open the finder from Lansing ↗</a>
     <a class="ghost" href="https://www.glazedweb.com/schedule" target="_blank" rel="noopener">Book a call ↗</a>
@@ -242,34 +245,97 @@ footer .gmark{height:78px;width:auto}
   <div class="forwho">
     From <b>Kevin Hershock · Glazed Web</b>, a parishioner of St. Mary, Marshall<br>
     Marshall, Michigan · November 2026<br>
-    <b>Every claim below links to the page that proves it.</b>
+    <b>Every claim below links to the page that proves it.</b> <a href="/brief" target="_blank" rel="noopener">The one-page version ↗</a>
   </div>
 
   <div class="tldr">
     <div class="k">The short version</div>
     <ul>
-      <li><span class="n">01</span><span>The diocese&rsquo;s directory lists 73 parishes on 72 websites across <b>seven different platforms</b>: 26 eCatholic, 14 WordPress, 7 Diocesan.com, 5 Wix, 5 Squarespace, 4 Weebly, 6 built by hand. Five do not answer at all. Nothing is shared and nothing is measured the same way.</span></li>
-      <li><span class="n">02</span><span><b>Four in five parishes stream Mass</b>, more than twice Kalamazoo&rsquo;s share, and the bishop has a podcast. Yet <b>not one of the 73 publishes its Mass times as data</b>, and the diocese&rsquo;s own site has no schedule to point anyone at; it sends them to MassTimes.org.</span></li>
-      <li><span class="n">03</span><span><b>A Mass finder for all 73 parishes is live today</b>, read from the diocese&rsquo;s own directory: every parish, its address, phone, site and vicariate, nearest first from any zip, town or phone. Each parish that joins the platform adds its times to it the same day, and gets a site that is alive: the schedule from the clock, the calendar, the week&rsquo;s news written once and printed as the bulletin insert, Watch at Mass time, the sacraments as checklists. The bishop&rsquo;s podcast is already in it as his voice.</span></li>
-      <li><span class="n">04</span><span><b>For the diocese: a way to see, and a way to send.</b> The bishop&rsquo;s voice on every parish home page the hour it is posted, a notice from the chancery everywhere in one line, this week across the diocese compiled into one page that is also the weekly email, and a view of every site&rsquo;s health. One line for the diocese, $4,990 a month with all 73 parishes included, no build fee, a twelve-month first term, month to month after; no parish ever sees a bill. Leaving means taking the data, the domains and the feeds.</span></li>
+      <li><span class="n">01</span><span><b>For a parish: a site that is alive.</b> Mass, Confession and Adoration worked out from the clock, the holy day on every page the week before, a calendar anyone can subscribe to, the week&rsquo;s news written once and printed as the bulletin insert, Watch at Mass time, the sacraments as checklists. Three parishes run on it today in the Diocese of Kalamazoo. The office types nothing twice and logs into nothing.</span></li>
+      <li><span class="n">02</span><span><b>Between parishes: one finder for all 73, live today</b>, read from the diocese&rsquo;s own directory: every parish, its address, phone, site and vicariate, nearest first from any zip, town or phone. The directory holds no Mass times and the diocese&rsquo;s site sends people to MassTimes.org; each parish that joins the platform adds its times to the finder the same day.</span></li>
+      <li><span class="n">03</span><span><b>For the diocese: a way to see, and a way to send.</b> The bishop&rsquo;s voice on every parish home page the hour it is posted, with his podcast already in it. A notice from the chancery everywhere in one line. This week across the diocese compiled into one page that is also the weekly email, and a view of every site&rsquo;s health.</span></li>
+      <li><span class="n">04</span><span><b>One line for the diocese, and no parish ever sees a bill.</b> $4,990 a month with all 73 parishes included, no build fee, a twelve-month first term, month to month after. The diocese owns its data, its domains and its feeds and takes them whenever it likes; if we ever fail it, it receives the software too. What 72 parish websites on seven platforms do today is measured in section four, site by site.</span></li>
     </ul>
   </div>
 </div>
 </div>
 
-<section id="found"><div class="wrap">
+<section id="alive"><div class="wrap">
   <div class="k">Section one</div><div class="rule"></div>
-  <h2>What we found.</h2>
+  <h2>A parish site that is alive.</h2>
+  <p>On the platform a parish&rsquo;s schedule, calendar and week&rsquo;s news are the same data, so the site moves when the parish does. The next Mass is worked out from the clock. A holy day shows on every page the week before. The week&rsquo;s news is typed once and prints as the bulletin insert, and the Watch page knows when Mass is. Nobody at the parish logs into anything: the office texts or emails a change and it is up the same week.</p>
+  <p>No Lansing parish has been built yet; that is the first call&rsquo;s decision, not ours to make for a parish. Three complete parish sites run on the platform in the Diocese of Kalamazoo, and they are what a Lansing parish would get: <a href="https://stmarymarshall.glazedweb.com/demo" target="_blank" rel="noopener">St. Mary Marshall ↗</a>, <a href="https://stphilip.glazedweb.com/demo" target="_blank" rel="noopener">St. Philip Battle Creek ↗</a> (78 pages read in), and <a href="https://sanfelipe.glazedweb.com/demo" target="_blank" rel="noopener">San Felipe de Jesús ↗</a>, in Spanish throughout. Each has its Mass times as data, the next Mass from the clock, a calendar anyone can subscribe to, three forms that reach the office, religious education enrollment, the sacraments as checklists, a news page that prints as the bulletin insert, and the diocese layer at its foot.</p>
+  <p>A first Lansing parish is a day of reading its current site into the platform&rsquo;s data, a person reading the result once, and the office confirming the handful of facts only it knows. <strong>Name three and we build them at no charge, as the three Kalamazoo sites were built.</strong></p>
+  <h3>What stays, what changes</h3>
+  <p>A parish keeps everything that works. The platform replaces the website and takes on the schedule, the calendar and the forms; it links to the rest rather than replacing it.</p>
+  <table class="cmp">
+    <tr><th>What a parish has today</th><th>Under the platform</th></tr>
+    <tr><td>Online giving on WeShare, OSV, Vanco, PayPal or Pushpay</td><td>Stays. The site&rsquo;s Give button goes straight to it; the platform never sees a card or a dollar.</td></tr>
+    <tr><td>The bulletin, printed and hosted wherever it is</td><td>Stays, linked. The week&rsquo;s news is compiled from the site&rsquo;s own data and prints as a bulletin insert on bulletin day.</td></tr>
+    <tr><td>Flocknote</td><td>Stays. The site&rsquo;s news feed is something Flocknote can send.</td></tr>
+    <tr><td>Livestream on YouTube or Facebook</td><td>Stays, and gets a Watch page that knows the Mass schedule. Hosting the stream on the parish&rsquo;s own player, with recordings and clips, is an add-on at $89 a month, for the parishes that want it.</td></tr>
+    <tr><td>Church management (ParishSOFT, OSV, Realm)</td><td>Stays. The platform keeps no member database; forms go to the office&rsquo;s inbox.</td></tr>
+  </table>
+</div></section>
+
+<section id="together"><div class="wrap">
+  <div class="k">Section two</div><div class="rule"></div>
+  <h2>Parishes connected to each other.</h2>
+  <p>Open <a href="https://www.dioceseoflansing.org/find-a-parish" target="_blank" rel="noopener">dioceseoflansing.org/find-a-parish ↗</a>. It lists the parishes by city, by vicariate and by county, with a map. Ask it when the next Mass is and it cannot say; the directory holds no times, and the site&rsquo;s own answer is a link to MassTimes.org, a national volunteer directory the diocese does not control and the parishes rarely update. A Catholic in a car in Flint on a Saturday afternoon is on her own.</p>
+  <p>Every parish has the times, on its own site, in seven different shapes. What is missing is the one place that reads them all, and the only way that place stays right is if the parishes feed it by keeping their own site right. That is what the platform is for: the parish website and the diocesan finder are the same data, typed once.</p>
+
+  <div class="demo">
+    <div class="k">Running now</div>
+    <h3>Mass near you, for all 73 parishes, from the diocese&rsquo;s own directory</h3>
+    <p>A zip code, a town, or the phone&rsquo;s own location, and every parish within ten, twenty-five or fifty miles, nearest first, each with its address, phone, site and vicariate, read from the diocese&rsquo;s own parish list. <strong>Today it carries every parish and no times</strong>, because the diocese publishes none; the day a parish joins the platform its Mass, Confession and Adoration times appear on its card, worked out from the clock, and a Catholic in a car gets an answer. It re-reads the directory weekly, says on every card when it last did, carries a &ldquo;wrong time? tell us&rdquo; link that reaches the chancery, and can be embedded on the diocese&rsquo;s own site. Take it today, free for ninety days, with nothing to sign.</p>
+    <a href="https://finder.lansing.glazedweb.com/?q=48933&amp;r=25" target="_blank" rel="noopener">From Lansing ↗</a>
+    <a href="https://finder.lansing.glazedweb.com/?q=48823&amp;r=10" target="_blank" rel="noopener">From East Lansing ↗</a>
+    <a href="https://finder.lansing.glazedweb.com/?q=Flint&amp;r=10" target="_blank" rel="noopener">From Flint ↗</a>
+    <a href="https://finder.lansing.glazedweb.com/diocese/events?deanery=Washtenaw%20Vicariate" target="_blank" rel="noopener">By vicariate ↗</a>
+    <span class="vurl" style="color:#B9A894">finder.lansing.glazedweb.com</span>
+  </div>
+</div></section>
+
+<section id="diocese"><div class="wrap">
+  <div class="k">Section three</div><div class="rule"></div>
+  <h2>What the diocese sees, and what it sends.</h2>
+  <p>A diocese cannot coordinate what it cannot see, and today it sees seventy-two sites on seven platforms through logins it does not hold. The platform gives the chancery one place to look and one place to speak. What it sends: the bishop&rsquo;s voice on every parish home page the hour it is posted, a notice written once that lands on every site, and this week across the diocese compiled into one page that is also the weekly email. What it sees: every site&rsquo;s health and use on one page, by vicariate, with counts and no person in them.</p>
+  <h3>For the communications office</h3>
+  <p>None of this asks the communications office to change a tool. The parish calendars become the submissions for the weekly email: this week across the diocese is one page and one feed, which the office trims and sends from the mail program it already uses. A notice is typed once, with the dates it should run, and is on every parish site that minute. An episode of the bishop&rsquo;s podcast is listed once. dioceseoflansing.org stays as it is, and the finder can sit inside it.</p>
+
+  <div class="demo">
+    <div class="k">Running now</div>
+    <h3>The bishop&rsquo;s voice, on every parish site at once</h3>
+    <p>Bishop Boyea&rsquo;s <em>Made for Mission</em> podcast is already the first entry: the recording the diocese published, listed once, with a feed anyone can subscribe to in a podcast app, and a card every parish home page on the platform carries. Add a homily, a Lent reflection or a letter read aloud and it is on every site the same hour, in English or Spanish where it exists in both, with no one at any parish copying anything. For the parishes that stream, each gets a Watch page that knows the Mass schedule: the player from a quarter hour before Mass to ninety minutes after, the next Mass in words the rest of the week, so nobody meets an offline player.</p>
+    <a href="https://finder.lansing.glazedweb.com/diocese/voice" target="_blank" rel="noopener">The bishop&rsquo;s voice ↗</a>
+    <a href="https://finder.lansing.glazedweb.com/diocese/voice.xml" target="_blank" rel="noopener">The feed ↗</a>
+    <a href="https://stphilip.glazedweb.com/demo/watch" target="_blank" rel="noopener">A Watch page, at a Kalamazoo parish ↗</a>
+    <span class="vurl" style="color:#B9A894">finder.lansing.glazedweb.com/diocese/voice</span>
+  </div>
+  <div class="demo">
+    <div class="k">The chancery view</div>
+    <h3>Every site&rsquo;s health and use, on one page, behind a passcode</h3>
+    <p>All 73 parishes by vicariate: which are on the platform, which have a website, which have Mass times on the finder. For each parish on the platform, what its office has confirmed and what is still waiting, what its calendar holds for the next month, pages served, where finder searches come from and which came up empty, forms sent and Give taps. Counts only: no cookies, no visitor ids, no addresses, no contents of any form, nothing about any person. It is built and we will open it on the call.</p>
+    <figure style="margin:18px 0 6px">
+      <img src="/pitch/lansing/chancery.webp" width="1400" height="1824" alt="The chancery view: the three parish sites with their events for the next eight weeks and what each office has not yet confirmed, what each site is saying this week, and the five deaneries with how many of their parishes are on the platform, have a website, and have Mass times on the finder." loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:6px;border:1px solid rgba(255,255,255,.14)">
+      <figcaption style="font-size:.82rem;margin-top:6px;color:#B9A894">The chancery view for the Diocese of Kalamazoo as it reads today. Lansing&rsquo;s lists its 73 parishes by vicariate.</figcaption>
+    </figure>
+  </div>
+</div></section>
+
+<section id="found"><div class="wrap">
+  <div class="k">Section four</div><div class="rule"></div>
+  <h2>What seventy-two parish websites do today.</h2>
   <p>The diocese&rsquo;s own parish list names 73 parishes in six vicariates with 72 distinct websites (one parish&rsquo;s &ldquo;website&rdquo; is its Facebook page). We opened each one in a real browser on <strong>November 4, 2026</strong>, on a phone profile, and read its markup, home page only. Five did not work: stmarymorrice.org refuses the request, christthekingparishflint.org fails its security certificate (the name on the certificate is not the site&rsquo;s), and srbcatholic.com, stjos.com and the Facebook page did not load inside forty-five seconds.</p>
 
   <div class="fig">
-    <h4>What the 67 home pages that answered run on</h4>
+    <h3 class="h4">What the 67 home pages that answered run on</h3>
     <p class="cap">Counted from each page&rsquo;s own markup, November 4, 2026.</p>
     <div class="bars" role="img" aria-label="eCatholic: 26; WordPress: 14; Diocesan.com: 7; built by hand: 6; Wix: 5; Squarespace: 5; Weebly: 4"><div class="row"><span class="lab">eCatholic</span><span class="bar"><i style="width:100%;background:#CE3672"></i><b>26</b></span></div><div class="row"><span class="lab">WordPress</span><span class="bar"><i style="width:54%;background:#CE3672"></i><b>14</b></span></div><div class="row"><span class="lab">Diocesan.com</span><span class="bar"><i style="width:27%;background:#CE3672"></i><b>7</b></span></div><div class="row"><span class="lab">Built by hand</span><span class="bar"><i style="width:23%;background:#CE3672"></i><b>6</b></span></div><div class="row"><span class="lab">Wix</span><span class="bar"><i style="width:19%;background:#CE3672"></i><b>5</b></span></div><div class="row"><span class="lab">Squarespace</span><span class="bar"><i style="width:19%;background:#CE3672"></i><b>5</b></span></div><div class="row"><span class="lab">Weebly</span><span class="bar"><i style="width:15%;background:#CE3672"></i><b>4</b></span></div></div>
   </div>
 
   <div class="fig">
-    <h4>What is missing on the 67 home pages</h4>
+    <h3 class="h4">What is missing on the 67 home pages</h3>
     <p class="cap">Share of sites, measured in a browser on November 4, 2026.</p>
     <div class="bars" role="img" aria-label="No structured data for Mass times: 100%; No structured data at all: 67%; No search description: 64%; Email not tappable: 58%; No link-card image: 57%; Heading missing or doubled: 55%; Phone not tappable: 37%; No office hours: 37%; No online giving link: 28%"><div class="row"><span class="lab">No Mass times as data</span><span class="bar"><i style="width:100%;background:#CE3672"></i><b>100%</b></span></div><div class="row"><span class="lab">No structured data at all</span><span class="bar"><i style="width:67%;background:#CE3672"></i><b>67%</b></span></div><div class="row"><span class="lab">No search description</span><span class="bar"><i style="width:64%;background:#CE3672"></i><b>64%</b></span></div><div class="row"><span class="lab">Email not tappable</span><span class="bar"><i style="width:58%;background:#CE3672"></i><b>58%</b></span></div><div class="row"><span class="lab">No link-card image</span><span class="bar"><i style="width:57%;background:#CE3672"></i><b>57%</b></span></div><div class="row"><span class="lab">Heading missing or doubled</span><span class="bar"><i style="width:55%;background:#CE3672"></i><b>55%</b></span></div><div class="row"><span class="lab">Phone not tappable</span><span class="bar"><i style="width:37%;background:#CE3672"></i><b>37%</b></span></div><div class="row"><span class="lab">No office hours</span><span class="bar"><i style="width:37%;background:#CE3672"></i><b>37%</b></span></div><div class="row"><span class="lab">No online giving link</span><span class="bar"><i style="width:28%;background:#CE3672"></i><b>28%</b></span></div></div>
   </div>
@@ -287,82 +353,51 @@ footer .gmark{height:78px;width:auto}
   </table>
 
   <div class="claim">
-    <h4>Twenty-six parishes rent the same template Kalamazoo&rsquo;s forty-one do</h4>
+    <h3 class="h4">Twenty-six parishes rent the same template Kalamazoo&rsquo;s forty-one do</h3>
     <p>The eCatholic sites in Lansing carry the same five gaps we measured on every eCatholic site in the Diocese of Kalamazoo, because the template is the same: no schedule as data, no link card, a doubled heading on every inner page, and a contract that forbids export of any kind. The other 41 parishes each chose a platform of their own, which is why a chancery cannot hand its parishes a standard it does not have.</p>
     <a class="verify" href="https://kalamazoo.glazedweb.com/#found" target="_blank" rel="noopener">The Kalamazoo measurements ↗</a>
     <a class="verify" href="https://www.dioceseoflansing.org/parish-list-vicariate" target="_blank" rel="noopener">The diocese&rsquo;s parish list ↗</a>
   </div>
   <div class="claim">
-    <h4>The newest date on Sacred Heart Hudson&rsquo;s home page is 2022; on St. Pius X Flint it is 2017</h4>
+    <h3 class="h4">The newest date on Sacred Heart Hudson&rsquo;s home page is 2022; on St. Pius X Flint it is 2017</h3>
     <p>Not a judgment on the parish; a measurement of the page. Twenty-two sites carry no date at all, so from outside the diocese cannot tell which have drifted. A website nobody is paid to mind stops being minded.</p>
     <a class="verify" href="https://sacredhearthudson.org/" target="_blank" rel="noopener">Open Sacred Heart Hudson ↗</a>
     <a class="verify" href="https://spxparish.com/" target="_blank" rel="noopener">Open St. Pius X ↗</a>
   </div>
 </div></section>
 
-<section id="why"><div class="wrap">
-  <div class="k">Section two</div><div class="rule"></div>
-  <h2>The finder the diocese does not have.</h2>
-  <p>Open <a href="https://www.dioceseoflansing.org/find-a-parish" target="_blank" rel="noopener">dioceseoflansing.org/find-a-parish ↗</a>. It lists the parishes by city, by vicariate and by county, with a map. Ask it when the next Mass is and it cannot say; the directory holds no times, and the site&rsquo;s own answer is a link to MassTimes.org, a national volunteer directory the diocese does not control and the parishes rarely update. A Catholic in a car in Flint on a Saturday afternoon is on her own.</p>
-  <p>Every parish has the times, on its own site, in seven different shapes. What is missing is the one place that reads them all, and the only way that place stays right is if the parishes feed it by keeping their own site right. That is what Narthex is: the parish website and the diocesan finder are the same data, typed once.</p>
-
-  <div class="demo">
-    <div class="k">Running now</div>
-    <h3>Mass near you, for all 73 parishes, from the diocese&rsquo;s own directory</h3>
-    <p>A zip code, a town, or the phone&rsquo;s own location, and every parish within ten, twenty-five or fifty miles, nearest first, each with its address, phone, site and vicariate, read from the diocese&rsquo;s own parish list. <strong>Today it carries every parish and no times</strong>, because the diocese publishes none; the day a parish joins the platform its Mass, Confession and Adoration times appear on its card, worked out from the clock, and a Catholic in a car gets an answer. It re-reads the directory weekly, says on every card when it last did, carries a &ldquo;wrong time? tell us&rdquo; link that reaches the chancery, and can be embedded on the diocese&rsquo;s own site. Take it today, with nothing to sign.</p>
-    <a href="https://finder.lansing.glazedweb.com/?q=48933&amp;r=25" target="_blank" rel="noopener">From Lansing ↗</a>
-    <a href="https://finder.lansing.glazedweb.com/?q=48823&amp;r=10" target="_blank" rel="noopener">From East Lansing ↗</a>
-    <a href="https://finder.lansing.glazedweb.com/?q=Flint&amp;r=10" target="_blank" rel="noopener">From Flint ↗</a>
-    <a href="https://finder.lansing.glazedweb.com/diocese/events?deanery=Washtenaw%20Vicariate" target="_blank" rel="noopener">By vicariate ↗</a>
-    <span class="vurl" style="color:#B9A894">finder.lansing.glazedweb.com</span>
-  </div>
-  <div class="demo">
-    <div class="k">Running now</div>
-    <h3>The bishop&rsquo;s voice, on every parish site at once</h3>
-    <p>Bishop Boyea&rsquo;s <em>Made for Mission</em> podcast is already the first entry: the recording the diocese published, listed once, with a feed anyone can subscribe to in a podcast app, and a card every parish home page on the platform carries. Add a homily, a Lent reflection or a letter read aloud and it is on every site the same hour, in English or Spanish where it exists in both, with no one at any parish copying anything. For the parishes that stream, each gets a Watch page that knows the Mass schedule: the player from a quarter hour before Mass to ninety minutes after, the next Mass in words the rest of the week, so nobody meets an offline player.</p>
-    <a href="https://finder.lansing.glazedweb.com/diocese/voice" target="_blank" rel="noopener">The bishop&rsquo;s voice ↗</a>
-    <a href="https://finder.lansing.glazedweb.com/diocese/voice.xml" target="_blank" rel="noopener">The feed ↗</a>
-    <a href="https://stphilip.glazedweb.com/demo/watch" target="_blank" rel="noopener">A Watch page, at a Kalamazoo parish ↗</a>
-    <span class="vurl" style="color:#B9A894">finder.lansing.glazedweb.com/diocese/voice</span>
-  </div>
-</div></section>
-
 <section id="own"><div class="wrap">
-  <div class="k">Section three</div><div class="rule"></div>
+  <div class="k">Section five</div><div class="rule"></div>
   <h2>The part that matters most.</h2>
   <p style="font-size:1.1rem;color:var(--ink)">Seventy-three parishes pay seven vendors, and at the end of every month the diocese owns none of it: not the pages, not the photos, not the calendars, and not a schedule of its own parishes.</p>
   <div class="demo" style="text-align:left;background:var(--card);color:var(--body);border:2px solid var(--green)">
-    <div class="k">What the diocese would hold</div>
+    <div class="k" style="color:var(--green-d)">What the diocese would hold</div>
     <h3 style="color:var(--ink);margin-top:8px">The diocese owns everything on it, and everything about it.</h3>
-    <p style="color:var(--body);margin:0">The platform is called Narthex, after the entrance hall of a church where the bulletin board and the sign-up sheets live, and Glazed Web builds it. One codebase, every parish on its own domain with its own photos and words, none of them a template. The diocese owns everything it puts in and everything about it, in writing: every page, photo and document, every schedule, calendar, event and form, its domains in its own registrar account, its giving on each parish&rsquo;s own Stripe account with every donor and recurring gift in it. Every parish&rsquo;s schedule is published as structured data and as one diocesan feed, so the finder, Google and the Mass-finder apps read it from the diocese instead of from a vendor. Export at any time, free, as readable files, as data and as a copy of each site that runs on any host; feeds nobody is charged for. Giving runs at one percent of a gift, capped at $5, with no monthly fee. And if we ever fail the diocese, if we close, stop the platform or stop answering, it receives a perpetual license to the software as it stands that day, source included, to run for its own parishes, with a sealed copy already delivered to it every quarter. <strong>Nothing of the diocese&rsquo;s lives only on our server.</strong> A twelve-month first term on the diocesan agreement, then month to month, thirty days&rsquo; notice, no exit fee.</p>
+    <p style="color:var(--body);margin:0">Glazed Web builds the platform and keeps it running. One codebase, every parish on its own domain with its own photos and words, none of them a template. The diocese owns everything it puts in and everything about it, in writing: every page, photo and document, every schedule, calendar, event and form, its domains in its own registrar account, its giving on each parish&rsquo;s own Stripe account with every donor and recurring gift in it. Every parish&rsquo;s schedule is published as structured data and as one diocesan feed, so the finder, Google and the Mass-finder apps read it from the diocese instead of from a vendor. Export at any time, free, as readable files, as data and as a copy of each site that runs on any host; feeds nobody is charged for. Giving runs at one percent of a gift, capped at $5, with no monthly fee. And if we ever fail the diocese, if we close, stop the platform or stop answering, it receives a perpetual license to the software as it stands that day, source included, to run for its own parishes, with a sealed copy already delivered to it every quarter. <strong>Nothing of the diocese&rsquo;s lives only on our server.</strong> A twelve-month first term on the diocesan agreement, then month to month, thirty days&rsquo; notice, no exit fee.</p>
   </div>
-  <h3>What stays, what changes</h3>
-  <p>A parish keeps everything that works. The platform replaces the website and takes on the schedule, the calendar and the forms; it links to the rest rather than replacing it.</p>
-  <table class="cmp">
-    <tr><th>What a parish has today</th><th>Under the platform</th></tr>
-    <tr><td>Online giving on WeShare, OSV, Vanco, PayPal or Pushpay</td><td>Stays. The site&rsquo;s Give button goes straight to it; the platform never sees a card or a dollar.</td></tr>
-    <tr><td>The bulletin, printed and hosted wherever it is</td><td>Stays, linked. The week&rsquo;s news is compiled from the site&rsquo;s own data and prints as a bulletin insert on bulletin day.</td></tr>
-    <tr><td>Flocknote</td><td>Stays. The site&rsquo;s news feed is something Flocknote can send.</td></tr>
-    <tr><td>Livestream on YouTube or Facebook</td><td>Stays, and gets a Watch page that knows the Mass schedule. Hosting the stream on the parish&rsquo;s own player, with recordings and clips, is an add-on at $89 a month, for the parishes that want it.</td></tr>
-    <tr><td>Church management (ParishSOFT, OSV, Realm)</td><td>Stays. The platform keeps no member database; forms go to the office&rsquo;s inbox.</td></tr>
-  </table>
-</div></section>
-
-<section id="built"><div class="wrap">
-  <div class="k">Section four</div><div class="rule"></div>
-  <h2>What is running.</h2>
-  <p>No Lansing parish has been built yet; that is the first call&rsquo;s decision, not ours to make for a parish. What is running is the finder and the bishop&rsquo;s voice for Lansing, and three complete parish sites in the Diocese of Kalamazoo on the same platform, which is what a Lansing parish would get: <a href="https://stmarymarshall.glazedweb.com/demo" target="_blank" rel="noopener">St. Mary Marshall ↗</a>, <a href="https://stphilip.glazedweb.com/demo" target="_blank" rel="noopener">St. Philip Battle Creek ↗</a> (78 pages read in), and <a href="https://sanfelipe.glazedweb.com/demo" target="_blank" rel="noopener">San Felipe de Jesús ↗</a>, in Spanish throughout. Each has its Mass times as data, the next Mass from the clock, a calendar anyone can subscribe to, three forms that reach the office, religious education enrollment, the sacraments as checklists, a news page that prints as the bulletin insert, and the diocese layer at its foot.</p>
-  <p>A first Lansing parish is a day of reading its current site into the platform&rsquo;s data, a person reading the result once, and the office confirming the handful of facts only it knows. <strong>Name three and we build them before the call, at no charge, as the three Kalamazoo sites were built.</strong></p>
+  <h3>Who the diocese would be dealing with</h3>
+  <p>Glazed Web is a small studio in Marshall, Michigan. Its founder, Kevin Hershock, sits in the pews at St. Mary in Marshall, in the Diocese of Kalamazoo, and started this because his own parish&rsquo;s website embarrassed him. We build and run websites and online ordering for Michigan restaurants, shops and nonprofits, and this platform is where that work went once one parish site turned into a diocese. The people who built it are the people who answer. A secretary who emails about a changed Mass time hears back from someone who knows which parish hers is, and the change is up the same week. The agreement says so in writing, along with a security report answered the same day.</p>
+  <a class="verify" href="https://www.glazedweb.com/" target="_blank" rel="noopener">glazedweb.com ↗</a>
 </div></section>
 
 <section id="cost"><div class="wrap">
-  <div class="k">Section five</div><div class="rule"></div>
+  <div class="k">Section six</div><div class="rule"></div>
   <h2>What it costs.</h2>
   <div class="pricebox">
     <div><span class="was" aria-hidden="true">The published menu price for a site this size: <s>$2,000</s> each</span><div class="n">No build fee</div><div class="l">For every parish under the diocesan license. The migration is one script plus a day of reading per parish, and the first year&rsquo;s license pays for it.</div></div>
     <div><span class="was" aria-hidden="true">One line for the diocese. No parish sees a bill.</span><div class="n">$4,990<span style="font-size:1rem;color:var(--mute)">/mo</span></div><div class="l">For the diocese, all 73 parishes included, however many move and whenever they do. Hosting, security, backups, the edits, the checks, the feeds, the diocese layer, and people who answer.</div></div>
   </div>
-  <p>That is <strong>$59,880 a year</strong>, about one percent of this year&rsquo;s appeal goal, for one platform with every parish on it and everything on it the diocese&rsquo;s own, against seven vendors&rsquo; invoices today. The diocese pays it in one line and no parish ever sees a bill or a per-site number. The diocesan agreement runs twelve months the first year, which is what stands in for a build fee; after that it is month to month, thirty days&rsquo; notice, no exit fee. Its terms are the same ones we put in writing for the Diocese of Kalamazoo: <a href="https://www.glazedweb.com/agreement/diokzoo" target="_blank" rel="noopener">read them there ↗</a>, with Lansing&rsquo;s name and number on a copy the day the diocese asks. A parish that comes on its own, outside the license, pays the published build price and $99 a month. The finder and the bishop&rsquo;s voice are the diocese&rsquo;s to use today, before any of this.</p>
+  <p>That is <strong>$59,880 a year</strong>, about one percent of this year&rsquo;s appeal goal, for one platform with every parish on it and everything on it the diocese&rsquo;s own, against seven vendors&rsquo; invoices today. The diocese pays it in one line and no parish ever sees a bill or a per-site number. The diocesan agreement runs twelve months the first year, which is what stands in for a build fee; after that it is month to month, thirty days&rsquo; notice, no exit fee. Its terms are the same ones we put in writing for the Diocese of Kalamazoo: <a href="https://kalamazoo.glazedweb.com/terms" target="_blank" rel="noopener">read them there ↗</a>, with Lansing&rsquo;s name and number on a copy the day the diocese asks. A parish that comes on its own, outside the license, pays the published build price and $99 a month. The finder and the bishop&rsquo;s voice are the diocese&rsquo;s to use today, free for ninety days, before any of this.</p>
+
+  <h3>Against what is paid today</h3>
+  <p>We do not know what Lansing&rsquo;s parishes pay seven vendors, so here is the one published number. The twenty-six parishes on eCatholic come to $15,600 to $30,900 a year at its diocesan rate of $50 a site a month and its list price of $99. The other forty-six sites sit on six platforms with six price lists, and every one of the seventy-two is kept by someone in a parish office. The license is $59,880 for all seventy-three parishes, with every edit done by us the same week and with the finder, the bishop&rsquo;s voice and the weekly digest, which no site fee includes at any price.</p>
+  <a class="verify" href="https://www.aod.org/ecatholic" target="_blank" rel="noopener">The $50 rate, as the Archdiocese of Detroit publishes it ↗</a>
+
+  <h3>For the finance office</h3>
+  <p>One invoice a month to the diocese, $4,990, beginning the month after the first parish site is live on its own domain. Nothing is billed before that and nothing is ever billed to a parish. There is no build fee, no setup fee and no exit fee. The first term is twelve months; after it either side ends the agreement on thirty days&rsquo; notice. The terms are one page in plain words, and what the platform stores and where it runs is another.</p>
+  <a class="verify" href="https://kalamazoo.glazedweb.com/terms" target="_blank" rel="noopener">The terms, as written for Kalamazoo ↗</a>
+  <a class="verify" href="https://finder.lansing.glazedweb.com/diocese/security" target="_blank" rel="noopener">What is stored, and where ↗</a>
+  <a class="verify" href="/brief" target="_blank" rel="noopener">This letter on one page, to print ↗</a>
 
   <h3>Giving, stated plainly</h3>
   <p>A parish that takes gifts through the platform does so on its own Stripe account at the nonprofit rate, 2.2% plus 30 cents a gift, and the platform&rsquo;s fee is <strong>1% of the gift, capped at $5</strong>, which the donor is offered to cover and most do. Nothing is due monthly for giving; a parish that gives little pays little, and a $5,000 memorial gift pays $5. The parish&rsquo;s donors and their recurring gifts live on the parish&rsquo;s own account and travel with it. The Diocesan Services Appeal can run on the same rails, on the diocese&rsquo;s own account, with every parish&rsquo;s progress on the chancery view. A parish that keeps WeShare, OSV or Vanco keeps it.</p>
@@ -375,20 +410,23 @@ footer .gmark{height:78px;width:auto}
 </div></section>
 
 <section id="next"><div class="wrap">
-  <div class="k">Section six</div><div class="rule"></div>
+  <div class="k">Section seven</div><div class="rule"></div>
   <h2>What happens next.</h2>
-  <div class="step"><div class="no">1</div><div><h4>Open the finder</h4><p>From your own zip code, on a phone. Then open <a href="https://stphilip.glazedweb.com/demo" target="_blank" rel="noopener">St. Philip</a> for ten minutes: find the next Mass, subscribe to the calendar, send a prayer request and watch it land.</p></div></div>
-  <div class="step"><div class="no">2</div><div><h4>One call</h4><p>Thirty minutes with the communications office. We bring the full table, one row per site. You bring the three parishes you would move first.</p></div></div>
-  <div class="step"><div class="no">3</div><div><h4>Three parishes, built, at no charge</h4><p>Each one a day of reading plus its office&rsquo;s short list of facts, live at a demo address for the diocese to judge, then at its own address when its office says so.</p></div></div>
-  <div class="step"><div class="no">4</div><div><h4>The license</h4><p>One line, all 73 parishes included, and the parishes move at whatever pace their offices want. The finder sits on a subdomain of the diocese&rsquo;s own from step one, so it is the diocese&rsquo;s whether or not a single parish ever moves.</p></div></div>
+  <div class="step"><div class="no">1</div><div><h3 class="h4">Take the finder and the bishop&rsquo;s voice this month, free, with nothing signed</h3><p>Point the find-a-parish page on dioceseoflansing.org at <a href="https://finder.lansing.glazedweb.com/" target="_blank" rel="noopener">finder.lansing.glazedweb.com</a>, or a subdomain of the diocese&rsquo;s own. For ninety days the diocese has a finder of its own and the bishop&rsquo;s voice on a feed, and owes nothing. On day ninety-one it carries on under the license, or we switch it off and send the diocese the directory we read as a file. Nothing renews on its own.</p></div></div>
+  <div class="step"><div class="no">2</div><div><h3 class="h4">Open a parish site</h3><p><a href="https://stphilip.glazedweb.com/demo" target="_blank" rel="noopener">St. Philip</a>, ten minutes, on a phone. Find the next Mass, subscribe to the calendar, send a prayer request and watch it land.</p></div></div>
+  <div class="step"><div class="no">3</div><div><h3 class="h4">One call, and three parishes built at no charge</h3><p>Thirty minutes with the communications office. We bring the full table, one row per site. You bring the three parishes you would move first, and we build them: each one a day of reading plus its office&rsquo;s short list of facts, live at a demo address for the diocese to judge, then at its own address when its office says so.</p></div></div>
+  <div class="step"><div class="no">4</div><div><h3 class="h4">The license</h3><p>One line, all 73 parishes included, and the parishes move at whatever pace their offices want. Each old subscription ends after its parish is live, so nothing is ever offline, and the finder runs under the license whether a parish has moved or not.</p></div></div>
   <div class="demo">
     <div class="k">The one thing to do</div>
     <h3>Book the call.</h3>
     <p>Thirty minutes, on the diocese&rsquo;s calendar, with the finder open.</p>
     <a class="big" href="https://www.glazedweb.com/schedule" target="_blank" rel="noopener">Book a call ↗</a>
+    <p class="after">Passing this along? <a href="/brief" target="_blank" rel="noopener">The letter on one page, to print ↗</a> and <a href="https://kalamazoo.glazedweb.com/terms" target="_blank" rel="noopener">the terms ↗</a>.</p>
     <p class="after">Or <a href="mailto:kevin@glazedweb.com?subject=Diocese%20of%20Lansing%20parish%20websites">email Kevin</a>. Glazed Web is a small studio in Marshall, Michigan.</p>
   </div>
 </div></section>
+
+</main>
 
 <footer><div class="wrap">
   <div>

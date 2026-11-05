@@ -59,6 +59,29 @@ allowed to frame every finder, the refresh gate pinned to content the
 diocese will remove. Next, per the plan: phase two's credential-gated
 pieces when the keys exist, and the office panel.
 
+## The letters, after the sales-lens pass (2026-11-05)
+
+Both letters now follow the same order (alive, connected, the diocese,
+measured, ownership, cost, next); Lansing was rebuilt to it. Each carries a
+paragraph for the communications office, a paragraph for the finance
+office, the price set against what is paid today (stated as published
+rates, since we do not know what either diocese pays), day ninety-one of
+the free layer said plainly (it carries on under the license or is switched
+off and the data handed over; nothing renews on its own), who the diocese
+would be dealing with, and a real picture of the chancery view. Each has
+`/brief`, the letter on one printed sheet. Kalamazoo has `/terms`, the
+agreement's text on the letter's own host, so no link in either letter
+depends on the glazedweb agreement page being merged. The letters say "the
+platform" and no longer print a name; the finder's footer credit reads
+"Built by Glazed Web". All five pages: zero axe violations at 390 and 1280,
+no overflow, no broken images.
+
+Open, and Kevin's to rule: whether the chancery view is inside the license.
+The Kalamazoo letter sells seeing every site as part of what the diocese
+gets and, in the chancery box, says it is "priced with the office panel";
+the agreement lists it as not included. The Lansing letter states no price
+for it.
+
 ## Principles
 
 - **Typed once.** A fact lives in one data file; every page, feed and finder
@@ -264,6 +287,12 @@ on 2026-11-04.
       $8,000 with an attorney, under $1,500 filing the LLC yourself. The IP
       assignment and the license review are the two not to do alone. Not
       legal or tax advice.
+- [ ] For the vendor packet and the one-page brief, facts only Kevin has: a
+      phone number to print, a named second person who answers when Kevin
+      cannot, and (once the entity and its insurance exist) the W-9 and the
+      certificate of insurance. The letters say none of these today.
+- [ ] Rule whether the chancery view is inside the license (see "The
+      letters, after the sales-lens pass").
 - [ ] After the first diocese pays: S-corp election review with the CPA;
       federal mark (Class 42, intent to use, $350 a class) within thirty days
       of a name.

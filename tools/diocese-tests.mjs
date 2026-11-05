@@ -209,5 +209,14 @@ const stmAdo = find("St. Thomas More Student", "Kalamazoo");
 ok("St. Thomas More: 'No Adoration April 30 & May 7' keeps the Wednesday row", stmAdo ? stmAdo.adoration.some((a) => a.day === 3) : "no parish", true);
 ok("Lansing: Michigan Center keeps its town", D.dioceseParishes(L, at("2026-11-04T12:00:00Z")).find((p) => /Our Lady of Fatima/.test(p.name))?.town, "Michigan Center");
 
+// The letter's companion pages (/terms, /brief) answer only on a diocese's letter host (proxy.ts).
+const P = await import(pathToFileURL(path.join(tmp, "paths.mjs")).href);
+ok("A diocese letter host knows its letter", P.letterSlugForHost("Kalamazoo.glazedweb.com:443"), "kalamazoo");
+ok("The finder host is not a letter host", P.letterSlugForHost("finder.kalamazoo.glazedweb.com"), null);
+ok("A parish host is not a letter host", P.letterSlugForHost("stphilip.glazedweb.com"), null);
+for (const slug of ["kalamazoo", "lansing"]) ok(`${slug}: the one-page brief exists beside the letter`, fs.existsSync(path.join(ROOT, "public/pitch", slug, "brief.html")), true);
+ok("kalamazoo: the terms page exists beside the letter", fs.existsSync(path.join(ROOT, "public/pitch/kalamazoo/terms.html")), true);
+for (const slug of ["kalamazoo", "lansing"]) ok(`${slug}: the letter links no agreement page that is not live`, /glazedweb\.com\/agreement\/diokzoo/.test(fs.readFileSync(path.join(ROOT, "public/pitch", slug, "index.html"), "utf8")), false);
+
 console.log(fails ? `\n${fails} failed` : "\nall passed");
 process.exit(fails ? 1 : 0);

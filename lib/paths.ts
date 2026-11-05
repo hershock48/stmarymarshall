@@ -53,6 +53,12 @@ export function dioceseSlugForHost(host: string | null | undefined): string {
   return dioceseHostSlug(h) ?? registry.dioceses.find((d) => d.pitchHost === h)?.slug ?? parishForHost(h).diocese.slug;
 }
 
+/** The diocese whose letter a host serves at /, or none. */
+export function letterSlugForHost(host: string | null | undefined): string | null {
+  const h = (host ?? "").toLowerCase().split(":")[0];
+  return registry.dioceses.find((d) => d.pitchHost === h)?.slug ?? null;
+}
+
 /** The host a letter under public/pitch/<slug>/ belongs to, or none: a diocese's letter or a parish's. */
 export function letterHost(slug: string): string | undefined {
   return registry.dioceses.find((d) => d.slug === slug)?.pitchHost || BY_SLUG.get(slug)?.pitchHost;

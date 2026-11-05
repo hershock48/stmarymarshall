@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { isDioceseHost, knowsPath, letterHost, parishForHost } from "@/lib/paths";
+import { isDioceseHost, knowsPath, letterHost, letterSlugForHost, parishForHost } from "@/lib/paths";
 
 /**
  * Two kinds of request are steered to a path nothing matches, so the
@@ -28,6 +28,17 @@ export function proxy(req: NextRequest) {
   const letter = /^\/pitch\/([^/]+)(\/|$)/.exec(pathname);
   if (letter) {
     return letterHost(letter[1]) === host ? NextResponse.next() : gone(req);
+  }
+  // 2b. A diocese letter's two companion pages, on the letter's own host
+  //     only: /terms (the agreement's text, written by tools/terms-page.mjs)
+  //     and /brief (one page to print). They are files beside the letter;
+  //     a diocese without one falls through to the 404.
+  const companion = /^\/(terms|brief)\/?$/.exec(pathname);
+  const letterSlug = companion ? letterSlugForHost(host) : null;
+  if (companion && letterSlug) {
+    const url = req.nextUrl.clone();
+    url.pathname = `/pitch/${letterSlug}/${companion[1]}.html`;
+    return NextResponse.rewrite(url);
   }
   // 3. The diocese host answers the finder at / and the diocese pages only;
   //    a parish path asked for there is nobody's page. The rewrite of / is
