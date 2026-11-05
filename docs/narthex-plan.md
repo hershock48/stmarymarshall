@@ -8,6 +8,10 @@ by the diocese, kept by us. Working name, chosen 2026-11-04; "Egnatia" (the
 Roman road that carried the Gospel into Europe) is the one alternative on
 file.
 
+**Before reviewing or editing a letter, the agreement or this plan, read
+`docs/narthex-research-ledger.md`.** It maps every research finding and
+every ruling of Kevin's to a decision and a status, newest ruling first.
+
 This file is the build plan and the order of work. What is built is marked
 built; everything else is in the order it will be done. The research behind
 each item is in the glazedweb repo under `glaze/research/`
@@ -43,12 +47,19 @@ headline.
 isn't the individual sites").** The offer comes first and it is a ladder,
 on one screen at the top of each letter: (1) this month, free, nothing
 signed, the diocese's own finder, the bishop's voice and the weekly
-digest, with the ask "point the Parish Finder page at it"; (2) three
-parishes built free, with the ask "name three"; (3) then one license. The
+digest, with the ask "point the Parish Finder page at it"; (2) any parish
+the diocese names built free, with the ask "name as many as you like and
+we build them all"; (3) then one license. The
 body follows what is being sold: parishes connected to each other, then
 what the diocese sees and sends, then the parish site as what each parish
 gets under it, then what we measured, ownership, cost, next. The last box
-asks for the two yeses, with the call as where they start. The one-page
+asks for the two yeses, and its two buttons are those asks, each a
+prefilled email; there is no "Book a call" button anywhere, and the
+scheduler is one line of text. "Connected" opens on the social layer, the
+gatherings and groups across parishes, before the finder. Nothing a
+diocese reads talks about our failing: continuity is stated as the copy of
+the platform and the license the diocese holds. Each letter says what is
+running and what is not built yet, in a table. The one-page
 briefs follow the same order. This replaces the 2026-11-04 order, which
 opened on the parish site.
 
@@ -298,6 +309,11 @@ on 2026-11-04.
       $8,000 with an attorney, under $1,500 filing the LLC yourself. The IP
       assignment and the license review are the two not to do alone. Not
       legal or tax advice.
+- [ ] Before the first parish goes live: an outside uptime monitor (the
+      agreement now promises 99.9% a month and a record the diocese may ask
+      for), and a way to be reached on weekends for a wrong Mass time, which
+      the agreement promises is fixed the same day, seven days a week. Both
+      numbers are Kevin's to change before anything is signed.
 - [ ] For the vendor packet and the one-page brief, facts only Kevin has: a
       phone number to print, a named second person who answers when Kevin
       cannot, and (once the entity and its insurance exist) the W-9 and the

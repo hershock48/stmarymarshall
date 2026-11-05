@@ -218,5 +218,17 @@ for (const slug of ["kalamazoo", "lansing"]) ok(`${slug}: the one-page brief exi
 ok("kalamazoo: the terms page exists beside the letter", fs.existsSync(path.join(ROOT, "public/pitch/kalamazoo/terms.html")), true);
 for (const slug of ["kalamazoo", "lansing"]) ok(`${slug}: the letter links no agreement page that is not live`, /glazedweb\.com\/agreement\/diokzoo/.test(fs.readFileSync(path.join(ROOT, "public/pitch", slug, "index.html"), "utf8")), false);
 
+// Kevin's rulings of 2026-11-05 on what a diocese reads: no scheduler button, no failure talk, no per-site price comparison, no cap on parishes built free.
+for (const slug of ["kalamazoo", "lansing"]) {
+  for (const page of ["index.html", "brief.html"]) {
+    const text = fs.readFileSync(path.join(ROOT, "public/pitch", slug, page), "utf8");
+    for (const banned of ["Book a call", "Book the call", "if we ever fail", "If we ever close", "stop answering", "Against what is paid today", "name three"]) {
+      ok(`${slug}/${page}: does not say "${banned}"`, text.toLowerCase().includes(banned.toLowerCase()), false);
+    }
+  }
+  ok(`${slug}: the letter opens with the offer`, fs.readFileSync(path.join(ROOT, "public/pitch", slug, "index.html"), "utf8").includes("The offer, in three steps"), true);
+  ok(`${slug}: the letter says what is not built yet`, fs.readFileSync(path.join(ROOT, "public/pitch", slug, "index.html"), "utf8").includes("What is running today, and what is not yet"), true);
+}
+
 console.log(fails ? `\n${fails} failed` : "\nall passed");
 process.exit(fails ? 1 : 0);

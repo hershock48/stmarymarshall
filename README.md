@@ -209,6 +209,14 @@ words are whatever its data says.
 - **Today's readings** is a computed USCCB link, Spanish first on a Spanish
   parish.
 
+## Before touching a letter
+
+Read `docs/narthex-research-ledger.md`. It lists Kevin's rulings on what a
+diocese reads (newest first) and what every piece of research decided.
+`tools/diocese-tests.mjs` fails if a letter or brief brings back a
+scheduler button, failure talk, a per-site price comparison or a cap on
+the parishes built free.
+
 ## The letters' companion pages
 
 A diocese letter (`public/pitch/<slug>/index.html`, served at `/` on the

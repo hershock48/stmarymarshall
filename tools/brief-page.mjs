@@ -29,9 +29,9 @@ const BRIEFS = [
       "The office texts a change and it is up the same week",
     ],
     between: [
-      "One Mass finder for all sixty parishes and missions, nearest first",
-      "This week across the diocese on one page",
+      "The gatherings of every parish on one page, from the young adult night to the parish mission",
       "Every group and ministry, with the person to call",
+      "One Mass finder for all sixty parishes and missions, nearest first",
       "The three nearest parishes on every Mass times page",
     ],
     chancery: [
@@ -45,15 +45,14 @@ const BRIEFS = [
       "One line to the diocese. All sixty parishes and missions included, the fourteen with no website among them. No parish is billed.",
       "No build fee. Twelve months, then month to month on thirty days&rsquo; notice.",
       "$47,880 a year, about one percent of what last year&rsquo;s appeal pledged.",
-      "Giving, where a parish wants it: 1% of a gift, capped at $5, on the parish&rsquo;s own Stripe account.",
+      "Giving through the platform, once built: 1% of a gift, capped at $5, on the parish&rsquo;s own Stripe account.",
     ],
-    today: "Forty-one parishes rent eCatholic today: $24,600 to $48,700 a year at its published rates, with every edit done in a parish office.",
     owns: "Every page, photo, schedule, calendar and form. Its domains, in its own registrar account. Each parish&rsquo;s giving account, with every donor in it. Export at any time, free, as files, as data and as a copy of each site that runs on any host.",
-    fail: "If we ever close, stop the platform or stop answering, the diocese receives the software as it stands that day, source included, to run for its own parishes. A sealed copy is delivered to it every quarter.",
+    holds: "The diocese also holds the platform itself: a sealed copy, source included, delivered every quarter, with a written license to run it for its own parishes.",
     theirs: "eCatholic&rsquo;s terms say it &ldquo;will not provide you with any form of export of your Website.&rdquo;",
     steps: [
       ["This month, free, nothing signed", "A finder of the diocese&rsquo;s own, the bishop&rsquo;s voice and the weekly digest. Ninety days; nothing renews on its own.", "Point the Parish Finder page on diokzoo.org at it."],
-      ["Three parishes, built free", "St. Mary Marshall, St. Philip Battle Creek and San Felipe de Jesús run on it now.", "Name three more and we build them the same way."],
+      ["Any parish you name, built free", "St. Mary Marshall, St. Philip Battle Creek and San Felipe de Jesús run on it now.", "Name as many as you like and we build them all."],
       ["Then one license", "Every parish included, moving at its own pace. Each old subscription ends after its site is live.", ""],
     ],
     see: ["kalamazoo.glazedweb.com", "finder.kalamazoo.glazedweb.com", "kalamazoo.glazedweb.com/terms"],
@@ -71,10 +70,10 @@ const BRIEFS = [
       "The office texts a change and it is up the same week",
     ],
     between: [
+      "The gatherings of every parish on one page, as parishes join",
+      "Every group and ministry, with the person to call",
       "One Mass finder for all 73 parishes, from the diocese&rsquo;s own directory",
       "Each parish that joins adds its Mass times the same day",
-      "This week across the diocese on one page",
-      "Every group and ministry, with the person to call",
     ],
     chancery: [
       "The bishop&rsquo;s voice on every parish home page, with his podcast already in it",
@@ -87,15 +86,14 @@ const BRIEFS = [
       "One line to the diocese. All 73 parishes included. No parish is billed.",
       "No build fee. Twelve months, then month to month on thirty days&rsquo; notice.",
       "$59,880 a year, about one percent of this year&rsquo;s appeal goal.",
-      "Giving, where a parish wants it: 1% of a gift, capped at $5, on the parish&rsquo;s own Stripe account.",
+      "Giving through the platform, once built: 1% of a gift, capped at $5, on the parish&rsquo;s own Stripe account.",
     ],
-    today: "Seventy-two parish websites sit on seven platforms today. The twenty-six on eCatholic alone come to $15,600 to $30,900 a year at its published rates.",
     owns: "Every page, photo, schedule, calendar and form. Its domains, in its own registrar account. Each parish&rsquo;s giving account, with every donor in it. Export at any time, free, as files, as data and as a copy of each site that runs on any host.",
-    fail: "If we ever close, stop the platform or stop answering, the diocese receives the software as it stands that day, source included, to run for its own parishes. A sealed copy is delivered to it every quarter.",
+    holds: "The diocese also holds the platform itself: a sealed copy, source included, delivered every quarter, with a written license to run it for its own parishes.",
     theirs: "eCatholic&rsquo;s terms, for the twenty-six parishes on it, say it &ldquo;will not provide you with any form of export of your Website.&rdquo;",
     steps: [
       ["This month, free, nothing signed", "A finder of the diocese&rsquo;s own and the bishop&rsquo;s voice. Ninety days; nothing renews on its own.", "Point the find-a-parish page on dioceseoflansing.org at it."],
-      ["Three parishes, built free", "Three run on it now in the Diocese of Kalamazoo; St. Philip, Battle Creek is the one to open.", "Name three and we build them before anything is signed."],
+      ["Any parish you name, built free", "Three run on it now in the Diocese of Kalamazoo; St. Philip, Battle Creek is the one to open.", "Name as many as you like and we build them all."],
       ["Then one license", "All 73 parishes included, moving at their own pace. Each old subscription ends after its site is live.", ""],
     ],
     see: ["lansing.glazedweb.com", "finder.lansing.glazedweb.com", "kalamazoo.glazedweb.com/terms"],
@@ -201,20 +199,19 @@ h3{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.2px;margin
       <h2>What it costs</h2>
       <div class="price">${b.price} <span>a month</span></div>
       ${b.priceLines.map((t) => `<p>${t}</p>`).join("\n      ")}
-      <p>${b.today}</p>
     </div>
     <div class="box own">
       <h2>What the diocese owns</h2>
       <p style="margin-top:0">${b.owns}</p>
-      <p>${b.fail}</p>
+      <p>${b.holds}</p>
       <p class="q">${b.theirs}</p>
     </div>
   </div>
 
   <div class="foot">
     <div><b>See it running</b><br>${b.see.join("<br>")}</div>
-    <div><b>Kevin Hershock · Glazed Web</b><br>Marshall, Michigan<br>kevin@glazedweb.com</div>
-    <div><b>Book the call</b><br>glazedweb.com/schedule<br>Thirty minutes, with the sites open.</div>
+    <div><b>Say yes by email</b><br>Kevin Hershock · Glazed Web, Marshall, Michigan<br>kevin@glazedweb.com</div>
+    <div><b>Two things to say yes to</b><br>Point the finder.<br>Name your parishes.</div>
   </div>
 </main>
 </body></html>

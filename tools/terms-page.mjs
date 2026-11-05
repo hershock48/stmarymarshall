@@ -52,7 +52,7 @@ const page = `<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>The terms · Glazed Web × the ${esc(o.client)}</title>
-<meta name="description" content="The diocesan agreement in plain words: what is included, what it costs, what the diocese owns, and what it receives if Glazed Web ever fails it.">
+<meta name="description" content="The diocesan agreement in plain words: what is included, what it costs, what the diocese owns, and the copy of the platform it holds.">
 <meta name="theme-color" content="#FDF6EC">
 ${icons}
 ${style}
@@ -110,7 +110,7 @@ ${o.scope.map((t) => `    <li>${esc(t)}</li>`).join("\n")}
   <ol>
 ${part3.items.map((it) => `    <li><span class="lead">${esc(it.lead)}</span> ${esc(it.text)}</li>`).join("\n")}
   </ol>
-  <p class="note">Questions about any line: <a href="mailto:kevin@glazedweb.com?subject=${encodeURIComponent(o.client + " agreement")}">kevin@glazedweb.com</a>, or <a href="https://www.glazedweb.com/schedule" target="_blank" rel="noopener">book the call ↗</a>.</p>
+  <p class="note">Questions about any line: <a href="mailto:kevin@glazedweb.com?subject=${encodeURIComponent(o.client + " agreement")}">kevin@glazedweb.com</a>.</p>
 </div></section>
 </main>
 
