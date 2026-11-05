@@ -150,6 +150,34 @@ religious education, contributions. Migration from ParishSOFT, PDS and
 eCatholic ChMS is a paid service done with the chancellor at the table. Not
 before the diocese trusts us with the public layer.
 
+## The business model (Kevin, 2026-11-05)
+
+Researched in `glaze/research/narthex-business-model-2026-11.md` and
+adopted. Support, not hosting, is the cost; the money in a diocese flows
+assessments in and services out; half the parishes live under $250,000 a
+year; a subscription under the bishop's signature threshold is ordinary
+administration. So:
+
+- **A diocesan program license, billed to the diocese, every parish
+  included, no parish billed.** Kalamazoo $3,990 a month; Lansing $4,990.
+  No build fee; a twelve-month first term, then month to month. Sized
+  near one percent of the appeal and under the signature threshold.
+- **Giving at 1% of each gift, capped at $5, donor-covered by default,**
+  on the parish's own Stripe nonprofit account, no monthly fee; the
+  appeal on the same rails on the diocese's own account.
+- **Add-ons a parish chooses and pays for:** hosted video $89, office
+  panel $29, texting at cost plus a margin, newsletter sending later.
+- **A lone parish outside a license** pays the published build and $99 a
+  month. The path that stays open if a diocese says no.
+- **Later, not now:** diocese-controlled self-serve sponsorships with a
+  parish revenue share (never Google Ads: pennies, and it breaks the
+  no-tracking promise); the appeal processed on the platform; records
+  migration as a service.
+- **The ladder is the offer:** the layer free for ninety days with
+  nothing signed, three parishes built free, then the license.
+
+Never say "$99 a parish" to a diocese.
+
 ## Hosts and names
 
 - Parish sites: the parish's own domain; until live, `<slug>.glazedweb.com`
