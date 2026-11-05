@@ -37,7 +37,7 @@ const between = (a, b) => {
   return html.slice(i, j + b.length);
 };
 const style = between("<style>", "</style>");
-const header = between("<header>", "</header>").replace(/<nav>[\s\S]*?<\/nav>/, `<nav>\n      <a href="/">The letter</a>\n      <a href="/brief">One page</a>\n    </nav>`).replace('href="#top"', 'href="/"');
+const header = between("<header>", "</header>").replace(/<nav>[\s\S]*?<\/nav>/, `<nav>\n      <a href="/">The letter</a>\n      <a href="/brief">One page</a>\n    </nav>`).replace('href="#top"', 'href="/"').replace('href="#tour"', 'href="/#tour"');
 const footer = between("<footer>", "</footer>");
 const icons = html.split("\n").filter((l) => /<link rel="(icon|apple-touch-icon)"/.test(l)).join("\n");
 

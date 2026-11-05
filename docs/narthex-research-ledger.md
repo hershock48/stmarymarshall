@@ -16,6 +16,7 @@ built**, **dropped** (with why), **Kevin's** (his fact or his step).
 
 | Date | Ruling | Where it lives |
 |---|---|---|
+| 2026-11-05, late | **The letter explains the platform before it sells it.** What it is, the price and a picture of the whole on the first screen; a tour of the real thing; what changes; then cost, ownership, how it starts, the detail, the measurements. No trial clock: "ninety days free" is gone and nothing is owed until the first piece is live. It starts with the diocese's own site. The ask is a walkthrough in person with Kevin and Sean. This replaces the three-step offer at the top, the "point the finder" and "name your parishes" buttons, and every earlier order. | Both letters, both briefs, the agreement's billing trigger, the tests; plan, "The story the letters tell". |
 | 2026-11-05 | Rebuild the diocese's own website too ("it is so bad"), and offer the finder either way: on the site it has, or on the site we built with it inside. | diokzoo.glazedweb.com (142 pages); the Kalamazoo letter's offer, section two and cost table; the agreement's scope. Inside the license at no further charge, ruled by Kevin the same day. |
 | 2026-11-05 | Parishes built free are not capped at three: "name as many as you want and we build them all." | Both letters (offer, last section), both briefs. |
 | 2026-11-05 | No failure talk anywhere a diocese reads ("we have enough to overcome with being new"). The continuity promise is stated as what the diocese holds: a quarterly copy and a license. | Letters, briefs; the agreement item is titled "Continuity". |
@@ -89,7 +90,7 @@ and `lansing-audit-2026-11.md` (72 sites, seven platforms).
 | A sub-$50,000 subscription is ordinary administration; the comms director sponsors, the chancellor or CFO signs | Write to both | Finance and communications paragraphs in both letters. The canon-law point itself is not argued. |
 | Support, not hosting, is the cost; plan on half to three quarters of an hour a parish a month | Internal | Not for the letters. |
 | Later: sponsorships under the diocese's control; the appeal processed on the platform; records migration | Not now | In the plan only. Google Ads rejected. |
-| The ladder: the layer free for ninety days, parishes built free, then the license | The offer itself | Top of both letters. Day ninety-one is stated. |
+| The ladder: the layer free for ninety days, parishes built free, then the license | Withdrawn 2026-11-05: a trial with no price beside it read as a trap | Replaced by "nothing is owed until the first piece is live" and the diocese's own site going first. |
 
 ## 4. Who owns what
 
@@ -109,7 +110,7 @@ and `lansing-audit-2026-11.md` (72 sites, seven platforms).
 
 | Recommendation | Status |
 |---|---|
-| The offer is a ladder, at the top, with two concrete asks | In both letters since 2026-11-05. |
+| The offer is a ladder, at the top, with two concrete asks | Tried on 2026-11-05 and withdrawn the same day on Kevin's reading: it sold a way to buy before saying what was for sale. The sequence survives as "How it starts", after the price. |
 | "Book a call" is too soft | Removed as a button 2026-11-05. |
 | Compare the price for them | Superseded by the license model (section 3). |
 | Price the layer and the sites as two things | Superseded by the license model. The layer has no price of its own after ninety days. |

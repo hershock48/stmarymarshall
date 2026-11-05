@@ -43,7 +43,7 @@ const BRIEFS = [
     price: "$3,990",
     priceLines: [
       "One line to the diocese. All sixty parishes and missions included, the fourteen with no website among them. No parish is billed.",
-      "No build fee. Twelve months, then month to month on thirty days&rsquo; notice.",
+      "No build fee. Nothing is owed until the first piece is live. Twelve months, then month to month on thirty days&rsquo; notice.",
       "$47,880 a year, about one percent of what last year&rsquo;s appeal pledged.",
       "Giving through the platform, once built: 1% of a gift, capped at $5, on the parish&rsquo;s own Stripe account.",
     ],
@@ -51,9 +51,9 @@ const BRIEFS = [
     holds: "The diocese also holds the platform itself: a sealed copy, source included, delivered every quarter, with a written license to run it for its own parishes.",
     theirs: "eCatholic&rsquo;s terms say it &ldquo;will not provide you with any form of export of your Website.&rdquo;",
     steps: [
-      ["This month, free, nothing signed", "A finder of the diocese&rsquo;s own, the bishop&rsquo;s voice and the weekly digest, on the diocese&rsquo;s site as it is or as we rebuilt it. Ninety days; nothing renews on its own.", "Point the Parish Finder page on diokzoo.org at it."],
-      ["Any parish you name, built free", "St. Mary Marshall, St. Philip Battle Creek and San Felipe de Jesús run on it now.", "Name as many as you like and we build them all."],
-      ["Then one license", "Every parish included, moving at its own pace. Each old subscription ends after its site is live.", ""],
+      ["We walk you through it", "An hour at the Pastoral Center with the platform open, or by phone. Nothing is signed that day.", ""],
+      ["The diocese&rsquo;s own site goes first", "It is built. The finder, the parishes&rsquo; week and the bishop&rsquo;s voice go live with it for all sixty parishes, before any parish moves.", ""],
+      ["Then the parishes, at their pace", "Three are built. Name any parish and we build it for the diocese to judge. Each old subscription ends after its site is live.", ""],
     ],
     see: ["kalamazoo.glazedweb.com", "finder.kalamazoo.glazedweb.com", "diokzoo.glazedweb.com (the diocese&rsquo;s site, rebuilt)"],
   },
@@ -84,7 +84,7 @@ const BRIEFS = [
     price: "$4,990",
     priceLines: [
       "One line to the diocese. All 73 parishes included. No parish is billed.",
-      "No build fee. Twelve months, then month to month on thirty days&rsquo; notice.",
+      "No build fee. Nothing is owed until the first piece is live. Twelve months, then month to month on thirty days&rsquo; notice.",
       "$59,880 a year, about one percent of this year&rsquo;s appeal goal.",
       "Giving through the platform, once built: 1% of a gift, capped at $5, on the parish&rsquo;s own Stripe account.",
     ],
@@ -92,9 +92,9 @@ const BRIEFS = [
     holds: "The diocese also holds the platform itself: a sealed copy, source included, delivered every quarter, with a written license to run it for its own parishes.",
     theirs: "eCatholic&rsquo;s terms, for the twenty-six parishes on it, say it &ldquo;will not provide you with any form of export of your Website.&rdquo;",
     steps: [
-      ["This month, free, nothing signed", "A finder of the diocese&rsquo;s own and the bishop&rsquo;s voice. Ninety days; nothing renews on its own.", "Point the find-a-parish page on dioceseoflansing.org at it."],
-      ["Any parish you name, built free", "Three run on it now in the Diocese of Kalamazoo; St. Philip, Battle Creek is the one to open.", "Name as many as you like and we build them all."],
-      ["Then one license", "All 73 parishes included, moving at their own pace. Each old subscription ends after its site is live.", ""],
+      ["We walk you through it", "An hour in Lansing with the platform open, or by phone. Nothing is signed that day.", ""],
+      ["The finder and the bishop&rsquo;s voice go first", "Both are running. They go live on an address of the diocese&rsquo;s own for all 73 parishes, before any parish moves.", ""],
+      ["Then the parishes, at their pace", "Name any parish and we build it for the diocese to judge. Each old subscription ends after its site is live.", ""],
     ],
     see: ["lansing.glazedweb.com", "finder.lansing.glazedweb.com", "kalamazoo.glazedweb.com/terms"],
   },
@@ -183,7 +183,7 @@ h3{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.2px;margin
   <h1>${b.headline}</h1>
   <p class="sub">${b.sub}</p>
 
-  <h2>The offer, in three steps</h2>
+  <h2>How it starts</h2>
   <div class="steps">
     ${b.steps.map(([h, t, ask], i) => `<div><i>${i + 1}</i><b>${h}</b>${t}${ask ? `<u>The ask: ${ask}</u>` : ""}</div>`).join("\n    ")}
   </div>
@@ -210,8 +210,8 @@ h3{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.2px;margin
 
   <div class="foot">
     <div><b>See it running</b><br>${b.see.join("<br>")}</div>
-    <div><b>Say yes by email or phone</b><br>Kevin Hershock and Sean Fitzgerald · Glazed Web<br>kevin@glazedweb.com · 269-274-3203</div>
-    <div><b>Two things to say yes to</b><br>Point the finder.<br>Name your parishes.</div>
+    <div><b>Kevin Hershock and Sean Fitzgerald</b><br>Glazed Web, Marshall, Michigan<br>kevin@glazedweb.com</div>
+    <div><b>The next step</b><br>A walkthrough, in person or by phone.<br>Call 269-274-3203.</div>
   </div>
 </main>
 </body></html>

@@ -43,7 +43,42 @@ across parishes. An upgrade from a stale drag-and-drop template. The
 rebuilt sites and the measurements are proof inside that story, never the
 headline.
 
-**The order, as Kevin ruled it on 2026-11-05 ("the big thing we're selling
+**The shape, as Kevin ruled it late on 2026-11-05, which replaces every
+order before it.** He read the Kalamazoo letter as the diocese would: it
+promised a platform and its buttons pointed at a finder; "this month,
+free" came before anyone knew what the thing was or what it cost, and read
+as a trap; asking the diocese to bolt our finder onto its own bad site
+left that site behind; and the whole letter was still built to sell one
+website to one buyer. "They will either understand and see the vision or
+not." So:
+
+1. **The top says what the platform is.** One sentence, the price in one
+   line, a picture of the whole thing (the diocese, what joins them, the
+   parishes), and a four-line short version. The first button is "Take the
+   tour".
+2. **Then a tour** of the real platform, one stop a screen, each with a
+   live link: the diocese's site, a parish site, the finder, this week,
+   the bishop's voice, the chancery view.
+3. **Then what changes**, for the diocese, a parish office and someone in
+   the pews.
+4. **Then the detail in a skeptic's order:** cost, ownership, how it
+   starts, each part in depth, what we measured.
+5. **No trial clock.** "Ninety days free" is gone. Nothing is owed until
+   the first piece is live on an address the diocese or a parish owns.
+6. **It starts with the diocese's own site** (Kalamazoo), the one site the
+   chancery decides alone; the finder and the layer go live with it for
+   every parish. In Lansing, whose site was built for it, the finder and
+   the bishop's voice go first.
+7. **The ask is a walkthrough in person**: Kevin and Sean, both in the
+   diocese, at the Pastoral Center. A phone button and an email button;
+   the scheduler stays a line of text.
+
+`tools/tour-shots.mjs` retakes the tour's pictures from the live pages.
+The tests pin the shape: the platform picture before any section, the tour
+first, cost and ownership before the detail, the walkthrough last, no
+"ninety days", no "Take the finder".
+
+**Superseded the same day (kept for the record):** the order as Kevin ruled it earlier on 2026-11-05 ("the big thing we're selling
 isn't the individual sites").** The offer comes first and it is a ladder,
 on one screen at the top of each letter: (1) this month, free, nothing
 signed, the diocese's own finder, the bishop's voice and the weekly

@@ -267,13 +267,22 @@ for (const slug of ["kalamazoo", "lansing"]) ok(`${slug}: the letter links no ag
 for (const slug of ["kalamazoo", "lansing"]) {
   for (const page of ["index.html", "brief.html"]) {
     const text = fs.readFileSync(path.join(ROOT, "public/pitch", slug, page), "utf8");
-    for (const banned of ["Book a call", "Book the call", "if we ever fail", "If we ever close", "stop answering", "Against what is paid today", "name three"]) {
+    for (const banned of ["Book a call", "Book the call", "if we ever fail", "If we ever close", "stop answering", "Against what is paid today", "name three", "ninety days", "Take the finder", "The offer, in three steps"]) {
       ok(`${slug}/${page}: does not say "${banned}"`, text.toLowerCase().includes(banned.toLowerCase()), false);
     }
   }
   ok(`${slug}: the letter names both people who lead it`, /Kevin Hershock and Sean Fitzgerald/.test(fs.readFileSync(path.join(ROOT, "public/pitch", slug, "index.html"), "utf8")), true);
   ok(`${slug}: the letter carries a phone number`, fs.readFileSync(path.join(ROOT, "public/pitch", slug, "index.html"), "utf8").includes("tel:+12692743203"), true);
-  ok(`${slug}: the letter opens with the offer`, fs.readFileSync(path.join(ROOT, "public/pitch", slug, "index.html"), "utf8").includes("The offer, in three steps"), true);
+  {
+    // Kevin, 2026-11-05: the letter says what the platform is before it says how to buy it.
+    const letter = fs.readFileSync(path.join(ROOT, "public/pitch", slug, "index.html"), "utf8");
+    const order = [...letter.matchAll(/<section id="(\w+)">/g)].map((m) => m[1]);
+    ok(`${slug}: the letter shows the whole platform before anything else`, letter.indexOf('class="plat"') > 0 && letter.indexOf('class="plat"') < letter.indexOf('<section id="'), true);
+    ok(`${slug}: the first section is the tour`, order[0], "tour");
+    ok(`${slug}: cost and ownership come before the detail`, order.indexOf("cost") < order.indexOf("together") && order.indexOf("own") < order.indexOf("together"), true);
+    ok(`${slug}: the letter ends on the walkthrough`, order[order.length - 1], "talk");
+    ok(`${slug}: every tour picture is beside the letter`, [...letter.matchAll(/src="\/pitch\/(\w+)\/(tour-[\w-]+\.webp)"/g)].every((m) => fs.existsSync(path.join(ROOT, "public/pitch", m[1], m[2]))), true);
+  }
   ok(`${slug}: the letter says what is not built yet`, fs.readFileSync(path.join(ROOT, "public/pitch", slug, "index.html"), "utf8").includes("What is running today, and what is not yet"), true);
 }
 
