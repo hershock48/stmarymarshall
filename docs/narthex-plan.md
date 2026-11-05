@@ -76,11 +76,9 @@ platform" and no longer print a name; the finder's footer credit reads
 "Built by Glazed Web". All five pages: zero axe violations at 390 and 1280,
 no overflow, no broken images.
 
-Open, and Kevin's to rule: whether the chancery view is inside the license.
-The Kalamazoo letter sells seeing every site as part of what the diocese
-gets and, in the chancery box, says it is "priced with the office panel";
-the agreement lists it as not included. The Lansing letter states no price
-for it.
+Ruled by Kevin the same day: the chancery view is inside the license. Both
+letters, the agreement row and the terms page say so; it is no longer
+listed as not included.
 
 ## Principles
 
@@ -263,8 +261,9 @@ on 2026-11-04.
       of the log.
 - [ ] A Cloudflare Stream account; `STREAM_CUSTOMER_CODE` in Vercel; a live
       input per parish that wants hosted video.
-- [ ] The price of hosted video (the letter says about $49 a month) and of the
-      chancery view.
+- [x] The price of hosted video and of the chancery view. Ruled 2026-11-05:
+      hosted video is $89 a month for a parish that wants it; the chancery
+      view is inside the diocesan license.
 - [ ] Merge glazedweb PR #33 so /agreement/diokzoo and /build/diokzoo go live.
 - [ ] The diocese meetings; Vikki Sesna's introduction; the eCatholic back end
       through Stacie's login, look only.
@@ -291,8 +290,6 @@ on 2026-11-04.
       phone number to print, a named second person who answers when Kevin
       cannot, and (once the entity and its insurance exist) the W-9 and the
       certificate of insurance. The letters say none of these today.
-- [ ] Rule whether the chancery view is inside the license (see "The
-      letters, after the sales-lens pass").
 - [ ] After the first diocese pays: S-corp election review with the CPA;
       federal mark (Class 42, intent to use, $350 a class) within thirty days
       of a name.
