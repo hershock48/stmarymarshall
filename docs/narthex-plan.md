@@ -334,6 +334,11 @@ on 2026-11-04.
 - [x] The diocese's own site is inside the license, at no further charge
       (ruled 2026-11-05). The letter and the agreement say so, "if the
       diocese wants it".
+- [x] Who leads it, and a number to print (Kevin, 2026-11-05): Kevin Hershock
+      and Sean Fitzgerald lead this; both are Catholics in the Diocese of
+      Kalamazoo. Kevin's number, 269-274-3203, is in both letters and both
+      briefs. Still unknown, so not printed: Sean's parish, his title, and
+      whether he is part of Glazed Web or of the product entity to come.
 - [ ] For the vendor packet and the one-page brief, facts only Kevin has: a
       phone number to print, a named second person who answers when Kevin
       cannot, and (once the entity and its insurance exist) the W-9 and the

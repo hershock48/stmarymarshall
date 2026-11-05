@@ -114,6 +114,7 @@ and `lansing-audit-2026-11.md` (72 sites, seven platforms).
 | Compare the price for them | Superseded by the license model (section 3). |
 | Price the layer and the sites as two things | Superseded by the license model. The layer has no price of its own after ninety days. |
 | Three documents: one screen, the long letter, one printed page | Done: the offer box, the letter, `/brief`. |
+| Who leads it (Kevin, 2026-11-05): Kevin Hershock and Sean Fitzgerald, both Catholics in the Diocese of Kalamazoo; Kevin's number 269-274-3203 | In both letters (the "from" line, "who the diocese would be dealing with", the last box, the footer) and both briefs. |
 | Credibility: the team, the clients already live, a named second person, Lansing | Partly. The letters name Kevin, what the studio builds, and Lansing. Clients and a second person are **Kevin's**. |
 | Help the communications office, do not replace it | In both letters. |
 | Show the diocese layer | The chancery view picture is in both letters. |

@@ -271,6 +271,8 @@ for (const slug of ["kalamazoo", "lansing"]) {
       ok(`${slug}/${page}: does not say "${banned}"`, text.toLowerCase().includes(banned.toLowerCase()), false);
     }
   }
+  ok(`${slug}: the letter names both people who lead it`, /Kevin Hershock and Sean Fitzgerald/.test(fs.readFileSync(path.join(ROOT, "public/pitch", slug, "index.html"), "utf8")), true);
+  ok(`${slug}: the letter carries a phone number`, fs.readFileSync(path.join(ROOT, "public/pitch", slug, "index.html"), "utf8").includes("tel:+12692743203"), true);
   ok(`${slug}: the letter opens with the offer`, fs.readFileSync(path.join(ROOT, "public/pitch", slug, "index.html"), "utf8").includes("The offer, in three steps"), true);
   ok(`${slug}: the letter says what is not built yet`, fs.readFileSync(path.join(ROOT, "public/pitch", slug, "index.html"), "utf8").includes("What is running today, and what is not yet"), true);
 }
