@@ -51,7 +51,8 @@ export function proxy(req: NextRequest) {
     const h = new Headers(req.headers);
     h.delete("x-path");
     h.set("x-path", pathname);
-    if (/^\/(diocese(\/|$)|robots\.txt$|sitemap\.xml$|manifest\.webmanifest$|__404\/)/.test(pathname)) return NextResponse.next({ request: { headers: h } });
+    // The sitemap and the manifest the platform serves are a parish's, so on the diocese's site they are nobody's until it has its own.
+    if (/^\/(diocese(\/|$)|robots\.txt$|__404\/)/.test(pathname)) return NextResponse.next({ request: { headers: h } });
     // An address the diocese never had is nobody's page (see 1. above for why this is decided here).
     const seg = /^\/([^/.]+)\/?$/.exec(pathname);
     if (pathname !== "/" && !(seg && knowsSitePath(siteSlug, seg[1]))) return gone(req);
