@@ -52,10 +52,9 @@ const BRIEFS = [
     fail: "If we ever close, stop the platform or stop answering, the diocese receives the software as it stands that day, source included, to run for its own parishes. A sealed copy is delivered to it every quarter.",
     theirs: "eCatholic&rsquo;s terms say it &ldquo;will not provide you with any form of export of your Website.&rdquo;",
     steps: [
-      ["Take the finder, the bishop&rsquo;s voice and the weekly digest", "Free for ninety days, nothing signed. Nothing renews on its own."],
-      ["Open the three sites", "St. Mary Marshall, St. Philip Battle Creek, San Felipe de Jesús. Ten minutes each, on a phone."],
-      ["One call", "Thirty minutes. Name three more parishes and we build them at no charge."],
-      ["The license", "The parishes move at their own pace. Each old subscription ends after its site is live."],
+      ["This month, free, nothing signed", "A finder of the diocese&rsquo;s own, the bishop&rsquo;s voice and the weekly digest. Ninety days; nothing renews on its own.", "Point the Parish Finder page on diokzoo.org at it."],
+      ["Three parishes, built free", "St. Mary Marshall, St. Philip Battle Creek and San Felipe de Jesús run on it now.", "Name three more and we build them the same way."],
+      ["Then one license", "Every parish included, moving at its own pace. Each old subscription ends after its site is live.", ""],
     ],
     see: ["kalamazoo.glazedweb.com", "finder.kalamazoo.glazedweb.com", "kalamazoo.glazedweb.com/terms"],
   },
@@ -95,10 +94,9 @@ const BRIEFS = [
     fail: "If we ever close, stop the platform or stop answering, the diocese receives the software as it stands that day, source included, to run for its own parishes. A sealed copy is delivered to it every quarter.",
     theirs: "eCatholic&rsquo;s terms, for the twenty-six parishes on it, say it &ldquo;will not provide you with any form of export of your Website.&rdquo;",
     steps: [
-      ["Take the finder and the bishop&rsquo;s voice", "Free for ninety days, nothing signed. Nothing renews on its own."],
-      ["Open a parish site", "St. Philip, Battle Creek. Ten minutes, on a phone."],
-      ["One call", "Thirty minutes. Name three parishes and we build them at no charge."],
-      ["The license", "The parishes move at their own pace. Each old subscription ends after its site is live."],
+      ["This month, free, nothing signed", "A finder of the diocese&rsquo;s own and the bishop&rsquo;s voice. Ninety days; nothing renews on its own.", "Point the find-a-parish page on dioceseoflansing.org at it."],
+      ["Three parishes, built free", "Three run on it now in the Diocese of Kalamazoo; St. Philip, Battle Creek is the one to open.", "Name three and we build them before anything is signed."],
+      ["Then one license", "All 73 parishes included, moving at their own pace. Each old subscription ends after its site is live.", ""],
     ],
     see: ["lansing.glazedweb.com", "finder.lansing.glazedweb.com", "kalamazoo.glazedweb.com/terms"],
   },
@@ -154,7 +152,8 @@ h3{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.2px;margin
 .price span{font-size:13px;font-weight:600;color:var(--mute);letter-spacing:0}
 .box p{margin-top:5px}
 .box .q{color:var(--ink);font-weight:600}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:13px}
+.steps u{display:block;text-decoration:none;color:var(--pink-i);font-weight:700;margin-top:3px}
 .steps div{border-top:3px solid var(--pink);padding-top:6px}
 .steps b{display:block;color:var(--ink);font-size:13px;line-height:1.25;margin-bottom:3px}
 .steps i{font-style:normal;font-size:11px;font-weight:700;color:var(--pink-i);letter-spacing:.1em}
@@ -186,10 +185,15 @@ h3{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.2px;margin
   <h1>${b.headline}</h1>
   <p class="sub">${b.sub}</p>
 
+  <h2>The offer, in three steps</h2>
+  <div class="steps">
+    ${b.steps.map(([h, t, ask], i) => `<div><i>${i + 1}</i><b>${h}</b>${t}${ask ? `<u>The ask: ${ask}</u>` : ""}</div>`).join("\n    ")}
+  </div>
+
   <div class="three">
-    <div><h2>For a parish</h2><h3>A site that is alive</h3><ul>${li(b.parish)}</ul></div>
     <div><h2>Between parishes</h2><h3>Connected to each other</h3><ul>${li(b.between)}</ul></div>
     <div><h2>For the diocese</h2><h3>A way to see, and to send</h3><ul>${li(b.chancery)}</ul></div>
+    <div><h2>For a parish</h2><h3>A site that is alive</h3><ul>${li(b.parish)}</ul></div>
   </div>
 
   <div class="two">
@@ -205,11 +209,6 @@ h3{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.2px;margin
       <p>${b.fail}</p>
       <p class="q">${b.theirs}</p>
     </div>
-  </div>
-
-  <h2>What happens next</h2>
-  <div class="steps">
-    ${b.steps.map(([h, t], i) => `<div><i>${i + 1}</i><b>${h}</b>${t}</div>`).join("\n    ")}
   </div>
 
   <div class="foot">

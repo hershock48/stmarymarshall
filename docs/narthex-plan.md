@@ -37,8 +37,20 @@ one calendar, one set of groups. A layer for the diocese to see every site
 and to send, the bishop's voice long form and short, notices, gatherings
 across parishes. An upgrade from a stale drag-and-drop template. The
 rebuilt sites and the measurements are proof inside that story, never the
-headline. Both letters follow this order: alive, connected, the diocese,
-then what we measured, ownership, cost, next.
+headline.
+
+**The order, as Kevin ruled it on 2026-11-05 ("the big thing we're selling
+isn't the individual sites").** The offer comes first and it is a ladder,
+on one screen at the top of each letter: (1) this month, free, nothing
+signed, the diocese's own finder, the bishop's voice and the weekly
+digest, with the ask "point the Parish Finder page at it"; (2) three
+parishes built free, with the ask "name three"; (3) then one license. The
+body follows what is being sold: parishes connected to each other, then
+what the diocese sees and sends, then the parish site as what each parish
+gets under it, then what we measured, ownership, cost, next. The last box
+asks for the two yeses, with the call as where they start. The one-page
+briefs follow the same order. This replaces the 2026-11-04 order, which
+opened on the parish site.
 
 ## Progress (2026-11-04, evening)
 
@@ -61,8 +73,8 @@ pieces when the keys exist, and the office panel.
 
 ## The letters, after the sales-lens pass (2026-11-05)
 
-Both letters now follow the same order (alive, connected, the diocese,
-measured, ownership, cost, next); Lansing was rebuilt to it. Each carries a
+Both letters follow the same order, set out above under "The story the
+letters tell"; Lansing was rebuilt to it. Each carries a
 paragraph for the communications office, a paragraph for the finance
 office, the price set against what is paid today (stated as published
 rates, since we do not know what either diocese pays), day ninety-one of
