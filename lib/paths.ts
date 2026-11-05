@@ -1,6 +1,7 @@
 import { watchSource } from "@/lib/stream";
 import type { Parish } from "@/lib/types";
 import registry from "@/parishes/registry.json";
+import kalamazooSite from "@/dioceses/kalamazoo/site/slugs.json";
 import stmarymarshall from "@/parishes/stmarymarshall/data";
 import stphilipbc from "@/parishes/stphilipbc/data";
 import sanfelipe from "@/parishes/sanfelipe/data";
@@ -40,7 +41,22 @@ export function dioceseHostSlug(host: string | null | undefined): string | null 
   // DIOCESE_DEFAULT=<slug> makes a local server answer as that diocese's host
   // on 127.0.0.1, so the auditor (base URL, no Host header) can run against it.
   if (process.env.DIOCESE_DEFAULT && /^(127\.0\.0\.1|localhost)$/.test(h)) return process.env.DIOCESE_DEFAULT === "1" ? registry.dioceses[0]?.slug ?? null : process.env.DIOCESE_DEFAULT;
-  return registry.dioceses.find((d) => d.host === h)?.slug ?? null;
+  return registry.dioceses.find((d) => d.host === h)?.slug ?? dioceseSiteSlug(h);
+}
+
+/**
+ * A diocese's own website, served from the platform (lib/dsite.ts): the
+ * pages read from the diocese's current site, with the finder, the
+ * calendar and the bishop's voice built in. Until the diocese points its
+ * own domain here it answers on a demonstration host. The host is also a
+ * diocese host, so the diocese pages under /diocese wear the site's chrome
+ * there. Returns the diocese's slug, or null.
+ */
+export function dioceseSiteSlug(host: string | null | undefined): string | null {
+  const h = (host ?? "").toLowerCase().split(":")[0];
+  // DIOCESE_SITE_DEFAULT=<slug> makes a local server answer as that diocese's site on 127.0.0.1.
+  if (process.env.DIOCESE_SITE_DEFAULT && /^(127\.0\.0\.1|localhost)$/.test(h)) return process.env.DIOCESE_SITE_DEFAULT;
+  return registry.dioceses.find((d) => d.demoSiteHost && d.demoSiteHost === h)?.slug ?? null;
 }
 
 export function isDioceseHost(host: string | null | undefined): boolean {
@@ -62,6 +78,13 @@ export function letterSlugForHost(host: string | null | undefined): string | nul
 /** The host a letter under public/pitch/<slug>/ belongs to, or none: a diocese's letter or a parish's. */
 export function letterHost(slug: string): string | undefined {
   return registry.dioceses.find((d) => d.slug === slug)?.pitchHost || BY_SLUG.get(slug)?.pitchHost;
+}
+
+const SITE_PATHS: Record<string, Set<string>> = { kalamazoo: new Set([...kalamazooSite, "directory"]) };
+
+/** True when a diocese's own site answers this one-segment path: one of the pages read from the diocese, or the staff directory. */
+export function knowsSitePath(slug: string, segment: string): boolean {
+  return SITE_PATHS[slug]?.has(segment) ?? false;
 }
 
 /** True when the parish has anywhere to watch Mass right now: the same test the Watch page makes, so a hosted-video parish without its credentials has no /watch rather than a broken one. */

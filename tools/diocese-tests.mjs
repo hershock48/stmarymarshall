@@ -27,7 +27,7 @@ const transpile = (file, out, prefix = "") => {
   const js = ts.transpileModule(src, { compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022, verbatimModuleSyntax: false } }).outputText;
   fs.writeFileSync(path.join(tmp, out), js);
 };
-for (const f of ["i18n", "schedule", "events", "ics", "sentences", "geo", "diocese", "paths", "voice", "news", "notices", "deaneries", "stream"]) transpile(path.join(ROOT, "lib", f + ".ts"), f + ".mjs");
+for (const f of ["i18n", "schedule", "events", "ics", "sentences", "geo", "diocese", "paths", "voice", "news", "notices", "deaneries", "stream", "dsite"]) transpile(path.join(ROOT, "lib", f + ".ts"), f + ".mjs");
 transpile(path.join(ROOT, "dioceses/index.ts"), "dioceses.mjs");
 for (const slug of ["stmarymarshall", "stphilipbc", "sanfelipe"]) transpile(path.join(ROOT, "parishes", slug, "data.ts"), `data-${slug}.mjs`);
 for (const d of fs.readdirSync(path.join(ROOT, "dioceses"), { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name)) {
@@ -38,6 +38,7 @@ for (const d of fs.readdirSync(path.join(ROOT, "dioceses"), { withFileTypes: tru
 }
 fs.copyFileSync(path.join(ROOT, "dioceses/zips-mi.json"), path.join(tmp, "zips-mi.json"));
 fs.copyFileSync(path.join(ROOT, "parishes/registry.json"), path.join(tmp, "registry.json"));
+fs.copyFileSync(path.join(ROOT, "dioceses/kalamazoo/site/slugs.json"), path.join(tmp, "slugs.json"));
 const S = await import(pathToFileURL(path.join(tmp, "schedule.mjs")).href);
 const G = await import(pathToFileURL(path.join(tmp, "geo.mjs")).href);
 const D = await import(pathToFileURL(path.join(tmp, "diocese.mjs")).href);
@@ -217,6 +218,50 @@ ok("A parish host is not a letter host", P.letterSlugForHost("stphilip.glazedweb
 for (const slug of ["kalamazoo", "lansing"]) ok(`${slug}: the one-page brief exists beside the letter`, fs.existsSync(path.join(ROOT, "public/pitch", slug, "brief.html")), true);
 ok("kalamazoo: the terms page exists beside the letter", fs.existsSync(path.join(ROOT, "public/pitch/kalamazoo/terms.html")), true);
 for (const slug of ["kalamazoo", "lansing"]) ok(`${slug}: the letter links no agreement page that is not live`, /glazedweb\.com\/agreement\/diokzoo/.test(fs.readFileSync(path.join(ROOT, "public/pitch", slug, "index.html"), "utf8")), false);
+
+// The diocese's own website on the platform (lib/dsite.ts): what was read is only what the reader may write.
+{
+  const DS = await import(pathToFileURL(path.join(tmp, "dsite.mjs")).href);
+  const dir = path.join(ROOT, "dioceses/kalamazoo/site");
+  const sitePages = JSON.parse(fs.readFileSync(path.join(dir, "pages.json"), "utf8")).pages;
+  const rawNav = JSON.parse(fs.readFileSync(path.join(dir, "nav.json"), "utf8")).nav;
+  const pointers = JSON.parse(fs.readFileSync(path.join(dir, "pointers.json"), "utf8"));
+  const slugs = JSON.parse(fs.readFileSync(path.join(dir, "slugs.json"), "utf8"));
+  ok("diocese site: at least a hundred pages were read", sitePages.length >= 100, true);
+  let unsafe = null;
+  let remote = null;
+  let badLink = null;
+  for (const p of sitePages)
+    for (const m of p.modules) {
+      if (m.html !== undefined && !unsafe) {
+        const why = DS.safeFragment(m.html);
+        if (why) unsafe = `/${p.slug}: ${why}`;
+      }
+      for (const x of (m.html ?? "").matchAll(/<img src="([^"]+)"/g)) if (!/^(\/dioceses\/|https:\/\/i\.ytimg\.com\/)/.test(x[1]) && !remote) remote = `/${p.slug}: ${x[1]}`;
+      for (const i of m.images ?? []) if (!i.src.startsWith("/dioceses/") && !remote) remote = `/${p.slug}: ${i.src}`;
+      for (const i of [...(m.items ?? []), ...(m.href ? [{ href: m.href }] : [])]) if (!/^(\/|#|https?:\/\/|mailto:|tel:)/i.test(i.href) && !badLink) badLink = `/${p.slug}: ${i.href}`;
+    }
+  ok("diocese site: every stored fragment is only the tags the reader may write", unsafe, null);
+  ok("diocese site: every picture is one the platform holds", remote, null);
+  ok("diocese site: every link is a path, a web address, a mailbox or a phone", badLink, null);
+  ok("diocese site: the reader refuses a script", DS.safeFragment('<p>x</p><script>alert(1)</script>') !== null, true);
+  ok("diocese site: the reader refuses a handler", DS.safeFragment('<p onclick="x()">x</p>') !== null, true);
+  ok("diocese site: the reader refuses a script address", DS.safeFragment('<a href="javascript:alert(1)">x</a>') !== null, true);
+  for (const s of Object.keys(pointers)) ok(`diocese site: /${s} is a pointer and holds no copy`, sitePages.find((p) => p.slug === s)?.modules.length, 0);
+  ok("diocese site: the request edge knows every page", [...slugs].sort().join(), sitePages.map((p) => p.slug).filter(Boolean).sort().join());
+  const nav = DS.pruneNav(DS.cleanNav(rawNav, sitePages, new Set(["test"])), sitePages, pointers);
+  const flat = (nodes) => nodes.flatMap((n) => [n, ...flat(n.children)]);
+  ok("diocese site: the placeholder page is out of the menu", flat(nav).some((n) => n.href === "/test"), false);
+  ok("diocese site: no menu label is a bare address", flat(nav).filter((n) => n.href?.startsWith("/") && !/\s/.test(n.label) && n.label === n.label.toLowerCase() && n.label.length > 3).map((n) => n.label).join(), "");
+  ok("diocese site: the report page is in the menu", flat(nav).some((n) => n.href === "/making-a-report"), true);
+  ok("diocese site: a page's path runs from its section down", DS.trail({ nav }, "business-office").map((n) => n.label).join(" > "), "Ministries > General > Business Office");
+  ok("diocese site: its host is the site's", P.dioceseSiteSlug("diokzoo.glazedweb.com"), "kalamazoo");
+  ok("diocese site: its host is also a diocese host", P.isDioceseHost("diokzoo.glazedweb.com"), true);
+  ok("diocese site: the finder host is not the site", P.dioceseSiteSlug("finder.kalamazoo.glazedweb.com"), null);
+  ok("diocese site: a page it has", P.knowsSitePath("kalamazoo", "bishop-lohse"), true);
+  ok("diocese site: a page it never had", P.knowsSitePath("kalamazoo", "no-such-page"), false);
+  ok("diocese site: Lansing has none yet", P.dioceseSiteSlug("lansing.glazedweb.com"), null);
+}
 
 // Kevin's rulings of 2026-11-05 on what a diocese reads: no scheduler button, no failure talk, no per-site price comparison, no cap on parishes built free.
 for (const slug of ["kalamazoo", "lansing"]) {

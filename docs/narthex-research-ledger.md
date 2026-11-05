@@ -16,6 +16,7 @@ built**, **dropped** (with why), **Kevin's** (his fact or his step).
 
 | Date | Ruling | Where it lives |
 |---|---|---|
+| 2026-11-05 | Rebuild the diocese's own website too ("it is so bad"), and offer the finder either way: on the site it has, or on the site we built with it inside. | diokzoo.glazedweb.com (142 pages); the Kalamazoo letter's offer, section two and cost table; the agreement's scope. Included in the license; that inclusion is an assumption for Kevin to confirm. |
 | 2026-11-05 | Parishes built free are not capped at three: "name as many as you want and we build them all." | Both letters (offer, last section), both briefs. |
 | 2026-11-05 | No failure talk anywhere a diocese reads ("we have enough to overcome with being new"). The continuity promise is stated as what the diocese holds: a quarterly copy and a license. | Letters, briefs; the agreement item is titled "Continuity". |
 | 2026-11-05 | The social layer between parishes (gatherings and groups across parishes) is said plainly, ahead of the finder. | "Between parishes: a shared life" in the offer box, the lead of section one, the briefs. |
@@ -127,6 +128,17 @@ and `lansing-audit-2026-11.md` (72 sites, seven platforms).
 | The bishop's voice | Built; in both letters. |
 | An introduction to the communications director | **Kevin's.** This is how the letter reaches the diocese, which is why its buttons are emails and not a scheduler. |
 | The diocese pays for St. Mary's eCatholic site | Known. Who holds the agreement and when it ends is the first question for the call. |
+
+## 7. The diocese's own site (read 2026-11-05)
+
+| Finding | Decision | Status |
+|---|---|---|
+| diokzoo.org is on the same template as the parishes; its menu links 142 pages, with entries named "test" and "popeleoxiv", a home button pointing at a broken address, and other publishers' news feeds on the home page | Rebuild it on the platform as a demonstration | Built and live at diokzoo.glazedweb.com. |
+| The site's host declines its sitemap to an automated browser | Do not go around a bot check. Read what the menu links to. | The news archive (344 posts), the staff pages and unlinked pages are **not read**. They need the diocese's yes. |
+| The list of those disqualified from ministry | Never copied; one place only | A pointer page sends the reader to the diocese's own page. |
+| 26 forms on 142 pages | Link back until rebuilt with the offices | Each shows where the form lives today. |
+| Other publishers' feeds (Vatican news, readings, a magazine's posts) | Left out | The home page carries the finder, the parishes' week and the bishop instead. |
+| The communications director is Vicki Cessna, Executive Director, Secretariat of Communications and Public Affairs (the diocese's own staff page) | Use that spelling | Earlier notes had it wrong. |
 
 ## What a letter promises that the platform cannot yet do
 

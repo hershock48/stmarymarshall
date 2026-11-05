@@ -6,6 +6,7 @@
       "slug": "kalamazoo",
       "pitchHost": "kalamazoo.glazedweb.com",
       "host": "finder.kalamazoo.glazedweb.com",
+      "demoSiteHost": "diokzoo.glazedweb.com",
       "siteHosts": [
         "diokzoo.org",
         "www.diokzoo.org"
@@ -15,6 +16,7 @@
       "slug": "lansing",
       "pitchHost": "lansing.glazedweb.com",
       "host": "finder.lansing.glazedweb.com",
+      "demoSiteHost": "",
       "siteHosts": [
         "dioceseoflansing.org",
         "www.dioceseoflansing.org"

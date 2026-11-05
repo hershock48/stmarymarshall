@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { isDioceseHost, knowsPath, letterHost, letterSlugForHost, parishForHost } from "@/lib/paths";
+import { dioceseSiteSlug, isDioceseHost, knowsPath, knowsSitePath, letterHost, letterSlugForHost, parishForHost } from "@/lib/paths";
 
 /**
  * Two kinds of request are steered to a path nothing matches, so the
@@ -40,6 +40,25 @@ export function proxy(req: NextRequest) {
     url.pathname = `/pitch/${letterSlug}/${companion[1]}.html`;
     return NextResponse.rewrite(url);
   }
+  // 2c. A diocese's own website on the platform. Its pages live under
+  //     /ds in the app (app/ds), out of the way of every parish's paths,
+  //     and are served at the root of the site's host: / is the diocese's
+  //     home, /about its About page. The diocese pages under /diocese are
+  //     served as they are. Nobody else's host may reach /ds.
+  const siteSlug = dioceseSiteSlug(host);
+  if (/^\/ds(\/|$)/.test(pathname)) return gone(req);
+  if (siteSlug) {
+    const h = new Headers(req.headers);
+    h.delete("x-path");
+    h.set("x-path", pathname);
+    if (/^\/(diocese(\/|$)|robots\.txt$|sitemap\.xml$|manifest\.webmanifest$|__404\/)/.test(pathname)) return NextResponse.next({ request: { headers: h } });
+    // An address the diocese never had is nobody's page (see 1. above for why this is decided here).
+    const seg = /^\/([^/.]+)\/?$/.exec(pathname);
+    if (pathname !== "/" && !(seg && knowsSitePath(siteSlug, seg[1]))) return gone(req);
+    const url = req.nextUrl.clone();
+    url.pathname = pathname === "/" ? "/ds" : `/ds/${seg![1]}`;
+    return NextResponse.rewrite(url, { request: { headers: h } });
+  }
   // 3. The diocese host answers the finder at / and the diocese pages only;
   //    a parish path asked for there is nobody's page. The rewrite of / is
   //    done here rather than in next.config so DIOCESE_DEFAULT (lib/paths.ts)
@@ -73,5 +92,5 @@ function gone(req: NextRequest) {
 
 export const config = {
   // Skip the paths Next and the public folder serve on their own.
-  matcher: ["/((?!_next/|api/|parishes/|favicon\\.ico).*)"],
+  matcher: ["/((?!_next/|api/|parishes/|dioceses/|favicon\\.ico).*)"],
 };

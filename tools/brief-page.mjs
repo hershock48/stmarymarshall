@@ -51,11 +51,11 @@ const BRIEFS = [
     holds: "The diocese also holds the platform itself: a sealed copy, source included, delivered every quarter, with a written license to run it for its own parishes.",
     theirs: "eCatholic&rsquo;s terms say it &ldquo;will not provide you with any form of export of your Website.&rdquo;",
     steps: [
-      ["This month, free, nothing signed", "A finder of the diocese&rsquo;s own, the bishop&rsquo;s voice and the weekly digest. Ninety days; nothing renews on its own.", "Point the Parish Finder page on diokzoo.org at it."],
+      ["This month, free, nothing signed", "A finder of the diocese&rsquo;s own, the bishop&rsquo;s voice and the weekly digest, on the diocese&rsquo;s site as it is or as we rebuilt it. Ninety days; nothing renews on its own.", "Point the Parish Finder page on diokzoo.org at it."],
       ["Any parish you name, built free", "St. Mary Marshall, St. Philip Battle Creek and San Felipe de Jesús run on it now.", "Name as many as you like and we build them all."],
       ["Then one license", "Every parish included, moving at its own pace. Each old subscription ends after its site is live.", ""],
     ],
-    see: ["kalamazoo.glazedweb.com", "finder.kalamazoo.glazedweb.com", "kalamazoo.glazedweb.com/terms"],
+    see: ["kalamazoo.glazedweb.com", "finder.kalamazoo.glazedweb.com", "diokzoo.glazedweb.com (the diocese&rsquo;s site, rebuilt)"],
   },
   {
     slug: "lansing",

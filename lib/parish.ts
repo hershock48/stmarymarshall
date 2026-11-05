@@ -1,6 +1,6 @@
 import "server-only";
 import { headers } from "next/headers";
-import { ALL, dioceseSlugForHost, isDioceseHost, parishBySlug as bySlug, parishForHost } from "@/lib/paths";
+import { ALL, dioceseSiteSlug, dioceseSlugForHost, isDioceseHost, parishBySlug as bySlug, parishForHost } from "@/lib/paths";
 import type { Diocese, Parish } from "@/lib/types";
 import { DIOCESES, dioceseBySlug } from "@/dioceses";
 
@@ -44,6 +44,11 @@ export async function isNoindexHost(): Promise<boolean> {
 /** True on a diocese layer's own host (lib/paths.ts), where the pages wear the diocese's chrome, not a parish's. */
 export async function onDioceseHost(): Promise<boolean> {
   return isDioceseHost((await headers()).get("host"));
+}
+
+/** True on a diocese's own website (lib/paths.ts dioceseSiteSlug): the whole site, not only the diocese layer. */
+export async function onDioceseSiteHost(): Promise<boolean> {
+  return dioceseSiteSlug((await headers()).get("host")) !== null;
 }
 
 /** The diocese a request is for: the host's own diocese, or the host's parish's diocese. */

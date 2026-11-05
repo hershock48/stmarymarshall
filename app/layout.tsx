@@ -8,7 +8,9 @@ import Footer from "@/components/Footer";
 import HolyDayNotice from "@/components/HolyDayNotice";
 import { strings } from "@/lib/i18n";
 import { DioceseFooter, DioceseHeader } from "@/components/DioceseChrome";
-import { getDiocese, getParish, isNoindexHost, onDioceseHost } from "@/lib/parish";
+import { DsDemoBar, DsFooter, DsHeader } from "@/components/DsChrome";
+import { getDiocese, getParish, isNoindexHost, onDioceseHost, onDioceseSiteHost } from "@/lib/parish";
+import { siteBySlug } from "@/dioceses/sites";
 import { dioceseName } from "@/dioceses";
 import { navFor } from "@/lib/nav";
 import { pageMetadata } from "@/lib/meta";
@@ -50,6 +52,28 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   const path = h.get("x-path");
   if (path && path.startsWith("/") && path.length <= 200) after(() => bump(h.get("host") ?? "", "view", path));
   const nameRest = p.name.startsWith(p.shortName) ? p.name.slice(p.shortName.length).trim() : "";
+  // On a diocese's own website (lib/dsite.ts) every page, the diocese pages
+  // included, wears the site's header and footer, under a line that says
+  // the site is a demonstration until the diocese's own domain points here.
+  if (await onDioceseSiteHost()) {
+    const d = await getDiocese();
+    const site = siteBySlug(d.slug);
+    if (site) {
+      return (
+        <html lang={p.lang} className={`${display.variable} ${body.variable}`} style={themeStyle(p)}>
+          <body>
+            <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-sm focus:bg-gold focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-navy">
+              {s.header.skip}
+            </a>
+            <DsDemoBar site={site} diocese={d} />
+            <DsHeader lang={p.lang} diocese={d} site={site} />
+            <main id="main">{children}</main>
+            <DsFooter lang={p.lang} diocese={d} site={site} />
+          </body>
+        </html>
+      );
+    }
+  }
   // On the diocese layer's own host the pages wear the diocese's chrome and
   // carry no parish: no parish header, footer or Church record.
   if (await onDioceseHost()) {

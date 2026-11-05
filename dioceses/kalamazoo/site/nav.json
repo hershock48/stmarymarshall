@@ -1,0 +1,806 @@
+{
+ "readAt": "2026-11-05T19:35:15.514Z",
+ "source": "https://diokzoo.org",
+ "nav": [
+  {
+   "label": "Home",
+   "href": "/",
+   "children": []
+  },
+  {
+   "label": "About",
+   "href": "/about",
+   "children": [
+    {
+     "label": "Bishop Lohse",
+     "href": "/bishop-lohse",
+     "children": [
+      {
+       "label": "Decrees",
+       "href": "/decrees",
+       "children": []
+      },
+      {
+       "label": "pastoral letter-migrants",
+       "href": "/pastoral-letter-migrants",
+       "children": []
+      },
+      {
+       "label": "conclave2025",
+       "href": "/conclave2025",
+       "children": []
+      },
+      {
+       "label": "popeleoxiv",
+       "href": "/popeleoxiv",
+       "children": []
+      },
+      {
+       "label": "pastoral-statement-immigration",
+       "href": "/pastoral-statement-immigration",
+       "children": []
+      }
+     ]
+    },
+    {
+     "label": "Bishop Emeritus Bradley",
+     "href": "/bishop-bradley",
+     "children": [
+      {
+       "label": "Pastoral Letters",
+       "href": "/pastoral-letters",
+       "children": []
+      },
+      {
+       "label": "Coat of Arms",
+       "href": "/coat-of-arms",
+       "children": []
+      }
+     ]
+    },
+    {
+     "label": "Bishop's Annual Appeal",
+     "href": "/bishops-annual-appeal",
+     "children": [
+      {
+       "label": "FAQ",
+       "href": "/faq",
+       "children": []
+      }
+     ]
+    },
+    {
+     "label": "Diocesan Directory",
+     "href": "/diocesan-directory",
+     "children": []
+    },
+    {
+     "label": "Catholic Charities",
+     "href": "https://ccdok.org/",
+     "children": []
+    },
+    {
+     "label": "Diocese of Lodwar",
+     "href": "http://www.dioceseoflodwar.org/",
+     "children": []
+    },
+    {
+     "label": "KDCCW",
+     "href": "/kdccw",
+     "children": []
+    }
+   ]
+  },
+  {
+   "label": "Ministries",
+   "href": "/ministries",
+   "children": [
+    {
+     "label": "General",
+     "href": null,
+     "children": [
+      {
+       "label": "Business Office",
+       "href": "/business-office",
+       "children": []
+      },
+      {
+       "label": "Catholic Foundation of Southwestern Michigan",
+       "href": "https://cfswm.org/",
+       "children": []
+      },
+      {
+       "label": "Diocesan Pontifical Mission Office",
+       "href": "/diocesan-pontificalmissions",
+       "children": [
+        {
+         "label": "World Mission Sunday",
+         "href": "/world-mission-sunday",
+         "children": []
+        },
+        {
+         "label": "Missionary Cooperation Plan",
+         "href": "/missionary-cooperation-plan",
+         "children": []
+        },
+        {
+         "label": "Pontifical Missions FAQ",
+         "href": "/pontifical-missions-faq",
+         "children": []
+        },
+        {
+         "label": "Diocesan Mission Cooperation",
+         "href": "/diocesan-mission-cooperation",
+         "children": []
+        }
+       ]
+      },
+      {
+       "label": "Human Resources",
+       "href": "/human-resources-1",
+       "children": [
+        {
+         "label": "Job Postings",
+         "href": "/employment",
+         "children": []
+        },
+        {
+         "label": "volunteer",
+         "href": "/volunteer",
+         "children": []
+        }
+       ]
+      },
+      {
+       "label": "Permanent Diaconate",
+       "href": "/permanent-diaconate",
+       "children": [
+        {
+         "label": "deaconformation",
+         "href": "/deaconformation",
+         "children": []
+        }
+       ]
+      },
+      {
+       "label": "Mt. Olivet Catholic Cemetery",
+       "href": "https://www.mtolivetkzoo.com/",
+       "children": []
+      },
+      {
+       "label": "The Tribunal",
+       "href": "/tribunal",
+       "children": []
+      },
+      {
+       "label": "Worship & Liturgy",
+       "href": "/worship-liturgy",
+       "children": [
+        {
+         "label": "Liturgical Guidelines during Flu Season",
+         "href": "/liturgical-guidelines-during-flu-season",
+         "children": []
+        },
+        {
+         "label": "Rite of Election",
+         "href": "/rite-of-election",
+         "children": []
+        },
+        {
+         "label": "Rite of Election Form",
+         "href": "/riteofelectionform",
+         "children": []
+        },
+        {
+         "label": "Extraordinary Ministers of Holy Communion",
+         "href": "/extraordinary-ministers-of-holy-communion",
+         "children": []
+        },
+        {
+         "label": "Low Gluten Hosts",
+         "href": "/low-gluten-hosts",
+         "children": []
+        },
+        {
+         "label": "Parish Solemnities",
+         "href": "/parish-solemnities",
+         "children": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Catholic Education",
+     "href": null,
+     "children": [
+      {
+       "label": "Catholic Schools",
+       "href": "https://catholicschools.diokzoo.org/",
+       "children": []
+      },
+      {
+       "label": "Catholic Homeschool",
+       "href": "/catholic-home-school-resources",
+       "children": []
+      }
+     ]
+    },
+    {
+     "label": "Communications & Public Affairs",
+     "href": null,
+     "children": [
+      {
+       "label": "Southwest Michigan Catholic",
+       "href": "/southwest-michigan-catholic",
+       "children": []
+      },
+      {
+       "label": "Diocesan Directory",
+       "href": "/diocesan-directory",
+       "children": []
+      },
+      {
+       "label": "Diocesan Insider",
+       "href": "/diocesan-insider-1",
+       "children": []
+      },
+      {
+       "label": "The Good News",
+       "href": "/the-good-news",
+       "children": [
+        {
+         "label": "StFrancis",
+         "href": "/stfrancis",
+         "children": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Office of Mission and Ministry",
+     "href": null,
+     "children": [
+      {
+       "label": "Our Catholic Faith",
+       "href": "/becomingcatholic",
+       "children": [
+        {
+         "label": "prayerguide",
+         "href": "/prayerguide",
+         "children": []
+        },
+        {
+         "label": "Formation Resources",
+         "href": "/formation-resources-1",
+         "children": []
+        }
+       ]
+      },
+      {
+       "label": "Marriage and Family",
+       "href": "/domesticchurch",
+       "children": [
+        {
+         "label": "Iglesia Doméstica",
+         "href": "/iglesiadomestica",
+         "children": []
+        },
+        {
+         "label": "Managing Finances",
+         "href": "/managing-finances",
+         "children": []
+        },
+        {
+         "label": "Marriage Preparation",
+         "href": "/marriage-preparation",
+         "children": []
+        },
+        {
+         "label": "Student Contest",
+         "href": "/student-art-contest",
+         "children": []
+        },
+        {
+         "label": "Marriage Enrichment",
+         "href": "/marriage-enrichment",
+         "children": [
+          {
+           "label": "Eucharistic Marriage",
+           "href": "/eucharisticmarriage",
+           "children": []
+          }
+         ]
+        },
+        {
+         "label": "Natural Family Planning",
+         "href": "/natural-family-planning",
+         "children": []
+        },
+        {
+         "label": "Catholic Divorce Ministry",
+         "href": "/catholic-divorce-ministry",
+         "children": []
+        },
+        {
+         "label": "Grandparents and the Elderly",
+         "href": "/grandparents-and-the-elderly",
+         "children": []
+        },
+        {
+         "label": "Wedding Anniversary Celebration",
+         "href": "/50th-anniversary",
+         "children": [
+          {
+           "label": "RSVP",
+           "href": "/rsvp",
+           "children": []
+          }
+         ]
+        },
+        {
+         "label": "Widowed Ministry",
+         "href": "/widowedministry",
+         "children": []
+        },
+        {
+         "label": "Pro Life / Pro Vida",
+         "href": "/pro-life-pro-vida",
+         "children": []
+        }
+       ]
+      },
+      {
+       "label": "Outreach and Ministry",
+       "href": "/outreach-1",
+       "children": []
+      },
+      {
+       "label": "Parish Support",
+       "href": "/parishsupport",
+       "children": [
+        {
+         "label": "Guidelines & Standards",
+         "href": "/standards",
+         "children": []
+        },
+        {
+         "label": "Forms",
+         "href": "/forms-1",
+         "children": [
+          {
+           "label": "Liturgical Confirmation Form",
+           "href": "/liturgical-confirmation-form",
+           "children": []
+          }
+         ]
+        },
+        {
+         "label": "Ordination Facts",
+         "href": "/ordinationfacts",
+         "children": []
+        },
+        {
+         "label": "Meetings",
+         "href": "/meetings-1",
+         "children": []
+        },
+        {
+         "label": "National Eucharistic Revival",
+         "href": "/revival",
+         "children": []
+        },
+        {
+         "label": "Events",
+         "href": "/events-1",
+         "children": [
+          {
+           "label": "List of events",
+           "href": "/listofevents",
+           "children": []
+          },
+          {
+           "label": "Meetings",
+           "href": "/meetings",
+           "children": []
+          },
+          {
+           "label": "Policy & Med Inservice",
+           "href": "/policy",
+           "children": []
+          },
+          {
+           "label": "Guidelines for sacrament",
+           "href": "/sacramentguidelines",
+           "children": []
+          },
+          {
+           "label": "Policy & Med Inservice",
+           "href": "/inservice",
+           "children": []
+          }
+         ]
+        },
+        {
+         "label": "DRE",
+         "href": "/dre",
+         "children": []
+        }
+       ]
+      },
+      {
+       "label": "Ministerio Multicultural e Hispano",
+       "href": "/espaol",
+       "children": [
+        {
+         "label": "PAREJAS 2021",
+         "href": "/parejas2021",
+         "children": []
+        },
+        {
+         "label": "Congreso Diocesano Eucarístico",
+         "href": "/congreso",
+         "children": []
+        },
+        {
+         "label": "Encuentro Pre Matrimonial",
+         "href": "/prematrimonial",
+         "children": []
+        },
+        {
+         "label": "Ministerio Migrante",
+         "href": "/ministerio-migrante",
+         "children": []
+        },
+        {
+         "label": "Centro Aleman",
+         "href": "/centro-aleman",
+         "children": []
+        },
+        {
+         "label": "Retiros de Quinceañera",
+         "href": "/retiros-de-quinceaera",
+         "children": []
+        },
+        {
+         "label": "Parroquias con Misas en español",
+         "href": "/parroquias-con-misas-en-espaol",
+         "children": []
+        },
+        {
+         "label": "Programa de Formación Pastoral y de Liderazgo",
+         "href": "/programa-de-formacin-pastoral-y-de-liderazgo",
+         "children": []
+        },
+        {
+         "label": "V Encuentro",
+         "href": "/otros-talleres",
+         "children": []
+        },
+        {
+         "label": "Eventos",
+         "href": "/eventos",
+         "children": []
+        },
+        {
+         "label": "Enlaces",
+         "href": "/enlaces",
+         "children": []
+        },
+        {
+         "label": "Retiro de Jovenes Adultos",
+         "href": "/retiro-de-jovenes-adultos",
+         "children": []
+        },
+        {
+         "label": "Retiro de Jóvenes Adultos",
+         "href": "/retiro-de-jovenes-adultos-1",
+         "children": []
+        },
+        {
+         "label": "Retiro de Jóvenes Adultos",
+         "href": "/retiro-de-jovenes-adultos-2",
+         "children": []
+        }
+       ]
+      },
+      {
+       "label": "Ministry to Persons with Disabilities",
+       "href": "/personswithdisabilities",
+       "children": [
+        {
+         "label": "creativeconnections",
+         "href": "/creativeconnections",
+         "children": []
+        },
+        {
+         "label": "Caregivers Connection",
+         "href": "/caregivers",
+         "children": []
+        }
+       ]
+      },
+      {
+       "label": "Sanctity of the Human Person",
+       "href": "/sanctity-of-the-human-person",
+       "children": [
+        {
+         "label": "Respect Life",
+         "href": "/respect-life",
+         "children": [
+          {
+           "label": "Prayer for Life",
+           "href": "/prayerforlife",
+           "children": []
+          }
+         ]
+        },
+        {
+         "label": "Project Rachel",
+         "href": "/project-rachel",
+         "children": []
+        },
+        {
+         "label": "Prayers for Peace",
+         "href": "/prayersforpeace",
+         "children": []
+        },
+        {
+         "label": "Religious Freedom Week",
+         "href": "/religiousfreedomweek",
+         "children": []
+        },
+        {
+         "label": "Petition Drive",
+         "href": "/petition-drive",
+         "children": []
+        },
+        {
+         "label": "racism",
+         "href": "/racism",
+         "children": []
+        }
+       ]
+      },
+      {
+       "label": "Young Adult & Adult Ministry",
+       "href": "/youngadultadultministry",
+       "children": [
+        {
+         "label": "Diocesan Annual Retreat",
+         "href": "/lentenretreat",
+         "children": []
+        },
+        {
+         "label": "Adult Ministry",
+         "href": "/adult-ministry",
+         "children": []
+        },
+        {
+         "label": "Young Adult",
+         "href": "/yam",
+         "children": [
+          {
+           "label": "Young Adult Retreat",
+           "href": "/young-adult-retreat",
+           "children": []
+          },
+          {
+           "label": "Gaudium Christi",
+           "href": "/gaudium-christi",
+           "children": []
+          },
+          {
+           "label": "Exodus 90",
+           "href": "/exodus90",
+           "children": []
+          },
+          {
+           "label": "marianconsecration",
+           "href": "/totustuus",
+           "children": []
+          }
+         ]
+        },
+        {
+         "label": "Energizer",
+         "href": "/energizer",
+         "children": []
+        },
+        {
+         "label": "Retreats",
+         "href": "/retreats",
+         "children": []
+        },
+        {
+         "label": "Lenten Retreat",
+         "href": "/lenten-retreat",
+         "children": [
+          {
+           "label": "First Sunday of Lent",
+           "href": "/first-sunday-of-lent",
+           "children": []
+          },
+          {
+           "label": "Second Sunday of Lent",
+           "href": "/second-sunday-of-lent",
+           "children": []
+          },
+          {
+           "label": "Third Sunday of Lent",
+           "href": "/third-sunday-of-lent",
+           "children": []
+          },
+          {
+           "label": "Fourth Sunday of Lent",
+           "href": "/fourth-sunday-of-lent",
+           "children": []
+          },
+          {
+           "label": "Fifth Sunday of Lent",
+           "href": "/fifth-sunday-of-lent",
+           "children": []
+          },
+          {
+           "label": "Holy Week",
+           "href": "/holy-week",
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "label": "Forming Disciples",
+       "href": "/religiouseducation",
+       "children": [
+        {
+         "label": "We Are Called",
+         "href": "/we-are-called",
+         "children": []
+        },
+        {
+         "label": "Adults Growing in Discipleship",
+         "href": "/adults-growing-in-discipleship",
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Give",
+   "href": "/give",
+   "children": []
+  },
+  {
+   "label": "Vocations",
+   "href": "/vocations",
+   "children": [
+    {
+     "label": "Upcoming Events",
+     "href": "/upcoming-events",
+     "children": []
+    },
+    {
+     "label": "Meet our Seminarians",
+     "href": "/meet-our-seminarians",
+     "children": []
+    },
+    {
+     "label": "Meet the Vocations Team",
+     "href": "/discernment",
+     "children": []
+    },
+    {
+     "label": "Quo Vadis Camp",
+     "href": "/quo-vadis-camp",
+     "children": []
+    },
+    {
+     "label": "Resources for Women",
+     "href": "/resources-for-women",
+     "children": []
+    },
+    {
+     "label": "Recent Ordinations",
+     "href": "/recent-ordinations",
+     "children": []
+    }
+   ]
+  },
+  {
+   "label": "Child & Youth Protection",
+   "href": "/protect",
+   "children": [
+    {
+     "label": "List",
+     "href": "/list",
+     "children": [
+      {
+       "label": "Lista",
+       "href": "/lista",
+       "children": []
+      }
+     ]
+    },
+    {
+     "label": "FAQ",
+     "href": "/protect-faq",
+     "children": []
+    },
+    {
+     "label": "Making a Report",
+     "href": "/making-a-report",
+     "children": []
+    },
+    {
+     "label": "Victim Assistance",
+     "href": "/trauma-recovery-1",
+     "children": []
+    },
+    {
+     "label": "Policies & Resources",
+     "href": "/protect-resources",
+     "children": []
+    },
+    {
+     "label": "Diocesan-Clearance-Form",
+     "href": "/diocesan-clearance-form",
+     "children": []
+    }
+   ]
+  },
+  {
+   "label": "News",
+   "href": "/news-1",
+   "children": [
+    {
+     "label": "Southwest Michigan Catholic Magazine",
+     "href": "/southwest-michigan-catholic",
+     "children": [
+      {
+       "label": "Catholic News and Media Resources",
+       "href": "/catholic-news-and-media-resources",
+       "children": []
+      },
+      {
+       "label": "test",
+       "href": "/test",
+       "children": []
+      }
+     ]
+    },
+    {
+     "label": "News Releases & Statements",
+     "href": "/news-releases-statements",
+     "children": []
+    },
+    {
+     "label": "Live Stream Mass and Events",
+     "href": "/live",
+     "children": [
+      {
+       "label": "Live Stream Archives",
+       "href": "/live-stream-archives",
+       "children": []
+      }
+     ]
+    },
+    {
+     "label": "Catholic Media and News outlets",
+     "href": "/church-news",
+     "children": []
+    },
+    {
+     "label": "National Eucharistic Congress",
+     "href": "/national-eucharistic-congress",
+     "children": []
+    }
+   ]
+  }
+ ]
+}

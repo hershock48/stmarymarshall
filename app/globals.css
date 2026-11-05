@@ -275,3 +275,96 @@ details.fold[open] > summary .chev {
   --gw-plate: #FDF6EC;
   --gw-plate-ink: #2B1E16;
 }
+
+/*
+ * A diocese's own pages (components/DsModules.tsx): rich text rebuilt by
+ * the reader from the diocese's site, so it arrives as plain tags with no
+ * classes, and is dressed here.
+ */
+.ds-prose {
+  color: var(--color-ink);
+  font-size: 17px;
+  line-height: 1.65;
+  overflow-wrap: break-word;
+}
+.ds-prose > * + * {
+  margin-top: 1rem;
+}
+.ds-prose h2,
+.ds-prose h3,
+.ds-prose h4 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  line-height: 1.2;
+  margin-top: 2rem;
+}
+.ds-prose h2 {
+  font-size: 1.75rem;
+}
+.ds-prose h3 {
+  font-size: 1.45rem;
+}
+.ds-prose h4 {
+  font-size: 1.2rem;
+}
+.ds-prose a {
+  color: var(--color-marian);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-marian) 40%, transparent);
+  text-underline-offset: 4px;
+}
+.ds-prose a:hover {
+  text-decoration-color: var(--color-marian);
+}
+.ds-prose ul,
+.ds-prose ol {
+  padding-left: 1.4rem;
+}
+.ds-prose ul {
+  list-style: disc;
+}
+.ds-prose ol {
+  list-style: decimal;
+}
+.ds-prose li + li {
+  margin-top: 0.35rem;
+}
+.ds-prose li > p + p {
+  margin-top: 0.5rem;
+}
+.ds-prose blockquote {
+  border-left: 3px solid var(--color-gold);
+  padding-left: 1rem;
+  color: var(--color-ink-soft);
+}
+.ds-prose hr {
+  border: 0;
+  border-top: 1px solid var(--color-paper-dim);
+  margin: 2rem 0;
+}
+.ds-prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+.ds-prose table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.ds-prose th,
+.ds-prose td {
+  border: 1px solid var(--color-paper-dim);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+.ds-prose .video img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  width: 100%;
+  max-width: 480px;
+}

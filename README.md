@@ -209,6 +209,48 @@ words are whatever its data says.
 - **Today's readings** is a computed USCCB link, Spanish first on a Spanish
   parish.
 
+## A diocese's own website
+
+A diocese's own site can be served from the platform with the diocese
+layer built in (`lib/dsite.ts`). Kalamazoo's is the first, a
+demonstration at diokzoo.glazedweb.com, hidden from search and marked as a
+demonstration on every page.
+
+- **The data** is `dioceses/<slug>/site/`: `pages.json` (each page as the
+  modules the diocese stacked: text, people, documents, links, buttons,
+  pictures, videos, forms), `nav.json` (the diocese's menu as it has it),
+  `slugs.json` (the addresses, for the request edge), `pointers.json`
+  (pages that are never copied) and `media.json`. `index.ts` adds the
+  little a read cannot give: the header's few links, the home page's
+  tasks, the Pastoral Center's address.
+- **The read** is `node tools/diocese-site-import.mjs kalamazoo
+  https://diokzoo.org`, then `node tools/diocese-site-media.mjs kalamazoo`
+  to bring the pictures home (resized, under
+  `public/dioceses/<slug>/media/`). Rich text is rebuilt tag by tag
+  against a short allowed list; the tests run `safeFragment` over every
+  stored fragment.
+- **What was read, and what was not.** The read of 2026-11-05 is the 142
+  pages the diocese's menu links to. The site's host did not give its
+  sitemap to an automated browser, and the reader does not try another way
+  around that: it reads the menu's pages and says so. So the news archive
+  (344 posts), the staff pages and the pages no menu links to are not on
+  the platform. They need the sitemap, or the diocese's own export, which
+  means the diocese's yes.
+- **Never copied:** a page named in `pointers.json` (Kalamazoo: the list
+  of those disqualified from ministry, in English and Spanish) is read for
+  its title only and points to the diocese's own page. Documents (PDFs)
+  still link to the diocese's file host. The diocese's forms link back to
+  its current site.
+- **Routing.** The pages live under `app/ds` and are served at the root of
+  the site's host (`proxy.ts`): `/` is the home page, `/<slug>` a page,
+  `/directory` the staff directory built from the office pages. The
+  diocese pages under `/diocese` are served as they are, in the site's
+  header and footer. No other host can reach `/ds`. The JSON is read from
+  disk at start, so `next.config.ts` sends it along with every route
+  (`outputFileTracingIncludes`).
+- **Locally:** `DIOCESE_SITE_DEFAULT=kalamazoo npm start` answers as the
+  site on 127.0.0.1; `node tools/out/render-dsite.mjs` checks every page.
+
 ## Before touching a letter
 
 Read `docs/narthex-research-ledger.md`. It lists Kevin's rulings on what a

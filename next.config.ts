@@ -28,13 +28,15 @@ const onHost = (host: string) => [{ type: "host" as const, value: host.replace(/
 // layer's own host (lib/paths.ts; proxy.ts serves the finder at its /). Both
 // are noindex, and the finder may be framed by that diocese's own site.
 const dioceses = registry.dioceses.map((d) => ({ ...d, letter: fs.existsSync(path.join(process.cwd(), "public/pitch", d.slug, "index.html")) }));
-const pitchHosts = [...pitch.map((p) => p.host), ...dioceses.flatMap((d) => [d.pitchHost, d.host].filter(Boolean) as string[])];
+const pitchHosts = [...pitch.map((p) => p.host), ...dioceses.flatMap((d) => [d.pitchHost, d.host, d.demoSiteHost].filter(Boolean) as string[])];
 
 const nextConfig: NextConfig = {
   // YouTube thumbnails for the bishop's messages are the one remote image source.
   images: { formats: ["image/avif", "image/webp"], remotePatterns: [{ protocol: "https", hostname: "i.ytimg.com" }] },
   // The dev server otherwise writes an AGENTS.md into the repo root.
   agentRules: false,
+  // A diocese's own site (dioceses/<slug>/site/*.json) is read from disk when the server starts, not imported, so the files have to travel with every route.
+  outputFileTracingIncludes: { "/*": ["./dioceses/*/site/*.json"], "/ds/**": ["./dioceses/*/site/*.json"], "/diocese/**": ["./dioceses/*/site/*.json"] },
   async rewrites() {
     return {
       beforeFiles: [

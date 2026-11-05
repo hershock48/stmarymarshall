@@ -103,6 +103,23 @@ Ruled by Kevin the same day: the chancery view is inside the license. Both
 letters, the agreement row and the terms page say so; it is no longer
 listed as not included.
 
+## The diocese's own site (2026-11-05)
+
+Kevin asked whether the diocese's own website had been rebuilt, and said
+perhaps it should be. It is: diokzoo.glazedweb.com serves the 142 pages
+diokzoo.org's menu links to, read into platform data
+(`dioceses/kalamazoo/site/`, `lib/dsite.ts`, README "A diocese's own
+website"), with the finder first on the home page, this week across the
+parishes and the bishop's voice under it, and a staff directory built
+from the office pages. The offer's first step now reads either way: the
+finder on the site the diocese has, or the site we rebuilt with it
+inside. Not read, because the site's host declines its sitemap to an
+automated browser and we do not go around that: the news archive, the
+staff pages, unlinked pages. Not copied on purpose: the list of those
+disqualified from ministry. Next for this site, with the diocese's yes:
+the news archive, the forms rebuilt with their offices, the documents
+brought home.
+
 ## Principles
 
 - **Typed once.** A fact lives in one data file; every page, feed and finder
@@ -314,6 +331,9 @@ on 2026-11-04.
       for), and a way to be reached on weekends for a wrong Mass time, which
       the agreement promises is fixed the same day, seven days a week. Both
       numbers are Kevin's to change before anything is signed.
+- [ ] Confirm that the diocese's own site is inside the license. The letter
+      and the agreement say it is, "if the diocese wants it"; that was an
+      assumption made to keep building.
 - [ ] For the vendor packet and the one-page brief, facts only Kevin has: a
       phone number to print, a named second person who answers when Kevin
       cannot, and (once the entity and its insurance exist) the W-9 and the
