@@ -16,7 +16,7 @@ built**, **dropped** (with why), **Kevin's** (his fact or his step).
 
 | Date | Ruling | Where it lives |
 |---|---|---|
-| 2026-11-05 | Rebuild the diocese's own website too ("it is so bad"), and offer the finder either way: on the site it has, or on the site we built with it inside. | diokzoo.glazedweb.com (142 pages); the Kalamazoo letter's offer, section two and cost table; the agreement's scope. Included in the license; that inclusion is an assumption for Kevin to confirm. |
+| 2026-11-05 | Rebuild the diocese's own website too ("it is so bad"), and offer the finder either way: on the site it has, or on the site we built with it inside. | diokzoo.glazedweb.com (142 pages); the Kalamazoo letter's offer, section two and cost table; the agreement's scope. Inside the license at no further charge, ruled by Kevin the same day. |
 | 2026-11-05 | Parishes built free are not capped at three: "name as many as you want and we build them all." | Both letters (offer, last section), both briefs. |
 | 2026-11-05 | No failure talk anywhere a diocese reads ("we have enough to overcome with being new"). The continuity promise is stated as what the diocese holds: a quarterly copy and a license. | Letters, briefs; the agreement item is titled "Continuity". |
 | 2026-11-05 | The social layer between parishes (gatherings and groups across parishes) is said plainly, ahead of the finder. | "Between parishes: a shared life" in the offer box, the lead of section one, the briefs. |

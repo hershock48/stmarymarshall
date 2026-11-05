@@ -331,9 +331,9 @@ on 2026-11-04.
       for), and a way to be reached on weekends for a wrong Mass time, which
       the agreement promises is fixed the same day, seven days a week. Both
       numbers are Kevin's to change before anything is signed.
-- [ ] Confirm that the diocese's own site is inside the license. The letter
-      and the agreement say it is, "if the diocese wants it"; that was an
-      assumption made to keep building.
+- [x] The diocese's own site is inside the license, at no further charge
+      (ruled 2026-11-05). The letter and the agreement say so, "if the
+      diocese wants it".
 - [ ] For the vendor packet and the one-page brief, facts only Kevin has: a
       phone number to print, a named second person who answers when Kevin
       cannot, and (once the entity and its insurance exist) the W-9 and the
